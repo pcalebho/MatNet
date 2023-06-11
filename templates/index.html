@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MatJet</title>
     <link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='mainpage.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <h1>MatJet</h1>
-        <button>Glossary</button>
-        <button>Contact Us</button>
-    </div>
+    <nav class="navbar-container">
+        <div class = "menu-items">
+            <a href = "glossary">Docs</a>
+        </div>
+        <a id = "logo-home" href = "/">MatJet</a>
+    </nav>
 </body>
 </html>

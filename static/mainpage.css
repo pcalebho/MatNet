@@ -1,5 +1,44 @@
-.navbar {
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #F3F2F7;
+}
+
+/* a {
+    text-decoration: none;
+    color: white;
+} */
+
+.navbar-container{
     background-color: #F25939;
     color: white;
-    font: "Times New Roman" 1.2em
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
+    height: 79px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
 }
+
+#logo-home {
+    font-family: "Black Han Sans", Calibri, "Times New Roman";
+    font-size: 2.5em;
+    text-decoration: none;
+    color: white;
+}
+
+.menu-items a{
+    font-family: "Inter", Calibri, "Times New Roman";
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: white;
+}
+
+
+

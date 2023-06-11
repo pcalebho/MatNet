@@ -42,4 +42,8 @@ def root():
 #view function for contact slide
 @app.route('/contact')
 def contact():
-    return '<h2> Contact me at pcalebho@gmail.com </h2>'
+    return render_template('contact.html')
+
+@app.route('/glossary')
+def glossary():
+    return render_template('glossary.html')
