@@ -1,12 +1,12 @@
 from flask import Flask, render_template
-from flask_bootstrap import Bootstrap
+# from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-boostrap = Bootstrap(app)
+# boostrap = Bootstrap(app)
 db = SQLAlchemy()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = \
@@ -37,7 +37,7 @@ class Materials(db.Model):
 #view function for base page
 @app.route('/')
 def root():
-    return render_template('base_view.html')
+    return render_template('index.html')
 
 #view function for contact slide
 @app.route('/contact')
