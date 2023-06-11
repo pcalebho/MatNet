@@ -1,20 +1,30 @@
-{% extends "bootstrap/base.html" %}
-{% block title %}MatJet{% endblock %}
-
-{% block styles %}
-{{super()}}
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='css/style.css')}}">
-{% endblock %}
-
-{% block navbar %}
-<div class="navbar navbar-fixed-top">
-	<h1>MatJet</h1>
-	<button>Glossary</button>
-	<button>Contact Us</button>
-</div>
-{% endblock %}
-
-{% block content %}
-  	<!-- <h1>Hello, Bootstrap</h1> -->
-{% endblock %}
+<!doctype html>
+<html>
+  	<head>
+		{%block title%} <title>MatJet</title> {%endblock%}
+    	{% block head %}
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='mainpage.css') }}">
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@500&display=swap" rel="stylesheet">
+    	{% endblock %}
+  	</head>
+  	<body>
+    	<div id="content">
+			{% block content %}
+	    	<nav class="navbar-container">
+				<div class = "menu-items">
+					<a href = "glossary">Docs</a>
+				</div>
+				<a id = "logo-home" href = "/">MatJet</a>
+			</nav>	
+			{% endblock %}
+		</div>
+    	<div id="footer">
+      		{% block footer %}
+      		{% endblock %}
+    	</div>
+	</body>
+</html>
