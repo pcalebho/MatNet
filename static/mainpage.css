@@ -34,10 +34,11 @@ body {
 .menu-items a{
     font-family: "Inter", Calibri, "Times New Roman";
     font-size: 1.25em;
-    display: flex;
     flex-direction: row;
     text-decoration: none;
     color: white;
+    justify-content: space-evenly;
+    margin-right: 100px;
 }
 
 
