@@ -44,6 +44,6 @@ def root():
 def contact():
     return render_template('contact.html')
 
-@app.route('/glossary')
+@app.route('/documentation')
 def glossary():
     return render_template('glossary.html')

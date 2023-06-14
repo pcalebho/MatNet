@@ -1,3 +1,7 @@
+:root {
+    --content-margin: 300px;
+}
+
 * {
     margin: 0;
 }
@@ -16,12 +20,13 @@ body {
     color: white;
     margin-right: 0;
     margin-left: 0;
-    padding: 0;
+    padding-left: var(--content-margin);
+    padding-right: var(--content-margin);
     height: 79px;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #logo-home {
@@ -31,14 +36,18 @@ body {
     color: white;
 }
 
-.menu-items a{
-    font-family: "Inter", Calibri, "Times New Roman";
-    font-size: 1.25em;
+.menu-items{
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    font-family: "Inter", Calibri, "Times New Roman";
+}
+
+.menu-items a{
+    font-size: 1.25em;
+    margin-left: 90px;
     text-decoration: none;
     color: white;
-    justify-content: space-evenly;
-    margin-right: 100px;
 }
 
 

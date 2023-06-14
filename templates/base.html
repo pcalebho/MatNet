@@ -7,19 +7,19 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='mainpage.css') }}">
     	<link rel="preconnect" href="https://fonts.googleapis.com">
-    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@500&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@600&display=swap" rel="stylesheet">
     	{% endblock %}
   	</head>
   	<body>
     	<div id="content">
 			{% block content %}
 	    	<nav class="navbar-container">
+				<a id = "logo-home" href = "/">MatJet</a>
 				<div class = "menu-items">
 					<a href = "contact">Contact Me</a>
-					<a href = "glossary">Docs</a>
+					<a href = "documentation">Docs</a>
 				</div>
-				<a id = "logo-home" href = "/">MatJet</a>
 			</nav>	
 			{% endblock %}
 		</div>
