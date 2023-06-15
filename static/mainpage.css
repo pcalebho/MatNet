@@ -53,32 +53,30 @@ body {
 }
 
 .content {
-    flex-basis: 800px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     align-items: center;
     justify-content: space-between;
     background-color: bisque;
 }
 
 .Sliders {
-    height: 100px;
+    height: 200px;
+    margin-top: 50px;
+    margin-bottom: 75px;
     margin-right: var(--content-margin);
     margin-left: var(--content-margin);
-    margin-bottom: 100px;
-    margin-top: 100px;
     background-color: palegreen;
     align-self: stretch;
 }
 
 .table {
-    height: 400px;
-    /* width: auto; */
+    height: 550px;
     margin-right: var(--content-margin);
     margin-left: var(--content-margin);
     background-color: black;
     align-self: stretch;
-    /* margin-bottom: 100px; */
 }
 
 .
