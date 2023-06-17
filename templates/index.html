@@ -18,17 +18,19 @@
 
 {%block content%}
 <div class = "content">
-    <div class = "sliders">
+    <div class = "slider-container">
         {%for i in range(0,num_sliders)%}
-        <form action="/">
-            <select name="Criterion">
-            {%for i in range(0, matprop_len)%}
-                <option>{{material_properties[i]}}</option>
-            {%endfor%}
-            </select>
-        </form>
-        <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="-10" max="10">
-        <div class="range-value"></div>
+        <div class = "slider">
+            <form action="/">
+                <select name="Criterion">
+                {%for i in range(0, matprop_len)%}
+                    <option>{{material_properties[i]}}</option>
+                {%endfor%}
+                </select>
+            </form>
+            <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="-10" max="10">
+            <div class="range-value">2</div>
+        </div>
         {%endfor%}
     </div>
     <div class = "table">

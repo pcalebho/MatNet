@@ -4,6 +4,7 @@
 
 * {
     margin: 0;
+    border: 1px solid black;
 }
 
 body {
@@ -58,20 +59,25 @@ body {
     flex-grow: 1;
     align-items: center;
     justify-content: space-between;
-    background-color: bisque;
 }
 
-.sliders {
+.slider-container {
     height: 200px;
     margin-top: 50px;
     margin-bottom: 75px;
     margin-right: var(--content-margin);
     margin-left: var(--content-margin);
-    background-color: palegreen;
     align-self: stretch;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    display:flex;
+    flex-direction: row;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
 }
 
 .table {
