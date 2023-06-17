@@ -61,7 +61,7 @@ body {
     background-color: bisque;
 }
 
-.Sliders {
+.sliders {
     height: 200px;
     margin-top: 50px;
     margin-bottom: 75px;
@@ -69,6 +69,9 @@ body {
     margin-left: var(--content-margin);
     background-color: palegreen;
     align-self: stretch;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .table {
@@ -79,4 +82,6 @@ body {
     align-self: stretch;
 }
 
-.
+input[type="range"] {
+    appearance: slider-vertical;
+}
