@@ -5,6 +5,7 @@
 * {
     margin: 0;
     border: 1px solid black;
+    box-sizing: border-box;
 }
 
 body {
@@ -32,6 +33,12 @@ body {
     justify-content: space-between;
 }
 
+.navbar-container ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 #logo-home {
     font-family: "Black Han Sans", Calibri, "Times New Roman";
     font-size: 2.5em;
@@ -43,12 +50,12 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 90px;
     font-family: "Inter", Calibri, "Times New Roman";
 }
 
 .menu-items a{
     font-size: 1.25em;
-    margin-left: 90px;
     text-decoration: none;
     color: white;
 }
@@ -68,6 +75,7 @@ body {
     margin-right: var(--content-margin);
     margin-left: var(--content-margin);
     align-self: stretch;
+    align-items: center;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -78,13 +86,13 @@ body {
 .slider {
     display: flex;
     flex-direction: column;
+    align-items:center;
 }
 
 .table {
     height: 550px;
     margin-right: var(--content-margin);
     margin-left: var(--content-margin);
-    background-color: black;
     align-self: stretch;
 }
 
