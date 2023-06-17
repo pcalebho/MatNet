@@ -4,12 +4,30 @@
 
 {%block head%}
     <!-- {{ super() }} -->
+    <script>
+        var range = $('.input-range1'),
+        value = $('.range-value');
+        
+        value.html(range.attr('value'));
+
+        range.on('input', function(){
+            value.html(this.value);
+        }); 
+    </script>
 {%endblock%}
 
 {%block content%}
 <div class = "content">
-    <div class = "Sliders">
-        asodfi
+    <div class = "sliders">
+        <form action="/">
+            <select name="Criterion">
+            <option value="elastic-modulus">Young's Modulus</option>
+            <option value="density">Density</option>
+            <option value="yield-strength">Yield Strength</option>
+            </select>
+        </form>
+        <input class="input-range1" orient="vertical" type="range" step="0.5" value="5" min="-10" max="10">
+        <div class="range-value"></div>
     </div>
     <div class = "table">
         table
