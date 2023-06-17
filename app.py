@@ -6,7 +6,6 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-# boostrap = Bootstrap(app)
 db = SQLAlchemy()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = \
@@ -15,6 +14,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True  
 
 db.init_app(app)
+
+num_sliders = 5
+material_properties = ["Elastic Modulus", "Yield Strength", "Weight"]
 
 #This model is used to create a table and add rows
 class Materials(db.Model):
@@ -37,7 +39,8 @@ class Materials(db.Model):
 #view function for base page
 @app.route('/')
 def root():
-    return render_template('index.html')
+    return render_template('index.html', material_properties= material_properties, \
+                           matprop_len = len(material_properties), num_sliders = num_sliders)
 
 #view function for contact slide
 @app.route('/contact')
