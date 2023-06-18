@@ -81,6 +81,7 @@ body {
     box-sizing: border-box;
     display:flex;
     flex-direction: row;
+    flex-basis: 80px;
 }
 
 .slider {
@@ -98,4 +99,13 @@ body {
 
 input[type="range"] {
     appearance: slider-vertical;
+    width: 40px;
+}
+
+.slider div {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
