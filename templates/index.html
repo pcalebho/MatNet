@@ -23,17 +23,33 @@
         <div class = "slider">
             <form action="/">
                 <select name="Criterion">
-                {%for i in range(0, matprop_len)%}
-                    <option>{{material_properties[i]}}</option>
+                {%for ii in range(0, matprop_len)%}
+                    <option>{{material_properties[ii]}}</option>
                 {%endfor%}
                 </select>
             </form>
             <div>
-                <input class="input-range" orient="vertical" type="range" step="1" value="0" min="-10" max="10">
-                <div class="range-value">2</div>
+                <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10">
+                <div id = "sliderValue-{{i}}"></div>
             </div>
         </div>
         {%endfor%}
+        <script>
+            // const numSliders = {{ num_sliders|tojson}};
+            const rangeSlider_array = [];
+            const output_array = [];
+            for (let i = 0; i < 5; i++) {
+                let rangeID = "sliderRange-"+i;
+                let valueID = "sliderValue-"+i;
+                rangeSlider_array.push(document.getElementById(rangeID));
+                output_array.push(document.getElementById(valueID));
+                output_array[i].innerHTML = rangeSlider_array[i].value;
+                
+                rangeSlider_array[i].oninput = function() {
+                    output_array[i].innerHTML = this.value;
+                }
+            }
+        </script>
     </div>
     <div class = "table">
     </div>
