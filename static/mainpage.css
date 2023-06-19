@@ -4,7 +4,7 @@
 
 * {
     margin: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     box-sizing: border-box;
 }
 
@@ -87,7 +87,7 @@ body {
 .slider {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: flex-start;
 }
 
 .table {
@@ -99,13 +99,12 @@ body {
 
 input[type="range"] {
     appearance: slider-vertical;
-    width: 40px;
+    width: 50px;
+    margin-right: 10px;
 }
 
 .slider div {
-    align-self: flex-start;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
 }

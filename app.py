@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db.init_app(app)
 
 num_sliders = 5
-material_properties = ["Elastic Modulus", "Yield Strength", "Weight"]
+material_properties = ["Elastic Modulus", "Yield Strength", "Weight","le","4a","six"]
 
 #This model is used to create a table and add rows
 class Materials(db.Model):
