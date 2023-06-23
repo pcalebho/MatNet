@@ -3,17 +3,6 @@
 <!-- {%block title%} {{super()}} {%endblock%} -->
 
 {%block head%}
-    <!-- {{ super() }} -->
-    <script>
-        var range = $('.input-range1'),
-        value = $('.range-value');
-        
-        value.html(range.attr('value'));
-
-        range.on('input', function(){
-            value.html(this.value);
-        }); 
-    </script>
 {%endblock%}
 
 {%block content%}
