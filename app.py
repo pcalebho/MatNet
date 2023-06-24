@@ -1,7 +1,8 @@
+import os
+
 from flask import Flask, render_template
 # from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -16,7 +17,7 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db.init_app(app)
 
 num_sliders = 5
-material_properties = ["Elastic Modulus", "Yield Strength", "Weight","le","4a","six"]
+material_properties = ["","Elastic Modulus", "Yield Strength", "Weight","le","4a","six"]
 
 #This model is used to create a table and add rows
 class Materials(db.Model):
@@ -48,5 +49,7 @@ def contact():
     return render_template('contact.html')
 
 @app.route('/documentation')
+def glossary():
+    return render_template('glossary.html')
 def glossary():
     return render_template('glossary.html')
