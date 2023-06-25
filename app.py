@@ -12,7 +12,7 @@ db = SQLAlchemy()
 # app.config['SQLALCHEMY_DATABASE_URI'] = \
 #     'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:JetMat_22@localhost/testdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:JetMat_22@localhost:3306/matjet_mysql'
 # Database can add new data after request
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
@@ -21,7 +21,7 @@ db.init_app(app)
 
 num_sliders = 5
 material_properties = ["", "Elastic Modulus",
-                       "Yield Strength", "Weight", "Cost", "4a", "six"]
+                       "Yield Strength", "Weight", "Cost", "Ultimate Strength", "six"]
 
 # This model is used to create a table and add rows
 
@@ -31,6 +31,7 @@ class Materials(db.Model):
     material_name = db.Column(db.String(70), unique=True, nullable=False)
     ultimate_strength = db.Column(db.Integer)
     yield_strength = db.Column(db.Integer)
+    density = db.Column(db.Float)
 
     # Method used for outputting String representation
 
