@@ -28,7 +28,7 @@ material_properties = ["", "Elastic Modulus",
 
 class Materials(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    material_name = db.Column(db.String, unique=True, nullable=False)
+    material_name = db.Column(db.String(70), unique=True, nullable=False)
     ultimate_strength = db.Column(db.Integer)
     yield_strength = db.Column(db.Integer)
 
