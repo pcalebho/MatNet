@@ -56,14 +56,32 @@ def parse_table(material_path: str, driver):
     table = soup.find_all("table", class_ = "tabledataformat")
     table = table[2]
 
-    data = []
+    
     table_body = table.find('tbody')
-
+    table_list = []
+    table_list_ix: int = 0
     rows = table_body.find_all('tr')
+    data = []
+    
+    #This creates a list of tables from the main content table. 
     for row in rows:
-        cols = row.find_all('td')
+        cols = row.find_all(['td'])
+
+        #necessary to delimit tables within content tables
+        if not cols:
+            data = []
+            cols = row.find_all(['th'])
+            table_list.append(data)
+            table_list_ix += 1
+
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele]) # Get rid of empty values
+    
+    table_list.append(data)
+    
+    #Used for removing all the empty rows in each individual table
+    for i in range(len(table_list)):
+        table_list[i] = [x for x in table_list[i] if x != []]
 
 
     #have type checker ignore None type error
@@ -71,12 +89,18 @@ def parse_table(material_path: str, driver):
     material_name = material_name.strip()
 
     print(material_name)
-    print(tabulate(data))
+    # print(data)
+    for t in table_list:
+        print(tabulate(t))
+    
+    print(table_list[0])
 
     
 
 
 if __name__ == '__main__':
+    test1 = '/search/DataSheet.aspx?MatGUID=7b75475aa1bc41618788f63c6500d36b'
+    test2 = '/search/DataSheet.aspx?MatGUID=210fcd12132049d0a3e0cabe7d091eef'
     options = Options()
     options.add_experimental_option("detach",True)
     options.add_argument('--headless')
@@ -86,11 +110,10 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), \
                               options=options)
 
-    results = search_material_pages(searches=['AISI'],driver= driver)
-    print('Number of results: ', len(results))
-
+    # results = search_material_pages(searches=['AISI'],driver= driver)
+    # print('Number of results: ', len(results))
     # print(results)
-    dataframe = parse_table(results[0],driver)
+    parse_table(test1,driver)
     # print(dataframe[0].head())
 
     driver.quit()
