@@ -24,15 +24,15 @@ def search_material_pages(searches: list[str]) -> list[str]:
     [url_list.append('https://matweb.com/search/QuickText.aspx?SearchText=' + search) for search in searches]
 
     i = 0
-
     for url in url_list:
+        #Open chrome window
         driver.get(url)
 
         #Number of pages are used for the end condition of the loop
         page_select_button = driver.find_element(By.NAME, 'ctl00$ContentMain$ucSearchResults1$drpPageSelect1')
         pages = page_select_button.find_elements(By.TAG_NAME, 'option')
 
-
+        #Used for pagination
         next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' +  (%i/%i)" % (searches[i], i+1 , len(searches))
@@ -54,9 +54,11 @@ def search_material_pages(searches: list[str]) -> list[str]:
     driver.quit()
     return(material_pages)
 
+def parse_table(url_path: str) -> dict[str, str]:
+    pass
 
 if __name__ == '__main__':
-    result = search_material_pages(['AISI','aluminum'])
+    result = search_material_pages(['AISI'])
     print('Number of results: ', len(result))
 
 # print(next_page_link)
