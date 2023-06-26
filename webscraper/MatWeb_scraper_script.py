@@ -54,12 +54,12 @@ def parse_table(material_path: str, driver):
 
     #Third table in html page has correct content
     table = soup.find_all("table", class_ = "tabledataformat")
-    table = table[2]
+    main_table = table[2].find('tbody')
 
     
-    table_body = table.find('tbody')
-    table_list = []
-    table_list_ix: int = 0
+    table_body = main_table.find('tbody')
+    property_tables = []
+    property_tables_ix: int = 0
     rows = table_body.find_all('tr')
     data = []
     
@@ -71,17 +71,17 @@ def parse_table(material_path: str, driver):
         if not cols:
             data = []
             cols = row.find_all(['th'])
-            table_list.append(data)
-            table_list_ix += 1
+            property_tables.append(data)
+            property_tables_ix += 1
 
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele]) # Get rid of empty values
     
-    table_list.append(data)
+    property_tables.append(data)
     
     #Used for removing all the empty rows in each individual table
-    for i in range(len(table_list)):
-        table_list[i] = [x for x in table_list[i] if x != []]
+    for i in range(len(property_tables)):
+        property_tables[i] = [x for x in property_tables[i] if x != []]
 
 
     #have type checker ignore None type error
@@ -90,10 +90,10 @@ def parse_table(material_path: str, driver):
 
     print(material_name)
     # print(data)
-    for t in table_list:
+    for t in property_tables:
         print(tabulate(t))
     
-    print(table_list[0])
+    print(property_tables[0])
 
     
 
