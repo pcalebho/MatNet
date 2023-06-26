@@ -9,17 +9,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import click
 
-def search_material_pages(searches: list[str]) -> list[str]:
+def search_material_pages(searches: list[str], driver) -> list[str]:
     material_pages = []
     url_list = []
-
-    options = Options()
-    options.add_experimental_option("detach",True)
-    options.add_argument('--headless')
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--incognito')
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
 
     [url_list.append('https://matweb.com/search/QuickText.aspx?SearchText=' + search) for search in searches]
 
@@ -51,15 +43,28 @@ def search_material_pages(searches: list[str]) -> list[str]:
          
         i += 1
 
-    driver.quit()
     return(material_pages)
 
-def parse_table(url_path: str) -> dict[str, str]:
-    pass
+def parse_table(material_path: str):
+    material_page = 'https://matweb.com' + material_path
+    driver.get(material_page)
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    
 
 if __name__ == '__main__':
-    result = search_material_pages(['AISI'])
+    options = Options()
+    options.add_experimental_option("detach",True)
+    options.add_argument('--headless')
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--incognito')
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), \
+                              options=options)
+
+    result = search_material_pages(searches=['AISI'],driver= driver)
     print('Number of results: ', len(result))
+
+    driver.quit()
 
 # print(next_page_link)
 # print(soup.prettify())
