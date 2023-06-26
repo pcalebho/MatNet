@@ -9,6 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import requests
 import click
+from tabulate import tabulate
 
 def search_material_pages(searches: list[str], driver) -> list[str]:
     material_pages = []
@@ -55,10 +56,23 @@ def parse_table(material_path: str, driver):
     table = soup.find_all("table", class_ = "tabledataformat")
     table = table[2]
 
+    data = []
+    table_body = table.find('tbody')
+
+    rows = table_body.find_all('tr')
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols]
+        data.append([ele for ele in cols if ele]) # Get rid of empty values
+        
+    print(tabulate(data))
+
+
     #have type checker ignore None type error
     material_name = soup.find('title').get_text() # pyright: ignore[reportOptionalMemberAccess]
     material_name = material_name.strip()
-    print(material_name)
+
+    
 
 
 if __name__ == '__main__':
