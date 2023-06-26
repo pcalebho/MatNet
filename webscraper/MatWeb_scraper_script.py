@@ -23,7 +23,7 @@ def search_material_pages(searches: list[str]) -> list[str]:
 
     [url_list.append('https://matweb.com/search/QuickText.aspx?SearchText=' + search) for search in searches]
 
-    i = 1
+    i = 0
 
     for url in url_list:
         driver.get(url)
@@ -35,7 +35,7 @@ def search_material_pages(searches: list[str]) -> list[str]:
 
         next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
-        bar_label = "'%s' +  (%i/%i)" % (searches[i], i , len(searches))
+        bar_label = "'%s' +  (%i/%i)" % (searches[i], i+1 , len(searches))
         with click.progressbar(pages, label= bar_label) as bar:
             for page in bar:
                 next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
