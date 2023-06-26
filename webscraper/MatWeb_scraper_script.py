@@ -61,7 +61,7 @@ def parse_table(material_path: str, driver):
 
     rows = table_body.find_all('tr')
     for row in rows:
-        cols = row.find_all('td')
+        cols = row.find_all(['td','th'])
         cols = [ele.text.strip() for ele in cols]
         data.append([ele for ele in cols if ele]) # Get rid of empty values
 
