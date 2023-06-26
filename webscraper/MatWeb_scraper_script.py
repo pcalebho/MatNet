@@ -29,7 +29,7 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
         next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' (%i/%i)" % (searches[i], i+1 , len(searches))
-        with click.progressbar(pages, label= bar_label) as bar:
+        with click.progressbar(range(1), label= bar_label) as bar:
             for page in bar:
                 time.sleep(1)
 
@@ -49,10 +49,16 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
 def parse_table(material_path: str, driver):
     material_page = 'https://matweb.com' + material_path
     driver.get(material_page)
-    df = pd.read_html(material_page)
-    return df
-    # soup = BeautifulSoup(driver.page_source, 'html.parser')
+    soup = BeautifulSoup(driver.page_source,'html.parser')
 
+    #Third table in html page has correct content
+    table = soup.find_all("table", class_ = "tabledataformat")
+    table = table[2]
+
+    #have type checker ignore None type error
+    material_name = soup.find('title').get_text() # pyright: ignore[reportOptionalMemberAccess]
+    material_name = material_name.strip()
+    print(material_name)
 
 
 if __name__ == '__main__':
@@ -68,8 +74,8 @@ if __name__ == '__main__':
     results = search_material_pages(searches=['AISI'],driver= driver)
     print('Number of results: ', len(results))
 
-    print(results)
-    # dataframe = parse_table(results[0],driver)
+    # print(results)
+    dataframe = parse_table(results[0],driver)
     # print(dataframe[0].head())
 
     driver.quit()
