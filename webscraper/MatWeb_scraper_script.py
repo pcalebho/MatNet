@@ -19,7 +19,7 @@ options.add_argument('--incognito')
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
 searches = ['AISI', 'aluminum']
 
-url = a for 'https://matweb.com/search/QuickText.aspx?SearchText=' + searches[0]
+url = 'https://matweb.com/search/QuickText.aspx?SearchText=' + searches[0]
 
 driver.get(url)
 
