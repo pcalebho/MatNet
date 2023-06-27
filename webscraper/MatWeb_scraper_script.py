@@ -6,6 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import click
 from tabulate import tabulate
@@ -30,9 +32,14 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
         next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' (%i/%i)" % (searches[i], i+1 , len(searches))
-        with click.progressbar(range(1), label= bar_label) as bar:
+        with click.progressbar(pages, label= bar_label) as bar:
             for page in bar:
-                time.sleep(1)
+                try:
+                    element = WebDriverWait(driver, 10).until(
+                        EC.element_to_be_clickable((By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage'))
+                    )
+                except Exception:
+                    raise Exception('Timeout')
 
                 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
@@ -131,22 +138,12 @@ if __name__ == '__main__':
 
     results = search_material_pages(searches=['AISI'],driver= driver)
 
-    with click.progressbar(results, label= 'Parsing Tables') as bar:
-        for result in bar:
-            matdata_list.append(parse_table(result,driver))
+    # with click.progressbar(results, label= 'Parsing Tables') as bar:
+    #     for result in bar:
+    #         matdata_list.append(parse_table(result,driver))
 
-    write_yaml_file('output.yaml', matdata_list, True)
-
-    # with open('output.yaml', 'r') as file:
-    #     input = yaml.safe_load(file)
-
-    # property_tables = input['properties']
-    # for t in property_tables:
-    #     print(tabulate(t))
+    # write_yaml_file('output.yaml', matdata_list, True)
 
 
     driver.quit()
     print('Done')
-
-# print(next_page_link)
-# print(soup.prettify())
