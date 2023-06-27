@@ -1,165 +1,6545 @@
-category: Metal; Ferrous Metal; Alloy Steel; AISI 4000 Series Steel; Low Alloy Steel;
-  Carbon Steel; Medium Carbon Steel
-name: "AISI 4140 Steel, annealed at 815\xB0C (1500\xB0F) furnace cooled 11\xB0C (20\xB0\
-  F)/hour to 665\xB0C (1230\xB0F), air cooled, 25 mm (1 in.) round"
-notes: Medium-carbon steel with high hardenability and good fatigue, abrasion and
-  impact resistance.
-properties:
-- - - Physical Properties
-    - Metric
-    - English
-    - Comments
-  - - Density
-    - 7.85 g/cc
-    - "0.284 lb/in\xB3"
-- - - Mechanical Properties
-    - Metric
-    - English
-    - Comments
-  - - Hardness, Brinell
-    - '197'
-    - '197'
-  - - Hardness, Knoop
-    - '219'
-    - '219'
-    - Converted from Brinell
-  - - Hardness, Rockwell B
-    - '92'
-    - '92'
-    - Converted from Brinell
-  - - Hardness, Rockwell C
-    - '13'
-    - '13'
-    - Converted from Brinell hardness. Value below normal HRC range, for comparison
-      purposes only.
-  - - Hardness, Vickers
-    - '207'
-    - '207'
-    - Converted from Brinell
-  - - Tensile Strength, Ultimate
-    - 655 MPa
-    - 95000 psi
-  - - Tensile Strength, Yield
-    - 415 MPa
-    - 60200 psi
-  - - Elongation at Break
-    - 25.7 %
-    - 25.7 %
-    - in 50 mm
-  - - Reduction of Area
-    - 56.9 %
-    - 56.9 %
-  - - Modulus of Elasticity
-    - 205 GPa
-    - 29700 ksi
-    - Typical for steel
-  - - Bulk Modulus
-    - 160 GPa
-    - 23200 ksi
-    - Typical for steel
-  - - Poissons Ratio
-    - '0.29'
-    - '0.29'
-    - Calculated
-  - - Machinability
-    - 65 %
-    - 65 %
-    - Based on AISI 1212 as 100% machinability.
-  - - Shear Modulus
-    - 80.0 GPa
-    - 11600 ksi
-    - Typical for steel
-- - - Electrical Properties
-    - Metric
-    - English
-    - Comments
-  - - Electrical Resistivity
-    - "0.0000220 ohm-cm@Temperature 20.0 \xB0C"
-    - "0.0000220 ohm-cm@Temperature 68.0 \xB0F"
-    - specimen hardened and tempered
-  - - "0.0000263 ohm-cm@Temperature 100 \xB0C"
-    - "0.0000263 ohm-cm@Temperature 212 \xB0F"
-    - specimen hardened and tempered
-  - - "0.0000326 ohm-cm@Temperature 200 \xB0C"
-    - "0.0000326 ohm-cm@Temperature 392 \xB0F"
-    - specimen hardened and tempered
-  - - "0.0000475 ohm-cm@Temperature 400 \xB0C"
-    - "0.0000475 ohm-cm@Temperature 752 \xB0F"
-    - specimen hardened and tempered
-  - - "0.0000646 ohm-cm@Temperature 600 \xB0C"
-    - "0.0000646 ohm-cm@Temperature 1110 \xB0F"
-    - specimen hardened and tempered
-- - - Thermal Properties
-    - Metric
-    - English
-    - Comments
-  - - CTE, linear
-    - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
-    - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
-  - - "13.7 \xB5m/m-\xB0C@Temperature 20.0 - 400 \xB0C"
-    - "7.61 \xB5in/in-\xB0F@Temperature 68.0 - 752 \xB0F"
-  - - "14.6 \xB5m/m-\xB0C@Temperature 20.0 - 600 \xB0C"
-    - "8.11 \xB5in/in-\xB0F@Temperature 68.0 - 1110 \xB0F"
-  - - Specific Heat Capacity
-    - "0.473 J/g-\xB0C@Temperature 150 - 200 \xB0C"
-    - "0.113 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
-  - - "0.519 J/g-\xB0C@Temperature 350 - 400 \xB0C"
-    - "0.124 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
-  - - "0.561 J/g-\xB0C@Temperature 550 - 600 \xB0C"
-    - "0.134 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
-  - - Thermal Conductivity
-    - "33.0 W/m-K@Temperature 600 \xB0C"
-    - "229 BTU-in/hr-ft\xB2-\xB0F@Temperature 1110 \xB0F"
-  - - "37.7 W/m-K@Temperature 400 \xB0C"
-    - "262 BTU-in/hr-ft\xB2-\xB0F@Temperature 752 \xB0F"
-  - - "42.2 W/m-K@Temperature 200 \xB0C"
-    - "293 BTU-in/hr-ft\xB2-\xB0F@Temperature 392 \xB0F"
-  - - "42.6 W/m-K@Temperature 100 \xB0C"
-    - "296 BTU-in/hr-ft\xB2-\xB0F@Temperature 212 \xB0F"
-- - &id001
-    - Component Elements Properties
-    - Metric
-    - English
-    - Comments
-  - &id002
-    - Carbon, C
-    - 0.38 - 0.43 %
-    - 0.38 - 0.43 %
-  - &id003
-    - Chromium, Cr
-    - 0.80 - 1.1 %
-    - 0.80 - 1.1 %
-  - &id004
-    - Iron, Fe
-    - 96.785 - 97.77 %
-    - 96.785 - 97.77 %
-    - As remainder
-  - &id005
-    - Manganese, Mn
-    - 0.75 - 1.0 %
-    - 0.75 - 1.0 %
-  - &id006
-    - Molybdenum, Mo
-    - 0.15 - 0.25 %
-    - 0.15 - 0.25 %
-  - &id007
-    - Phosphorus, P
-    - <= 0.035 %
-    - <= 0.035 %
-  - &id008
-    - Silicon, Si
-    - 0.15 - 0.30 %
-    - 0.15 - 0.30 %
-  - &id009
-    - Sulfur, S
-    - <= 0.040 %
-    - <= 0.040 %
-- - *id001
-  - *id002
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
-  - *id008
-  - *id009
+- category: Metal; Ferrous Metal; Alloy Steel; AISI 4000 Series Steel
+  name: Overview of materials for AISI 4000 Series Steel
+  notes: This property data is a summary of similar materials in the MatWeb database
+    for the category "AISI 4000 Series Steel". Each property range of values reported
+    is minimum and maximum values of appropriate MatWeb entries. The comments report
+    the average value, and number of data points used to calculate the average. The
+    values are not necessarily typical of any specific grade, especially less common
+    values and those that can be most affected by additives or processing methods.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.75 - 7.85 g/cc
+      - "0.280 - 0.284 lb/in\xB3"
+      - 'Average value: 7.84 g/cc Grade Count:667'
+    - - Particle Size
+      - "6.70 - 12.0 \xB5m"
+      - "6.70 - 12.0 \xB5m"
+      - "Average value: 9.27 \xB5m Grade Count:12"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - 50.0 - 578
+      - 50.0 - 578
+      - 'Average value: 280  Grade Count:605'
+    - - Hardness, Knoop
+      - 140 - 616
+      - 140 - 616
+      - 'Average value: 309  Grade Count:578'
+    - - Hardness, Rockwell B
+      - 68.0 - 112
+      - 68.0 - 112
+      - 'Average value: 96.3  Grade Count:533'
+    - - Hardness, Rockwell C
+      - 10.0 - 62.5
+      - 10.0 - 62.5
+      - 'Average value: 30.3  Grade Count:529'
+    - - Hardness, Vickers
+      - 36.0 - 1140
+      - 36.0 - 1140
+      - 'Average value: 307  Grade Count:580'
+    - - Tensile Strength, Ultimate
+      - 450 - 1970 MPa
+      - 65300 - 285000 psi
+      - 'Average value: 984 MPa Grade Count:562'
+    - - Tensile Strength, Yield
+      - 150 - 1860 MPa
+      - 21800 - 270000 psi
+      - 'Average value: 748 MPa Grade Count:560'
+    - - Elongation at Break
+      - 7.00 - 34.0 %
+      - 7.00 - 34.0 %
+      - 'Average value: 18.4 % Grade Count:556'
+    - - Reduction of Area
+      - 16.0 - 74.4 %
+      - 16.0 - 74.4 %
+      - 'Average value: 54.3 % Grade Count:463'
+    - - Modulus of Elasticity
+      - 192 - 213 GPa
+      - 27800 - 30900 ksi
+      - 'Average value: 205 GPa Grade Count:663'
+    - - Compressive Yield Strength
+      - 1650 - 1800 MPa
+      - 239000 - 260000 psi
+      - 'Average value: 1700 MPa Grade Count:12'
+    - - Bulk Modulus
+      - 152 - 170 GPa
+      - 22000 - 24700 ksi
+      - 'Average value: 160 GPa Grade Count:592'
+    - - Poissons Ratio
+      - 0.270 - 0.300
+      - 0.270 - 0.300
+      - 'Average value: 0.291  Grade Count:658'
+    - - Fatigue Strength
+      - 138 - 772 MPa
+      - 20000 - 112000 psi
+      - 'Average value: 528 MPa Grade Count:11'
+    - - Fracture Toughness
+      - "33.0 - 115 MPa-m\xBD"
+      - "30.0 - 105 ksi-in\xBD"
+      - "Average value: 67.3 MPa-m\xBD Grade Count:6"
+    - - Machinability
+      - 50.0 - 75.0 %
+      - 50.0 - 75.0 %
+      - 'Average value: 59.7 % Grade Count:562'
+    - - Shear Modulus
+      - 74.0 - 82.0 GPa
+      - 10700 - 11900 ksi
+      - 'Average value: 79.7 GPa Grade Count:658'
+    - - Izod Impact
+      - 9.00 - 138 J
+      - 6.64 - 102 ft-lb
+      - 'Average value: 63.6 J Grade Count:68'
+    - - Charpy Impact
+      - 15.0 - 94.9 J
+      - 11.1 - 70.0 ft-lb
+      - 'Average value: 42.7 J Grade Count:7'
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.00000200 - 0.0000263 ohm-cm
+      - 0.00000200 - 0.0000263 ohm-cm
+      - 'Average value: 0.0000219 ohm-cm Grade Count:636'
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "10.4 - 14.6 \xB5m/m-\xB0C"
+      - "5.78 - 8.11 \xB5in/in-\xB0F"
+      - "Average value: 12.6 \xB5m/m-\xB0C Grade Count:287"
+    - - Specific Heat Capacity
+      - "0.470 - 0.477 J/g-\xB0C"
+      - "0.112 - 0.114 BTU/lb-\xB0F"
+      - "Average value: 0.475 J/g-\xB0C Grade Count:485"
+    - - Thermal Conductivity
+      - 40.0 - 52.0 W/m-K
+      - "278 - 361 BTU-in/hr-ft\xB2-\xB0F"
+      - 'Average value: 44.1 W/m-K Grade Count:597'
+    - - Transformation Temperature
+      - "296 - 833 \xB0C"
+      - "565 - 1530 \xB0F"
+      - "Average value: 625 \xB0C Grade Count:64"
+  - - &id001
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id002
+      - Aluminum, Al
+      - 0.0150 - 1.15 %
+      - 0.0150 - 1.15 %
+      - 'Average value: 0.166 % Grade Count:8'
+    - &id003
+      - Carbon, C
+      - 0.0500 - 1.29 %
+      - 0.0500 - 1.29 %
+      - 'Average value: 0.300 % Grade Count:681'
+    - &id004
+      - Chromium, Cr
+      - 0.250 - 18.0 %
+      - 0.250 - 18.0 %
+      - 'Average value: 0.885 % Grade Count:446'
+    - &id005
+      - Copper, Cu
+      - 0.250 - 0.350 %
+      - 0.250 - 0.350 %
+      - 'Average value: 0.289 % Grade Count:9'
+    - &id006
+      - Iron, Fe
+      - 78.8 - 98.9 %
+      - 78.8 - 98.9 %
+      - 'Average value: 96.8 % Grade Count:681'
+    - &id007
+      - Manganese, Mn
+      - 0.300 - 3.00 %
+      - 0.300 - 3.00 %
+      - 'Average value: 0.709 % Grade Count:680'
+    - &id008
+      - Molybdenum, Mo
+      - 0.0400 - 0.750 %
+      - 0.0400 - 0.750 %
+      - 'Average value: 0.253 % Grade Count:678'
+    - &id009
+      - Nickel, Ni
+      - 0.100 - 3.80 %
+      - 0.100 - 3.80 %
+      - 'Average value: 2.05 % Grade Count:368'
+    - &id010
+      - Phosphorus, P
+      - 0.000 - 0.0400 %
+      - 0.000 - 0.0400 %
+      - 'Average value: 0.0331 % Grade Count:662'
+    - &id011
+      - Silicon, Si
+      - 0.100 - 1.05 %
+      - 0.100 - 1.05 %
+      - 'Average value: 0.244 % Grade Count:681'
+    - &id012
+      - Sulfur, S
+      - 0.00200 - 0.400 %
+      - 0.00200 - 0.400 %
+      - 'Average value: 0.0381 % Grade Count:665'
+    - &id013
+      - Vanadium, V
+      - 0.0140 - 0.120 %
+      - 0.0140 - 0.120 %
+      - 'Average value: 0.0867 % Grade Count:11'
+  - - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id010
+    - *id011
+    - *id012
+    - *id013
+- category: Metal; Ferrous Metal; Alloy Steel; AISI 5000 Series Steel
+  name: Overview of materials for AISI 5000 Series Steel
+  notes: This property data is a summary of similar materials in the MatWeb database
+    for the category "AISI 5000 Series Steel". Each property range of values reported
+    is minimum and maximum values of appropriate MatWeb entries. The comments report
+    the average value, and number of data points used to calculate the average. The
+    values are not necessarily typical of any specific grade, especially less common
+    values and those that can be most affected by additives or processing methods.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.80 - 7.85 g/cc
+      - "0.282 - 0.284 lb/in\xB3"
+      - 'Average value: 7.84 g/cc Grade Count:230'
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - 163 - 400
+      - 163 - 400
+      - 'Average value: 253  Grade Count:209'
+    - - Hardness, Knoop
+      - 188 - 369
+      - 188 - 369
+      - 'Average value: 279  Grade Count:186'
+    - - Hardness, Rockwell B
+      - 85.0 - 99.0
+      - 85.0 - 99.0
+      - 'Average value: 96.8  Grade Count:186'
+    - - Hardness, Rockwell C
+      - 11.0 - 66.0
+      - 11.0 - 66.0
+      - 'Average value: 27.9  Grade Count:198'
+    - - Hardness, Vickers
+      - 175 - 361
+      - 175 - 361
+      - 'Average value: 268  Grade Count:186'
+    - - Tensile Strength, Ultimate
+      - 570 - 2300 MPa
+      - 82700 - 334000 psi
+      - 'Average value: 1000 MPa Grade Count:199'
+    - - Tensile Strength, Yield
+      - 275 - 2000 MPa
+      - 39900 - 290000 psi
+      - 'Average value: 739 MPa Grade Count:199'
+    - - Elongation at Break
+      - 2.00 - 28.6 %
+      - 2.00 - 28.6 %
+      - 'Average value: 17.9 % Grade Count:199'
+    - - Modulus of Elasticity
+      - 200 - 210 GPa
+      - 29000 - 30500 ksi
+      - 'Average value: 206 GPa Grade Count:229'
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - 'Average value: 160 GPa Grade Count:187'
+    - - Poissons Ratio
+      - 0.290 - 0.300
+      - 0.290 - 0.300
+      - 'Average value: 0.292  Grade Count:228'
+    - - Machinability
+      - 40.0 - 70.0 %
+      - 40.0 - 70.0 %
+      - 'Average value: 59.8 % Grade Count:189'
+    - - Shear Modulus
+      - 78.0 - 80.0 GPa
+      - 11300 - 11600 ksi
+      - 'Average value: 80.0 GPa Grade Count:226'
+    - - Izod Impact
+      - 10.0 - 41.0 J
+      - 7.38 - 30.2 ft-lb
+      - 'Average value: 20.8 J Grade Count:13'
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.00000200 - 0.0000228 ohm-cm
+      - 0.00000200 - 0.0000228 ohm-cm
+      - 'Average value: 0.0000188 ohm-cm Grade Count:226'
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 - 14.9 \xB5m/m-\xB0C"
+      - "6.61 - 8.28 \xB5in/in-\xB0F"
+      - "Average value: 13.6 \xB5m/m-\xB0C Grade Count:80"
+    - - Specific Heat Capacity
+      - "0.470 - 0.519 J/g-\xB0C"
+      - "0.112 - 0.124 BTU/lb-\xB0F"
+      - "Average value: 0.482 J/g-\xB0C Grade Count:189"
+    - - Thermal Conductivity
+      - 40.0 - 52.0 W/m-K
+      - "278 - 361 BTU-in/hr-ft\xB2-\xB0F"
+      - 'Average value: 45.9 W/m-K Grade Count:188'
+    - - Transformation Temperature
+      - "218 - 910 \xB0C"
+      - "424 - 1670 \xB0F"
+      - "Average value: 622 \xB0C Grade Count:37"
+  - - &id014
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id015
+      - Aluminum, Al
+      - 0.0150 - 0.100 %
+      - 0.0150 - 0.100 %
+      - 'Average value: 0.0750 % Grade Count:3'
+    - &id016
+      - Boron, B
+      - 0.000500 - 0.00300 %
+      - 0.000500 - 0.00300 %
+      - 'Average value: 0.00175 % Grade Count:48'
+    - &id017
+      - Carbon, C
+      - 0.130 - 1.10 %
+      - 0.130 - 1.10 %
+      - 'Average value: 0.570 % Grade Count:230'
+    - &id018
+      - Chromium, Cr
+      - 0.130 - 1.60 %
+      - 0.130 - 1.60 %
+      - 'Average value: 0.893 % Grade Count:230'
+    - &id019
+      - Iron, Fe
+      - 96.2 - 98.6 %
+      - 96.2 - 98.6 %
+      - 'Average value: 97.5 % Grade Count:230'
+    - &id020
+      - Manganese, Mn
+      - 0.200 - 1.30 %
+      - 0.200 - 1.30 %
+      - 'Average value: 0.747 % Grade Count:230'
+    - &id021
+      - Molybdenum, Mo
+      - 0.0600 - 0.100 %
+      - 0.0600 - 0.100 %
+      - 'Average value: 0.0783 % Grade Count:35'
+    - &id022
+      - Nickel, Ni
+      - 0.200 - 0.250 %
+      - 0.200 - 0.250 %
+      - 'Average value: 0.229 % Grade Count:34'
+    - &id023
+      - Phosphorus, P
+      - 0.0150 - 0.0350 %
+      - 0.0150 - 0.0350 %
+      - 'Average value: 0.0328 % Grade Count:229'
+    - &id024
+      - Silicon, Si
+      - 0.100 - 0.400 %
+      - 0.100 - 0.400 %
+      - 'Average value: 0.230 % Grade Count:229'
+    - &id025
+      - Sulfur, S
+      - 0.00100 - 0.0450 %
+      - 0.00100 - 0.0450 %
+      - 'Average value: 0.0350 % Grade Count:229'
+  - - *id014
+    - *id015
+    - *id016
+    - *id017
+    - *id018
+    - *id019
+    - *id020
+    - *id021
+    - *id022
+    - *id023
+    - *id024
+    - *id025
+- category: Metal; Ferrous Metal; Alloy Steel; AISI 6000 Series Steel
+  name: Overview of materials for AISI 6000 Series Steel
+  notes: This property data is a summary of similar materials in the MatWeb database
+    for the category "AISI 6000 Series Steel". Each property range of values reported
+    is minimum and maximum values of appropriate MatWeb entries. The comments report
+    the average value, and number of data points used to calculate the average. The
+    values are not necessarily typical of any specific grade, especially less common
+    values and those that can be most affected by additives or processing methods.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.85 - 7.86 g/cc
+      - "0.284 - 0.284 lb/in\xB3"
+      - 'Average value: 7.85 g/cc Grade Count:37'
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - 170 - 363
+      - 170 - 363
+      - 'Average value: 281  Grade Count:37'
+    - - Hardness, Knoop
+      - 219 - 392
+      - 219 - 392
+      - 'Average value: 309  Grade Count:36'
+    - - Hardness, Rockwell B
+      - 92.0 - 100
+      - 92.0 - 100
+      - 'Average value: 98.0  Grade Count:36'
+    - - Hardness, Rockwell C
+      - 13.0 - 40.0
+      - 13.0 - 40.0
+      - 'Average value: 28.8  Grade Count:36'
+    - - Hardness, Vickers
+      - 207 - 384
+      - 207 - 384
+      - 'Average value: 299  Grade Count:36'
+    - - Tensile Strength, Ultimate
+      - 670 - 1240 MPa
+      - 97200 - 180000 psi
+      - 'Average value: 992 MPa Grade Count:34'
+    - - Tensile Strength, Yield
+      - 415 - 1230 MPa
+      - 60200 - 178000 psi
+      - 'Average value: 824 MPa Grade Count:34'
+    - - Elongation at Break
+      - 14.5 - 23.0 %
+      - 14.5 - 23.0 %
+      - 'Average value: 18.2 % Grade Count:34'
+    - - Modulus of Elasticity
+      - 205 - 207 GPa
+      - 29700 - 30000 ksi
+      - 'Average value: 205 GPa Grade Count:37'
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - 'Average value: 160 GPa Grade Count:36'
+    - - Poissons Ratio
+      - '0.290'
+      - '0.290'
+      - 'Average value: 0.290  Grade Count:36'
+    - - Machinability
+      - 55.0 - 60.0 %
+      - 55.0 - 60.0 %
+      - 'Average value: 55.3 % Grade Count:36'
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - 'Average value: 80.0 GPa Grade Count:36'
+    - - Izod Impact
+      - 27.0 - 35.0 J
+      - 19.9 - 25.8 ft-lb
+      - 'Average value: 31.0 J Grade Count:4'
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000234 ohm-cm
+      - 0.0000234 ohm-cm
+      - 'Average value: 0.0000234 ohm-cm Grade Count:36'
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.475 J/g-\xB0C"
+      - "0.114 BTU/lb-\xB0F"
+      - "Average value: 0.475 J/g-\xB0C Grade Count:36"
+    - - Thermal Conductivity
+      - 46.6 W/m-K
+      - "323 BTU-in/hr-ft\xB2-\xB0F"
+      - 'Average value: 46.6 W/m-K Grade Count:36'
+  - - &id026
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id027
+      - Carbon, C
+      - 0.150 - 0.540 %
+      - 0.150 - 0.540 %
+      - 'Average value: 0.487 % Grade Count:37'
+    - &id028
+      - Chromium, Cr
+      - 0.400 - 1.20 %
+      - 0.400 - 1.20 %
+      - 'Average value: 0.944 % Grade Count:37'
+    - &id029
+      - Iron, Fe
+      - 96.9 - 98.8 %
+      - 96.9 - 98.8 %
+      - 'Average value: 97.4 % Grade Count:37'
+    - &id030
+      - Manganese, Mn
+      - 0.400 - 1.00 %
+      - 0.400 - 1.00 %
+      - 'Average value: 0.789 % Grade Count:37'
+    - &id031
+      - Phosphorus, P
+      - 0.0350 %
+      - 0.0350 %
+      - 'Average value: 0.0350 % Grade Count:36'
+    - &id032
+      - Silicon, Si
+      - 0.150 - 0.300 %
+      - 0.150 - 0.300 %
+      - 'Average value: 0.227 % Grade Count:37'
+    - &id033
+      - Sulfur, S
+      - 0.0400 %
+      - 0.0400 %
+      - 'Average value: 0.0400 % Grade Count:36'
+    - &id034
+      - Vanadium, V
+      - 0.100 - 0.150 %
+      - 0.100 - 0.150 %
+      - 'Average value: 0.149 % Grade Count:37'
+  - - *id026
+    - *id027
+    - *id028
+    - *id029
+    - *id030
+    - *id031
+    - *id032
+    - *id033
+    - *id034
+- category: Metal; Ferrous Metal; Alloy Steel; AISI 8000 Series Steel
+  name: Overview of materials for AISI 8000 Series Steel
+  notes: This property data is a summary of similar materials in the MatWeb database
+    for the category "AISI 8000 Series Steel". Each property range of values reported
+    is minimum and maximum values of appropriate MatWeb entries. The comments report
+    the average value, and number of data points used to calculate the average. The
+    values are not necessarily typical of any specific grade, especially less common
+    values and those that can be most affected by additives or processing methods.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.75 - 7.85 g/cc
+      - "0.280 - 0.284 lb/in\xB3"
+      - 'Average value: 7.85 g/cc Grade Count:330'
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - 143 - 429
+      - 143 - 429
+      - 'Average value: 276  Grade Count:295'
+    - - Hardness, Knoop
+      - 169 - 682
+      - 169 - 682
+      - 'Average value: 310  Grade Count:307'
+    - - Hardness, Rockwell B
+      - 80.0 - 105
+      - 80.0 - 105
+      - 'Average value: 97.2  Grade Count:272'
+    - - Hardness, Rockwell C
+      - 10.0 - 64.0
+      - 10.0 - 64.0
+      - 'Average value: 31.1  Grade Count:257'
+    - - Hardness, Vickers
+      - 155 - 661
+      - 155 - 661
+      - 'Average value: 299  Grade Count:307'
+    - - Tensile Strength, Ultimate
+      - 450 - 1520 MPa
+      - 65300 - 221000 psi
+      - 'Average value: 968 MPa Grade Count:265'
+    - - Tensile Strength, Yield
+      - 240 - 1340 MPa
+      - 34800 - 194000 psi
+      - 'Average value: 756 MPa Grade Count:265'
+    - - Elongation at Break
+      - 9.00 - 31.3 %
+      - 9.00 - 31.3 %
+      - 'Average value: 18.6 % Grade Count:265'
+    - - Reduction of Area
+      - 31.0 - 62.5 %
+      - 31.0 - 62.5 %
+      - 'Average value: 53.6 % Grade Count:73'
+    - - Modulus of Elasticity
+      - 187 - 210 GPa
+      - 27100 - 30500 ksi
+      - 'Average value: 205 GPa Grade Count:326'
+    - - Bulk Modulus
+      - 160 - 170 GPa
+      - 23200 - 24700 ksi
+      - 'Average value: 160 GPa Grade Count:308'
+    - - Poissons Ratio
+      - 0.270 - 0.300
+      - 0.270 - 0.300
+      - 'Average value: 0.291  Grade Count:325'
+    - - Fatigue Strength
+      - 205 - 485 MPa
+      - 29700 - 70300 psi
+      - 'Average value: 335 MPa Grade Count:6'
+    - - Fracture Toughness
+      - "33.0 - 115 MPa-m\xBD"
+      - "30.0 - 105 ksi-in\xBD"
+      - "Average value: 67.3 MPa-m\xBD Grade Count:4"
+    - - Machinability
+      - 55.0 - 70.0 %
+      - 55.0 - 70.0 %
+      - 'Average value: 64.8 % Grade Count:304'
+    - - Shear Modulus
+      - 72.0 - 82.0 GPa
+      - 10400 - 11900 ksi
+      - 'Average value: 79.9 GPa Grade Count:329'
+    - - Izod Impact
+      - 14.0 - 115 J
+      - 10.3 - 84.8 ft-lb
+      - 'Average value: 65.1 J Grade Count:30'
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.00000200 - 0.0000234 ohm-cm
+      - 0.00000200 - 0.0000234 ohm-cm
+      - 'Average value: 0.0000218 ohm-cm Grade Count:321'
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.2 - 14.8 \xB5m/m-\xB0C"
+      - "6.22 - 8.22 \xB5in/in-\xB0F"
+      - "Average value: 12.4 \xB5m/m-\xB0C Grade Count:103"
+    - - Specific Heat Capacity
+      - "0.470 - 0.475 J/g-\xB0C"
+      - "0.112 - 0.114 BTU/lb-\xB0F"
+      - "Average value: 0.475 J/g-\xB0C Grade Count:305"
+    - - Thermal Conductivity
+      - 37.6 - 52.0 W/m-K
+      - "261 - 361 BTU-in/hr-ft\xB2-\xB0F"
+      - 'Average value: 46.6 W/m-K Grade Count:325'
+    - - Transformation Temperature
+      - "397 - 828 \xB0C"
+      - "747 - 1520 \xB0F"
+      - "Average value: 649 \xB0C Grade Count:19"
+  - - &id035
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id036
+      - Boron, B
+      - 0.000500 - 0.00300 %
+      - 0.000500 - 0.00300 %
+      - 'Average value: 0.00175 % Grade Count:35'
+    - &id037
+      - Carbon, C
+      - 0.130 - 0.650 %
+      - 0.130 - 0.650 %
+      - 'Average value: 0.311 % Grade Count:333'
+    - &id038
+      - Chromium, Cr
+      - 0.300 - 1.00 %
+      - 0.300 - 1.00 %
+      - 'Average value: 0.502 % Grade Count:332'
+    - &id039
+      - Copper, Cu
+      - 0.000 - 0.250 %
+      - 0.000 - 0.250 %
+      - 'Average value: 0.125 % Grade Count:3'
+    - &id040
+      - Iron, Fe
+      - 96.1 - 99.1 %
+      - 96.1 - 99.1 %
+      - 'Average value: 97.3 % Grade Count:333'
+    - &id041
+      - Manganese, Mn
+      - 0.500 - 1.05 %
+      - 0.500 - 1.05 %
+      - 'Average value: 0.825 % Grade Count:333'
+    - &id042
+      - Molybdenum, Mo
+      - 0.0800 - 0.650 %
+      - 0.0800 - 0.650 %
+      - 'Average value: 0.215 % Grade Count:333'
+    - &id043
+      - Nickel, Ni
+      - 0.150 - 1.00 %
+      - 0.150 - 1.00 %
+      - 'Average value: 0.549 % Grade Count:332'
+    - &id044
+      - Phosphorus, P
+      - 0.000 - 0.0350 %
+      - 0.000 - 0.0350 %
+      - 'Average value: 0.0340 % Grade Count:330'
+    - &id045
+      - Silicon, Si
+      - 0.100 - 0.600 %
+      - 0.100 - 0.600 %
+      - 'Average value: 0.237 % Grade Count:333'
+    - &id046
+      - Sulfur, S
+      - 0.000 - 0.350 %
+      - 0.000 - 0.350 %
+      - 'Average value: 0.0403 % Grade Count:330'
+  - - *id035
+    - *id036
+    - *id037
+    - *id038
+    - *id039
+    - *id040
+    - *id041
+    - *id042
+    - *id043
+    - *id044
+    - *id045
+    - *id046
+- category: Metal; Ferrous Metal; Alloy Steel; AISI 9000 Series Steel
+  name: Overview of materials for AISI 9000 Series Steel
+  notes: This property data is a summary of similar materials in the MatWeb database
+    for the category "AISI 9000 Series Steel". Each property range of values reported
+    is minimum and maximum values of appropriate MatWeb entries. The comments report
+    the average value, and number of data points used to calculate the average. The
+    values are not necessarily typical of any specific grade, especially less common
+    values and those that can be most affected by additives or processing methods.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.75 - 7.87 g/cc
+      - "0.280 - 0.284 lb/in\xB3"
+      - 'Average value: 7.84 g/cc Grade Count:117'
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - 163 - 514
+      - 163 - 514
+      - 'Average value: 293  Grade Count:105'
+    - - Hardness, Knoop
+      - 204 - 405
+      - 204 - 405
+      - 'Average value: 331  Grade Count:84'
+    - - Hardness, Rockwell B
+      - 89.0 - 100
+      - 89.0 - 100
+      - 'Average value: 98.7  Grade Count:83'
+    - - Hardness, Rockwell C
+      - 15.0 - 51.0
+      - 15.0 - 51.0
+      - 'Average value: 31.4  Grade Count:71'
+    - - Hardness, Vickers
+      - 192 - 515
+      - 192 - 515
+      - 'Average value: 323  Grade Count:85'
+    - - Tensile Strength, Ultimate
+      - 340 - 1780 MPa
+      - 49300 - 258000 psi
+      - 'Average value: 1010 MPa Grade Count:93'
+    - - Tensile Strength, Yield
+      - 400 - 1560 MPa
+      - 58000 - 226000 psi
+      - 'Average value: 760 MPa Grade Count:93'
+    - - Elongation at Break
+      - 6.00 - 25.0 %
+      - 6.00 - 25.0 %
+      - 'Average value: 17.2 % Grade Count:93'
+    - - Reduction of Area
+      - 0.000 - 236 %
+      - 0.000 - 236 %
+      - 'Average value: 35.0 % Grade Count:10'
+    - - Modulus of Elasticity
+      - 200 - 210 GPa
+      - 29000 - 30500 ksi
+      - 'Average value: 202 GPa Grade Count:115'
+    - - Bulk Modulus
+      - 160 - 170 GPa
+      - 23200 - 24700 ksi
+      - 'Average value: 160 GPa Grade Count:87'
+    - - Poissons Ratio
+      - 0.270 - 0.300
+      - 0.270 - 0.300
+      - 'Average value: 0.292  Grade Count:115'
+    - - Machinability
+      - 40.0 - 70.0 %
+      - 40.0 - 70.0 %
+      - 'Average value: 49.5 % Grade Count:87'
+    - - Shear Modulus
+      - 78.0 - 82.0 GPa
+      - 11300 - 11900 ksi
+      - 'Average value: 80.0 GPa Grade Count:116'
+    - - Izod Impact
+      - 9.00 - 119 J
+      - 6.64 - 87.8 ft-lb
+      - 'Average value: 69.8 J Grade Count:6'
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.00000200 - 0.0000174 ohm-cm
+      - 0.00000200 - 0.0000174 ohm-cm
+      - 'Average value: 0.0000139 ohm-cm Grade Count:114'
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.5 - 14.6 \xB5m/m-\xB0C"
+      - "6.39 - 8.11 \xB5in/in-\xB0F"
+      - "Average value: 11.7 \xB5m/m-\xB0C Grade Count:115"
+    - - Specific Heat Capacity
+      - "0.470 - 0.472 J/g-\xB0C"
+      - "0.112 - 0.113 BTU/lb-\xB0F"
+      - "Average value: 0.472 J/g-\xB0C Grade Count:88"
+    - - Thermal Conductivity
+      - 40.0 - 52.0 W/m-K
+      - "278 - 361 BTU-in/hr-ft\xB2-\xB0F"
+      - 'Average value: 49.7 W/m-K Grade Count:115'
+    - - Transformation Temperature
+      - "238 - 826 \xB0C"
+      - "460 - 1520 \xB0F"
+      - "Average value: 633 \xB0C Grade Count:26"
+  - - &id047
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id048
+      - Aluminum, Al
+      - 0.0100 - 0.0400 %
+      - 0.0100 - 0.0400 %
+      - 'Average value: 0.0250 % Grade Count:4'
+    - &id049
+      - Boron, B
+      - 0.000500 - 0.00300 %
+      - 0.000500 - 0.00300 %
+      - 'Average value: 0.00175 % Grade Count:4'
+    - &id050
+      - Carbon, C
+      - 0.0700 - 0.650 %
+      - 0.0700 - 0.650 %
+      - 'Average value: 0.253 % Grade Count:116'
+    - &id051
+      - Chromium, Cr
+      - 0.200 - 1.45 %
+      - 0.200 - 1.45 %
+      - 'Average value: 1.11 % Grade Count:90'
+    - &id052
+      - Iron, Fe
+      - 93.7 - 98.4 %
+      - 93.7 - 98.4 %
+      - 'Average value: 95.5 % Grade Count:116'
+    - &id053
+      - Manganese, Mn
+      - 0.400 - 1.10 %
+      - 0.400 - 1.10 %
+      - 'Average value: 0.663 % Grade Count:116'
+    - &id054
+      - Molybdenum, Mo
+      - 0.0800 - 0.300 %
+      - 0.0800 - 0.300 %
+      - 'Average value: 0.143 % Grade Count:87'
+    - &id055
+      - Nickel, Ni
+      - 0.250 - 3.55 %
+      - 0.250 - 3.55 %
+      - 'Average value: 2.81 % Grade Count:80'
+    - &id056
+      - Phosphorus, P
+      - 0.0100 - 0.0350 %
+      - 0.0100 - 0.0350 %
+      - 'Average value: 0.0287 % Grade Count:86'
+    - &id057
+      - Silicon, Si
+      - 0.0500 - 2.20 %
+      - 0.0500 - 2.20 %
+      - 'Average value: 0.671 % Grade Count:116'
+    - &id058
+      - Sulfur, S
+      - 0.00500 - 0.0500 %
+      - 0.00500 - 0.0500 %
+      - 'Average value: 0.0350 % Grade Count:115'
+  - - *id047
+    - *id048
+    - *id049
+    - *id050
+    - *id051
+    - *id052
+    - *id053
+    - *id054
+    - *id055
+    - *id056
+    - *id057
+    - *id058
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel
+  name: Overview of materials for AISI 1000 Series Steel
+  notes: This property data is a summary of similar materials in the MatWeb database
+    for the category "AISI 1000 Series Steel". Each property range of values reported
+    is minimum and maximum values of appropriate MatWeb entries. The comments report
+    the average value, and number of data points used to calculate the average. The
+    values are not necessarily typical of any specific grade, especially less common
+    values and those that can be most affected by additives or processing methods.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.80 - 7.87 g/cc
+      - "0.282 - 0.284 lb/in\xB3"
+      - 'Average value: 7.86 g/cc Grade Count:604'
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - 30.0 - 500
+      - 30.0 - 500
+      - 'Average value: 190  Grade Count:577'
+    - - Hardness, Knoop
+      - 103 - 392
+      - 103 - 392
+      - 'Average value: 210  Grade Count:513'
+    - - Hardness, Rockwell B
+      - 49.0 - 100
+      - 49.0 - 100
+      - 'Average value: 86.3  Grade Count:511'
+    - - Hardness, Rockwell C
+      - 9.00 - 71.0
+      - 9.00 - 71.0
+      - 'Average value: 19.1  Grade Count:267'
+    - - Hardness, Vickers
+      - 88.0 - 384
+      - 88.0 - 384
+      - 'Average value: 197  Grade Count:513'
+    - - Tensile Strength, Ultimate
+      - 295 - 2210 MPa
+      - 42800 - 320000 psi
+      - 'Average value: 649 MPa Grade Count:578'
+    - - Tensile Strength, Yield
+      - 165 - 1260 MPa
+      - 23900 - 183000 psi
+      - 'Average value: 450 MPa Grade Count:578'
+    - - Elongation at Break
+      - 5.00 - 48.0 %
+      - 5.00 - 48.0 %
+      - 'Average value: 19.8 % Grade Count:572'
+    - - Reduction of Area
+      - 13.4 - 72.5 %
+      - 13.4 - 72.5 %
+      - 'Average value: 46.8 % Grade Count:561'
+    - - Modulus of Elasticity
+      - 186 - 210 GPa
+      - 27000 - 30500 ksi
+      - 'Average value: 201 GPa Grade Count:592'
+    - - Bulk Modulus
+      - 148 - 163 GPa
+      - 21500 - 23600 ksi
+      - 'Average value: 160 GPa Grade Count:535'
+    - - Poissons Ratio
+      - 0.290 - 0.300
+      - 0.290 - 0.300
+      - 'Average value: 0.290  Grade Count:592'
+    - - Machinability
+      - 40.0 - 160 %
+      - 40.0 - 160 %
+      - 'Average value: 59.7 % Grade Count:143'
+    - - Shear Modulus
+      - 72.0 - 80.0 GPa
+      - 10400 - 11600 ksi
+      - 'Average value: 79.5 GPa Grade Count:590'
+    - - Izod Impact
+      - 3.00 - 135 J
+      - 2.21 - 99.6 ft-lb
+      - 'Average value: 42.8 J Grade Count:273'
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.00000200 - 0.0000180 ohm-cm
+      - 0.00000200 - 0.0000180 ohm-cm
+      - 'Average value: 0.0000166 ohm-cm Grade Count:398'
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.0 - 16.6 \xB5m/m-\xB0C"
+      - "6.11 - 9.22 \xB5in/in-\xB0F"
+      - "Average value: 12.9 \xB5m/m-\xB0C Grade Count:539"
+    - - Specific Heat Capacity
+      - "0.470 - 0.490 J/g-\xB0C"
+      - "0.112 - 0.117 BTU/lb-\xB0F"
+      - "Average value: 0.472 J/g-\xB0C Grade Count:263"
+    - - Thermal Conductivity
+      - 27.1 - 52.0 W/m-K
+      - "188 - 361 BTU-in/hr-ft\xB2-\xB0F"
+      - 'Average value: 51.0 W/m-K Grade Count:472'
+    - - Melting Point
+      - "1430 \xB0C"
+      - "2600 \xB0F"
+      - "Average value: 1430 \xB0C Grade Count:3"
+    - - Transformation Temperature
+      - "270 - 760 \xB0C"
+      - "518 - 1400 \xB0F"
+      - "Average value: 591 \xB0C Grade Count:18"
+  - - &id059
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id060
+      - Aluminum, Al
+      - 0.0150 - 0.0200 %
+      - 0.0150 - 0.0200 %
+      - 'Average value: 0.0170 % Grade Count:5'
+    - &id061
+      - Carbon, C
+      - 0.0600 - 1.03 %
+      - 0.0600 - 1.03 %
+      - 'Average value: 0.402 % Grade Count:620'
+    - &id062
+      - Chromium, Cr
+      - 0.150 - 1.10 %
+      - 0.150 - 1.10 %
+      - 'Average value: 0.341 % Grade Count:24'
+    - &id063
+      - Copper, Cu
+      - 0.250 - 0.300 %
+      - 0.250 - 0.300 %
+      - 'Average value: 0.275 % Grade Count:10'
+    - &id064
+      - Iron, Fe
+      - 96.8 - 100 %
+      - 96.8 - 100 %
+      - 'Average value: 98.5 % Grade Count:620'
+    - &id065
+      - Lead, Pb
+      - 0.150 - 0.360 %
+      - 0.150 - 0.360 %
+      - 'Average value: 0.251 % Grade Count:7'
+    - &id066
+      - Manganese, Mn
+      - 0.250 - 2.05 %
+      - 0.250 - 2.05 %
+      - 'Average value: 0.927 % Grade Count:620'
+    - &id067
+      - Molybdenum, Mo
+      - 0.0600 - 0.250 %
+      - 0.0600 - 0.250 %
+      - 'Average value: 0.109 % Grade Count:17'
+    - &id068
+      - Nickel, Ni
+      - 0.100 - 0.400 %
+      - 0.100 - 0.400 %
+      - 'Average value: 0.298 % Grade Count:23'
+    - &id069
+      - Phosphorus, P
+      - 0.0200 - 0.400 %
+      - 0.0200 - 0.400 %
+      - 'Average value: 0.0422 % Grade Count:618'
+    - &id070
+      - Silicon, Si
+      - 0.100 - 0.400 %
+      - 0.100 - 0.400 %
+      - 'Average value: 0.262 % Grade Count:73'
+    - &id071
+      - Sulfur, S
+      - 0.0150 - 0.500 %
+      - 0.0150 - 0.500 %
+      - 'Average value: 0.0792 % Grade Count:620'
+    - &id072
+      - Titanium, Ti
+      - 0.00500 %
+      - 0.00500 %
+      - 'Average value: 0.00500 % Grade Count:3'
+    - &id073
+      - Vanadium, V
+      - 0.0300 - 0.100 %
+      - 0.0300 - 0.100 %
+      - 'Average value: 0.0587 % Grade Count:4'
+  - - *id059
+    - *id060
+    - *id061
+    - *id062
+    - *id063
+    - *id064
+    - *id065
+    - *id066
+    - *id067
+    - *id068
+    - *id069
+    - *id070
+    - *id071
+    - *id072
+    - *id073
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1005 Steel
+  notes: AISI 1005 Low Carbon Steel
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical steel
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+  - - &id074
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id075
+      - Carbon, C
+      - <= 0.060 %
+      - <= 0.060 %
+    - &id076
+      - Iron, Fe
+      - 99.5 - 100 %
+      - 99.5 - 100 %
+      - As remainder
+    - &id077
+      - Manganese, Mn
+      - <= 0.35 %
+      - <= 0.35 %
+    - &id078
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id079
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id074
+    - *id075
+    - *id076
+    - *id077
+    - *id078
+    - *id079
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1006 Steel, cold drawn
+  notes: 'The composition listed is for standard grade for wire and rod.Applications:
+    Soft, very ductile, used in applications which require severe bending and welding
+    such as panels for automobiles or appliances.  Also used in magnet core applications.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '95'
+      - '95'
+    - - Hardness, Knoop
+      - '113'
+      - '113'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '55'
+      - '55'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '98'
+      - '98'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 330 MPa
+      - 47900 psi
+    - - Tensile Strength, Yield
+      - 285 MPa
+      - 41300 psi
+    - - Elongation at Break
+      - 20 %
+      - 20 %
+      - In 50 mm
+    - - Reduction of Area
+      - 45 %
+      - 45 %
+    - - Modulus of Elasticity
+      - 206 GPa
+      - 29900 ksi
+    - - Bulk Modulus
+      - 163 GPa
+      - 23600 ksi
+      - Estimated from elastic modulus
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical for steel
+    - - Machinability
+      - 50 %
+      - 50 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Estimated from elastic modulus
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical steel
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C"
+      - "0.115 BTU/lb-\xB0F"
+      - "50-100\xBAC"
+  - - &id080
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id081
+      - Carbon, C
+      - <= 0.080 %
+      - <= 0.080 %
+    - &id082
+      - Iron, Fe
+      - 99.43 - 99.75 %
+      - 99.43 - 99.75 %
+      - As remainder
+    - &id083
+      - Manganese, Mn
+      - 0.25 - 0.40 %
+      - 0.25 - 0.40 %
+    - &id084
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id085
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id080
+    - *id081
+    - *id082
+    - *id083
+    - *id084
+    - *id085
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1006 Steel, hot rolled bar, 19-32 mm (0.75-1.25 in) round
+  notes: 'The composition listed is for standard grade for wire and rod.Applications:
+    Soft, very ductile, used in applications which require severe bending and welding
+    such as panels for automobiles or appliances.  Also used in magnet core applications.
+
+    '
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '86'
+      - '86'
+    - - Hardness, Knoop
+      - '103'
+      - '103'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '49'
+      - '49'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '88'
+      - '88'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 295 MPa
+      - 42800 psi
+    - - Tensile Strength, Yield
+      - 165 MPa
+      - 23900 psi
+    - - Elongation at Break
+      - 30 %
+      - 30 %
+      - in 50 mm
+    - - Reduction of Area
+      - 55 %
+      - 55 %
+    - - Modulus of Elasticity
+      - 206 GPa
+      - 29900 ksi
+    - - Bulk Modulus
+      - 163 GPa
+      - 23600 ksi
+      - Estimated from elastic modulus
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical for steel
+    - - Machinability
+      - 50 %
+      - 50 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Estimated from elastic modulus
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical for 1000 series steels
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+  - - &id086
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id087
+      - Carbon, C
+      - <= 0.080 %
+      - <= 0.080 %
+    - &id088
+      - Iron, Fe
+      - 99.43 - 99.75 %
+      - 99.43 - 99.75 %
+      - As remainder
+    - &id089
+      - Manganese, Mn
+      - 0.25 - 0.40 %
+      - 0.25 - 0.40 %
+    - &id090
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id091
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id086
+    - *id087
+    - *id088
+    - *id089
+    - *id090
+    - *id091
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1006 Steel, cold drawn bar, 19-32 mm (0.75-1.25 in) round
+  notes: 'The composition listed is for standard grade for wire and rod.Applications:
+    Soft, very ductile, used in applications which require severe bending and welding
+    such as panels for automobiles or appliances.  Also used in magnet core applications.
+
+    '
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '95'
+      - '95'
+    - - Hardness, Knoop
+      - '113'
+      - '113'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '55'
+      - '55'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '98'
+      - '98'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 330 MPa
+      - 47900 psi
+    - - Tensile Strength, Yield
+      - 285 MPa
+      - 41300 psi
+    - - Elongation at Break
+      - 20 %
+      - 20 %
+      - in 50 mm
+    - - Reduction of Area
+      - 45 %
+      - 45 %
+    - - Modulus of Elasticity
+      - 206 GPa
+      - 29900 ksi
+    - - Bulk Modulus
+      - 163 GPa
+      - 23600 ksi
+      - Estimated from elastic modulus
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical for steel
+    - - Machinability
+      - 50 %
+      - 50 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Estimated from elastic modulus
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical for 1000 series steels
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+  - - &id092
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id093
+      - Carbon, C
+      - <= 0.080 %
+      - <= 0.080 %
+    - &id094
+      - Iron, Fe
+      - 99.43 - 99.75 %
+      - 99.43 - 99.75 %
+      - As remainder
+    - &id095
+      - Manganese, Mn
+      - 0.25 - 0.40 %
+      - 0.25 - 0.40 %
+    - &id096
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id097
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id092
+    - *id093
+    - *id094
+    - *id095
+    - *id096
+    - *id097
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1006 Steel, CQ, DQ, and DQSK sheet, 1.6-5.8 (0.06-0.23 in) mm thick
+  notes: 'The composition listed is for standard grade for wire and rod.Applications:
+    Soft, very ductile, used in applications which require severe bending and welding
+    such as panels for automobiles or appliances.  Also used in magnet core applications.
+
+    '
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Tensile Strength, Ultimate
+      - 305 - 360 MPa
+      - 44200 - 52200 psi
+    - - Tensile Strength, Yield
+      - 180 - 240 MPa
+      - 26100 - 34800 psi
+    - - Elongation at Break
+      - 32 - 48 %
+      - 32 - 48 %
+      - in 50 mm.
+    - - Modulus of Elasticity
+      - 206 GPa
+      - 29900 ksi
+    - - Bulk Modulus
+      - 163 GPa
+      - 23600 ksi
+      - Estimated from elastic modulus
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical for steel
+    - - Machinability
+      - 50 %
+      - 50 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Estimated from elastic modulus
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical for 1000 series steels
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+  - - &id098
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id099
+      - Carbon, C
+      - <= 0.080 %
+      - <= 0.080 %
+    - &id100
+      - Iron, Fe
+      - 99.43 - 99.75 %
+      - 99.43 - 99.75 %
+      - As remainder
+    - &id101
+      - Manganese, Mn
+      - 0.25 - 0.40 %
+      - 0.25 - 0.40 %
+    - &id102
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id103
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id098
+    - *id099
+    - *id100
+    - *id101
+    - *id102
+    - *id103
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1008 Steel, hot rolled bar, 19-32 mm (0.75-1.25 in) round
+  notes: Usually produced as rimmed, capped, semikilled, and fully killed, Rimmed
+    have exceptional cold formability. Weldability (spot, projection, butt, and fusion)
+    and brazeability are excellent. Applications include extruded, cold headed, cold
+    upset, and cold pressed parts and forms.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '86'
+      - '86'
+    - - Hardness, Knoop
+      - '103'
+      - '103'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '49'
+      - '49'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '88'
+      - '88'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 305 MPa
+      - 44200 psi
+    - - Tensile Strength, Yield
+      - 170 MPa
+      - 24700 psi
+    - - Elongation at Break
+      - 30 %
+      - 30 %
+      - in 50 mm
+    - - Reduction of Area
+      - 55 %
+      - 55 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000142 ohm-cm@Temperature 20.0 \xB0C"
+      - "0.0000142 ohm-cm@Temperature 68.0 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000190 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000190 ohm-cm@Temperature 212 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000263 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000263 ohm-cm@Temperature 392 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000458 ohm-cm@Temperature 400 \xB0C"
+      - "0.0000458 ohm-cm@Temperature 752 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000734 ohm-cm@Temperature 600 \xB0C"
+      - "0.0000734 ohm-cm@Temperature 1110 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000905 ohm-cm@Temperature 700 \xB0C"
+      - "0.0000905 ohm-cm@Temperature 1290 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001081 ohm-cm@Temperature 800 \xB0C"
+      - "0.0001081 ohm-cm@Temperature 1470 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.000113 ohm-cm@Temperature 900 \xB0C"
+      - "0.000113 ohm-cm@Temperature 1650 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001193 ohm-cm@Temperature 1100 \xB0C"
+      - "0.0001193 ohm-cm@Temperature 2010 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001216 ohm-cm@Temperature 1200 \xB0C"
+      - "0.0001216 ohm-cm@Temperature 2190 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+    - - Thermal Conductivity
+      - "27.3 W/m-K@Temperature 1000 \xB0C"
+      - "189 BTU-in/hr-ft\xB2-\xB0F@Temperature 1830 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - "28.4 W/m-K@Temperature 800 \xB0C"
+      - "197 BTU-in/hr-ft\xB2-\xB0F@Temperature 1470 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - "36.3 W/m-K@Temperature 600 \xB0C"
+      - "252 BTU-in/hr-ft\xB2-\xB0F@Temperature 1110 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - "45.2 W/m-K@Temperature 400 \xB0C"
+      - "314 BTU-in/hr-ft\xB2-\xB0F@Temperature 752 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - "54.7 W/m-K@Temperature 200 \xB0C"
+      - "380 BTU-in/hr-ft\xB2-\xB0F@Temperature 392 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - "60.2 W/m-K@Temperature 100 \xB0C"
+      - "418 BTU-in/hr-ft\xB2-\xB0F@Temperature 212 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - "65.2 W/m-K@Temperature 0.000 \xB0C"
+      - "452 BTU-in/hr-ft\xB2-\xB0F@Temperature 32.0 \xB0F"
+      - Composition of 0.06% Carbon, 0.4% Manganese.
+    - - Melting Point
+      - "1426 \xB0C"
+      - "2599 \xB0F"
+  - - &id104
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id105
+      - Carbon, C
+      - <= 0.10 %
+      - <= 0.10 %
+    - &id106
+      - Iron, Fe
+      - 99.31 - 99.7 %
+      - 99.31 - 99.7 %
+      - As remainder
+    - &id107
+      - Manganese, Mn
+      - 0.30 - 0.50 %
+      - 0.30 - 0.50 %
+    - &id108
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id109
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id104
+    - *id105
+    - *id106
+    - *id107
+    - *id108
+    - *id109
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1008 Steel, cold drawn bar, 19-32 mm (0.75-1.25 in) round
+  notes: Usually produced as rimmed, capped, semikilled, and fully killed, Rimmed
+    have exceptional cold formability. Weldability (spot, projection, butt, and fusion)
+    and brazeability are excellent. Applications include extruded, cold headed, cold
+    upset, and cold pressed parts and forms.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '95'
+      - '95'
+    - - Hardness, Knoop
+      - '113'
+      - '113'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '55'
+      - '55'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '98'
+      - '98'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 340 MPa
+      - 49300 psi
+    - - Tensile Strength, Yield
+      - 285 MPa
+      - 41300 psi
+    - - Elongation at Break
+      - 20 %
+      - 20 %
+      - in 50 mm
+    - - Reduction of Area
+      - 45 %
+      - 45 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000142 ohm-cm@Temperature 20.0 \xB0C"
+      - "0.0000142 ohm-cm@Temperature 68.0 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000190 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000190 ohm-cm@Temperature 212 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000263 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000263 ohm-cm@Temperature 392 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000458 ohm-cm@Temperature 400 \xB0C"
+      - "0.0000458 ohm-cm@Temperature 752 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000734 ohm-cm@Temperature 600 \xB0C"
+      - "0.0000734 ohm-cm@Temperature 1110 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000905 ohm-cm@Temperature 700 \xB0C"
+      - "0.0000905 ohm-cm@Temperature 1290 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001081 ohm-cm@Temperature 800 \xB0C"
+      - "0.0001081 ohm-cm@Temperature 1470 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.000113 ohm-cm@Temperature 900 \xB0C"
+      - "0.000113 ohm-cm@Temperature 1650 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001165 ohm-cm@Temperature 1000 \xB0C"
+      - "0.0001165 ohm-cm@Temperature 1830 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001193 ohm-cm@Temperature 1100 \xB0C"
+      - "0.0001193 ohm-cm@Temperature 2010 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001216 ohm-cm@Temperature 1200 \xB0C"
+      - "0.0001216 ohm-cm@Temperature 2190 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+    - - Thermal Conductivity
+      - "27.3 W/m-K@Temperature 1000 \xB0C"
+      - "189 BTU-in/hr-ft\xB2-\xB0F@Temperature 1830 \xB0F"
+    - - "28.4 W/m-K@Temperature 800 \xB0C"
+      - "197 BTU-in/hr-ft\xB2-\xB0F@Temperature 1470 \xB0F"
+    - - "36.3 W/m-K@Temperature 600 \xB0C"
+      - "252 BTU-in/hr-ft\xB2-\xB0F@Temperature 1110 \xB0F"
+    - - "45.2 W/m-K@Temperature 400 \xB0C"
+      - "314 BTU-in/hr-ft\xB2-\xB0F@Temperature 752 \xB0F"
+    - - "54.7 W/m-K@Temperature 200 \xB0C"
+      - "380 BTU-in/hr-ft\xB2-\xB0F@Temperature 392 \xB0F"
+    - - "60.2 W/m-K@Temperature 100 \xB0C"
+      - "418 BTU-in/hr-ft\xB2-\xB0F@Temperature 212 \xB0F"
+    - - "65.2 W/m-K@Temperature 0.000 \xB0C"
+      - "452 BTU-in/hr-ft\xB2-\xB0F@Temperature 32.0 \xB0F"
+    - - Melting Point
+      - "1426 \xB0C"
+      - "2599 \xB0F"
+  - - &id110
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id111
+      - Carbon, C
+      - <= 0.10 %
+      - <= 0.10 %
+    - &id112
+      - Iron, Fe
+      - 99.31 - 99.7 %
+      - 99.31 - 99.7 %
+      - As remainder
+    - &id113
+      - Manganese, Mn
+      - 0.30 - 0.50 %
+      - 0.30 - 0.50 %
+    - &id114
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id115
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id110
+    - *id111
+    - *id112
+    - *id113
+    - *id114
+    - *id115
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1008 Steel, CQ, DQ, and DQSK sheet, 1.6-5.8 mm thick
+  notes: Usually produced as rimmed, capped, semikilled, and fully killed, Rimmed
+    have exceptional cold formability. Weldability (spot, projection, butt, and fusion)
+    and brazeability are excellent. Applications include extruded, cold headed, cold
+    upset, and cold pressed parts and forms.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.872 g/cc
+      - "0.2844 lb/in\xB3"
+      - "Composition 0.06% C, 0.38% Mn, 0.01% Si, annealed at 925\xB0C"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Tensile Strength, Ultimate
+      - 303 - 358 MPa
+      - 43900 - 51900 psi
+    - - Tensile Strength, Yield
+      - 180 - 240 MPa
+      - 26100 - 34800 psi
+    - - Elongation at Break
+      - 42 - 48 %
+      - 42 - 48 %
+      - in 50 mm.
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000142 ohm-cm@Temperature 20.0 \xB0C"
+      - "0.0000142 ohm-cm@Temperature 68.0 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000190 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000190 ohm-cm@Temperature 212 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000263 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000263 ohm-cm@Temperature 392 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000458 ohm-cm@Temperature 400 \xB0C"
+      - "0.0000458 ohm-cm@Temperature 752 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000734 ohm-cm@Temperature 600 \xB0C"
+      - "0.0000734 ohm-cm@Temperature 1110 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0000905 ohm-cm@Temperature 700 \xB0C"
+      - "0.0000905 ohm-cm@Temperature 1290 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001081 ohm-cm@Temperature 800 \xB0C"
+      - "0.0001081 ohm-cm@Temperature 1470 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.000113 ohm-cm@Temperature 900 \xB0C"
+      - "0.000113 ohm-cm@Temperature 1650 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001165 ohm-cm@Temperature 1000 \xB0C"
+      - "0.0001165 ohm-cm@Temperature 1830 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001193 ohm-cm@Temperature 1100 \xB0C"
+      - "0.0001193 ohm-cm@Temperature 2010 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+    - - "0.0001216 ohm-cm@Temperature 1200 \xB0C"
+      - "0.0001216 ohm-cm@Temperature 2190 \xB0F"
+      - annealed specimen, Composition 0.08% C, 0.31% Mn.
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.6 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "7.00 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.1 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.28 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "13.7 \xB5m/m-\xB0C@Temperature 0.000 - 1000 \xB0C"
+      - "7.61 \xB5in/in-\xB0F@Temperature 32.0 - 1830 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - "16.6 \xB5m/m-\xB0C@Temperature 0.000 - 800 \xB0C"
+      - "9.22 \xB5in/in-\xB0F@Temperature 32.0 - 1470 \xB0F"
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.553 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.132 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.662 J/g-\xB0C@Temperature 450 - 500 \xB0C"
+      - "0.158 BTU/lb-\xB0F@Temperature 842 - 932 \xB0F"
+    - - "0.754 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.180 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.846 J/g-\xB0C@Temperature 850 - 900 \xB0C"
+      - "0.202 BTU/lb-\xB0F@Temperature 1560 - 1650 \xB0F"
+    - - "0.867 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.207 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - "1.105 J/g-\xB0C@Temperature 700 - 750 \xB0C"
+      - "0.2641 BTU/lb-\xB0F@Temperature 1290 - 1380 \xB0F"
+    - - Thermal Conductivity
+      - "27.3 W/m-K@Temperature 1000 \xB0C"
+      - "189 BTU-in/hr-ft\xB2-\xB0F@Temperature 1830 \xB0F"
+    - - "28.4 W/m-K@Temperature 800 \xB0C"
+      - "197 BTU-in/hr-ft\xB2-\xB0F@Temperature 1470 \xB0F"
+    - - "36.3 W/m-K@Temperature 600 \xB0C"
+      - "252 BTU-in/hr-ft\xB2-\xB0F@Temperature 1110 \xB0F"
+    - - "45.2 W/m-K@Temperature 400 \xB0C"
+      - "314 BTU-in/hr-ft\xB2-\xB0F@Temperature 752 \xB0F"
+    - - "54.7 W/m-K@Temperature 200 \xB0C"
+      - "380 BTU-in/hr-ft\xB2-\xB0F@Temperature 392 \xB0F"
+    - - "60.2 W/m-K@Temperature 100 \xB0C"
+      - "418 BTU-in/hr-ft\xB2-\xB0F@Temperature 212 \xB0F"
+    - - "65.2 W/m-K@Temperature 0.000 \xB0C"
+      - "452 BTU-in/hr-ft\xB2-\xB0F@Temperature 32.0 \xB0F"
+    - - Melting Point
+      - "1426 \xB0C"
+      - "2599 \xB0F"
+  - - &id116
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id117
+      - Carbon, C
+      - <= 0.10 %
+      - <= 0.10 %
+    - &id118
+      - Iron, Fe
+      - 99.31 - 99.7 %
+      - 99.31 - 99.7 %
+      - As remainder
+    - &id119
+      - Manganese, Mn
+      - 0.30 - 0.50 %
+      - 0.30 - 0.50 %
+    - &id120
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id121
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id116
+    - *id117
+    - *id118
+    - *id119
+    - *id120
+    - *id121
+- category: Metal; Ferrous Metal; Carbon Steel; Low Carbon Steel
+  name: AISI M1008 Merchant Quality Carbon Steel, Composition Spec
+  notes: The merchant quality steels, designated by the M in the grade, generally
+    have a slightly different composition than that of the underlying steel designation.
+  properties:
+  - - &id122
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id123
+      - Carbon, C
+      - <= 0.10 %
+      - <= 0.10 %
+    - &id124
+      - Iron, Fe
+      - 99.21 - 99.75 %
+      - 99.21 - 99.75 %
+      - As Balance
+    - &id125
+      - Manganese, Mn
+      - 0.25 - 0.60 %
+      - 0.25 - 0.60 %
+    - &id126
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id127
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id122
+    - *id123
+    - *id124
+    - *id125
+    - *id126
+    - *id127
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1009 Steel
+  notes: SAE discontinued this standard in 1965.  AISI 1010 is a similar alloy.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - (AISI 1008)
+  - - &id128
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id129
+      - Carbon, C
+      - <= 0.15 %
+      - <= 0.15 %
+    - &id130
+      - Iron, Fe
+      - '>= 99.185 %'
+      - '>= 99.185 %'
+      - As remainder
+    - &id131
+      - Manganese, Mn
+      - <= 0.60 %
+      - <= 0.60 %
+    - &id132
+      - Phosphorus, P
+      - <= 0.030 %
+      - <= 0.030 %
+    - &id133
+      - Sulfur, S
+      - <= 0.035 %
+      - <= 0.035 %
+  - - *id128
+    - *id129
+    - *id130
+    - *id131
+    - *id132
+    - *id133
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1010 Steel, cold drawn
+  notes: Used widely in low strength applications.  Good formability, fair machinability,
+    can be hardened by cyaniding.  Suitable for magnet core applications
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '105'
+      - '105'
+    - - Hardness, Knoop
+      - '123'
+      - '123'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '60'
+      - '60'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '108'
+      - '108'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 365 MPa
+      - 52900 psi
+    - - Tensile Strength, Yield
+      - 305 MPa
+      - 44200 psi
+    - - Elongation at Break
+      - 20 %
+      - 20 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 205 GPa
+      - 29700 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000143 ohm-cm
+      - 0.0000143 ohm-cm
+      - condition unknown
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.448 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.107 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - condition unknown
+    - - "0.498 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.119 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.565 J/g-\xB0C@Temperature 300 - 350 \xB0C"
+      - "0.135 BTU/lb-\xB0F@Temperature 572 - 662 \xB0F"
+    - - "0.590 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.141 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.649 J/g-\xB0C@Temperature 400 - 450 \xB0C"
+      - "0.155 BTU/lb-\xB0F@Temperature 752 - 842 \xB0F"
+    - - "0.729 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.174 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.825 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.197 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - Thermal Conductivity
+      - 49.8 W/m-K
+      - "346 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id134
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id135
+      - Carbon, C
+      - 0.080 - 0.13 %
+      - 0.080 - 0.13 %
+    - &id136
+      - Iron, Fe
+      - 99.18 - 99.62 %
+      - 99.18 - 99.62 %
+      - As remainder
+    - &id137
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id138
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id139
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id134
+    - *id135
+    - *id136
+    - *id137
+    - *id138
+    - *id139
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1010 Steel, hot rolled bar, 19-32 mm (0.75-1.25 in) round or thickness
+  notes: Easily cold formed by heading, extruding, upsetting, bending, and other deforming
+    processes. Uses for wires include electroplated products, such as racks, storage
+    bins, shopping carts, fan guards, and jewelry, and unplated such as wires, staples,
+    hardware, and barbed wire.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '95'
+      - '95'
+    - - Hardness, Knoop
+      - '113'
+      - '113'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '55'
+      - '55'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '98'
+      - '98'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 325 MPa
+      - 47100 psi
+    - - Tensile Strength, Yield
+      - 180 MPa
+      - 26100 psi
+    - - Elongation at Break
+      - 28 %
+      - 28 %
+      - in 50 mm
+    - - Reduction of Area
+      - 50 %
+      - 50 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000143 ohm-cm
+      - 0.0000143 ohm-cm
+      - condition unknown
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.8 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.67 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - Specific Heat Capacity
+      - "0.448 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.107 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - condition unknown
+    - - "0.498 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.119 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.565 J/g-\xB0C@Temperature 300 - 350 \xB0C"
+      - "0.135 BTU/lb-\xB0F@Temperature 572 - 662 \xB0F"
+    - - "0.590 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.141 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.649 J/g-\xB0C@Temperature 400 - 450 \xB0C"
+      - "0.155 BTU/lb-\xB0F@Temperature 752 - 842 \xB0F"
+    - - "0.729 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.174 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.825 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.197 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id140
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id141
+      - Carbon, C
+      - 0.080 - 0.13 %
+      - 0.080 - 0.13 %
+    - &id142
+      - Iron, Fe
+      - 99.18 - 99.62 %
+      - 99.18 - 99.62 %
+      - As remainder
+    - &id143
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id144
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id145
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id140
+    - *id141
+    - *id142
+    - *id143
+    - *id144
+    - *id145
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1010 Steel, cold drawn bar, 19-32 mm (0.75-1.25 in) round or thickness
+  notes: Easily cold formed by heading, extruding, upsetting, bending, and other deforming
+    processes. Uses for wires include electroplated products, such as racks, storage
+    bins, shopping carts, fan guards, and jewelry, and unplated such as wires, staples,
+    hardware, and barbed wire.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '105'
+      - '105'
+    - - Hardness, Knoop
+      - '123'
+      - '123'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '60'
+      - '60'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '108'
+      - '108'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 365 MPa
+      - 52900 psi
+    - - Tensile Strength, Yield
+      - 305 MPa
+      - 44200 psi
+    - - Elongation at Break
+      - 20 %
+      - 20 %
+      - in 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000143 ohm-cm
+      - 0.0000143 ohm-cm
+      - condition unknown
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.8 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.67 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - Specific Heat Capacity
+      - "0.448 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.107 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - condition unknown
+    - - "0.498 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.119 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.565 J/g-\xB0C@Temperature 300 - 350 \xB0C"
+      - "0.135 BTU/lb-\xB0F@Temperature 572 - 662 \xB0F"
+    - - "0.590 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.141 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.649 J/g-\xB0C@Temperature 400 - 450 \xB0C"
+      - "0.155 BTU/lb-\xB0F@Temperature 752 - 842 \xB0F"
+    - - "0.729 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.174 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.825 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.197 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id146
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id147
+      - Carbon, C
+      - 0.080 - 0.13 %
+      - 0.080 - 0.13 %
+    - &id148
+      - Iron, Fe
+      - 99.18 - 99.62 %
+      - 99.18 - 99.62 %
+      - As remainder
+    - &id149
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id150
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id151
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id146
+    - *id147
+    - *id148
+    - *id149
+    - *id150
+    - *id151
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1010 Steel, CQ sheet,1.6-5.8 mm round or thickness
+  notes: Easily cold formed by heading, extruding, upsetting, bending, and other deforming
+    processes. Uses for wires include electroplated products, such as racks, storage
+    bins, shopping carts, fan guards, and jewelry, and unplated such as wires, staples,
+    hardware, and barbed wire.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Tensile Strength, Ultimate
+      - 310 - 360 MPa
+      - 45000 - 52200 psi
+    - - Tensile Strength, Yield
+      - 180 - 240 MPa
+      - 26100 - 34800 psi
+    - - Elongation at Break
+      - 32 - 48 %
+      - 32 - 48 %
+      - in 50 mm
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000143 ohm-cm
+      - 0.0000143 ohm-cm
+      - condition unknown
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.8 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.67 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - "14.6 \xB5m/m-\xB0C@Temperature 0.000 - 600 \xB0C"
+      - "8.11 \xB5in/in-\xB0F@Temperature 32.0 - 1110 \xB0F"
+    - - "14.9 \xB5m/m-\xB0C@Temperature 0.000 - 700 \xB0C"
+      - "8.28 \xB5in/in-\xB0F@Temperature 32.0 - 1290 \xB0F"
+    - - Specific Heat Capacity
+      - "0.448 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.107 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - condition unknown
+    - - "0.498 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.119 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 200 - 250 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 392 - 482 \xB0F"
+    - - "0.536 J/g-\xB0C@Temperature 250 - 300 \xB0C"
+      - "0.128 BTU/lb-\xB0F@Temperature 482 - 572 \xB0F"
+    - - "0.565 J/g-\xB0C@Temperature 300 - 350 \xB0C"
+      - "0.135 BTU/lb-\xB0F@Temperature 572 - 662 \xB0F"
+    - - "0.590 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.141 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - "0.649 J/g-\xB0C@Temperature 400 - 450 \xB0C"
+      - "0.155 BTU/lb-\xB0F@Temperature 752 - 842 \xB0F"
+    - - "0.729 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+      - "0.174 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+    - - "0.825 J/g-\xB0C@Temperature 650 - 700 \xB0C"
+      - "0.197 BTU/lb-\xB0F@Temperature 1200 - 1290 \xB0F"
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id152
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id153
+      - Carbon, C
+      - 0.080 - 0.13 %
+      - 0.080 - 0.13 %
+    - &id154
+      - Iron, Fe
+      - 99.18 - 99.62 %
+      - 99.18 - 99.62 %
+      - As remainder
+    - &id155
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id156
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id157
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id152
+    - *id153
+    - *id154
+    - *id155
+    - *id156
+    - *id157
+- category: Metal; Ferrous Metal; Carbon Steel; Low Carbon Steel
+  name: AISI M1010 Merchant Quality Carbon Steel, Composition Spec
+  notes: The merchant quality steels, designated by the M in the grade, generally
+    have a slightly different composition than that of the underlying steel designation.
+  properties:
+  - - &id158
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id159
+      - Carbon, C
+      - 0.070 - 0.14 %
+      - 0.070 - 0.14 %
+    - &id160
+      - Iron, Fe
+      - 99.17 - 99.68 %
+      - 99.17 - 99.68 %
+      - As Balance
+    - &id161
+      - Manganese, Mn
+      - 0.25 - 0.60 %
+      - 0.25 - 0.60 %
+    - &id162
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id163
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id158
+    - *id159
+    - *id160
+    - *id161
+    - *id162
+    - *id163
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1012 Steel, cold drawn
+  notes: Widely used in low strength applications.  Has good formability, fair machinability,
+    and can be hardened by cyaniding.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '105'
+      - '105'
+    - - Hardness, Knoop
+      - '123'
+      - '123'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '60'
+      - '60'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '108'
+      - '108'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 370 MPa
+      - 53700 psi
+    - - Tensile Strength, Yield
+      - 310 MPa
+      - 45000 psi
+    - - Elongation at Break
+      - 19 %
+      - 19 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 205 GPa
+      - 29700 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical steel
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.472 J/g-\xB0C"
+      - "0.113 BTU/lb-\xB0F"
+      - Typical steel
+    - - Thermal Conductivity
+      - 49.8 W/m-K
+      - "346 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id164
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id165
+      - Carbon, C
+      - 0.10 - 0.15 %
+      - 0.10 - 0.15 %
+    - &id166
+      - Iron, Fe
+      - 99.16 - 99.6 %
+      - 99.16 - 99.6 %
+      - As remainder
+    - &id167
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id168
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id169
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id164
+    - *id165
+    - *id166
+    - *id167
+    - *id168
+    - *id169
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1012 Steel, hot rolled bar, 19-32 mm (0.75-1.25 in) round or thickness
+  notes: 16017b3906a94e2c9fd52bb7a0833749Easily cold formed by heading, extruding,
+    upsetting, bending, and other deforming processes. Uses for wires include electroplated
+    products, such as racks, storage bins, shopping carts, fan guards, and jewelry,
+    and unplated such as wires, staples, hardware, and barbed wire.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '95'
+      - '95'
+    - - Hardness, Knoop
+      - '113'
+      - '113'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '55'
+      - '55'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '98'
+      - '98'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 330 MPa
+      - 47900 psi
+    - - Tensile Strength, Yield
+      - 185 MPa
+      - 26800 psi
+    - - Elongation at Break
+      - 28 %
+      - 28 %
+      - in 50 mm
+    - - Reduction of Area
+      - 50 %
+      - 50 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical steel
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.5 \xB5m/m-\xB0C@Temperature 20.0 \xB0C"
+      - "6.39 \xB5in/in-\xB0F@Temperature 68.0 \xB0F"
+      - Typical steel
+    - - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+      - Typical for steel
+    - - "13.9 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.72 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+      - Typical for steel
+    - - Specific Heat Capacity
+      - "0.472 J/g-\xB0C"
+      - "0.113 BTU/lb-\xB0F"
+      - Typical steel
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id170
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id171
+      - Carbon, C
+      - 0.10 - 0.15 %
+      - 0.10 - 0.15 %
+    - &id172
+      - Iron, Fe
+      - 99.16 - 99.6 %
+      - 99.16 - 99.6 %
+      - As remainder
+    - &id173
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id174
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id175
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id170
+    - *id171
+    - *id172
+    - *id173
+    - *id174
+    - *id175
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1012 Steel, cold drawn bar, 19-32 mm (0.75-1.25 in) round or thickness
+  notes: Easily cold formed by heading, extruding, upsetting, bending, and other deforming
+    processes. Uses for wires include electroplated products, such as racks, storage
+    bins, shopping carts, fan guards, and jewelry, and unplated such as wires, staples,
+    hardware, and barbed wire.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '105'
+      - '105'
+    - - Hardness, Knoop
+      - '123'
+      - '123'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '60'
+      - '60'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '108'
+      - '108'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 370 MPa
+      - 53700 psi
+    - - Tensile Strength, Yield
+      - 310 MPa
+      - 45000 psi
+    - - Elongation at Break
+      - 19 %
+      - 19 %
+      - in 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical steel
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.5 \xB5m/m-\xB0C@Temperature 20.0 \xB0C"
+      - "6.39 \xB5in/in-\xB0F@Temperature 68.0 \xB0F"
+      - Typical steel
+    - - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+      - Typical for steel
+    - - "13.9 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.72 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+      - Typical for steel
+    - - Specific Heat Capacity
+      - "0.472 J/g-\xB0C"
+      - "0.113 BTU/lb-\xB0F"
+      - Typical steel
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id176
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id177
+      - Carbon, C
+      - 0.10 - 0.15 %
+      - 0.10 - 0.15 %
+    - &id178
+      - Iron, Fe
+      - 99.16 - 99.6 %
+      - 99.16 - 99.6 %
+      - As remainder
+    - &id179
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id180
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id181
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id176
+    - *id177
+    - *id178
+    - *id179
+    - *id180
+    - *id181
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1012 Steel, CQ sheet,1.6-5.8 mm round or thickness
+  notes: Easily cold formed by heading, extruding, upsetting, bending, and other deforming
+    processes. Uses for wires include electroplated products, such as racks, storage
+    bins, shopping carts, fan guards, and jewelry, and unplated such as wires, staples,
+    hardware, and barbed wire.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Tensile Strength, Ultimate
+      - 310 - 360 MPa
+      - 45000 - 52200 psi
+    - - Tensile Strength, Yield
+      - 180 - 240 MPa
+      - 26100 - 34800 psi
+    - - Elongation at Break
+      - 32 - 48 %
+      - 32 - 48 %
+      - in 50 mm
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 55 %
+      - 55 %
+      - Based on AISI 1212 steel = 100%. Group I bar, rod, and wire products machinability
+        can be improved by cold drawing.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - 0.0000174 ohm-cm
+      - 0.0000174 ohm-cm
+      - Typical steel
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.5 \xB5m/m-\xB0C@Temperature 20.0 \xB0C"
+      - "6.39 \xB5in/in-\xB0F@Temperature 68.0 \xB0F"
+      - Typical steel
+    - - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+      - Typical for steel
+    - - "13.9 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.72 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+      - Typical for steel
+    - - Specific Heat Capacity
+      - "0.472 J/g-\xB0C"
+      - "0.113 BTU/lb-\xB0F"
+      - Typical steel
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id182
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id183
+      - Carbon, C
+      - 0.10 - 0.15 %
+      - 0.10 - 0.15 %
+    - &id184
+      - Iron, Fe
+      - 99.16 - 99.6 %
+      - 99.16 - 99.6 %
+      - As remainder
+    - &id185
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id186
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id187
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id182
+    - *id183
+    - *id184
+    - *id185
+    - *id186
+    - *id187
+- category: Metal; Ferrous Metal; Carbon Steel; Low Carbon Steel
+  name: AISI M1012 Merchant Quality Carbon Steel, Composition Spec
+  notes: The merchant quality steels, designated by the M in the grade, generally
+    have a slightly different composition than that of the underlying steel designation.
+  properties:
+  - - &id188
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id189
+      - Carbon, C
+      - 0.090 - 0.16 %
+      - 0.090 - 0.16 %
+    - &id190
+      - Iron, Fe
+      - 99.15 - 99.66 %
+      - 99.15 - 99.66 %
+      - As Balance
+    - &id191
+      - Manganese, Mn
+      - 0.25 - 0.60 %
+      - 0.25 - 0.60 %
+    - &id192
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id193
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id188
+    - *id189
+    - *id190
+    - *id191
+    - *id192
+    - *id193
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1013 Carbon Steel Composition Spec
+  notes: null
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Estimated by MatWeb from very similar grade
+  - - &id194
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id195
+      - Carbon, C
+      - 0.11 - 0.16 %
+      - 0.11 - 0.16 %
+    - &id196
+      - Iron, Fe
+      - 98.95 - 99.39 %
+      - 98.95 - 99.39 %
+      - As Balance
+    - &id197
+      - Manganese, Mn
+      - 0.50 - 0.80 %
+      - 0.50 - 0.80 %
+    - &id198
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id199
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id194
+    - *id195
+    - *id196
+    - *id197
+    - *id198
+    - *id199
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1015 Steel, cold drawn
+  notes: 'The composition listed is only for structural shapes, plate, sheet, strip,
+    and welded tubing.  Hot-rolled and cold finished bars, semifinished products for
+    forging, wire rods, and seamless tubing have a carbon content of 0.13 - 0.18%.  Has
+    better machinability and carburizing characteristics than the more formable extra-low
+    carbon steels.Applications: cold-formed, cold-headed, or forged parts which are
+    low strength with hard, wear resistant surfaces.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '111'
+      - '111'
+    - - Hardness, Knoop
+      - '129'
+      - '129'
+    - - Hardness, Rockwell B
+      - '64'
+      - '64'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '115'
+      - '115'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 385 MPa
+      - 55800 psi
+    - - Tensile Strength, Yield
+      - 325 MPa
+      - 47100 psi
+    - - Elongation at Break
+      - 18 %
+      - 18 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 205 GPa
+      - 29700 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id200
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id201
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id202
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id203
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id204
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id205
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id200
+    - *id201
+    - *id202
+    - *id203
+    - *id204
+    - *id205
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1015 Steel, cold drawn, 19-32 mm (0.75-1.25 in) round
+  notes: 'The composition listed is only for structural shapes, plate, sheet, strip,
+    and welded tubing.  Hot-rolled and cold finished bars, semifinished products for
+    forging, wire rods, and seamless tubing have a carbon content of 0.13 - 0.18%.  Has
+    better machinability and carburizing characteristics than the more formable extra-low
+    carbon steels.Applications: cold-formed, cold-headed, or forged parts which are
+    low strength with hard, wear resistant surfaces.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '111'
+      - '111'
+    - - Hardness, Knoop
+      - '129'
+      - '129'
+    - - Hardness, Rockwell B
+      - '64'
+      - '64'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '115'
+      - '115'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 385 MPa
+      - 55800 psi
+    - - Tensile Strength, Yield
+      - 325 MPa
+      - 47100 psi
+    - - Elongation at Break
+      - 18 %
+      - 18 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 205 GPa
+      - 29700 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id206
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id207
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id208
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id209
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id210
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id211
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id206
+    - *id207
+    - *id208
+    - *id209
+    - *id210
+    - *id211
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1015 Steel, hot rolled, 19-32 mm (0.75-1.25 in) round
+  notes: This steel demonstrates better machinability and carburizing. Can be strengthened
+    by cold working or surface hardened by carburizing or cyaniding. Hot rolled sheet
+    has excellent weldability.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '101'
+      - '101'
+    - - Hardness, Knoop
+      - '119'
+      - '119'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '58'
+      - '58'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '104'
+      - '104'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 345 MPa
+      - 50000 psi
+    - - Tensile Strength, Yield
+      - 190 MPa
+      - 27600 psi
+    - - Elongation at Break
+      - 28 %
+      - 28 %
+      - in 50 mm
+    - - Reduction of Area
+      - 50 %
+      - 50 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id212
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id213
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id214
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id215
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id216
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id217
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id212
+    - *id213
+    - *id214
+    - *id215
+    - *id216
+    - *id217
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1015 Steel, as rolled
+  notes: Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '126'
+      - '126'
+    - - Hardness, Knoop
+      - '145'
+      - '145'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '71'
+      - '71'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '131'
+      - '131'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 420 MPa
+      - 60900 psi
+    - - Tensile Strength, Yield
+      - 315 MPa
+      - 45700 psi
+    - - Elongation at Break
+      - 39 %
+      - 39 %
+      - in 50 mm
+    - - Reduction of Area
+      - 61 %
+      - 61 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+    - - Izod Impact
+      - 110 J
+      - 81.1 ft-lb
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id218
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id219
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id220
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id221
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id222
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id223
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id218
+    - *id219
+    - *id220
+    - *id221
+    - *id222
+    - *id223
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, normalized at 925\xB0C (1700\xB0F)"
+  notes: Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '121'
+      - '121'
+    - - Hardness, Knoop
+      - '140'
+      - '140'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '68'
+      - '68'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '126'
+      - '126'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 425 MPa
+      - 61600 psi
+    - - Tensile Strength, Yield
+      - 325 MPa
+      - 47100 psi
+    - - Elongation at Break
+      - 37 %
+      - 37 %
+      - in 50 mm
+    - - Reduction of Area
+      - 70 %
+      - 70 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+    - - Izod Impact
+      - 115 J
+      - 84.8 ft-lb
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id224
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id225
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id226
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id227
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id228
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id229
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id224
+    - *id225
+    - *id226
+    - *id227
+    - *id228
+    - *id229
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, annealed at 870\xB0C (1600\xB0F)"
+  notes: Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '111'
+      - '111'
+    - - Hardness, Knoop
+      - '129'
+      - '129'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '64'
+      - '64'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '115'
+      - '115'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 385 MPa
+      - 55800 psi
+    - - Tensile Strength, Yield
+      - 285 MPa
+      - 41300 psi
+    - - Elongation at Break
+      - 37 %
+      - 37 %
+      - in 50 mm
+    - - Reduction of Area
+      - 70 %
+      - 70 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+    - - Izod Impact
+      - 115 J
+      - 84.8 ft-lb
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.599 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.143 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - Thermal Conductivity
+      - "48.9 W/m-K@Temperature 200 \xB0C"
+      - "339 BTU-in/hr-ft\xB2-\xB0F@Temperature 392 \xB0F"
+      - Annealed
+    - - "51.0 W/m-K@Temperature 100 \xB0C"
+      - "354 BTU-in/hr-ft\xB2-\xB0F@Temperature 212 \xB0F"
+      - Annealed
+    - - "51.9 W/m-K@Temperature 0.000 \xB0C"
+      - "360 BTU-in/hr-ft\xB2-\xB0F@Temperature 32.0 \xB0F"
+      - Annealed
+  - - &id230
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id231
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id232
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id233
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id234
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id235
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id230
+    - *id231
+    - *id232
+    - *id233
+    - *id234
+    - *id235
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, annealed at 870\xB0C (1600\xB0F), furnace cooled 17\xB0\
+    C (31\xB0F) per hour to 725\xB0C (1340\xB0F), air cooled, 25 mm (1 in.) round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 99 HRB surface, 91 HRB half-radius,
+    90 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '111'
+      - '111'
+    - - Hardness, Knoop
+      - '129'
+      - '129'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '64'
+      - '64'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '115'
+      - '115'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 385 MPa
+      - 55800 psi
+    - - Tensile Strength, Yield
+      - 284 MPa
+      - 41200 psi
+    - - Elongation at Break
+      - 37 %
+      - 37 %
+      - in 50 mm
+    - - Reduction of Area
+      - 69.7 %
+      - 69.7 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+    - - "0.519 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.124 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.599 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.143 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id236
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id237
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id238
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id239
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id240
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id241
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id236
+    - *id237
+    - *id238
+    - *id239
+    - *id240
+    - *id241
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, normalized at 925\xB0C (1700\xB0F), 13 mm (0.5 in.) round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 36.5 HRC surface, 23 HRC half-radius,
+    22 HRC Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '126'
+      - '126'
+    - - Hardness, Knoop
+      - '145'
+      - '145'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '71'
+      - '71'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '131'
+      - '131'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 436 MPa
+      - 63200 psi
+    - - Tensile Strength, Yield
+      - 330 MPa
+      - 47900 psi
+    - - Elongation at Break
+      - 38.6 %
+      - 38.6 %
+      - in 50 mm
+    - - Reduction of Area
+      - 71 %
+      - 71 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id242
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id243
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id244
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id245
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id246
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id247
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id242
+    - *id243
+    - *id244
+    - *id245
+    - *id246
+    - *id247
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, normalized at 925\xB0C (1700\xB0F), 25 mm (1 in.) round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 99 HRB surface, 91 HRB half-radius,
+    90 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '121'
+      - '121'
+    - - Hardness, Knoop
+      - '140'
+      - '140'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '68'
+      - '68'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '126'
+      - '126'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 424 MPa
+      - 61500 psi
+    - - Tensile Strength, Yield
+      - 325 MPa
+      - 47100 psi
+    - - Elongation at Break
+      - 37 %
+      - 37 %
+      - in 50 mm
+    - - Reduction of Area
+      - 69.6 %
+      - 69.6 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id248
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id249
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id250
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id251
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id252
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id253
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id248
+    - *id249
+    - *id250
+    - *id251
+    - *id252
+    - *id253
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, normalized at 925\xB0C (1700\xB0F), 50 mm (2 in.) round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 98 HRB surface, 84 HRB half-radius,
+    82 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '116'
+      - '116'
+    - - Hardness, Knoop
+      - '135'
+      - '135'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '66'
+      - '66'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '120'
+      - '120'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 415 MPa
+      - 60200 psi
+    - - Tensile Strength, Yield
+      - 307 MPa
+      - 44500 psi
+    - - Elongation at Break
+      - 37.5 %
+      - 37.5 %
+      - in 50 mm
+    - - Reduction of Area
+      - 69.2 %
+      - 69.2 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id254
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id255
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id256
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id257
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id258
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id259
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id254
+    - *id255
+    - *id256
+    - *id257
+    - *id258
+    - *id259
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, normalized at 925\xB0C (1700\xB0F), 100 mm (4 in.) round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 97 HRB surface, 80 HRB half-radius,
+    78 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '116'
+      - '116'
+    - - Hardness, Knoop
+      - '135'
+      - '135'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '66'
+      - '66'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '120'
+      - '120'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 409 MPa
+      - 59300 psi
+    - - Tensile Strength, Yield
+      - 288 MPa
+      - 41800 psi
+    - - Elongation at Break
+      - 36.5 %
+      - 36.5 %
+      - in 50 mm
+    - - Reduction of Area
+      - 67.8 %
+      - 67.8 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id260
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id261
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id262
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id263
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id264
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id265
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id260
+    - *id261
+    - *id262
+    - *id263
+    - *id264
+    - *id265
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, mock carburized at 915\xB0C (1680\xB0F) for 8 hours, 775\xB0\
+    C (1430\xB0F) reheat, water quenched, 175\xB0C (350\xB0F) temper, 13 mm (0.5 in.)\
+    \ round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 36.5 HRC surface, 23 HRC half-radius,
+    22 HRC Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '217'
+      - '217'
+    - - Hardness, Knoop
+      - '240'
+      - '240'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '95'
+      - '95'
+      - Converted from Brinell
+    - - Hardness, Rockwell C
+      - '17'
+      - '17'
+      - Converted from Brinell hardness.  Below normal Rockwell C hardness range,
+        for comparison only.
+    - - Hardness, Vickers
+      - '228'
+      - '228'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 733 MPa
+      - 106000 psi
+    - - Tensile Strength, Yield
+      - 415 MPa
+      - 60200 psi
+    - - Elongation at Break
+      - 15 %
+      - 15 %
+      - in 50 mm
+    - - Reduction of Area
+      - 32.9 %
+      - 32.9 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id266
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id267
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id268
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id269
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id270
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id271
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id266
+    - *id267
+    - *id268
+    - *id269
+    - *id270
+    - *id271
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, mock carburized at 915\xB0C (1680\xB0F) for 8 hours, 775\xB0\
+    C (1430\xB0F) reheat, water quenched, 175\xB0C (350\xB0F) temper, 25 mm (1 in.)\
+    \ round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 99 HRB surface, 91 HRB half-radius,
+    90 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '156'
+      - '156'
+    - - Hardness, Knoop
+      - '176'
+      - '176'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '82'
+      - '82'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '163'
+      - '163'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 521 MPa
+      - 75600 psi
+    - - Tensile Strength, Yield
+      - 305 MPa
+      - 44200 psi
+    - - Elongation at Break
+      - 30 %
+      - 30 %
+      - in 50 mm
+    - - Reduction of Area
+      - 69 %
+      - 69 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id272
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id273
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id274
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id275
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id276
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id277
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id272
+    - *id273
+    - *id274
+    - *id275
+    - *id276
+    - *id277
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, mock carburized at 915\xB0C (1680\xB0F) for 8 hours, 775\xB0\
+    C (1430\xB0F) reheat, water quenched, 175\xB0C (350\xB0F) temper, 50 mm (2 in.)\
+    \ round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 98 HRB surface, 84 HRB half-radius,
+    82 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '131'
+      - '131'
+    - - Hardness, Knoop
+      - '150'
+      - '150'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '73'
+      - '73'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '136'
+      - '136'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 488 MPa
+      - 70800 psi
+    - - Tensile Strength, Yield
+      - 285 MPa
+      - 41300 psi
+    - - Elongation at Break
+      - 32 %
+      - 32 %
+      - in 50 mm
+    - - Reduction of Area
+      - 70.4 %
+      - 70.4 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id278
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id279
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id280
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id281
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id282
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id283
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id278
+    - *id279
+    - *id280
+    - *id281
+    - *id282
+    - *id283
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: "AISI 1015 Steel, mock carburized at 915\xB0C (1680\xB0F) for 8 hours, 775\xB0\
+    C (1430\xB0F) reheat, water quenched, 175\xB0C (350\xB0F) temper, 100 mm (4 in.)\
+    \ round"
+  notes: 'Better machinability and carburizing. Can be strengthened by cold working
+    or surface hardened by carburizing or cyaniding. Hot rolled sheet has excellent
+    weldability. Post water quenched hardness: 97 HRB surface, 80 HRB half-radius,
+    78 HRB Center.'
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '121'
+      - '121'
+    - - Hardness, Knoop
+      - '140'
+      - '140'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '68'
+      - '68'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '126'
+      - '126'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 464 MPa
+      - 67300 psi
+    - - Tensile Strength, Yield
+      - 270 MPa
+      - 39200 psi
+    - - Elongation at Break
+      - 30.5 %
+      - 30.5 %
+      - in 50 mm
+    - - Reduction of Area
+      - 69.5 %
+      - 69.5 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 60 %
+      - 60 %
+      - Based on 100% machinability for AISI 1212 steel.
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000292 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000292 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.9 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+      - "6.61 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+    - - "12.4 \xB5m/m-\xB0C@Temperature 0.000 - 200 \xB0C"
+      - "6.89 \xB5in/in-\xB0F@Temperature 32.0 - 392 \xB0F"
+    - - "13.0 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "7.22 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+    - - "13.5 \xB5m/m-\xB0C@Temperature 0.000 - 400 \xB0C"
+      - "7.50 \xB5in/in-\xB0F@Temperature 32.0 - 752 \xB0F"
+    - - "14.2 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.89 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id284
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id285
+      - Carbon, C
+      - 0.13 - 0.18 %
+      - 0.13 - 0.18 %
+    - &id286
+      - Iron, Fe
+      - 99.13 - 99.57 %
+      - 99.13 - 99.57 %
+      - As remainder
+    - &id287
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id288
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id289
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id284
+    - *id285
+    - *id286
+    - *id287
+    - *id288
+    - *id289
+- category: Metal; Ferrous Metal; Carbon Steel; Low Carbon Steel
+  name: AISI M1015 Merchant Quality Carbon Steel, Composition Spec
+  notes: The merchant quality steels, designated by the M in the grade, generally
+    have a slightly different composition than that of the underlying steel designation.
+  properties:
+  - - &id290
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id291
+      - Carbon, C
+      - 0.12 - 0.19 %
+      - 0.12 - 0.19 %
+    - &id292
+      - Iron, Fe
+      - 99.12 - 99.63 %
+      - 99.12 - 99.63 %
+      - As Balance
+    - &id293
+      - Manganese, Mn
+      - 0.25 - 0.60 %
+      - 0.25 - 0.60 %
+    - &id294
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id295
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id290
+    - *id291
+    - *id292
+    - *id293
+    - *id294
+    - *id295
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1016 Steel, cold drawn, 19-32 mm (0.75-1.25 in) round
+  notes: Most widely used in cold forming operations such as heading, upsetting, and
+    extrusion.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '121'
+      - '121'
+    - - Hardness, Knoop
+      - '140'
+      - '140'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '68'
+      - '68'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '126'
+      - '126'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 420 MPa
+      - 60900 psi
+    - - Tensile Strength, Yield
+      - 350 MPa
+      - 50800 psi
+    - - Elongation at Break
+      - 18 %
+      - 18 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 205 GPa
+      - 29700 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 70 %
+      - 70 %
+      - Based on AISI 1212 steel = 100%
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000160 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000160 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000220 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000220 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000290 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000290 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - "0.515 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.123 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id296
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id297
+      - Carbon, C
+      - 0.12 - 0.18 %
+      - 0.12 - 0.18 %
+    - &id298
+      - Iron, Fe
+      - 99.13 - 99.58 %
+      - 99.13 - 99.58 %
+      - As remainder
+    - &id299
+      - Manganese, Mn
+      - 0.60 - 0.90 %
+      - 0.60 - 0.90 %
+    - &id300
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id301
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id296
+    - *id297
+    - *id298
+    - *id299
+    - *id300
+    - *id301
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1016 Steel, hot rolled, 19-32 mm (0.75-1.25 in) round
+  notes: Supplied as killed, semikilled, rimmed, and capped steel. Good weldability,
+    relatively soft and strengthen with cold work during forming or drawing. Widely
+    used in cold forming operations such as heading, upsetting, and extrusion. Used
+    in the as-rolled condition as bar, shapes, sheet, and strip.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '111'
+      - '111'
+    - - Hardness, Knoop
+      - '129'
+      - '129'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '64'
+      - '64'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '115'
+      - '115'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 380 MPa
+      - 55100 psi
+    - - Tensile Strength, Yield
+      - 205 MPa
+      - 29700 psi
+    - - Elongation at Break
+      - 25 %
+      - 25 %
+      - in 50 mm
+    - - Reduction of Area
+      - 50 %
+      - 50 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000160 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000160 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000220 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000220 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000290 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000290 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.5 \xB5m/m-\xB0C@Temperature 20.0 \xB0C"
+      - "6.39 \xB5in/in-\xB0F@Temperature 68.0 \xB0F"
+      - Typical steel
+    - - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+      - Typical for steel
+    - - "13.9 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.72 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+      - Typical for steel
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - "0.515 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+      - "0.123 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+    - - "0.595 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+      - "0.142 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id302
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id303
+      - Carbon, C
+      - 0.12 - 0.18 %
+      - 0.12 - 0.18 %
+    - &id304
+      - Iron, Fe
+      - 99.13 - 99.58 %
+      - 99.13 - 99.58 %
+      - As remainder
+    - &id305
+      - Manganese, Mn
+      - 0.60 - 0.90 %
+      - 0.60 - 0.90 %
+    - &id306
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id307
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id302
+    - *id303
+    - *id304
+    - *id305
+    - *id306
+    - *id307
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1017 Steel, cold drawn
+  notes: Medium-low carbon steels have good weldability and slightly better machinability
+    than the lower carbon steels.  Relatively soft and strengthen with cold work during
+    forming or drawing
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '116'
+      - '116'
+    - - Hardness, Knoop
+      - '135'
+      - '135'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '66'
+      - '66'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '120'
+      - '120'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 405 MPa
+      - 58700 psi
+    - - Tensile Strength, Yield
+      - 340 MPa
+      - 49300 psi
+    - - Elongation at Break
+      - 18 %
+      - 18 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 205 GPa
+      - 29700 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Machinability
+      - 65 %
+      - 65 %
+      - Based on AISI 1212 steel = 100%
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - estimated by comparison with similar materials
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=95.0 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=203 \xB0F"
+      - condition unknown
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id308
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id309
+      - Carbon, C
+      - 0.14 - 0.20 %
+      - 0.14 - 0.20 %
+    - &id310
+      - Iron, Fe
+      - 99.11 - 99.56 %
+      - 99.11 - 99.56 %
+      - As remainder
+    - &id311
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id312
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id313
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id308
+    - *id309
+    - *id310
+    - *id311
+    - *id312
+    - *id313
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1017 Steel, hot rolled, 19-32 mm (0.75-1.25 in) round
+  notes: Supplied as killed, semikilled, rimmed, and capped steel. Good weldability,
+    relatively soft and strengthen with cold work during forming or drawing. Widely
+    used in cold forming operations such as heading, upsetting, and extrusion. Used
+    in the as-rolled condition as bar, shapes, sheet, and strip.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+      - Typical for steel
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '105'
+      - '105'
+    - - Hardness, Knoop
+      - '123'
+      - '123'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '60'
+      - '60'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '108'
+      - '108'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 365 MPa
+      - 52900 psi
+    - - Tensile Strength, Yield
+      - 200 MPa
+      - 29000 psi
+    - - Elongation at Break
+      - 26 %
+      - 26 %
+      - in 50 mm
+    - - Reduction of Area
+      - 50 %
+      - 50 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+      - Typical for steel
+    - - Bulk Modulus
+      - 160 GPa
+      - 23200 ksi
+      - Typical for steel
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical For Steel
+    - - Shear Modulus
+      - 80.0 GPa
+      - 11600 ksi
+      - Typical for steel
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - estimated by comparison with similar materials
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - CTE, linear
+      - "11.5 \xB5m/m-\xB0C@Temperature 20.0 \xB0C"
+      - "6.39 \xB5in/in-\xB0F@Temperature 68.0 \xB0F"
+      - Typical steel
+    - - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 300 \xB0C"
+      - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 572 \xB0F"
+      - Typical for steel
+    - - "13.9 \xB5m/m-\xB0C@Temperature 0.000 - 500 \xB0C"
+      - "7.72 \xB5in/in-\xB0F@Temperature 32.0 - 932 \xB0F"
+      - Typical for steel
+    - - Specific Heat Capacity
+      - "0.481 J/g-\xB0C@Temperature >=95.0 \xB0C"
+      - "0.115 BTU/lb-\xB0F@Temperature >=203 \xB0F"
+      - condition unknown
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id314
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id315
+      - Carbon, C
+      - 0.14 - 0.20 %
+      - 0.14 - 0.20 %
+    - &id316
+      - Iron, Fe
+      - 99.11 - 99.56 %
+      - 99.11 - 99.56 %
+      - As remainder
+    - &id317
+      - Manganese, Mn
+      - 0.30 - 0.60 %
+      - 0.30 - 0.60 %
+    - &id318
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id319
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id314
+    - *id315
+    - *id316
+    - *id317
+    - *id318
+    - *id319
+- category: Metal; Ferrous Metal; Carbon Steel; Low Carbon Steel
+  name: AISI M1017 Merchant Quality Carbon Steel, Composition Spec
+  notes: The merchant quality steels, designated by the M in the grade, generally
+    have a slightly different composition than that of the underlying steel designation.
+  properties:
+  - - &id320
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id321
+      - Carbon, C
+      - 0.14 - 0.21 %
+      - 0.14 - 0.21 %
+    - &id322
+      - Iron, Fe
+      - 99.1 - 99.61 %
+      - 99.1 - 99.61 %
+      - As Balance
+    - &id323
+      - Manganese, Mn
+      - 0.25 - 0.60 %
+      - 0.25 - 0.60 %
+    - &id324
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id325
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id320
+    - *id321
+    - *id322
+    - *id323
+    - *id324
+    - *id325
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1018 Steel, cold drawn
+  notes: Medium low-carbon steel, has good weldability and slightly better machinability
+    than the lower carbon steels.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '126'
+      - '126'
+    - - Hardness, Knoop
+      - '145'
+      - '145'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '71'
+      - '71'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '131'
+      - '131'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 440 MPa
+      - 63800 psi
+    - - Tensile Strength, Yield
+      - 370 MPa
+      - 53700 psi
+    - - Elongation at Break
+      - 15 %
+      - 15 %
+      - In 50 mm
+    - - Reduction of Area
+      - 40 %
+      - 40 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+    - - Bulk Modulus
+      - 159 GPa
+      - 23100 ksi
+      - Estimated from elastic modulus
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical for steel
+    - - Machinability
+      - 70 %
+      - 70 %
+      - Based on AISI 1212 steel = 100%
+    - - Shear Modulus
+      - 78.0 GPa
+      - 11300 ksi
+      - Estimated from elastic modulus
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000293 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000293 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 51.9 W/m-K
+      - "360 BTU-in/hr-ft\xB2-\xB0F"
+      - estimated based on similar materials
+  - - &id326
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id327
+      - Carbon, C
+      - 0.14 - 0.20 %
+      - 0.14 - 0.20 %
+    - &id328
+      - Iron, Fe
+      - 98.81 - 99.26 %
+      - 98.81 - 99.26 %
+      - As remainder
+    - &id329
+      - Manganese, Mn
+      - 0.60 - 0.90 %
+      - 0.60 - 0.90 %
+    - &id330
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id331
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id326
+    - *id327
+    - *id328
+    - *id329
+    - *id330
+    - *id331
+- category: Metal; Ferrous Metal; Carbon Steel; AISI 1000 Series Steel; Low Carbon
+    Steel
+  name: AISI 1018 Steel, hot rolled, quenched, and tempered
+  notes: Medium low-carbon steel, has good weldability and slightly better machinability
+    than lower carbon grades.
+  properties:
+  - - - Physical Properties
+      - Metric
+      - English
+      - Comments
+    - - Density
+      - 7.87 g/cc
+      - "0.284 lb/in\xB3"
+  - - - Mechanical Properties
+      - Metric
+      - English
+      - Comments
+    - - Hardness, Brinell
+      - '143'
+      - '143'
+    - - Hardness, Knoop
+      - '163'
+      - '163'
+      - Converted from Brinell
+    - - Hardness, Rockwell B
+      - '78'
+      - '78'
+      - Converted from Brinell
+    - - Hardness, Vickers
+      - '149'
+      - '149'
+      - Converted from Brinell
+    - - Tensile Strength, Ultimate
+      - 475 MPa
+      - 68900 psi
+    - - Tensile Strength, Yield
+      - 275 MPa
+      - 39900 psi
+    - - Elongation at Break
+      - 38 %
+      - 38 %
+      - In 50 mm
+    - - Reduction of Area
+      - 62 %
+      - 62 %
+    - - Modulus of Elasticity
+      - 200 GPa
+      - 29000 ksi
+    - - Bulk Modulus
+      - 159 GPa
+      - 23100 ksi
+      - Estimated from elastic modulus
+    - - Poissons Ratio
+      - '0.29'
+      - '0.29'
+      - Typical for steel
+    - - Machinability
+      - 52 %
+      - 52 %
+      - Based on AISI 1212 steel = 100%
+    - - Shear Modulus
+      - 78.0 GPa
+      - 11300 ksi
+      - Estimated from elastic modulus
+  - - - Electrical Properties
+      - Metric
+      - English
+      - Comments
+    - - Electrical Resistivity
+      - "0.0000159 ohm-cm@Temperature 0.000 \xB0C"
+      - "0.0000159 ohm-cm@Temperature 32.0 \xB0F"
+      - annealed condition
+    - - "0.0000219 ohm-cm@Temperature 100 \xB0C"
+      - "0.0000219 ohm-cm@Temperature 212 \xB0F"
+      - annealed condition
+    - - "0.0000293 ohm-cm@Temperature 200 \xB0C"
+      - "0.0000293 ohm-cm@Temperature 392 \xB0F"
+      - annealed condition
+  - - - Thermal Properties
+      - Metric
+      - English
+      - Comments
+    - - Specific Heat Capacity
+      - "0.486 J/g-\xB0C@Temperature >=100 \xB0C"
+      - "0.116 BTU/lb-\xB0F@Temperature >=212 \xB0F"
+      - annealed
+    - - Thermal Conductivity
+      - 49.8 W/m-K
+      - "346 BTU-in/hr-ft\xB2-\xB0F"
+      - Typical steel
+  - - &id332
+      - Component Elements Properties
+      - Metric
+      - English
+      - Comments
+    - &id333
+      - Carbon, C
+      - 0.14 - 0.20 %
+      - 0.14 - 0.20 %
+    - &id334
+      - Iron, Fe
+      - 98.81 - 99.26 %
+      - 98.81 - 99.26 %
+      - As remainder
+    - &id335
+      - Manganese, Mn
+      - 0.60 - 0.90 %
+      - 0.60 - 0.90 %
+    - &id336
+      - Phosphorus, P
+      - <= 0.040 %
+      - <= 0.040 %
+    - &id337
+      - Sulfur, S
+      - <= 0.050 %
+      - <= 0.050 %
+  - - *id332
+    - *id333
+    - *id334
+    - *id335
+    - *id336
+    - *id337

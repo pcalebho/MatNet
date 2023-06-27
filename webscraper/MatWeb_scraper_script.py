@@ -30,7 +30,7 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
         next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' (%i/%i)" % (searches[i], i+1 , len(searches))
-        with click.progressbar(pages, label= bar_label) as bar:
+        with click.progressbar(range(1), label= bar_label) as bar:
             for page in bar:
                 time.sleep(1)
 
@@ -59,9 +59,15 @@ def parse_table(material_path: str, driver):
     matl_notes_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlNotes")
     category_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlGroups")
     
+    material_notes = None
+    categories = None
+
     try:
-        categories = category_table.find('td').text 
-        material_notes = matl_notes_table.find('td').text
+        if matl_notes_table is not None:
+            material_notes = matl_notes_table.find('td').text
+        
+        if category_table is not None:
+            categories = category_table.find('td').text 
     except Exception:
         raise Exception(material_path)
         
