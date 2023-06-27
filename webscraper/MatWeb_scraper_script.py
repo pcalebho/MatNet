@@ -6,10 +6,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-import requests
+from selenium.webdriver.common.by import ByS
 import click
 from tabulate import tabulate
+import yaml
 
 def search_material_pages(searches: list[str], driver) -> list[str]:
     material_pages = []
@@ -94,11 +94,11 @@ def parse_table(material_path: str, driver):
     material_name = material_name.strip()
 
     return (material_name, {'notes': material_notes, 'category': categories, 'properties': property_tables})
-    
-    
 
+def write_yaml_file(file_path, data):
+    with open(file_path, 'a') as file:
+        yaml.dump(data, file)
     
-
 
 if __name__ == '__main__':
     test1 = '/search/DataSheet.aspx?MatGUID=7b75475aa1bc41618788f63c6500d36b'
