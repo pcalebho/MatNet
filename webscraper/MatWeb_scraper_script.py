@@ -30,7 +30,7 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
         next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' (%i/%i)" % (searches[i], i+1 , len(searches))
-        with click.progressbar(range(1), label= bar_label) as bar:
+        with click.progressbar(pages, label= bar_label) as bar:
             for page in bar:
                 time.sleep(1)
 
@@ -54,12 +54,16 @@ def parse_table(material_path: str, driver):
     soup = BeautifulSoup(driver.page_source,'html.parser')
     table = soup.find_all("table", class_ = "tabledataformat")
 
+
     #find supplementary notes in tables
     matl_notes_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlNotes")
     category_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlGroups")
     
-    categories = category_table.find('td').text 
-    material_notes = matl_notes_table.find('td').text  
+    try:
+        categories = category_table.find('td').text 
+        material_notes = matl_notes_table.find('td').text
+    except Exception:
+        raise Exception(material_path)
         
 
     #Third table in html page has correct content
@@ -68,6 +72,7 @@ def parse_table(material_path: str, driver):
     property_tables_ix: int = 0
     rows = main_table.find_all('tr')
     data = []
+
     
     #This creates a list of tables from the main content table. 
     for row in rows:
@@ -115,20 +120,23 @@ if __name__ == '__main__':
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), \
                               options=options)
-
-    # results = search_material_pages(searches=['AISI'],driver= driver)
-    # print('Number of results: ', len(results))
-    # print(results)
-    data = parse_table(test1,driver)
     
-    property_tables = data['properties']
-    for t in property_tables:
-        print(tabulate(t))
+    matdata_list =[]
 
-    write_yaml_file('output.yaml', data, True)
+    results = search_material_pages(searches=['AISI'],driver= driver)
 
-    with open('output.yaml', 'r') as file:
-        data = yaml.safe_load(file)
+    with click.progressbar(results, label= 'Parsing Tables') as bar:
+        for result in bar:
+            matdata_list.append(parse_table(result,driver))
+
+    write_yaml_file('output.yaml', matdata_list, True)
+
+    # with open('output.yaml', 'r') as file:
+    #     input = yaml.safe_load(file)
+
+    # property_tables = input['properties']
+    # for t in property_tables:
+    #     print(tabulate(t))
 
 
     driver.quit()
