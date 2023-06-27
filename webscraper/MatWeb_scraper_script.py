@@ -76,7 +76,8 @@ def parse_table(material_path: str, driver):
         if category_table is not None:
             categories = category_table.find('td').text 
     except Exception:
-        raise Exception(material_path)
+        exception_msg = 'Issues with grabbing material and category notes: ' + material_path
+        raise Exception(exception_msg)
         
 
     #Third table in html page has correct content
@@ -138,11 +139,15 @@ if __name__ == '__main__':
 
     results = search_material_pages(searches=['AISI'],driver= driver)
 
-    # with click.progressbar(results, label= 'Parsing Tables') as bar:
-    #     for result in bar:
-    #         matdata_list.append(parse_table(result,driver))
+    with click.progressbar(results, label= 'Parsing Tables') as bar:
+        for result in bar:
+            try:
+                matdata_list.append(parse_table(result,driver))
+            except Exception:
+                exception_msg = 'Issue parsing: ' + result
+                raise Exception(exception_msg)
 
-    # write_yaml_file('output.yaml', matdata_list, True)
+    write_yaml_file('output.yaml', matdata_list, True)
 
 
     driver.quit()
