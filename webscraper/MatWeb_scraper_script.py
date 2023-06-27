@@ -48,29 +48,35 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
     return(material_pages)
 
 def parse_table(material_path: str, driver):
+    '''Is used for parsing a content table from MatWeb'''
     material_page = 'https://matweb.com' + material_path
     driver.get(material_page)
     soup = BeautifulSoup(driver.page_source,'html.parser')
+    table = soup.find_all("table", class_ = "tabledataformat")
+
+    #find supplementary notes in tables
+    matl_notes_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlNotes")
+    category_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlGroups")
+    
+    categories = category_table.find('td').text 
+    material_notes = matl_notes_table.find('td').text  
+        
 
     #Third table in html page has correct content
-    table = soup.find_all("table", class_ = "tabledataformat")
     main_table = table[2].find('tbody')
-
-    
-    table_body = main_table.find('tbody')
     property_tables = []
     property_tables_ix: int = 0
-    rows = table_body.find_all('tr')
+    rows = main_table.find_all('tr')
     data = []
     
     #This creates a list of tables from the main content table. 
     for row in rows:
-        cols = row.find_all(['td'])
+        cols = row.find_all('td')
 
         #necessary to delimit tables within content tables
         if not cols:
             data = []
-            cols = row.find_all(['th'])
+            cols = row.find_all('th')
             property_tables.append(data)
             property_tables_ix += 1
 
@@ -83,17 +89,13 @@ def parse_table(material_path: str, driver):
     for i in range(len(property_tables)):
         property_tables[i] = [x for x in property_tables[i] if x != []]
 
-
-    #have type checker ignore None type error
+    #find name of material in page and remove unnecessary whitespace
     material_name = soup.find('title').get_text() # pyright: ignore[reportOptionalMemberAccess]
     material_name = material_name.strip()
 
-    print(material_name)
-    # print(data)
-    for t in property_tables:
-        print(tabulate(t))
+    return (material_name, {'notes': material_notes, 'category': categories, 'properties': property_tables})
     
-    print(property_tables[0])
+    
 
     
 
@@ -113,8 +115,13 @@ if __name__ == '__main__':
     # results = search_material_pages(searches=['AISI'],driver= driver)
     # print('Number of results: ', len(results))
     # print(results)
-    parse_table(test1,driver)
-    # print(dataframe[0].head())
+    (material_name, data) = parse_table(test1,driver)
+    print(material_name)
+    print(data['notes'])
+    print(data['category'])
+    property_tables = data['properties']
+    for t in property_tables:
+        print(tabulate(t))
 
     driver.quit()
     print('Done')
