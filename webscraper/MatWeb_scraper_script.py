@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import ByS
+from selenium.webdriver.common.by import By
 import click
 from tabulate import tabulate
 import yaml
@@ -93,12 +93,16 @@ def parse_table(material_path: str, driver):
     material_name = soup.find('title').get_text() # pyright: ignore[reportOptionalMemberAccess]
     material_name = material_name.strip()
 
-    return (material_name, {'notes': material_notes, 'category': categories, 'properties': property_tables})
+    return {'name': material_name,'notes': material_notes, 'category': categories, 'properties': property_tables}
 
-def write_yaml_file(file_path, data):
-    with open(file_path, 'a') as file:
-        yaml.dump(data, file)
-    
+def write_yaml_file(file_path, data, overwrite= False):
+    if not overwrite:
+        with open(file_path, 'a') as file:
+            yaml.dump(data, file)
+    else:
+        with open(file_path, 'w') as file:
+            yaml.dump(data, file)
+        
 
 if __name__ == '__main__':
     test1 = '/search/DataSheet.aspx?MatGUID=7b75475aa1bc41618788f63c6500d36b'
@@ -115,13 +119,17 @@ if __name__ == '__main__':
     # results = search_material_pages(searches=['AISI'],driver= driver)
     # print('Number of results: ', len(results))
     # print(results)
-    (material_name, data) = parse_table(test1,driver)
-    print(material_name)
-    print(data['notes'])
-    print(data['category'])
+    data = parse_table(test1,driver)
+    
     property_tables = data['properties']
     for t in property_tables:
         print(tabulate(t))
+
+    write_yaml_file('output.yaml', data, True)
+
+    with open('output.yaml', 'r') as file:
+        data = yaml.safe_load(file)
+
 
     driver.quit()
     print('Done')

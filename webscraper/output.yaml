@@ -1,0 +1,165 @@
+category: Metal; Ferrous Metal; Alloy Steel; AISI 4000 Series Steel; Low Alloy Steel;
+  Carbon Steel; Medium Carbon Steel
+name: "AISI 4140 Steel, annealed at 815\xB0C (1500\xB0F) furnace cooled 11\xB0C (20\xB0\
+  F)/hour to 665\xB0C (1230\xB0F), air cooled, 25 mm (1 in.) round"
+notes: Medium-carbon steel with high hardenability and good fatigue, abrasion and
+  impact resistance.
+properties:
+- - - Physical Properties
+    - Metric
+    - English
+    - Comments
+  - - Density
+    - 7.85 g/cc
+    - "0.284 lb/in\xB3"
+- - - Mechanical Properties
+    - Metric
+    - English
+    - Comments
+  - - Hardness, Brinell
+    - '197'
+    - '197'
+  - - Hardness, Knoop
+    - '219'
+    - '219'
+    - Converted from Brinell
+  - - Hardness, Rockwell B
+    - '92'
+    - '92'
+    - Converted from Brinell
+  - - Hardness, Rockwell C
+    - '13'
+    - '13'
+    - Converted from Brinell hardness. Value below normal HRC range, for comparison
+      purposes only.
+  - - Hardness, Vickers
+    - '207'
+    - '207'
+    - Converted from Brinell
+  - - Tensile Strength, Ultimate
+    - 655 MPa
+    - 95000 psi
+  - - Tensile Strength, Yield
+    - 415 MPa
+    - 60200 psi
+  - - Elongation at Break
+    - 25.7 %
+    - 25.7 %
+    - in 50 mm
+  - - Reduction of Area
+    - 56.9 %
+    - 56.9 %
+  - - Modulus of Elasticity
+    - 205 GPa
+    - 29700 ksi
+    - Typical for steel
+  - - Bulk Modulus
+    - 160 GPa
+    - 23200 ksi
+    - Typical for steel
+  - - Poissons Ratio
+    - '0.29'
+    - '0.29'
+    - Calculated
+  - - Machinability
+    - 65 %
+    - 65 %
+    - Based on AISI 1212 as 100% machinability.
+  - - Shear Modulus
+    - 80.0 GPa
+    - 11600 ksi
+    - Typical for steel
+- - - Electrical Properties
+    - Metric
+    - English
+    - Comments
+  - - Electrical Resistivity
+    - "0.0000220 ohm-cm@Temperature 20.0 \xB0C"
+    - "0.0000220 ohm-cm@Temperature 68.0 \xB0F"
+    - specimen hardened and tempered
+  - - "0.0000263 ohm-cm@Temperature 100 \xB0C"
+    - "0.0000263 ohm-cm@Temperature 212 \xB0F"
+    - specimen hardened and tempered
+  - - "0.0000326 ohm-cm@Temperature 200 \xB0C"
+    - "0.0000326 ohm-cm@Temperature 392 \xB0F"
+    - specimen hardened and tempered
+  - - "0.0000475 ohm-cm@Temperature 400 \xB0C"
+    - "0.0000475 ohm-cm@Temperature 752 \xB0F"
+    - specimen hardened and tempered
+  - - "0.0000646 ohm-cm@Temperature 600 \xB0C"
+    - "0.0000646 ohm-cm@Temperature 1110 \xB0F"
+    - specimen hardened and tempered
+- - - Thermal Properties
+    - Metric
+    - English
+    - Comments
+  - - CTE, linear
+    - "12.2 \xB5m/m-\xB0C@Temperature 0.000 - 100 \xB0C"
+    - "6.78 \xB5in/in-\xB0F@Temperature 32.0 - 212 \xB0F"
+  - - "13.7 \xB5m/m-\xB0C@Temperature 20.0 - 400 \xB0C"
+    - "7.61 \xB5in/in-\xB0F@Temperature 68.0 - 752 \xB0F"
+  - - "14.6 \xB5m/m-\xB0C@Temperature 20.0 - 600 \xB0C"
+    - "8.11 \xB5in/in-\xB0F@Temperature 68.0 - 1110 \xB0F"
+  - - Specific Heat Capacity
+    - "0.473 J/g-\xB0C@Temperature 150 - 200 \xB0C"
+    - "0.113 BTU/lb-\xB0F@Temperature 302 - 392 \xB0F"
+  - - "0.519 J/g-\xB0C@Temperature 350 - 400 \xB0C"
+    - "0.124 BTU/lb-\xB0F@Temperature 662 - 752 \xB0F"
+  - - "0.561 J/g-\xB0C@Temperature 550 - 600 \xB0C"
+    - "0.134 BTU/lb-\xB0F@Temperature 1020 - 1110 \xB0F"
+  - - Thermal Conductivity
+    - "33.0 W/m-K@Temperature 600 \xB0C"
+    - "229 BTU-in/hr-ft\xB2-\xB0F@Temperature 1110 \xB0F"
+  - - "37.7 W/m-K@Temperature 400 \xB0C"
+    - "262 BTU-in/hr-ft\xB2-\xB0F@Temperature 752 \xB0F"
+  - - "42.2 W/m-K@Temperature 200 \xB0C"
+    - "293 BTU-in/hr-ft\xB2-\xB0F@Temperature 392 \xB0F"
+  - - "42.6 W/m-K@Temperature 100 \xB0C"
+    - "296 BTU-in/hr-ft\xB2-\xB0F@Temperature 212 \xB0F"
+- - &id001
+    - Component Elements Properties
+    - Metric
+    - English
+    - Comments
+  - &id002
+    - Carbon, C
+    - 0.38 - 0.43 %
+    - 0.38 - 0.43 %
+  - &id003
+    - Chromium, Cr
+    - 0.80 - 1.1 %
+    - 0.80 - 1.1 %
+  - &id004
+    - Iron, Fe
+    - 96.785 - 97.77 %
+    - 96.785 - 97.77 %
+    - As remainder
+  - &id005
+    - Manganese, Mn
+    - 0.75 - 1.0 %
+    - 0.75 - 1.0 %
+  - &id006
+    - Molybdenum, Mo
+    - 0.15 - 0.25 %
+    - 0.15 - 0.25 %
+  - &id007
+    - Phosphorus, P
+    - <= 0.035 %
+    - <= 0.035 %
+  - &id008
+    - Silicon, Si
+    - 0.15 - 0.30 %
+    - 0.15 - 0.30 %
+  - &id009
+    - Sulfur, S
+    - <= 0.040 %
+    - <= 0.040 %
+- - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
