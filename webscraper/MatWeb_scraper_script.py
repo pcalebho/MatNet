@@ -185,6 +185,7 @@ if __name__ == '__main__':
                 exception_msg = 'Issue parsing: ' + page
                 num_failed_parse += 1 
                 print(exception_msg)
+                write_to_log('error_log.txt', exception_msg)
 
     out_file = '-'.join(searches) + '.yaml'
     out_file = out_file.replace(' ','_')
