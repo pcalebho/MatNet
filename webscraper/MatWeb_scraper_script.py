@@ -153,7 +153,7 @@ def chrome_proxy(user: str, password: str, endpoint: str) -> dict:
 
 def write_to_log(log_file: str, error_msg: str):
     with open(log_file, 'a') as file:
-        file.write(error_msg)   
+        file.write(error_msg)
         
 
 if __name__ == '__main__':
@@ -171,10 +171,12 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
-    searches = ['Aluminum alloy','Brass','Bronze','Titanium','AISI']
+    # searches = ['Aluminum alloy','Brass','Bronze','Titanium','AISI']
+    searches = ['4140']
     material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
     num_successful_parse = len(material_pages)
     num_failed_parse = 0
+    FOLDER_LOCATION = '/result_files/'
 
     with click.progressbar(material_pages, label= 'Parsing Tables') as bar:
         for page in bar:
@@ -185,11 +187,11 @@ if __name__ == '__main__':
                 exception_msg = 'Issue parsing: ' + page
                 num_failed_parse += 1 
                 print(exception_msg)
-                write_to_log('error_log.txt', exception_msg)
+                write_to_log(FOLDER_LOCATION + 'error_log.txt', exception_msg)
 
     out_file = '-'.join(searches) + '.yaml'
     out_file = out_file.replace(' ','_')
-    write_yaml_file(out_file, matdata_list, True)
+    write_yaml_file(FOLDER_LOCATION + out_file, matdata_list, True)
 
     driver.quit()
     end = time.time()
