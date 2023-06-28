@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import pandas as pd
 import re
 import time
 from selenium import webdriver
@@ -18,7 +17,9 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
     material_pages = []
     url_list = []
 
-    [url_list.append('https://matweb.com/search/QuickText.aspx?SearchText=' + search) for search in searches]
+    [url_list.append(
+        'https://matweb.com/search/QuickText.aspx?SearchText=' + search)\
+              for search in searches]
 
     i = 0
     for url in url_list:
@@ -26,18 +27,21 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
         driver.get(url)
 
         #Number of pages are used for the end condition of the loop
-        page_select_button = driver.find_element(By.NAME, 'ctl00$ContentMain$ucSearchResults1$drpPageSelect1')
+        page_select_button = driver.find_element(
+            By.NAME, 'ctl00$ContentMain$ucSearchResults1$drpPageSelect1')
         pages = page_select_button.find_elements(By.TAG_NAME, 'option')
 
         #Used for pagination
-        next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
+        next_button = driver.find_element(
+            By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' (%i/%i)" % (searches[i], i+1 , len(searches))
         with click.progressbar(pages, label= bar_label) as bar:
             for page in bar:
                 try:
-                    element = WebDriverWait(driver, 10).until(
-                        EC.element_to_be_clickable((By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage'))
+                    WebDriverWait(driver, 10).until(
+                        EC.element_to_be_clickable((
+                            By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage'))
                     )
                 except Exception:
                     raise Exception('Timeout')
@@ -48,7 +52,8 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
                 for link in soup.find_all('a', id = re.compile('^lnkMatl')):
                     material_pages.append(link.get('href')) 
 
-                next_button = driver.find_element(By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
+                next_button = driver.find_element(
+                    By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
                 next_button.click()
          
         i += 1
@@ -77,7 +82,8 @@ def parse_table(material_path: str, driver):
         if category_table is not None:
             categories = category_table.find('td').text 
     except Exception:
-        exception_msg = 'Issues with grabbing material and category notes: ' + material_path
+        exception_msg = 'Issues with grabbing material and category notes: ' \
+            + material_path
         raise Exception(exception_msg)
         
 
@@ -109,10 +115,11 @@ def parse_table(material_path: str, driver):
         property_tables[i] = [x for x in property_tables[i] if x != []]
 
     #find name of material in page and remove unnecessary whitespace
-    material_name = soup.find('title').get_text() # pyright: ignore[reportOptionalMemberAccess]
+    material_name = soup.find('title').get_text() # pyright: ignore[reportOptionalMemberAccess]  # noqa: E501
     material_name = material_name.strip()
 
-    return {'name': material_name,'notes': material_notes, 'category': categories, 'properties': property_tables}
+    return {'name': material_name,'notes': material_notes, \
+            'category': categories, 'properties': property_tables}
 
 def write_yaml_file(file_path, data, overwrite= False):
     if not overwrite:
