@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 from seleniumwire import webdriver
 # A package to have a chromedriver always up-to-date.
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
 
 USERNAME = "pcho69"
 PASSWORD = "StealthyWebsitePumpk1n"
@@ -24,8 +23,7 @@ def execute_driver():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     proxies = chrome_proxy(USERNAME, PASSWORD, ENDPOINT)
-    driver = webdriver.Chrome(
-       service=Service(ChromeDriverManager().install()), 
+    driver = webdriver.Chrome( 
        options=options, 
        seleniumwire_options=proxies
     )
