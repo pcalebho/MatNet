@@ -172,8 +172,8 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
-    # searches = ['Aluminum alloy','Brass','Bronze','Titanium','AISI']
-    searches = ['overview of materials for Bronze']
+    searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
+    # searches = ['overview of materials for Bronze']
     material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
     num_successful_parse = len(material_pages)
     num_failed_parse = 0
@@ -187,7 +187,7 @@ if __name__ == '__main__':
             try:
                 matdata_list.append(parse_table(page,driver))
             except Exception:
-                exception_msg = 'Issue parsing: ' + page
+                exception_msg = 'Issue parsing: ' + page +'\n'
                 num_failed_parse += 1 
                 consecutive_faults[iter%3] = True
                 print(exception_msg)
