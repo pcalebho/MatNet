@@ -153,6 +153,7 @@ def chrome_proxy(user: str, password: str, endpoint: str) -> dict:
         
 
 if __name__ == '__main__':
+    start = time.time()
     test1 = '/search/DataSheet.aspx?MatGUID=7b75475aa1bc41618788f63c6500d36b'
     test2 = '/search/DataSheet.aspx?MatGUID=210fcd12132049d0a3e0cabe7d091eef'
     options = Options()
@@ -166,8 +167,8 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
-
-    results = search_by_keyword(searches=['AISI'],driver= driver,debug=True)
+    searches = ['Aluminum alloy','Brass','Bronze','Titanium','AISI']
+    results = search_by_keyword(searches=searches,driver= driver, debug= True)
 
     with click.progressbar(results, label= 'Parsing Tables') as bar:
         for result in bar:
@@ -178,8 +179,10 @@ if __name__ == '__main__':
                 exception_msg = 'Issue parsing: ' + result
                 raise Exception(exception_msg)
 
-    write_yaml_file('output.yaml', matdata_list, True)
-
+    out_file = '-'.join(searches) + '.yaml'
+    out_file = out_file.replace(' ','_')
+    write_yaml_file(out_file, matdata_list, True)
 
     driver.quit()
-    print('Done')
+    end = time.time()
+    print('Runtime: ', (end-start)/60, 'min')
