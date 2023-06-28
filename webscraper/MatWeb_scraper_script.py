@@ -1,8 +1,7 @@
 from bs4 import BeautifulSoup
 import re
 import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,7 +12,12 @@ from tabulate import tabulate
 import yaml
 import random
 
-def search_material_pages(searches: list[str], driver) -> list[str]:
+#OXYLABS PROXY INFO
+USERNAME = "pcho69"
+PASSWORD = "StealthyWebsitePumpk1n"
+ENDPOINT = "pr.oxylabs.io:7777"
+
+def search_material_pages(searches: list[str], driver, debug==False) -> list[str]:
     material_pages = []
     url_list = []
 
@@ -36,7 +40,13 @@ def search_material_pages(searches: list[str], driver) -> list[str]:
             By.ID, 'ctl00_ContentMain_ucSearchResults1_lnkNextPage')
 
         bar_label = "'%s' (%i/%i)" % (searches[i], i+1 , len(searches))
-        with click.progressbar(pages, label= bar_label) as bar:
+        
+        #Will only search one page if debug is true
+        num_pages = len(pages)
+        if debug:
+            num_pages = 1
+
+        with click.progressbar(range(num_pages), label= bar_label) as bar:
             for page in bar:
                 try:
                     WebDriverWait(driver, 10).until(
@@ -128,6 +138,16 @@ def write_yaml_file(file_path, data, overwrite= False):
     else:
         with open(file_path, 'w') as file:
             yaml.dump(data, file)
+
+def chrome_proxy(user: str, password: str, endpoint: str) -> dict:
+    wire_options = {
+        "proxy": {
+            "http": f"http://{user}:{password}@{endpoint}",
+            "https": f"http://{user}:{password}@{endpoint}",
+        }
+    }
+
+    return wire_options
         
 
 if __name__ == '__main__':
@@ -139,12 +159,13 @@ if __name__ == '__main__':
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
 
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), \
-                              options=options)
+    proxies = chrome_proxy(USERNAME,PASSWORD,ENDPOINT)
+    #service=Service(ChromeDriverManager().install()), \
+    driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
 
-    results = search_material_pages(searches=['AISI'],driver= driver)
+    results = search_material_pages(searches=['AISI'],driver= driver,debug=True)
 
     with click.progressbar(results, label= 'Parsing Tables') as bar:
         for result in bar:
