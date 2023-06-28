@@ -96,7 +96,7 @@ def parse_table(material_path: str, driver):
     except Exception:
         exception_msg = 'Issues with grabbing material and category notes: ' \
             + material_path
-        raise Exception(exception_msg)
+        print(exception_msg)
         
 
     #Third table in html page has correct content
@@ -150,6 +150,10 @@ def chrome_proxy(user: str, password: str, endpoint: str) -> dict:
     }
 
     return wire_options
+
+def write_to_log(log_file: str, error_msg: str):
+    with open(log_file, 'a') as file:
+        file.write(error_msg)   
         
 
 if __name__ == '__main__':
@@ -168,16 +172,19 @@ if __name__ == '__main__':
     
     matdata_list =[]
     searches = ['Aluminum alloy','Brass','Bronze','Titanium','AISI']
-    results = search_by_keyword(searches=searches,driver= driver, debug= True)
+    material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
+    num_successful_parse = len(material_pages)
+    num_failed_parse = 0
 
-    with click.progressbar(results, label= 'Parsing Tables') as bar:
-        for result in bar:
+    with click.progressbar(material_pages, label= 'Parsing Tables') as bar:
+        for page in bar:
             time.sleep(random.random())
             try:
-                matdata_list.append(parse_table(result,driver))
+                matdata_list.append(parse_table(page,driver))
             except Exception:
-                exception_msg = 'Issue parsing: ' + result
-                raise Exception(exception_msg)
+                exception_msg = 'Issue parsing: ' + page
+                num_failed_parse += 1 
+                print(exception_msg)
 
     out_file = '-'.join(searches) + '.yaml'
     out_file = out_file.replace(' ','_')
@@ -185,4 +192,7 @@ if __name__ == '__main__':
 
     driver.quit()
     end = time.time()
+    num_successful_parse -= num_failed_parse
     print('Runtime: ', (end-start)/60, 'min')
+    print('Successful searches: ', num_successful_parse)
+    print('Failed Searches: ', num_failed_parse)
