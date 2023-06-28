@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from seleniumwire import webdriver
 # A package to have a chromedriver always up-to-date.
-from webdriver_manager.chrome import ChromeDriverManager
 
 USERNAME = "pcho69"
 PASSWORD = "StealthyWebsitePumpk1n"

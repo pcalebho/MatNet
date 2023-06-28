@@ -3,7 +3,6 @@ import re
 import time
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -17,7 +16,7 @@ USERNAME = "pcho69"
 PASSWORD = "StealthyWebsitePumpk1n"
 ENDPOINT = "pr.oxylabs.io:7777"
 
-def search_material_pages(searches: list[str], driver, debug==False) -> list[str]:
+def search_material_pages(searches: list[str], driver, debug=False) -> list[str]:
     material_pages = []
     url_list = []
 
