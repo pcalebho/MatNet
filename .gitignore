@@ -1,4 +1,5 @@
 MatNet.code-workspace
+ca.crt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
