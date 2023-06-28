@@ -16,7 +16,7 @@ USERNAME = "pcho69"
 PASSWORD = "StealthyWebsitePumpk1n"
 ENDPOINT = "pr.oxylabs.io:7777"
 
-def search_material_pages(searches: list[str], driver, debug=False) -> list[str]:
+def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
     material_pages = []
     url_list = []
 
@@ -68,6 +68,9 @@ def search_material_pages(searches: list[str], driver, debug=False) -> list[str]
         i += 1
 
     return(material_pages)
+
+def search_by_property():
+    pass
 
 def parse_table(material_path: str, driver):
     '''Is used for parsing a content table from MatWeb'''
@@ -164,7 +167,7 @@ if __name__ == '__main__':
     
     matdata_list =[]
 
-    results = search_material_pages(searches=['AISI'],driver= driver,debug=True)
+    results = search_by_keyword(searches=['AISI'],driver= driver,debug=True)
 
     with click.progressbar(results, label= 'Parsing Tables') as bar:
         for result in bar:
