@@ -10,6 +10,7 @@ import click
 from tabulate import tabulate
 import yaml
 import random
+import os
 
 #OXYLABS PROXY INFO
 USERNAME = "pcho69"
@@ -172,12 +173,14 @@ if __name__ == '__main__':
     
     matdata_list =[]
     # searches = ['Aluminum alloy','Brass','Bronze','Titanium','AISI']
-    searches = ['4140']
+    searches = ['overview of materials for Bronze']
     material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
     num_successful_parse = len(material_pages)
     num_failed_parse = 0
-    FOLDER_LOCATION = '/result_files/'
-
+    folder_location =  os.path.dirname(os.path.abspath(__file__))+'/results_files/'
+    consecutive_faults = [False, False, False]
+    
+    iter = 0
     with click.progressbar(material_pages, label= 'Parsing Tables') as bar:
         for page in bar:
             time.sleep(random.random())
@@ -186,12 +189,20 @@ if __name__ == '__main__':
             except Exception:
                 exception_msg = 'Issue parsing: ' + page
                 num_failed_parse += 1 
+                consecutive_faults[iter%3] = True
                 print(exception_msg)
-                write_to_log(FOLDER_LOCATION + 'error_log.txt', exception_msg)
+                write_to_log(folder_location + 'error_log.txt', exception_msg)
+            else:
+                consecutive_faults[iter%3] = False
+                
+            if all(consecutive_faults):
+                raise Exception('ERROR: 3 consecutive faults')
+            
+            iter += 1
 
     out_file = '-'.join(searches) + '.yaml'
     out_file = out_file.replace(' ','_')
-    write_yaml_file(FOLDER_LOCATION + out_file, matdata_list, True)
+    write_yaml_file(folder_location + out_file, matdata_list, True)
 
     driver.quit()
     end = time.time()
