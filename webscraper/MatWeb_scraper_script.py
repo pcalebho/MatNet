@@ -12,6 +12,7 @@ from selenium.webdriver.common.by import By
 import click
 from tabulate import tabulate
 import yaml
+import random
 
 def search_material_pages(searches: list[str], driver) -> list[str]:
     material_pages = []
@@ -86,7 +87,6 @@ def parse_table(material_path: str, driver):
     property_tables_ix: int = 0
     rows = main_table.find_all('tr')
     data = []
-
     
     #This creates a list of tables from the main content table. 
     for row in rows:
@@ -141,6 +141,7 @@ if __name__ == '__main__':
 
     with click.progressbar(results, label= 'Parsing Tables') as bar:
         for result in bar:
+            time.sleep(random.random())
             try:
                 matdata_list.append(parse_table(result,driver))
             except Exception:
