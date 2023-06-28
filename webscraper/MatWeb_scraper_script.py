@@ -172,18 +172,28 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
-    searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
-    # searches = ['overview of materials for Bronze']
+    # searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
+    searches = ['overview of materials for Bronze']
     material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
     num_successful_parse = len(material_pages)
     num_failed_parse = 0
+    
     folder_location =  os.path.dirname(os.path.abspath(__file__))+'/results_files/'
+
+    try:
+        os.mkdir(folder_location)
+    except FileExistsError:
+        pass
+
     consecutive_faults = [False, False, False]
     
     iter = 0
     with click.progressbar(material_pages, label= 'Parsing Tables') as bar:
         for page in bar:
             time.sleep(random.random())
+            if (iter%100 == 0 and iter != 0):
+                time.sleep(60*10)
+
             try:
                 matdata_list.append(parse_table(page,driver))
             except Exception:
