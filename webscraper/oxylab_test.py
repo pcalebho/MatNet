@@ -4,6 +4,8 @@ import urllib.request
 from bs4 import BeautifulSoup
 import requests
 import time
+import aiohttp
+import asyncio
 # A package to have a chromedriver always up-to-date.
 
 USERNAME = "pcho69"
@@ -46,10 +48,11 @@ def execute_urllib_request():
         'https': entry,
     })
     execute = urllib.request.build_opener(query)
-    soup = BeautifulSoup(execute.open('https://ip.oxylabs.io').read(),'html.parser')
+    soup = BeautifulSoup(execute.open('https://ip.oxylabs.io').read(),'lxml')
     print(soup.get_text())
 
 def just_request():
+    '''This is the fastest method it seems'''
     proxies = chrome_proxy(USERNAME, PASSWORD, ENDPOINT)
 
     response = requests.get(
@@ -57,19 +60,31 @@ def just_request():
         proxies=proxies,
         verify=True
     )
-    soup = BeautifulSoup(response.content,'html.parser')
-    print(soup.get_text())
+    soup = BeautifulSoup(response.content,'lxml')
+    return soup.get_text().strip()
 
+async def fetch(session,url):
+    async with session.get(url) as response:
+        return await response.text()
+
+async def async_requests():
+    async with aiohttp.ClientSession() as session:
+        for number in range(5):
+            url = 'https://ip.oxylabs.io'
+            html = await fetch(session, url)
+            soup = BeautifulSoup(html, 'html.parser')
+            print(soup.get_text().strip())
 
 
 if __name__ == "__main__":
-    # execute_driver()
-    
+    sync_start = time.time()
+    for i in range(5):
+        print(just_request())
+    sync_end = time.time()
 
-    start = time.time()
-    just_request()
-    print('request: ', time.time()-start)
+    async_start = time.time()
+    asyncio.run(async_requests())
+    async_end = time.time()
 
-    start = time.time()
-    execute_urllib_request()
-    print('URLlib_runtime: ', time.time()-start)
+    print('Sync: ', sync_end - sync_start)
+    print('Async: ', async_end - async_start)
