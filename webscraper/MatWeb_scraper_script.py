@@ -79,9 +79,8 @@ def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
 def search_by_property():
     pass
 
-async def parse_table(*material_paths):
-    '''Is used for parsing a content table from MatWeb'''
-    
+async def scrape(*material_paths):
+    result: list[dict] = []
     async with aiohttp.ClientSession() as session:
         for page in material_paths:
             async with session.get(
@@ -90,12 +89,14 @@ async def parse_table(*material_paths):
             ) as response:
                 content = await response.text()
                 soup = BeautifulSoup(content,'lxml')
-                print(soup.get_text().strip())
+                result.append(parse_table(soup))
+    
+    return result
 
-    driver.get(material_page)
-    soup = BeautifulSoup(driver.page_source,'html.parser')
+
+def parse_table(soup):
+    '''Is used for parsing a content table from MatWeb'''
     table = soup.find_all("table", class_ = "tabledataformat")
-
 
     #find supplementary notes in tables
     matl_notes_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlNotes")
@@ -112,7 +113,7 @@ async def parse_table(*material_paths):
             categories = category_table.find('td').text 
     except Exception:
         exception_msg = 'Issues with grabbing material and category notes: ' \
-            + material_path
+            + page
         print(exception_msg)
         
 
