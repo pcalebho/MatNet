@@ -11,9 +11,9 @@ from tabulate import tabulate
 import yaml
 import random
 import os
-import aiohttp
-import asyncio
 from list_manipulation import group_lists
+import urllib.request
+import requests
 
 #OXYLABS PROXY INFO
 USERNAME = "pcho69"
@@ -80,19 +80,26 @@ def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
 def search_by_property():
     pass
 
-async def scrape(material_paths) -> list[dict]:
+def scrape(material_paths) -> list[dict]:
     result: list[dict] = []
-    proxy = 'http://customer-%s:%s@pr.oxylabs.io:7777' % (USERNAME, PASSWORD)
-    async with aiohttp.ClientSession() as session:
-        for relative_path in material_paths:
-            path = 'https://matweb.com' + relative_path
-            async with session.get(
-                    path,
-                    proxy=proxy
-            ) as response:
-                content = await response.text()
-                soup = BeautifulSoup(content,'html.parser')
-                result.append(parse_table(soup))
+    entry = ('http://customer-%s:%s@pr.oxylabs.io:7777' %
+        (USERNAME, PASSWORD))
+    query = {
+        'http': entry,
+        'https': entry,
+    }
+
+    for relative_path in material_paths:
+        proxies = query
+        path = 'https://matweb.com' + relative_path
+
+        response = requests.get(
+            url=path,
+            proxies= proxies,
+            verify=True
+        )
+        soup = BeautifulSoup(response.content,'lxml')
+        result.append(parse_table(soup))    
     
     return result
 
@@ -100,6 +107,8 @@ async def scrape(material_paths) -> list[dict]:
 def parse_table(soup):
     '''Is used for parsing a content table from MatWeb'''
     table = soup.find_all("table", class_ = "tabledataformat")
+    if len(table) != 3:
+        raise Exception('IP Blocked')
 
     #find supplementary notes in tables
     matl_notes_table = table[1].find(id= "ctl00_ContentMain_ucDataSheet1_trMatlNotes")
@@ -217,7 +226,7 @@ if __name__ == '__main__':
             time.sleep(random.random())
 
             try:
-                matdata_list.append(asyncio.run(scrape(pages)))
+                matdata_list.append(scrape(pages))
             except Exception:
                 exception_msg = 'Issue parsing: ' +'\n'
                 num_failed_parse += 1 
