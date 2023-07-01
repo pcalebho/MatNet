@@ -14,11 +14,12 @@ import os
 from list_manipulation import group_lists
 import urllib.request
 import requests
+import oxy_auth as auth
 
 #OXYLABS PROXY INFO
-USERNAME = "pcho69"
-PASSWORD = "StealthyWebsitePumpk1n"
-ENDPOINT = "pr.oxylabs.io:7777"
+USERNAME = auth.USERNAME
+PASSWORD = auth.PASSWORD
+ENDPOINT = auth.ENDPOINT
 
 def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
     '''
