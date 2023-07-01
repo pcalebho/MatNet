@@ -57,20 +57,21 @@ def execute_urllib_request():
         'https': entry,
     })
     execute = urllib.request.build_opener(query)
-    soup = BeautifulSoup(execute.open('https://ip.oxylabs.io').read(),'lxml')
-    print(soup.get_text())
+    soup = BeautifulSoup(execute.open('https://ip.oxylabs.io').read(),'html.parser')
+    print(soup.get_text().strip())
 
 def just_request():
     '''This is the fastest method it seems'''
-    proxies = proxy_2(USERNAME, PASSWORD)
+    for i in range(20):
+        proxies = proxy_2(USERNAME, PASSWORD)
 
-    response = requests.get(
-        url='https://ip.oxylabs.io',
-        proxies= proxies,
-        verify=True
-    )
-    soup = BeautifulSoup(response.content,'lxml')
-    return soup.get_text().strip()
+        response = requests.get(
+            url='https://ip.oxylabs.io',
+            proxies= proxies,
+            verify=True
+        )
+        soup = BeautifulSoup(response.content,'lxml')
+        print(soup.get_text().strip())
 
 async def fetch(session,url):
     async with session.get(url, proxy = proxy_2(USERNAME, PASSWORD)) as response:
@@ -78,24 +79,27 @@ async def fetch(session,url):
 
 async def async_requests():
     async with aiohttp.ClientSession() as session:
-        for number in range(5):
-            url = 'https://ip.oxylabs.io'
-            html = await fetch(session, url)
-            soup = BeautifulSoup(html, 'html.parser')
-            print(soup.get_text().strip())
+        for i in range(10):
+            async with session.get(
+                    'https://ip.oxylabs.io/',
+                    proxy='http://customer-%s:%s@pr.oxylabs.io:7777' % (USERNAME, PASSWORD)
+            ) as response:
+                content = await response.text()
+                soup = BeautifulSoup(content,'lxml')
+                print(soup.get_text().strip())
 
 
 if __name__ == "__main__":
     # sync_start = time.time()
-    # for i in range(5):
-    #     print(just_request())
+    # just_request()
     # sync_end = time.time()
 
     async_start = time.time()
-    asyncio.run(async_requests())
+    for i in range(2):
+        asyncio.run(async_requests())
     async_end = time.time()
 
     # print('Sync: ', sync_end - sync_start)
     print('Async: ', async_end - async_start)
 
-    print(just_request())
+    # print(just_request())
