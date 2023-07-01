@@ -13,6 +13,7 @@ import random
 import os
 import aiohttp
 import asyncio
+from list_manipulation import group_lists
 
 #OXYLABS PROXY INFO
 USERNAME = "pcho69"
@@ -79,16 +80,18 @@ def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
 def search_by_property():
     pass
 
-async def scrape(*material_paths):
+async def scrape(material_paths) -> list[dict]:
     result: list[dict] = []
+    proxy = 'http://customer-%s:%s@pr.oxylabs.io:7777' % (USERNAME, PASSWORD)
     async with aiohttp.ClientSession() as session:
-        for page in material_paths:
+        for relative_path in material_paths:
+            path = 'https://matweb.com' + relative_path
             async with session.get(
-                    'https://matweb.com' + page,
-                    proxy='http://customer-%s:%s@pr.oxylabs.io:7777' % (USERNAME, PASSWORD)
+                    path,
+                    proxy=proxy
             ) as response:
                 content = await response.text()
-                soup = BeautifulSoup(content,'lxml')
+                soup = BeautifulSoup(content,'html.parser')
                 result.append(parse_table(soup))
     
     return result
@@ -113,7 +116,7 @@ def parse_table(soup):
             categories = category_table.find('td').text 
     except Exception:
         exception_msg = 'Issues with grabbing material and category notes: ' \
-            + page
+            + pages
         print(exception_msg)
         
 
@@ -151,6 +154,7 @@ def parse_table(soup):
     return {'name': material_name,'notes': material_notes, \
             'category': categories, 'properties': property_tables}
 
+
 def write_yaml_file(file_path, data, overwrite= False):
     if not overwrite:
         with open(file_path, 'a') as file:
@@ -158,6 +162,7 @@ def write_yaml_file(file_path, data, overwrite= False):
     else:
         with open(file_path, 'w') as file:
             yaml.dump(data, file)
+            
 
 def selenium_proxy(user: str, password: str, endpoint: str) -> dict:
     wire_options = {
@@ -180,7 +185,7 @@ if __name__ == '__main__':
     test2 = '/search/DataSheet.aspx?MatGUID=210fcd12132049d0a3e0cabe7d091eef'
     options = Options()
     options.add_experimental_option("detach",True)
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
 
@@ -189,8 +194,8 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
-    searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
-    # searches = ['overview of materials for Bronze']
+    # searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
+    searches = ['overview of materials for Bronze']
     material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
     num_successful_parse = len(material_pages)
     num_failed_parse = 0
@@ -205,14 +210,16 @@ if __name__ == '__main__':
     consecutive_faults = [False, False, False]
     
     iter = 0
-    with click.progressbar(material_pages, label= 'Parsing Tables') as bar:
-        for page in bar:
+    grouping = 10
+    grouped_pages = group_lists(material_pages, grouping)
+    with click.progressbar(grouped_pages, label= 'Parsing Tables') as bar:
+        for pages in bar:
             time.sleep(random.random())
 
             try:
-                matdata_list.append(parse_table(page,driver))
+                matdata_list.append(asyncio.run(scrape(pages)))
             except Exception:
-                exception_msg = 'Issue parsing: ' + page +'\n'
+                exception_msg = 'Issue parsing: ' +'\n'
                 num_failed_parse += 1 
                 consecutive_faults[iter%3] = True
                 print(exception_msg)
@@ -225,6 +232,7 @@ if __name__ == '__main__':
             
             iter += 1
 
+    matdata_list = sum(matdata_list, [])
     out_file = '-'.join(searches) + '.yaml'
     out_file = out_file.replace(' ','_')
     write_yaml_file(folder_location + out_file, matdata_list, True)
