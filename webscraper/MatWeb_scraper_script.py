@@ -11,6 +11,8 @@ from tabulate import tabulate
 import yaml
 import random
 import os
+import aiohttp
+import asyncio
 
 #OXYLABS PROXY INFO
 USERNAME = "pcho69"
@@ -18,6 +20,10 @@ PASSWORD = "StealthyWebsitePumpk1n"
 ENDPOINT = "pr.oxylabs.io:7777"
 
 def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
+    '''
+        Returns a list of strings 
+        Parameters: 
+    '''
     material_pages = []
     url_list = []
 
@@ -73,9 +79,19 @@ def search_by_keyword(searches: list[str], driver, debug=False) -> list[str]:
 def search_by_property():
     pass
 
-def parse_table(material_path: str, driver):
+async def parse_table(*material_paths):
     '''Is used for parsing a content table from MatWeb'''
-    material_page = 'https://matweb.com' + material_path
+    
+    async with aiohttp.ClientSession() as session:
+        for page in material_paths:
+            async with session.get(
+                    'https://matweb.com' + page,
+                    proxy='http://customer-%s:%s@pr.oxylabs.io:7777' % (USERNAME, PASSWORD)
+            ) as response:
+                content = await response.text()
+                soup = BeautifulSoup(content,'lxml')
+                print(soup.get_text().strip())
+
     driver.get(material_page)
     soup = BeautifulSoup(driver.page_source,'html.parser')
     table = soup.find_all("table", class_ = "tabledataformat")
@@ -142,7 +158,7 @@ def write_yaml_file(file_path, data, overwrite= False):
         with open(file_path, 'w') as file:
             yaml.dump(data, file)
 
-def chrome_proxy(user: str, password: str, endpoint: str) -> dict:
+def selenium_proxy(user: str, password: str, endpoint: str) -> dict:
     wire_options = {
         "proxy": {
             "http": f"http://{user}:{password}@{endpoint}",
@@ -163,17 +179,17 @@ if __name__ == '__main__':
     test2 = '/search/DataSheet.aspx?MatGUID=210fcd12132049d0a3e0cabe7d091eef'
     options = Options()
     options.add_experimental_option("detach",True)
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
 
-    proxies = chrome_proxy(USERNAME,PASSWORD,ENDPOINT)
+    proxies = selenium_proxy(USERNAME,PASSWORD,ENDPOINT)
     #service=Service(ChromeDriverManager().install()), \
     driver = webdriver.Chrome(options=options, seleniumwire_options=proxies)
     
     matdata_list =[]
-    # searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
-    searches = ['overview of materials for Bronze']
+    searches = ['Aluminum alloy','Bronze','Brass','Titanium','AISI']
+    # searches = ['overview of materials for Bronze']
     material_pages = search_by_keyword(searches=searches,driver= driver, debug= True)
     num_successful_parse = len(material_pages)
     num_failed_parse = 0
@@ -191,8 +207,6 @@ if __name__ == '__main__':
     with click.progressbar(material_pages, label= 'Parsing Tables') as bar:
         for page in bar:
             time.sleep(random.random())
-            if (iter%100 == 0 and iter != 0):
-                time.sleep(60*10)
 
             try:
                 matdata_list.append(parse_table(page,driver))
