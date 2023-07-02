@@ -1,6 +1,7 @@
 import oxy_auth as auth
 from bs4 import BeautifulSoup
 import re
+import os
 import time
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -53,6 +54,7 @@ class Searcher():
         dropdown1_id = 'ctl00_ContentMain_ucPropertyDropdown1_drpPropertyList'
         dropdown2_id = 'ctl00_ContentMain_ucPropertyDropdown2_drpPropertyList'
         dropdown3_id = 'ctl00_ContentMain_ucPropertyDropdown3_drpPropertyList'
+        search_dropdown_id = 'ctl00_ContentMain_UcSearchResults1_drpPageSelect1'
         num_results_id = 'ctl00_ContentMain_UcSearchResults1_lblResultCount'
         max_input_value_id = 'ctl00_ContentMain_ucPropertyEdit1_lblPropertyMaxRange'
         min_input_id1 = 'ctl00_ContentMain_ucPropertyEdit1_txtpMin'
@@ -62,17 +64,20 @@ class Searcher():
         min_input_id3 = 'ctl00_ContentMain_ucPropertyEdit3_txtpMin'
         max_input_id3 = 'ctl00_ContentMain_ucPropertyEdit3_txtpMax'
         find_button_id = 'ctl00_ContentMain_btnSubmit'
+        next_page_id = 'ctl00_ContentMain_UcSearchResults1_lnkNextPage'
+        table_id = 'tblResults'
+        
 
         dropdown1 = Select(self.driver.find_element(By.ID, dropdown1_id))
         dropdown2 = Select(self.driver.find_element(By.ID, dropdown2_id))
         dropdown3 = Select(self.driver.find_element(By.ID, dropdown3_id))
 
         seconds_between_selection = 5
-        dropdown1.select_by_value('745')
+        dropdown1.select_by_value('745')            #yield strength
         time.sleep(seconds_between_selection)
-        dropdown2.select_by_value('743')
+        dropdown2.select_by_value('743')            #ultimate strengh
         time.sleep(seconds_between_selection)
-        dropdown3.select_by_value('518')
+        dropdown3.select_by_value('518')            #modulus
         time.sleep(seconds_between_selection)
 
         wait = WebDriverWait(self.driver, 10)
@@ -96,13 +101,61 @@ class Searcher():
 
         min_input_field1.send_keys(str(start_value))
         max_input_field1.send_keys(str(end_value))
+        time.sleep(2)
         find_button.click()
 
         #------------ don't change anything above this dumbass
+
+        search_dropdown = Select(self.driver.find_element(By.ID, search_dropdown_id))
+        num_pages = len(search_dropdown.options)
+
+        results = []
+
+        with click.progressbar(range(num_pages)) as bar:
+            for i in bar:
+                search_dropdown = Select(self.driver.find_element(By.ID, search_dropdown_id))
+                search_dropdown.select_by_index(i)
+                element = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.ID, table_id))
+                )
+                time.sleep(1)
+                results += self._parse()
+        
+        return results
+
+    
+    def _parse(self):
+        result = {}
+        result_list = []
+        properties = ('Yield Strength', 'Ultimate Strength', 'Modulus of Elasticity')
+        datacell_class = 'propcell'
+        table_id = 'tblResults'
+        # soup = BeautifulSoup(self.driver.page_source,'lxml')
+        # rows = soup.find_all('tr', id=table_id)
+
+        table = self.driver.find_element(By.ID, table_id)
+        rows = table.find_elements(By.TAG_NAME, 'tr')
+        rows.pop(0)            #remove header row                                                
+
+
+        for row in rows:
+            material = row.find_element(By.CSS_SELECTOR, 'a')
+            data_cells = row.find_elements(By.CLASS_NAME, datacell_class)
+            
+            result['link']  = material.get_attribute('href')
+            result['name'] = material.text
+
+            result['yield_strength'] = data_cells[0].text
+            result['ult_strength']= data_cells[1].text
+            result['elastic_mod'] = data_cells[2].text
+
+            result_list.append(result)
+            result = {}
+
+        return result_list
+        
         
         # wait.until(EC.element_to_be_selected(self.driver.find_element(By.ID, num_results_id)))
-
-
 
     def delete_cookies(self):
         self.driver.delete_all_cookies()
@@ -113,10 +166,27 @@ class Searcher():
     def create_list(self):
         pass
 
+def write_yaml_file(file_path, data, overwrite= False):
+    folder_location =  os.path.dirname(os.path.abspath(__file__))+'/results_files/'
+
+    try:
+        os.mkdir(folder_location)
+    except FileExistsError:
+        pass
+
+    if not overwrite:
+        with open(folder_location+file_path, 'a') as file:
+            yaml.dump(data, file)
+    else:
+        with open(folder_location+file_path, 'w') as file:
+            yaml.dump(data, file)
+
+
 if __name__ == '__main__':
     a = Searcher(debug=True)
     start = time.time()
-    a.find_results(0, 10)
+    output = a.find_results(0, 23)
+    write_yaml_file('propertySearch.yaml',output,overwrite=False)
     end = time.time()
-    print('settling time: ', end-start)
+    print('Runtime: ', end-start)
     input()
