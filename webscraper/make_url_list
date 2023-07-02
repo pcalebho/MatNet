@@ -229,10 +229,11 @@ if __name__ == '__main__':
     #         write_yaml_file('propertySearch.yaml',output,overwrite=False)
     #         a = Searcher(debug=True)
 
-    min_value = 530
-    max_value = 610
+    min_value = 1200
+    max_value = 5810
     output = a.find_results(min_value, max_value)
     write_yaml_file('propertySearch.yaml',output,overwrite=False)
 
     end = time.time()
     print('Runtime: ', end-start)
+    print(min_value, ' ' ,max_value)
