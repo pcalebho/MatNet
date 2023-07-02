@@ -7,9 +7,12 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 import click
 from tabulate import tabulate
 import yaml
+import time
+import random
 
 #OXYLABS PROXY INFO
 USERNAME = auth.USERNAME
@@ -20,23 +23,89 @@ ENDPOINT = auth.ENDPOINT
 class Searcher():
     URL = 'https://matweb.com/search/PropertySearch.aspx'
 
-    def __init__(self):
+    def __init__(self, debug = False):
         wire_options = {
-        "proxy": {
-            "http": f"http://{USERNAME}:{PASSWORD}@{ENDPOINT}",
-            "https": f"http://{USERNAME}:{PASSWORD}@{ENDPOINT}",
+            "proxy": {
+                "http": f"http://{USERNAME}:{PASSWORD}@{ENDPOINT}",
+                "https": f"http://{USERNAME}:{PASSWORD}@{ENDPOINT}",
+            }
         }
-    }
         options = Options()
-        options.add_experimental_option("detach",True)
-        options.add_argument('--headless')
+        if not debug:
+            options.add_argument('--headless')
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--incognito')
 
-        driver = webdriver.Firefox(options=options, seleniumwire_options=wire_options)
-
-    def get_range(self):
+        self.driver = webdriver.Chrome(options=options, seleniumwire_options=wire_options)
+        self.driver.get(self.URL)
+    
+    def __del__(self):
         pass
+        self.driver.quit()
+
+    def checkIP(self):
+        self.driver.get("https://ip.oxylabs.io/")
+        IP = self.driver.find_element(By.CSS_SELECTOR, "pre").text
+        self.driver.back()
+        return IP
+
+    def find_results(self, start_value: float, end_value: float):
+        dropdown1_id = 'ctl00_ContentMain_ucPropertyDropdown1_drpPropertyList'
+        dropdown2_id = 'ctl00_ContentMain_ucPropertyDropdown2_drpPropertyList'
+        dropdown3_id = 'ctl00_ContentMain_ucPropertyDropdown3_drpPropertyList'
+        num_results_id = 'ctl00_ContentMain_UcSearchResults1_lblResultCount'
+        max_input_value_id = 'ctl00_ContentMain_ucPropertyEdit1_lblPropertyMaxRange'
+        min_input_id1 = 'ctl00_ContentMain_ucPropertyEdit1_txtpMin'
+        max_input_id1 = 'ctl00_ContentMain_ucPropertyEdit1_txtpMax'
+        min_input_id2 = 'ctl00_ContentMain_ucPropertyEdit2_txtpMin'
+        max_input_id2 = 'ctl00_ContentMain_ucPropertyEdit2_txtpMax'
+        min_input_id3 = 'ctl00_ContentMain_ucPropertyEdit3_txtpMin'
+        max_input_id3 = 'ctl00_ContentMain_ucPropertyEdit3_txtpMax'
+        find_button_id = 'ctl00_ContentMain_btnSubmit'
+
+        dropdown1 = Select(self.driver.find_element(By.ID, dropdown1_id))
+        dropdown2 = Select(self.driver.find_element(By.ID, dropdown2_id))
+        dropdown3 = Select(self.driver.find_element(By.ID, dropdown3_id))
+
+        seconds_between_selection = 5
+        dropdown1.select_by_value('745')
+        time.sleep(seconds_between_selection)
+        dropdown2.select_by_value('743')
+        time.sleep(seconds_between_selection)
+        dropdown3.select_by_value('518')
+        time.sleep(seconds_between_selection)
+
+        wait = WebDriverWait(self.driver, 10)
+        # wait.until(EC.visibility_of_element_located(By.ID, max_input_value_id))
+
+        min_input_field1 = self.driver.find_element(By.ID, min_input_id1)
+        max_input_field1 = self.driver.find_element(By.ID, max_input_id1)
+        min_input_field2 = self.driver.find_element(By.ID, min_input_id2)
+        max_input_field2 = self.driver.find_element(By.ID, max_input_id2)
+        min_input_field3 = self.driver.find_element(By.ID, min_input_id3)
+        max_input_field3 = self.driver.find_element(By.ID, max_input_id3)
+
+        find_button = self.driver.find_element(By.ID, find_button_id)
+        
+        min_input_field1.clear()
+        min_input_field2.clear()
+        min_input_field3.clear()
+
+        min_input_field2.send_keys('0')
+        min_input_field3.send_keys('0')
+
+        min_input_field1.send_keys(str(start_value))
+        max_input_field1.send_keys(str(end_value))
+        find_button.click()
+
+        #------------ don't change anything above this dumbass
+        
+        # wait.until(EC.element_to_be_selected(self.driver.find_element(By.ID, num_results_id)))
+
+
+
+    def delete_cookies(self):
+        self.driver.delete_all_cookies()
 
     def setup(self, searches: list[str], driver, debug=False):
         pass
@@ -45,4 +114,9 @@ class Searcher():
         pass
 
 if __name__ == '__main__':
-    a = Searcher()
+    a = Searcher(debug=True)
+    start = time.time()
+    a.find_results(0, 10)
+    end = time.time()
+    print('settling time: ', end-start)
+    input()
