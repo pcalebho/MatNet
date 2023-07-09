@@ -1,56 +1,24 @@
 import os
-
+from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template
 # from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 
+MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
+
+client = MongoClient(MONGODB_URI)
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-db = SQLAlchemy()
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = \
-#     'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:JetMat_22@localhost:3306/matjet_mysql'
-# Database can add new data after request
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-
-db.init_app(app)
 
 
 num_sliders = 5
 material_properties = ["", "Elastic Modulus",
                        "Yield Strength", "Weight", "Cost", "Ultimate Strength", "six"]
 
-# This model is used to create a table and add rows
 
-
-class Materials(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    material_name = db.Column(db.String(70), unique=True, nullable=False)
-    ultimate_strength = db.Column(db.Integer)
-    yield_strength = db.Column(db.Integer)
-    density = db.Column(db.Float)
-
-    # Method used for outputting String representation
-
-    def __repr__(self):
-        return '<Material Name: %r>' % self.material_name
-
-
-with app.app_context():
-    db.create_all()
-# class Vendors(db.Model):
-#     pass
-
-# class HeatTreatment(db.Model):
-#     pass
-
-# view function for base page
-
-
-@app.route('/')
+@app.route('/', methods = ('GET','POST'))
 def root():
     return render_template('index.html', material_properties=material_properties,
                            matprop_len=len(material_properties), num_sliders=num_sliders)
