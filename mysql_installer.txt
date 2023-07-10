@@ -1,3 +1,0 @@
-mysql: 
-port: 3306
-xprotocolport:33060
