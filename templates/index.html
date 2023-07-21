@@ -44,9 +44,21 @@
                 <th>Machineability</th>
                 <th>Elastic Modulus</th>
                 <th>Yield Strength</th>
-                <th>Density</th>
+                <th>Ultimate Strength</th>
             </tr>
         </thead>
+        <tbody>
+            {% for i in range(10)%}
+            <tr>
+                <td>{{datasheets[i].name}}</td>
+                <td>{{datasheets[i].cost}}</td>
+                <td>{{datasheets[i].machineability}}</td>
+                <td>{{datasheets[i].elastic_mod}}</td>
+                <td>{{datasheets[i].yield_strength}}</td>
+                <td>{{datasheets[i].ult_strength}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
 {% endblock %}
