@@ -90,7 +90,7 @@ body {
     align-items: flex-start;
 }
 
-.table {
+table {
     height: 550px;
     margin-right: var(--content-margin);
     margin-left: var(--content-margin);
