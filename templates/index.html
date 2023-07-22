@@ -5,10 +5,10 @@
 {%block head%}
 {%endblock%}
 
-{%block content%}
 
+{%block content%}
 <div class = "content">
-    <form action="/" >
+    <form action="/" id="criterion-forms">
         {%for i in range(0,num_sliders)%}
         <div class = "slider-container">
             <select name="Criterion-{{i}}" class = "slider">
@@ -21,6 +21,7 @@
         </div>
         {%endfor%}
     </form>
+    <button type="submit" form="criterion-forms" value="Submit">Submit</button>
     <script>
         const rangeSlider_array = [];
         const output_array = [];
@@ -36,29 +37,12 @@
             }
         }
     </script>
-    <table class = "material_table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Cost</th>
-                <th>Machineability</th>
-                <th>Elastic Modulus</th>
-                <th>Yield Strength</th>
-                <th>Ultimate Strength</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in range(10)%}
-            <tr>
-                <td>{{datasheets[i].name}}</td>
-                <td>{{datasheets[i].cost}}</td>
-                <td>{{datasheets[i].machineability}}</td>
-                <td>{{datasheets[i].elastic_mod}}</td>
-                <td>{{datasheets[i].yield_strength}}</td>
-                <td>{{datasheets[i].ult_strength}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div id="table"></div>
 </div>
 {% endblock %}
+
+{%block scripts%}
+<script src="{{url_for('static', filename='main_table.js')}}"></script>
+{% endblock %}
+
+
