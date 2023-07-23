@@ -14,14 +14,7 @@ with open('webscraper/results_files/AISI_steels_fakedata.yaml','r') as stream:
     except FileNotFoundError:
         raise FileNotFoundError
 
-df = pd.DataFrame(raw_data)
-print(df)
-
-# 2 alternatives by 3 criteria
-matrix = [
-    [1, 2, 3],  # alternative 1
-    [4, 5, 6],  # alternative 2
-]
+dataframe = pd.DataFrame(raw_data)
 
 # let's says the first two alternatives are
 # for maximization and the last one for minimization
@@ -29,11 +22,9 @@ objectives = [max, max, min]
 
 # we use the built-in function as aliases
 dm = skc.mkdm(
-    matrix,
+    dataframe,
     objectives,
-    alternatives=["car 0", "car 1"],
     weights=[0.5, 0.05, 0.45],
-    criteria=["autonomy", "comfort", "price"],
 )
 dm = dm.copy(alternatives=["VW", "Ford"])
 
