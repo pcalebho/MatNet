@@ -1,7 +1,7 @@
 import os
 import re
 from pymongo.mongo_client import MongoClient
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 #Connecting and creating MongoDB client instance
 MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
@@ -18,11 +18,16 @@ app = Flask(__name__)
 
 num_sliders = 5
 material_properties = ["", "Elastic Modulus",
-                       "Yield Strength", "Desnity", "Cost", "Ultimate Strength", "Machineability"]
+                       "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
 
 
 @app.route('/', methods = ('GET','POST'))
 def root():
+    if request.method == 'POST':
+        criterions = [request.form[f'Criterion-{i}'] for i in range(num_sliders)]
+        weights = [request.form[f'sliderRange-{i}'] for i in range(num_sliders)]
+        
+
     return render_template(
         'index.html', 
         material_properties=material_properties,
