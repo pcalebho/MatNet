@@ -58,8 +58,6 @@ def data():
     criterions = session.get('criterions', [])
     weights = session.get('weights', [])
     weights = [int(i) for i in weights]
-    print(criterions)
-    print(weights)
 
     materials = []
     for material in datasheets_collection.find():
@@ -67,10 +65,10 @@ def data():
         material.pop('link')
         materials.append(material)
     
-    # if criterions != [] and weights != []:
-    #     result_df = rank_materials(criterions, weights, materials)
-    # else:
-    result_df = pd.DataFrame(materials)
+    if criterions != [] and weights != []:
+        result_df = rank_materials(criterions, weights, materials)
+    else:
+        result_df = pd.DataFrame(materials)
 
     # search filter
     search = request.args.get('search')
