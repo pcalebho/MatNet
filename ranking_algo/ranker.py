@@ -1,6 +1,7 @@
 import pandas as pd
 import skcriteria as skc
 import numpy as np
+import yaml
 from skcriteria.preprocessing import invert_objectives, scalers
 from skcriteria.madm import simple
 
@@ -32,7 +33,7 @@ def rank_materials(criterions, weights, raw_data):
 
     #Reformat and normalize weights
     np_weights = np.asarray(list(formData.values()))
-    np_weights = np.divide(weights,10)
+    np_weights = np.divide(np_weights,10)
 
     #get objectives from weights
     objectives = []
@@ -52,7 +53,7 @@ def rank_materials(criterions, weights, raw_data):
     dm = skc.mkdm(
         df.to_numpy(),
         objectives= objectives,
-        weights= weights,
+        weights= np_weights.tolist(),
         alternatives = row_id,
         criteria= list(formData.keys())
     )
@@ -74,3 +75,16 @@ def rank_materials(criterions, weights, raw_data):
     SortedDF = df_with_score.sort_values(by = 'Score', ascending = False)
 
     return SortedDF
+
+if __name__ == '__main__':
+    with open('C:/Users/ttrol/CodingProjects/MatNet/webscraper/results_files/AISI_steels_fakedata.yaml','r') as stream:
+        try:
+            raw_data = yaml.safe_load(stream)
+        except FileNotFoundError:
+            raise FileNotFoundError
+        
+    criterions = [ 'Yield Strength', 'Cost', 'Machineability', 'Elastic Modulus', 'Ultimate Strength']
+    raw_weights = [10, -10, 3, 0, 0]
+    
+    df = rank_materials(criterions, raw_weights, raw_data)
+    print(df)
