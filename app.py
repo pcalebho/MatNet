@@ -1,7 +1,10 @@
 import os
 import re
+import pandas as pd
 from pymongo.mongo_client import MongoClient
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, session
+from ranking_algo.ranker import rank_materials
+import numpy as np
 
 #Connecting and creating MongoDB client instance
 MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
@@ -14,7 +17,7 @@ datasheets_collection = material_db.test_collection
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 num_sliders = 5
 material_properties = ["", "Elastic Modulus",
@@ -27,7 +30,10 @@ def root():
         criterions = [request.form[f'Criterion-{i}'] for i in range(num_sliders)]
         weights = [request.form[f'sliderRange-{i}'] for i in range(num_sliders)]
         
+        session['criterions'] = criterions
+        session['weights'] = weights
 
+    
     return render_template(
         'index.html', 
         material_properties=material_properties,
@@ -48,12 +54,26 @@ def glossary():
 
 @app.route('/api/data')
 def data():
-    query = {}
+    # Retrieve the criterions and weights from the session
+    criterions = session.get('criterions', [])
+    weights = session.get('weights', [])
+    weights = [int(i) for i in weights]
+    print(criterions)
+    print(weights)
+
+    materials = []
+    for material in datasheets_collection.find():
+        material.pop('_id')
+        material.pop('link')
+        materials.append(material)
+    
+    # if criterions != [] and weights != []:
+    #     result_df = rank_materials(criterions, weights, materials)
+    # else:
+    result_df = pd.DataFrame(materials)
 
     # search filter
     search = request.args.get('search')
-    if search:
-        query = {'name': {'$regex': re.escape(search), '$options': 'i'}}
 
     # sorting
     sort = request.args.get('sort')
@@ -71,7 +91,11 @@ def data():
     length = request.args.get('length', type=int, default=0)
 
     # Perform the query with sorting, skip, and limit parameters
-    query_result = datasheets_collection.find(query)
+    if search is not None:
+        result_df = result_df[result_df.name.str.match(search)]
+
+    total = result_df.shape[0]
+
 
     # Check if start and length are not None and use the default values if necessary
     if start is None:
@@ -80,23 +104,21 @@ def data():
         length = 0
 
     # Sorting the query_result based on the 'sort_query' dictionary
-    if sort_query:
-        query_result = query_result.sort(list(sort_query.items()))
+    if sort_query: 
+        if sort_direction < 0:
+            ascend = True
+        else:
+            ascend = False
+
+        result_df = result_df.sort_values(by=sort_name, ascending = ascend)
+
 
     # Applying skip and limit after sorting
     if start >= 0 and length >= 0:
-        query_result = query_result.skip(start).limit(length)
+        result_df = result_df.iloc[start:(start+length)]
 
-    materials = []
-    for material in query_result:
-        material.pop('_id')
-        material.pop('link')
-        materials.append(material)
-
-    total = datasheets_collection.count_documents(query)
-
-    # response
     return {
-        'data': materials,
-        'total': total,
-    }
+                'data': result_df.to_dict('records'),
+                'total': total
+            }
+
