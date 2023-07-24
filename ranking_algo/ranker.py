@@ -30,6 +30,9 @@ def rank_materials(criterions, weights, raw_data):
     for i in range(5):
         if criterions[i] != '' and weights[i] != 0:
             formData[criterions[i]] = weights[i]  
+    
+    if formData == {}:
+        return raw_dataframe
 
     #Reformat and normalize weights
     np_weights = np.asarray(list(formData.values()))
