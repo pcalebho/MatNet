@@ -77,6 +77,7 @@ def rank_materials(criterions, weights, raw_data):
     return SortedDF
 
 if __name__ == '__main__':
+    #for unit testing
     with open('C:/Users/ttrol/CodingProjects/MatNet/webscraper/results_files/AISI_steels_fakedata.yaml','r') as stream:
         try:
             raw_data = yaml.safe_load(stream)
