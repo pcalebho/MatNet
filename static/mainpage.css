@@ -72,8 +72,8 @@ body {
     height: 200px;
     margin-top: 50px;
     margin-bottom: 75px;
-    margin-right: var(--content-margin);
-    margin-left: var(--content-margin);
+    /* margin-right: var(--content-margin);
+    margin-left: var(--content-margin); */
     align-self: stretch;
     align-items: center;
     -webkit-box-sizing: border-box;
@@ -107,4 +107,9 @@ input[type="range"] {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
 }
