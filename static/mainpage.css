@@ -72,8 +72,8 @@ body {
     height: 200px;
     margin-top: 50px;
     margin-bottom: 75px;
-    /* margin-right: var(--content-margin);
-    margin-left: var(--content-margin); */
+    margin-right: 10px;
+    margin-left: 10px;
     align-self: stretch;
     align-items: center;
     -webkit-box-sizing: border-box;

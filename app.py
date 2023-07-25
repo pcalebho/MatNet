@@ -1,10 +1,8 @@
 import os
-import re
 import pandas as pd
 from pymongo.mongo_client import MongoClient
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, url_for
 from ranking_algo.ranker import rank_materials
-import numpy as np
 
 #Connecting and creating MongoDB client instance
 MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
@@ -19,18 +17,16 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
 
-num_sliders = 5
-material_properties = ["", "Elastic Modulus",
+
+material_properties = ["Elastic Modulus",
                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
+num_sliders = len(material_properties)
 
 
 @app.route('/', methods = ('GET','POST'))
 def root():
     if request.method == 'POST':
-        criterions = [request.form[f'Criterion-{i}'] for i in range(num_sliders)]
         weights = [request.form[f'sliderRange-{i}'] for i in range(num_sliders)]
-        
-        session['criterions'] = criterions
         session['weights'] = weights
     
     return render_template(
@@ -54,7 +50,6 @@ def glossary():
 @app.route('/api/data')
 def data():
     # Retrieve the criterions and weights from the session
-    criterions = session.get('criterions', [])
     weights = session.get('weights', [])
     weights = [int(i) for i in weights]
 
@@ -65,7 +60,7 @@ def data():
         materials.append(material)
     
     if weights != []:
-        result_df = rank_materials(criterions, weights, materials)
+        result_df = rank_materials(material_properties, weights, materials)
     else:
         result_df = pd.DataFrame(materials)
 

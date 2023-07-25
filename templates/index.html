@@ -3,6 +3,7 @@
 <!-- {%block title%} {{super()}} {%endblock%} -->
 
 {%block head%}
+<link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
 {%endblock%}
 
 
@@ -11,11 +12,7 @@
     <form action="/" id="criterion-forms" method = "POST">
         {%for i in range(num_sliders)%}
         <div class = "slider-container">
-            <select name="Criterion-{{i}}" class = "slider">
-            {%for ii in range(0, matprop_len)%}
-                <option value = "{{material_properties[ii]}}">{{material_properties[ii]}}</option>
-            {%endfor%}
-            </select>
+            <div>{{material_properties[i]}}</div>
             <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10">
             <div id = "sliderValue-{{i}}"></div>
         </div>

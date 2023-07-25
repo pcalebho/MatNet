@@ -5,22 +5,22 @@ import yaml
 from skcriteria.preprocessing import invert_objectives, scalers
 from skcriteria.madm import simple
 
-def get_id(key):
-    criterion_key = {
-        'Name' : 'name',
-        'Elastic Modulus' : 'elastic_mod',
-        'Yield Strength' : 'yield_strength',
-        'Cost' : 'cost',
-        'Ultimate Strength': 'ult_strength',
-        'Machineability' : 'machineability'
-    }
+CRITERION_KEY = {
+    'Name' : 'name',
+    'Elastic Modulus' : 'elastic_mod',
+    'Yield Strength' : 'yield_strength',
+    'Cost' : 'cost',
+    'Ultimate Strength': 'ult_strength',
+    'Machineability' : 'machineability'
+}
 
+def get_id(key):
     if type(key) == list:
-        result = [criterion_key.get(k) for k in key]
+        result = [CRITERION_KEY.get(k) for k in key]
         result = [x for x in result if x != None]
         return result
 
-    return criterion_key.get(key)
+    return CRITERION_KEY.get(key)
 
 def rank_materials(criterions, weights, raw_data):
     raw_dataframe = pd.DataFrame(raw_data)
@@ -28,7 +28,7 @@ def rank_materials(criterions, weights, raw_data):
     #Filter out inconsequential data
     formData = {}
     for i in range(5):
-        if criterions[i] != '' and weights[i] != 0:
+        if weights[i] != 0:
             formData[criterions[i]] = weights[i]  
     
     if formData == {}:
