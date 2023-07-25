@@ -32,7 +32,6 @@ def root():
         
         session['criterions'] = criterions
         session['weights'] = weights
-
     
     return render_template(
         'index.html', 
@@ -65,7 +64,7 @@ def data():
         material.pop('link')
         materials.append(material)
     
-    if criterions != [] and weights != []:
+    if weights != []:
         result_df = rank_materials(criterions, weights, materials)
     else:
         result_df = pd.DataFrame(materials)

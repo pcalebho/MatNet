@@ -8,7 +8,7 @@
 
 {%block content%}
 <div class = "content">
-    <form action="/" id="criterion-forms", method = "POST">
+    <form action="/" id="criterion-forms" method = "POST">
         {%for i in range(num_sliders)%}
         <div class = "slider-container">
             <select name="Criterion-{{i}}" class = "slider">
@@ -42,6 +42,7 @@
 {% endblock %}
 
 {%block scripts%}
+<!-- <script src = "{{url_for('static', filename='form_handler.js')}}"></script> -->
 <script src="{{url_for('static', filename='main_table.js')}}"></script>
 {% endblock %}
 
