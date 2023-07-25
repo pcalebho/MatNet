@@ -86,8 +86,6 @@ def data():
     if search is not None:
         result_df = result_df[result_df.name.str.match(search)]
 
-    total = result_df.shape[0]
-
 
     # Check if start and length are not None and use the default values if necessary
     if start is None:
@@ -104,10 +102,12 @@ def data():
 
         result_df = result_df.sort_values(by=sort_name, ascending = ascend)
 
+    total = result_df.shape[0]
 
     # Applying skip and limit after sorting
     if start >= 0 and length >= 0:
         result_df = result_df.iloc[start:(start+length)]
+
 
     return {
                 'data': result_df.to_dict('records'),
