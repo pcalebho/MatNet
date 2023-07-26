@@ -39,8 +39,19 @@
 {% endblock %}
 
 {%block scripts%}
-<!-- <script src = "{{url_for('static', filename='form_handler.js')}}"></script> -->
 <script src="{{url_for('static', filename='main_table.js')}}"></script>
+<script>
+    const { createApp } = Vue
+
+    createApp({
+    data() {
+        return {
+        message: 'Hello Vue!',
+        text: 50
+        }
+    }
+    }).mount('#content')
+</script>
 {% endblock %}
 
 
