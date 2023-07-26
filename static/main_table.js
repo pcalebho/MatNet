@@ -9,7 +9,8 @@ columns: [
     { id: 'yield_strength', name: 'Yield Strength'},
     { id: 'ult_strength', name: 'Ultimate Strength'},
     { id: 'cost', name: 'Cost'},
-    { id: 'machineability', name: 'Machineability'}
+    { id: 'machineability', name: 'Machineability'},
+    { id: 'Rank', name: 'Rank'}
 ],
 server: {
     url: '/api/data',
@@ -29,7 +30,7 @@ sort: {
     multiColumn: true,
     server: {
     url: (prev, columns) => {
-        const columnIds = ['name', 'elastic_mod', 'yield_strength', 'ult_strength', 'cost', 'machineability'];
+        const columnIds = ['name', 'elastic_mod', 'yield_strength', 'ult_strength', 'cost', 'machineability', 'Rank'];
         const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
         return updateUrl(prev, {sort});
     },
