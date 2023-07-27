@@ -14,8 +14,7 @@
         <div class = "slider-container">
             <div>{{material_properties[i]}}</div>
             <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10">
-            <p id = "sliderValue-{{i}}">[[value{{i}}]]</p>
-            <p>[[hi]]</p>
+            <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
         </div>
         {%endfor%}
     </form>
@@ -27,10 +26,11 @@
 {%block scripts%}
 <script src="{{url_for('static', filename='main_table.js')}}"></script>
 <script type = "module">
+    import gridjsVue from 'https://cdn.skypack.dev/gridjs-vue';
+    
     const app = Vue.createApp({
     data() {
         return {
-        text: 'hi',
         value0: 0,
         value1: 0,
         value2: 0,
