@@ -25,9 +25,7 @@
 
 {%block scripts%}
 <script src="{{url_for('static', filename='main_table.js')}}"></script>
-<script type = "module">
-    import gridjsVue from 'https://cdn.skypack.dev/gridjs-vue';
-    
+<script type = "module">   
     const app = Vue.createApp({
     data() {
         return {
@@ -41,7 +39,7 @@
     delimiters: ['[[',']]']
     })
 
-    app.mount('#content')
+    app.mount('#criterion-forms')
 </script>
 {% endblock %}
 
