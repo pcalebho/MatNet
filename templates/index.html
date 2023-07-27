@@ -8,49 +8,40 @@
 
 
 {%block content%}
-<div class = "content">
+<div id="content" class = "content">
     <form action="/" id="criterion-forms" method = "POST">
         {%for i in range(num_sliders)%}
         <div class = "slider-container">
             <div>{{material_properties[i]}}</div>
-            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10">
-            <div id = "sliderValue-{{i}}"></div>
+            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10">
+            <p id = "sliderValue-{{i}}">[[value{{i}}]]</p>
+            <p>[[hi]]</p>
         </div>
         {%endfor%}
     </form>
     <button type="submit" form="criterion-forms" value="Submit">Submit</button>
-    <script>
-        const rangeSlider_array = [];
-        const output_array = [];
-        for (let i = 0; i < 5; i++) {
-            let rangeID = "sliderRange-"+i;
-            let valueID = "sliderValue-"+i;
-            rangeSlider_array.push(document.getElementById(rangeID));
-            output_array.push(document.getElementById(valueID));
-            output_array[i].innerHTML = rangeSlider_array[i].value;
-            
-            rangeSlider_array[i].oninput = function() {
-                output_array[i].innerHTML = this.value;
-            }
-        }
-    </script>
     <div id="table"></div>
 </div>
 {% endblock %}
 
 {%block scripts%}
 <script src="{{url_for('static', filename='main_table.js')}}"></script>
-<script>
-    const { createApp } = Vue
-
-    createApp({
+<script type = "module">
+    const app = Vue.createApp({
     data() {
         return {
-        message: 'Hello Vue!',
-        text: 50
+        text: 'hi',
+        value0: 0,
+        value1: 0,
+        value2: 0,
+        value3: 0,
+        value4: 0
         }
-    }
-    }).mount('#content')
+    },
+    delimiters: ['[[',']]']
+    })
+
+    app.mount('#content')
 </script>
 {% endblock %}
 
