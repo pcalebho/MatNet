@@ -1,8 +1,7 @@
 import os
 import pandas as pd
-import json
 from pymongo.mongo_client import MongoClient
-from flask import Flask, render_template, request, session, url_for
+from flask import Flask, render_template, request, session
 from ranking_algo.ranker import rank_materials
 
 #Connecting and creating MongoDB client instance
@@ -105,12 +104,12 @@ def data():
 
     # Sorting the query_result based on the 'sort_query' dictionary
     if sort_query: 
-        if sort_direction < 0:
+        if sort_direction < 0:      #type: ignore
             ascend = True
         else:
             ascend = False
 
-        result_df = result_df.sort_values(by=sort_name, ascending = ascend)
+        result_df = result_df.sort_values(by=sort_name, ascending = ascend)     #type: ignore
 
     total = result_df.shape[0]
 
