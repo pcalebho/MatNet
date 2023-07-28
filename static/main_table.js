@@ -2,7 +2,7 @@ const updateUrl = (prev, query) => {
     return prev + (prev.indexOf('?') >= 0 ? '&' : '?') + new URLSearchParams(query).toString();
 };
 
-new gridjs.Grid({
+const table = new gridjs.Grid({
 columns: [
     { id: 'name', name: 'Name', width: '20%', sort: false},
     { id: 'elastic_mod', name: 'Modulus of Elasticity' },
@@ -44,4 +44,10 @@ pagination: {
     },
     },
 },
-}).render(document.getElementById('table'));
+})
+
+table.render(document.getElementById('table'));
+
+function updateTableData() {
+    table.forceRender(); // Apply the changes to the table
+}
