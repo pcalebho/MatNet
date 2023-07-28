@@ -13,34 +13,19 @@
         {%for i in range(num_sliders)%}
         <div class = "slider-container">
             <div>{{material_properties[i]}}</div>
-            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10">
+            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10" 
+                @input="isSliding = true" @mouseup="isSliding = false; handleSliderChange()">
             <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
         </div>
         {%endfor%}
     </form>
-    <button type="submit" form="criterion-forms" value="Submit">Submit</button>
     <div id="table"></div>
 </div>
 {% endblock %}
 
 {%block scripts%}
 <script src="{{url_for('static', filename='main_table.js')}}"></script>
-<script type = "module">   
-    const app = Vue.createApp({
-    data() {
-        return {
-        value0: 0,
-        value1: 0,
-        value2: 0,
-        value3: 0,
-        value4: 0
-        }
-    },
-    delimiters: ['[[',']]']
-    })
-
-    app.mount('#criterion-forms')
-</script>
+<script src="{{url_for('static', filename='formLogic.js')}}" type = "module"></script>
 {% endblock %}
 
 
