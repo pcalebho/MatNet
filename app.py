@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import json
 from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, url_for
 from ranking_algo.ranker import rank_materials
@@ -26,8 +27,10 @@ num_sliders = len(material_properties)
 @app.route('/', methods = ('GET','POST'))
 def root():
     if request.method == 'POST':
-        weights = [request.form[f'sliderRange-{i}'] for i in range(num_sliders)]
-        session['weights'] = weights
+        # weights = [request.form[f'sliderRange-{i}'] for i in range(num_sliders)]
+        weights = request.get_json()
+        session['weights'] = weights["value"]
+        print(weights["value"])
     
     return render_template(
         'index.html', 
@@ -47,11 +50,18 @@ def glossary():
     return render_template('glossary.html')
 
 
-@app.route('/api/data')
+@app.route('/api/data',  methods = ['GET','POST'])
 def data():
-    # Retrieve the criterions and weights from the session
-    weights = session.get('weights', [])
-    weights = [int(i) for i in weights]
+    if request.method == 'POST':
+        weights = request.get_json()
+        print(weights)
+        session['weights'] = weights["value"]
+        # Retrieve the criterions and weights from the session
+        weights = [int(i) for i in session['weights']]
+    else:
+        weights = session['weights']
+        # Retrieve the criterions and weights from the session
+        weights = [int(i) for i in session['weights']]
 
     materials = []
     for material in datasheets_collection.find():
