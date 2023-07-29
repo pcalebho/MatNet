@@ -101,5 +101,5 @@ async function handleSubmit(event) {
 }
   
 // Attach the event listener to the form's submit event
-const form = document.getElementById('criterion-forms');
+const form = document.getElementById('form');
 form.addEventListener('submit', handleSubmit);

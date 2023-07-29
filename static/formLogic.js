@@ -12,4 +12,4 @@ const app = Vue.createApp({
 });
 
 app.config.compilerOptions.delimiters = ['[[',']]']
-app.mount('#criterion-forms')
+app.mount('form')

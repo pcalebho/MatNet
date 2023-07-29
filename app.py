@@ -20,42 +20,8 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 # material_properties = ["Elastic Modulus",
 #                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
-material_properties = ["Elastic Modulus", "Yield Strength"]
+material_properties = ["Elastic Modulus", "Cost"]
 num_sliders = len(material_properties)
-
-def get_form():
-    form_data = {}
-    for i in range(num_sliders):
-        property = get_id(material_properties[i])
-        importance = int(request.form[f'sliderRange-{i}'])
-        objective = request.form[f'objective-{i}']
-        min_value = request.form[f'minValue-{i}']
-        max_value = request.form[f'maxValue-{i}']
-
-        if min_value == "":
-            min_value = None
-        else:
-            min_value = int(min_value)
-
-        if max_value == "":
-            max_value = None
-        else:
-            max_value = int(max_value)
-
-        if max_value is not None and min_value is not None and min_value > max_value:
-            min_value = None
-            max_value = None
-
-        form_data[property] = {
-            'importance': importance, 
-            'objective': objective, 
-            'min': min_value, 
-            'max': max_value
-        }
-
-    print(form_data)
-    
-    return form_data
     
 
 @app.route('/')
@@ -158,7 +124,7 @@ def data():
 
     # Perform the query with sorting, skip, and limit parameters
     if search is not None:
-        result_df = result_df[result_df.name.str.match(search)]
+        result_df = result_df[result_df.name.str.contains(search)]
 
 
     # Check if start and length are not None and use the default values if necessary

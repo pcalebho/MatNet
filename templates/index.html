@@ -10,17 +10,24 @@
 {%block content%}
 <div id="content" class = "content">
     <!-- <form action="/" id="criterion-forms" method = "POST"> -->
-    <form id="criterion-forms">
+    <form id="form">
+        <div id="criterions-form">
         {%for i in range(num_sliders)%}
-        <div class = "slider-container">
-            <div id="prop-{{i}}">{{material_properties[i]}}</div>
-            <label for="sliderRange-{{i}}">Importance</label>
-            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="0" max="10">
-            <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
+        <div class = "criterion-container">
+            <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
+            <span class="importance-container">
+                <label for="sliderRange-{{i}}">Importance</label>
+                <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="0" max="10">
+                <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
+            </span>
             <label for="objective-{{i}}">Objective</label>
             <select id="objective-{{i}}" name="objective-{{i}}">
-                <option value = 'minimize'>Minimize</option>
                 <option value = 'maximize'>Maximize</option>
+                {% if material_properties[i] == 'Cost' %}
+                    <option value = 'minimize' selected>Minimize</option>
+                {% else %}
+                    <option value = 'minimize'>Minimize</option>
+                {% endif %}                
             </select>
             <label for="minValue-{{i}}">Min Value:</label>
             <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
@@ -28,6 +35,7 @@
             <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
         </div>
         {%endfor%}
+        </div>
         <input type = "submit"></input>
     </form>
     <div id="table"></div>
