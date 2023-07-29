@@ -58,14 +58,9 @@ def get_form():
     return form_data
     
 
-@app.route('/', methods = ('GET','POST'))
-def root():
-    if request.method == 'POST':
-        session['form_data'] = get_form()
-        # session['form_data'] = request.json
-        print(session['form_data'])
-        # return jsonify(session['form_data'])
-        
+@app.route('/')
+def root(): 
+    session.clear()     
     return render_template(
         'index.html', 
         material_properties=material_properties,
@@ -84,33 +79,48 @@ def glossary():
     return render_template('glossary.html')
 
 
-@app.route('/api/data')
+@app.route('/api/data', methods = ('GET','POST'))
 def data():
-    form_data = session.get('form_data', [])
-    weights = []
-    query = []
-    if form_data != []:
-        for key in form_data:
-            if form_data[key]['objective'] == 'minimize':
-                weight = form_data[key]['importance']*-1
-            else: 
-                weight = form_data[key]['importance']
-            weights.append(weight)
+    if request.method == 'POST':
+        query = []
+        weights = []
+        
+        form_data = request.json
+        if form_data is not None:
+            for key in form_data:
+                if form_data[key]['objective'] == 'minimize':
+                    weight = form_data[key]['importance']*-1
+                else: 
+                    weight = form_data[key]['importance']
+                weights.append(weight)
 
-            if form_data[key]['min'] is None:
-                min_value = -1000000
-            else:
-                min_value = form_data[key]['min']
+                if form_data[key]['min'] == "":
+                    min_value = -1000000
+                else:
+                    min_value = int(form_data[key]['min'])
 
-            if form_data[key]['max'] is None:
-                max_value = 1000000
-            else:
-                max_value = form_data[key]['max']
+                if form_data[key]['max'] == "":
+                    max_value = 1000000
+                else:
+                    max_value = int(form_data[key]['max'])
 
-            query_item = {key: {"$gte": min_value, "$lte": max_value}}
-            query.append(query_item)
+                query_item = {get_id(key): {"$gte": min_value, "$lte": max_value}}      #type: ignore
+                query.append(query_item)
+        session['query'] = query
+        session['form_data'] = form_data
+        session['weights'] = weights
+            
+        return jsonify(form_data, weights, query)
+    else:
+        form_data = session.get('form_data', {})
+        query = session.get('query',{})
+        weights = session.get('weights',[])
+        print('WEIGHTS: ', weights)
+        print('FORM: ', form_data)
+        print('QUERY: ', query)
 
-    if form_data != []:
+    
+    if query != {}:
         cursor = datasheets_collection.find({"$and": query})
     else:
         cursor = datasheets_collection.find()
@@ -122,7 +132,7 @@ def data():
         materials.append(material)
     
 
-    if form_data != []:
+    if form_data != {}:
         result_df = rank_materials(material_properties, weights, materials)
     else:
         result_df = pd.DataFrame(materials)

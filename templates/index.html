@@ -9,11 +9,11 @@
 
 {%block content%}
 <div id="content" class = "content">
-    <form action="/" id="criterion-forms" method = "POST">
-    <!-- <form id="criterion-forms"> -->
+    <!-- <form action="/" id="criterion-forms" method = "POST"> -->
+    <form id="criterion-forms">
         {%for i in range(num_sliders)%}
         <div class = "slider-container">
-            <div>{{material_properties[i]}}</div>
+            <div id="prop-{{i}}">{{material_properties[i]}}</div>
             <label for="sliderRange-{{i}}">Importance</label>
             <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="0" max="10">
             <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
