@@ -48,6 +48,50 @@ pagination: {
 
 table.render(document.getElementById('table'));
 
-function updateTableData() {
-    table.forceRender(); // Apply the changes to the table
-}
+
+// Function to handle form submission
+// async function handleSubmit(event) {
+//     event.preventDefault(); // Prevent the default form submission
+  
+//     // Collect the form data
+//     let importance;
+//     let objective;
+//     let min_value;
+//     let max_value;
+//     const formEntry = {};
+//     const formData = {};
+//     for (let i = 0; i < 2; i++) {
+//         importance = document.getElementById('sliderRange-'+i).value;
+//         objective = document.getElementById('objective-'+i).value;
+//         min_value = document.getElementById('minValue-'+i).value;
+//         max_value = document.getElementById('max_value-'+i).value;
+
+//         formEntry = {importance: importance, objective: objective, min: min_value, max: max_value};
+//         formData[i] = formEntry;
+//     }
+
+//     try {
+//         // Send the form data to the server using a POST request
+//         const response = await fetch('/', {
+//             method: 'POST',
+//             headers: {
+//                 Accept: 'application/json',
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(formData),
+//         });
+        
+//         if (response.ok) {
+//             // If the POST request is successful, reload the Grid.js table to fetch updated data
+//             table.forceRender();
+//         } else {
+//             console.error('POST request failed:', response.statusText);
+//         }
+//     } catch (error) {
+//         console.error('Error making POST request:', error);
+//     }
+// }
+  
+// // Attach the event listener to the form's submit event
+// const form = document.getElementById('criterions-form');
+// form.addEventListener('submit', handleSubmit);

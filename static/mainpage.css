@@ -111,5 +111,5 @@ input[type="range"] {
 
 form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }

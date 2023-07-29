@@ -27,7 +27,7 @@ def rank_materials(criterions, weights, raw_data):
 
     #Filter out inconsequential data
     formData = {}
-    for i in range(5):
+    for i in range(len(weights)):
         if weights[i] != 0:
             formData[criterions[i]] = weights[i]  
     

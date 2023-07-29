@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 from pymongo.mongo_client import MongoClient
-from flask import Flask, render_template, request, session
-from ranking_algo.ranker import rank_materials
+from flask import Flask, render_template, request, session, jsonify
+from ranking_algo.ranker import rank_materials, get_id
 
 #Connecting and creating MongoDB client instance
 MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
@@ -18,19 +18,54 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 
-material_properties = ["Elastic Modulus",
-                       "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
+# material_properties = ["Elastic Modulus",
+#                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
+material_properties = ["Elastic Modulus", "Yield Strength"]
 num_sliders = len(material_properties)
 
+def get_form():
+    form_data = {}
+    for i in range(num_sliders):
+        property = get_id(material_properties[i])
+        importance = int(request.form[f'sliderRange-{i}'])
+        objective = request.form[f'objective-{i}']
+        min_value = request.form[f'minValue-{i}']
+        max_value = request.form[f'maxValue-{i}']
+
+        if min_value == "":
+            min_value = None
+        else:
+            min_value = int(min_value)
+
+        if max_value == "":
+            max_value = None
+        else:
+            max_value = int(max_value)
+
+        if max_value is not None and min_value is not None and min_value > max_value:
+            min_value = None
+            max_value = None
+
+        form_data[property] = {
+            'importance': importance, 
+            'objective': objective, 
+            'min': min_value, 
+            'max': max_value
+        }
+
+    print(form_data)
+    
+    return form_data
+    
 
 @app.route('/', methods = ('GET','POST'))
 def root():
     if request.method == 'POST':
-        # weights = [request.form[f'sliderRange-{i}'] for i in range(num_sliders)]
-        weights = request.get_json()
-        session['weights'] = weights["value"]
-        print(weights["value"])
-    
+        session['form_data'] = get_form()
+        # session['form_data'] = request.json
+        print(session['form_data'])
+        # return jsonify(session['form_data'])
+        
     return render_template(
         'index.html', 
         material_properties=material_properties,
@@ -49,29 +84,49 @@ def glossary():
     return render_template('glossary.html')
 
 
-@app.route('/api/data',  methods = ['GET','POST'])
+@app.route('/api/data')
 def data():
-    if request.method == 'POST':
-        weights = request.get_json()
-        print(weights)
-        session['weights'] = weights["value"]
-        # Retrieve the criterions and weights from the session
-        weights = [int(i) for i in session['weights']]
+    form_data = session.get('form_data', [])
+    weights = []
+    query = []
+    if form_data != []:
+        for key in form_data:
+            if form_data[key]['objective'] == 'minimize':
+                weight = form_data[key]['importance']*-1
+            else: 
+                weight = form_data[key]['importance']
+            weights.append(weight)
+
+            if form_data[key]['min'] is None:
+                min_value = -1000000
+            else:
+                min_value = form_data[key]['min']
+
+            if form_data[key]['max'] is None:
+                max_value = 1000000
+            else:
+                max_value = form_data[key]['max']
+
+            query_item = {key: {"$gte": min_value, "$lte": max_value}}
+            query.append(query_item)
+
+    if form_data != []:
+        cursor = datasheets_collection.find({"$and": query})
     else:
-        weights = session['weights']
-        # Retrieve the criterions and weights from the session
-        weights = [int(i) for i in session['weights']]
+        cursor = datasheets_collection.find()
 
     materials = []
-    for material in datasheets_collection.find():
+    for material in cursor:
         material.pop('_id')
         material.pop('link')
         materials.append(material)
     
-    if weights != []:
+
+    if form_data != []:
         result_df = rank_materials(material_properties, weights, materials)
     else:
         result_df = pd.DataFrame(materials)
+    
 
     # search filter
     search = request.args.get('search')

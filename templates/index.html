@@ -10,14 +10,25 @@
 {%block content%}
 <div id="content" class = "content">
     <form action="/" id="criterion-forms" method = "POST">
+    <!-- <form id="criterion-forms"> -->
         {%for i in range(num_sliders)%}
         <div class = "slider-container">
             <div>{{material_properties[i]}}</div>
-            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="-10" max="10" 
-                @input="isSliding = true" @mouseup="isSliding = false; handleSliderChange()">
+            <label for="sliderRange-{{i}}">Importance</label>
+            <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="0" max="10">
             <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
+            <label for="objective-{{i}}">Objective</label>
+            <select id="objective-{{i}}" name="objective-{{i}}">
+                <option value = 'minimize'>Minimize</option>
+                <option value = 'maximize'>Maximize</option>
+            </select>
+            <label for="minValue-{{i}}">Min Value:</label>
+            <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
+            <label for="maxValue-{{i}}">Max Value:</label>
+            <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
         </div>
         {%endfor%}
+        <input type = "submit"></input>
     </form>
     <div id="table"></div>
 </div>
