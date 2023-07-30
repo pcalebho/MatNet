@@ -96,18 +96,36 @@ def data():
         print('FORM: ', form_data)
         print('QUERY: ', query)
 
+    valid_query = {"$and": [
+        {"mechanical_properties.hardness_brinell.units": ''},
+        {"mechanical_properties.hardness_brinell.value":{'$exists': True}},
+        {"mechanical_properties.machinability.value": {'$exists': True}},
+        {"physical_properties.density.value": {'$exists': True}},
+        {"thermal_properties.specific_heat_capacity.value": {'$exists': True}},
+        {"mechanical_properties.tensile_strength_yield.value": {"$exists": True}},
+        {"mechanical_properties.tensile_strength_ultimate.value": {"$exists": True}},
+        {"mechanical_properties.modulus_of_elasticity.value": {"$exists": True}}
+    ]}
     
     if query != {}:
-        cursor = datasheets_collection.find({"$and": query})
+        cursor = datasheets_collection.find({"$and": [query, valid_query]})
     else:
-        cursor = datasheets_collection.find()
+        cursor = datasheets_collection.find(valid_query)
+    
+    cursor = datasheets_collection.find(valid_query)
 
     materials = []
     for material in cursor:
         flattened_material = {}
         flattened_material['name'] = material['name']
-        flattened_material.update(material['physical_properties'])
-        flattened_material.update(material['mechanical_properties'])
+        flattened_material['cost'] = material['cost']
+        flattened_material['density'] =  material['physical_properties']['density']['value']
+        flattened_material['tensile_strength_ultimate'] =  material['mechanical_properties']['tensile_strength_ultimate']['value']
+        flattened_material['tensile_strength_yield'] =  material['mechanical_properties']['tensile_strength_yield']['value']
+        flattened_material['modulus_of_elasticity'] = material['mechanical_properties']['modulus_of_elasticity']['value']
+        flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']
+        flattened_material['machinability'] = material['mechanical_properties']['machinability']['value']
+        flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']
         materials.append(flattened_material)
     
 
