@@ -6,12 +6,14 @@ from skcriteria.preprocessing import invert_objectives, scalers
 from skcriteria.madm import simple
 
 CRITERION_KEY = {
-    'Name' : 'name',
-    'Elastic Modulus' : 'elastic_mod',
-    'Yield Strength' : 'yield_strength',
-    'Cost' : 'cost',
-    'Ultimate Strength': 'ult_strength',
-    'Machineability' : 'machineability'
+    "Density(g/cc)": 'density',
+    "Yield Strength(MPa)": 'tensile_strength_yield',
+    "Ultimate Strength(MPa)": 'tensile_strength_ultimate',
+    "Elastic Modulus(GPa)": 'modulus_of_elasticity',
+    "Brinell Hardness": 'hardness_brinell',
+    "Machinability(%)": 'machinability',
+    "Specific Heat Capacity(J/g-°C)": 'specific_heat_capacity',
+    "*Cost": 'cost'
 }
 
 def get_id(key):
@@ -21,6 +23,25 @@ def get_id(key):
         return result
 
     return CRITERION_KEY.get(key)
+
+def get_key(label):
+    KEY = {
+        "Density(g/cc)": 'physical_properties.density',
+        "Yield Strength(MPa)": 'mechanical_properties.tensile_strength_yield',
+        "Ultimate Strength(MPa)": 'mechanical_properties.tensile_strength_ultimate',
+        "Elastic Modulus(GPa)": 'mechanical_properties.modulus_of_elasticity',
+        "Brinell Hardness": 'mechanical_properties.hardness_brinell',
+        "Machinability(%)": 'mechanical_properties.machinability',
+        "Specific Heat Capacity(J/g-°C)": 'thermal_properties.specific_heat_capacity',
+        "*Cost": 'cost'
+    }
+
+    # if type(label) == list:
+    #     result = [CRITERION_KEY.get(k) for k in key]
+    #     result = [x for x in result if x != None]
+    #     return result
+
+    return KEY.get(label)
 
 def rank_materials(criterions, weights, raw_data):
     raw_dataframe = pd.DataFrame(raw_data)
