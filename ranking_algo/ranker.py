@@ -37,50 +37,38 @@ def get_key(label):
         "*Cost": 'cost'
     }
 
-    # if type(label) == list:
-    #     result = [CRITERION_KEY.get(k) for k in key]
-    #     result = [x for x in result if x != None]
-    #     return result
-
     return KEY.get(label)
 
-def rank_materials(criterions, weights, raw_data):
+
+
+def rank_materials(form_data, raw_data):
     raw_dataframe = pd.DataFrame(raw_data)
 
-    #Filter out inconsequential data
-    formData = {}
-    for i in range(len(weights)):
-        if weights[i] != 0:
-            formData[criterions[i]] = weights[i]  
-    
-    if formData == {}:
+    #Filter out inconsequential data           
+    criterion_ids = get_id(list(form_data.keys()))
+    objectives = []
+    weights = []
+    criterion_ids = []
+    for key in form_data.keys():
+        if form_data[key]['importance'] != 0:
+            criterion_ids.append(get_id(key))
+            objectives.append(form_data[key]['objective'])
+            weights.append(form_data[key]['importance']/10)
+
+    if not any(weights):
         return raw_dataframe
 
-    #Reformat and normalize weights
-    np_weights = np.asarray(list(formData.values()))
-    np_weights = np.divide(np_weights,10)
 
-    #get objectives from weights
-    objectives = []
-    for weight in np_weights:
-        if weight < 0:
-            objectives.append(min)
-        elif weight > 0:
-            objectives.append(max)
-
-
-    criterion_ids = get_id(list(formData.keys()))
-
-    df = raw_dataframe.loc[:, criterion_ids]        #type: ignore
+    df = raw_dataframe.loc[:, criterion_ids]      
 
     # we use the built-in function as aliases
     row_id =  list(raw_dataframe.loc[:, 'name'])
     dm = skc.mkdm(
         df.to_numpy(),
         objectives= objectives,
-        weights= np_weights.tolist(),
+        weights= weights,
         alternatives = row_id,
-        criteria= list(formData.keys())
+        criteria= df.columns.tolist()
     )
 
     #SKC handles maximization or minimization only best , so we invert the third row to be a maximization problem 
@@ -118,5 +106,5 @@ if __name__ == '__main__':
     criterions = [ 'Yield Strength', 'Cost', 'Machineability', 'Elastic Modulus', 'Ultimate Strength']
     raw_weights = [10, -10, 3, 0, 0]
     
-    df = rank_materials(criterions, raw_weights, raw_data)
-    print(df)
+    # df = rank_materials(criterions, raw_weights, raw_data)
+    # print(df)

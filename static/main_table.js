@@ -86,7 +86,7 @@ async function handleSubmit(event) {
             max_value = "";
         }
 
-        formEntry = {importance: +importance, objective: objective, min: min_value, max: max_value};
+        formEntry = {importance: +importance, objective: +objective, min: min_value, max: max_value};
         formData[property] = formEntry;
     }
 

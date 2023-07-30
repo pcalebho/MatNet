@@ -60,41 +60,36 @@ def glossary():
 def data():
     if request.method == 'POST':
         query = []
-        weights = []
         
         form_data = request.json
         if form_data is not None:
             for key in form_data:
-                if form_data[key]['objective'] == 'minimize':
-                    weight = form_data[key]['importance']*-1
-                else: 
-                    weight = form_data[key]['importance']
-                weights.append(weight)
-
                 if form_data[key]['min'] == "":
-                    min_value = -1000000
+                    form_data[key]['min'] = -1000000
                 else:
-                    min_value = int(form_data[key]['min'])
+                    form_data[key]['min'] = int(form_data[key]['min'])
 
                 if form_data[key]['max'] == "":
-                    max_value = 1000000
+                     form_data[key]['max'] = 1000000
                 else:
-                    max_value = int(form_data[key]['max'])
+                     form_data[key]['max'] = int(form_data[key]['max'])
 
-                query_item = {get_key(key): {"$gte": min_value, "$lte": max_value}}      #type: ignore
+                query_item = {
+                    get_key(key): {
+                        "$gte": form_data[key]['min'], 
+                        "$lte": form_data[key]['max']
+                    }
+                }      #type: ignore
                 query.append(query_item)
+        
         session['query'] = query
         session['form_data'] = form_data
-        session['weights'] = weights
             
-        return jsonify(form_data, weights)
+        return jsonify(form_data, query)
     else:
         form_data = session.get('form_data', {})
         query = session.get('query',{})
-        weights = session.get('weights',[])
-        print('WEIGHTS: ', weights)
-        print('FORM: ', form_data)
-        print('QUERY: ', query)
+        
 
     valid_query = {"$and": [
         {"mechanical_properties.hardness_brinell.units": ''},
@@ -130,7 +125,7 @@ def data():
     
 
     if form_data != {}:
-        result_df = rank_materials(material_properties, weights, materials)
+        result_df = rank_materials(form_data, materials)
     else:
         result_df = pd.DataFrame(materials)
 

@@ -21,11 +21,11 @@
             </span>
             <label for="objective-{{i}}">Objective</label>
             <select id="objective-{{i}}" name="objective-{{i}}">
-                <option value = 'maximize'>Maximize</option>
-                {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density (g/cc)'%}
-                    <option value = 'minimize' selected>Minimize</option>
+                <option value = '1'>Maximize</option>
+                {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density(g/cc)'%}
+                    <option value = '-1' selected>Minimize</option>
                 {% else %}
-                    <option value = 'minimize'>Minimize</option>
+                    <option value = '-1'>Minimize</option>
                 {% endif %}                
             </select>
             <label for="minValue-{{i}}">Min Value:</label>
