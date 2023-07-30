@@ -60,25 +60,14 @@ def execute_urllib_request():
     print(soup.get_text().strip())
 
 def just_request():
+    session = requests.Session()
+    # session.cookies.set_policy(BlockAll())
     headers =  {
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7", 
-    "Accept-Encoding": "gzip", 
-    "Accept-Language": "en-US,en;q=0.9", 
-    "Host": "httpbin.org", 
-    "Sec-Ch-Ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Microsoft Edge\";v=\"114\"", 
-    "Sec-Ch-Ua-Mobile": "?0", 
-    "Sec-Ch-Ua-Platform": "\"Windows\"", 
-    "Sec-Fetch-Dest": "document", 
-    "Sec-Fetch-Mode": "navigate", 
-    "Sec-Fetch-Site": "none", 
-    "Sec-Fetch-User": "?1", 
-    "Upgrade-Insecure-Requests": "1", 
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.67", 
-    "X-Amzn-Trace-Id": "Root=1-64a05ed8-4c1851d6131e707a05103742"
+       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
     }
     
-    entry = ('http://customer-%s:%s@pr.oxylabs.io:7777' %
-        (USERNAME, PASSWORD))
+    entry = ('http://customer-%s:%s@%s' %
+        (USERNAME, PASSWORD, ENDPOINT))
     query = {
         'http': entry,
         'https': entry,
@@ -86,23 +75,25 @@ def just_request():
 
     proxies = query
 
-    response = requests.get(
-        url='https://ip.oxylabs.io',
-        proxies= proxies,
-        verify=True,
-        headers=headers
-    )
-    soup = BeautifulSoup(response.content,'lxml')
-    print(soup.get_text().strip())
+    for i in range(5):
+        response = session.get(
+            url='https://ip.oxylabs.io',
+            proxies= proxies,
+            verify=True,
+            headers=headers
+        )
+        soup = BeautifulSoup(response.content,'lxml')
+        print(soup.get_text().strip())
 
-    response = requests.get(
-        url='https://matweb.com/search/DataSheet.aspx?MatGUID=66575ff2cd5249c49d76df15b47dbca4',
-        proxies= proxies,
-        verify=True
-    )
+        response = session.get(
+            headers=headers,
+            url='https://matweb.com/search/DataSheet.aspx?MatGUID=66575ff2cd5249c49d76df15b47dbca4',
+            proxies= proxies,
+            verify=True
+        )
 
-    soup = BeautifulSoup(response.content,'lxml')
-    print(soup.find('h3'))
+        soup = BeautifulSoup(response.content,'lxml')
+        print(soup.title)
 
 async def fetch(session,url):
     async with session.get(url, proxy = proxy_2(USERNAME, PASSWORD)) as response:
@@ -133,6 +124,7 @@ if __name__ == "__main__":
     # just_request()
     #
     sync_start = time.time()
+    # for i in range(5):
     just_request()
     sync_end = time.time()
     print('Sync: ', sync_end - sync_start)
