@@ -75,7 +75,10 @@ def just_request():
 
     proxies = query
 
-    for i in range(5):
+    for i in range(10):
+        if (i + 1) % 2 == 0:
+            session = requests.Session()
+            
         response = session.get(
             url='https://ip.oxylabs.io',
             proxies= proxies,
