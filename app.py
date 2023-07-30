@@ -5,12 +5,14 @@ from flask import Flask, render_template, request, session, jsonify
 from ranking_algo.ranker import rank_materials, get_id
 
 #Connecting and creating MongoDB client instance
-MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
+# MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
+#For testing
+MONGODB_URI = 'mongodb://localhost:27017' 
 client = MongoClient(MONGODB_URI)
 
 
-material_db = client.material
-datasheets_collection = material_db.test_collection
+material_db = client.matjet
+datasheets_collection = material_db.materials
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -20,7 +22,7 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 # material_properties = ["Elastic Modulus",
 #                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
-material_properties = ["Elastic Modulus", "Cost"]
+material_properties = ["Density", "Yield Strength"]
 num_sliders = len(material_properties)
     
 
@@ -93,16 +95,19 @@ def data():
 
     materials = []
     for material in cursor:
-        material.pop('_id')
-        material.pop('link')
-        materials.append(material)
+        flattened_material = {}
+        flattened_material['name'] = material['name']
+        flattened_material.update(material['physical_properties'])
+        flattened_material.update(material['mechanical_properties'])
+        materials.append(flattened_material)
     
 
     if form_data != {}:
         result_df = rank_materials(material_properties, weights, materials)
     else:
         result_df = pd.DataFrame(materials)
-    
+
+    result_df = result_df.fillna('N/A')
 
     # search filter
     search = request.args.get('search')
@@ -114,8 +119,8 @@ def data():
         for s in sort.split(','):
             sort_direction = -1 if s[0] == '-' else 1
             sort_name = s[1:]
-            if sort_name not in ['elastic_mod','yield_strength','ult_strength','cost','machineability']:
-                sort_name = 'elastic_mod'
+            if sort_name not in ['modulus_of_elasticity','tensile_strength_yield','tensile_strength_ultimate','machinability']:
+                sort_name = 'modulus_of_elasticity'
             sort_query[sort_name] = sort_direction
 
     # pagination
@@ -147,7 +152,6 @@ def data():
     # Applying skip and limit after sorting
     if start >= 0 and length >= 0:
         result_df = result_df.iloc[start:(start+length)]
-
 
     return {
                 'data': result_df.to_dict('records'),
