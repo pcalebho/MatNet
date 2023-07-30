@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, jsonify
-from ranking_algo.ranker import rank_materials, get_id
+from ranking_algo.ranker import rank_materials, get_id, get_key, CRITERION_KEY
 
 #Connecting and creating MongoDB client instance
 # MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
@@ -81,13 +81,13 @@ def data():
                 else:
                     max_value = int(form_data[key]['max'])
 
-                query_item = {get_id(key): {"$gte": min_value, "$lte": max_value}}      #type: ignore
+                query_item = {get_key(key): {"$gte": min_value, "$lte": max_value}}      #type: ignore
                 query.append(query_item)
         session['query'] = query
         session['form_data'] = form_data
         session['weights'] = weights
             
-        return jsonify(form_data, weights, query)
+        return jsonify(form_data, weights)
     else:
         form_data = session.get('form_data', {})
         query = session.get('query',{})
@@ -118,14 +118,14 @@ def data():
     for material in cursor:
         flattened_material = {}
         flattened_material['name'] = material['name']
-        flattened_material['cost'] = material['cost']
+        flattened_material['cost'] = material['cost']['value']
         flattened_material['density'] =  material['physical_properties']['density']['value']
         flattened_material['tensile_strength_ultimate'] =  material['mechanical_properties']['tensile_strength_ultimate']['value']
         flattened_material['tensile_strength_yield'] =  material['mechanical_properties']['tensile_strength_yield']['value']
         flattened_material['modulus_of_elasticity'] = material['mechanical_properties']['modulus_of_elasticity']['value']
         flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']
         flattened_material['machinability'] = material['mechanical_properties']['machinability']['value']
-        flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']
+        flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']['value']
         materials.append(flattened_material)
     
 
@@ -146,8 +146,8 @@ def data():
         for s in sort.split(','):
             sort_direction = -1 if s[0] == '-' else 1
             sort_name = s[1:]
-            if sort_name not in ['modulus_of_elasticity','tensile_strength_yield','tensile_strength_ultimate','machinability']:
-                sort_name = 'modulus_of_elasticity'
+            if sort_name not in list(CRITERION_KEY.values()):
+                sort_name = 'name'
             sort_query[sort_name] = sort_direction
 
     # pagination

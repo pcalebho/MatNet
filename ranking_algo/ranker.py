@@ -13,7 +13,8 @@ CRITERION_KEY = {
     "Brinell Hardness": 'hardness_brinell',
     "Machinability(%)": 'machinability',
     "Specific Heat Capacity(J/g-°C)": 'specific_heat_capacity',
-    "*Cost": 'cost'
+    "*Cost": 'cost',
+    "Score (Rank)": "Score-rank"
 }
 
 def get_id(key):
@@ -94,9 +95,15 @@ def rank_materials(criterions, weights, raw_data):
     #Get rank
     dec = simple.WeightedSumModel()
     rank = dec.evaluate(dmt)  # we use the tansformed version of the data
+    
+    array_x = rank.rank_ 
+    array_y = [round(num*1000,3) for num in rank.e_.score]
+    
+    formatted_ranking = [f"{y} ({x})" for x, y in zip(array_x, array_y)]
 
-    df_with_score = raw_dataframe.assign(Score = rank.e_.score).assign(Rank = rank.rank_)
-    SortedDF = df_with_score.sort_values(by = 'Score', ascending = False)
+    # df_with_score = raw_dataframe.assign(Rank = formatted_ranking)
+    df_with_score = raw_dataframe.assign(Score_rank = formatted_ranking).assign(Score = array_y)
+    SortedDF = df_with_score.sort_values(by = 'Score_rank', ascending = False)
 
     return SortedDF
 

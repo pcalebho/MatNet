@@ -5,12 +5,15 @@ const updateUrl = (prev, query) => {
 const table = new gridjs.Grid({
 columns: [
     { id: 'name', name: 'Name', width: '20%', sort: false},
-    { id: 'elastic_mod', name: 'Modulus of Elasticity' },
-    { id: 'yield_strength', name: 'Yield Strength'},
-    { id: 'ult_strength', name: 'Ultimate Strength'},
-    { id: 'cost', name: 'Cost'},
-    { id: 'machineability', name: 'Machineability'},
-    { id: 'Rank', name: 'Rank'}
+    { id: 'density', name: 'Density' },
+    { id: 'modulus_of_elasticity', name: 'Modulus of Elasticity' },
+    { id: 'tensile_strength_yield', name: 'Yield Strength'},
+    { id: 'tensile_strength_ultimate', name: 'Ultimate Strength'},
+    { id: 'hardness_brinell', name: 'Brinell Hardness' },
+    { id: 'specific_heat_capacity', name: 'Specific Heat Capacity' },
+    { id: 'cost', name: '*Cost' },
+    { id: 'machinability', name: 'Machineability'},
+    { id: 'Score_rank', name: '**Score (Rank)'}
 ],
 server: {
     url: '/api/data',
@@ -30,7 +33,18 @@ sort: {
     multiColumn: true,
     server: {
     url: (prev, columns) => {
-        const columnIds = ['name', 'elastic_mod', 'yield_strength', 'ult_strength', 'cost', 'machineability', 'Rank'];
+        const columnIds = [
+            'name',
+            'density',
+            'modulus_of_elasticity',
+            'tensile_strength_yield',
+            'tensile_strength_ultimate',
+            'hardness_brinell',
+            'specific_heat_capacity',
+            'cost',
+            'machinability',
+            'Score_rank'
+        ];
         const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
         return updateUrl(prev, {sort});
     },
@@ -60,7 +74,7 @@ async function handleSubmit(event) {
     let max_value;
     let formEntry = {};
     const formData = {};
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 8; i++) {
         importance = document.getElementById('sliderRange-'+i).value;
         objective = document.getElementById('objective-'+i).value;
         min_value = document.getElementById('minValue-'+i).value;

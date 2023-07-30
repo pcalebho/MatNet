@@ -16,7 +16,7 @@
             <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
             <span class="importance-container">
                 <label for="sliderRange-{{i}}">Importance</label>
-                <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" value="0" min="0" max="10">
+                <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" min="0" max="10">
                 <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
             </span>
             <label for="objective-{{i}}">Objective</label>
