@@ -79,8 +79,8 @@ body {
 
 #criterions-form {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: 2em;
+    grid-template-columns: auto auto auto auto;
+    gap: 4em;
     margin: 1em;
 }
 
@@ -106,4 +106,10 @@ input[type="range"] {
 
 .criterion-container label {
     align-items: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1em;
 }

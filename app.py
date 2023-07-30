@@ -17,12 +17,21 @@ datasheets_collection = material_db.materials
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here'
+app.config['SECRET_KEY'] = 'FlatDragonPoop394'
 
 
 # material_properties = ["Elastic Modulus",
 #                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
-material_properties = ["Density", "Yield Strength"]
+material_properties = [
+    "Density(g/cc)",
+    "Yield Strength(MPa)", 
+    "Ultimate Strength(MPa)",
+    "Elastic Modulus(GPa)",
+    "Brinell Hardness", 
+    "Machinability(%)",
+    "Specific Heat Capacity(J/g-°C)",
+    "*Cost"
+    ]
 num_sliders = len(material_properties)
     
 
