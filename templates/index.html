@@ -9,7 +9,6 @@
 
 {%block content%}
 <div id="content" class = "content">
-    <!-- <form action="/" id="criterion-forms" method = "POST"> -->
     <form id="form">
         <div id="criterions-form">
         {%for i in range(num_sliders)%}
@@ -23,7 +22,7 @@
             <label for="objective-{{i}}">Objective</label>
             <select id="objective-{{i}}" name="objective-{{i}}">
                 <option value = 'maximize'>Maximize</option>
-                {% if material_properties[i] == 'Cost' %}
+                {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density (g/cc)'%}
                     <option value = 'minimize' selected>Minimize</option>
                 {% else %}
                     <option value = 'minimize'>Minimize</option>
