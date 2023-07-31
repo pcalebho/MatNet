@@ -1,6 +1,5 @@
 import pandas as pd
 import skcriteria as skc
-import numpy as np
 import yaml
 from skcriteria.preprocessing import invert_objectives, scalers
 from skcriteria.madm import simple
@@ -17,6 +16,17 @@ CRITERION_KEY = {
     "Score (Rank)": "Score-rank"
 }
 
+KEY = {
+    "Density(g/cc)": 'physical_properties.density.value',
+    "Yield Strength(MPa)": 'mechanical_properties.tensile_strength_yield.value',
+    "Ultimate Strength(MPa)": 'mechanical_properties.tensile_strength_ultimate.value',
+    "Elastic Modulus(GPa)": 'mechanical_properties.modulus_of_elasticity.value',
+    "Brinell Hardness": 'mechanical_properties.hardness_brinell.value',
+    "Machinability(%)": 'mechanical_properties.machinability.value',
+    "Specific Heat Capacity(J/g-°C)": 'thermal_properties.specific_heat_capacity.value',
+    "*Cost": 'cost.value'
+}
+
 def get_id(key):
     if type(key) == list:
         result = [CRITERION_KEY.get(k) for k in key]
@@ -26,17 +36,6 @@ def get_id(key):
     return CRITERION_KEY.get(key)
 
 def get_key(label):
-    KEY = {
-        "Density(g/cc)": 'physical_properties.density',
-        "Yield Strength(MPa)": 'mechanical_properties.tensile_strength_yield',
-        "Ultimate Strength(MPa)": 'mechanical_properties.tensile_strength_ultimate',
-        "Elastic Modulus(GPa)": 'mechanical_properties.modulus_of_elasticity',
-        "Brinell Hardness": 'mechanical_properties.hardness_brinell',
-        "Machinability(%)": 'mechanical_properties.machinability',
-        "Specific Heat Capacity(J/g-°C)": 'thermal_properties.specific_heat_capacity',
-        "*Cost": 'cost'
-    }
-
     return KEY.get(label)
 
 

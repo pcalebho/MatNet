@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, jsonify
-from ranking_algo.ranker import rank_materials, get_id, get_key, CRITERION_KEY
+from ranking_algo.ranker import rank_materials, get_id, get_key, CRITERION_KEY, KEY
 
 #Connecting and creating MongoDB client instance
 # MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
@@ -22,16 +22,7 @@ app.config['SECRET_KEY'] = 'FlatDragonPoop394'
 
 # material_properties = ["Elastic Modulus",
 #                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
-material_properties = [
-    "Density(g/cc)",
-    "Yield Strength(MPa)", 
-    "Ultimate Strength(MPa)",
-    "Elastic Modulus(GPa)",
-    "Brinell Hardness", 
-    "Machinability(%)",
-    "Specific Heat Capacity(J/g-°C)",
-    "*Cost"
-    ]
+material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
     
 
@@ -81,14 +72,15 @@ def data():
                     }
                 }      #type: ignore
                 query.append(query_item)
+            query.append({"mechanical_properties.hardness_brinell.units": ''})
         
         session['query'] = query
         session['form_data'] = form_data
             
-        return jsonify(form_data, query)
+        return jsonify({'form_data': form_data, 'query': query})
     else:
         form_data = session.get('form_data', {})
-        query = session.get('query',{})
+        query = session.get('query',[])
         
 
     valid_query = {"$and": [
@@ -102,12 +94,11 @@ def data():
         {"mechanical_properties.modulus_of_elasticity.value": {"$exists": True}}
     ]}
     
-    if query != {}:
-        cursor = datasheets_collection.find({"$and": [query, valid_query]})
+    if 'query' in session:
+        cursor = datasheets_collection.find({"$and": query})
     else:
         cursor = datasheets_collection.find(valid_query)
     
-    cursor = datasheets_collection.find(valid_query)
 
     materials = []
     for material in cursor:
