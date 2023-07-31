@@ -1,6 +1,5 @@
 import pandas as pd
 import skcriteria as skc
-import yaml
 from skcriteria.preprocessing import invert_objectives, scalers
 from skcriteria.madm import simple
 
@@ -95,15 +94,4 @@ def rank_materials(form_data, raw_data):
     return SortedDF
 
 if __name__ == '__main__':
-    #for unit testing
-    with open('C:/Users/ttrol/CodingProjects/MatNet/webscraper/results_files/AISI_steels_fakedata.yaml','r') as stream:
-        try:
-            raw_data = yaml.safe_load(stream)
-        except FileNotFoundError:
-            raise FileNotFoundError
-        
-    criterions = [ 'Yield Strength', 'Cost', 'Machineability', 'Elastic Modulus', 'Ultimate Strength']
-    raw_weights = [10, -10, 3, 0, 0]
-    
-    # df = rank_materials(criterions, raw_weights, raw_data)
-    # print(df)
+    pass
