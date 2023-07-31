@@ -3,61 +3,82 @@ const updateUrl = (prev, query) => {
 };
 
 const table = new gridjs.Grid({
-columns: [
-    { id: 'name', name: 'Name', width: '20%', sort: false},
-    { id: 'density', name: 'Density' },
-    { id: 'modulus_of_elasticity', name: 'Modulus of Elasticity' },
-    { id: 'tensile_strength_yield', name: 'Yield Strength'},
-    { id: 'tensile_strength_ultimate', name: 'Ultimate Strength'},
-    { id: 'hardness_brinell', name: 'Brinell Hardness' },
-    { id: 'specific_heat_capacity', name: 'Specific Heat Capacity' },
-    { id: 'cost', name: '*Cost' },
-    { id: 'machinability', name: 'Machineability'},
-    { id: 'Score_rank', name: '**Score (Rank)'}
-],
-server: {
-    url: '/api/data',
-    then: results => results.data,
-    total: results => results.total,
-},
-search: {
-    enabled: true,
+    columns: [
+        { id: 'name', name: 'Name', width: '8%', sort: false},
+        { id: 'density', width: '7%', name: 'Density' },
+        { id: 'modulus_of_elasticity',width: '10%', name: 'Elastic Modulus' },
+        { id: 'tensile_strength_yield',width: '10%', name: 'Yield Strength'},
+        { id: 'tensile_strength_ultimate',width: '10%', name: 'Ultimate Strength'},
+        { id: 'hardness_brinell', width: '10%',name: 'Brinell Hardness' },
+        { id: 'specific_heat_capacity', width: '10%',name: 'Specific Heat Capacity' },
+        { id: 'cost', width: '8%',name: '*Cost' },
+        { id: 'machinability', width: '10%',name: 'Machineability'},
+        { id: 'Score_rank',name: '**Score(Rank)'}
+    ],
     server: {
-    url: (prev, search) => {
-        return updateUrl(prev, {search});
+        url: '/api/data',
+        then: results => results.data,
+        total: results => results.total,
     },
+    search: {
+        enabled: true,
+        server: {
+        url: (prev, search) => {
+            return updateUrl(prev, {search});
+        },
+        },
     },
-},
-sort: {
-    enabled: true,
-    multiColumn: true,
-    server: {
-    url: (prev, columns) => {
-        const columnIds = [
-            'name',
-            'density',
-            'modulus_of_elasticity',
-            'tensile_strength_yield',
-            'tensile_strength_ultimate',
-            'hardness_brinell',
-            'specific_heat_capacity',
-            'cost',
-            'machinability',
-            'Score_rank'
-        ];
-        const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
-        return updateUrl(prev, {sort});
+    sort: {
+        enabled: true,
+        multiColumn: true,
+        server: {
+        url: (prev, columns) => {
+            const columnIds = [
+                'name',
+                'density',
+                'modulus_of_elasticity',
+                'tensile_strength_yield',
+                'tensile_strength_ultimate',
+                'hardness_brinell',
+                'specific_heat_capacity',
+                'cost',
+                'machinability',
+                'Score_rank'
+            ];
+            const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
+            return updateUrl(prev, {sort});
+        },
+        },
     },
+    pagination: {
+        enabled: true,
+        server: {
+        url: (prev, page, limit) => {
+            return updateUrl(prev, {start: page * limit, length: limit});
+        },
+        },
     },
-},
-pagination: {
-    enabled: true,
-    server: {
-    url: (prev, page, limit) => {
-        return updateUrl(prev, {start: page * limit, length: limit});
-    },
-    },
-},
+    width: '93%',
+    style: {
+        container: {
+            'margin-top': '1em',
+            'margin-left': '3.5%',
+            'margin-right': '3.5%'
+        },
+        table: {
+            'font-size': '11px',
+            'width': '90%'
+        },
+        th: {
+            'font-size': '1em',
+            'text-align': 'left',
+            'padding': '1em'
+        },
+        td: {
+            'text-align': 'center',
+            'padding': '5px'
+        }
+    }
 })
 
 table.render(document.getElementById('table'));

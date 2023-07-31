@@ -11,33 +11,35 @@
 <div id="content" class = "content">
     <form id="form">
         <div id="criterions-form">
-        {%for i in range(num_sliders)%}
-        <div class = "criterion-container">
-            <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
-            <span class="importance-container">
-                <label for="sliderRange-{{i}}">Importance</label>
-                <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" min="0" max="10">
-                <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
-            </span>
-            <label for="objective-{{i}}">Objective</label>
-            <select id="objective-{{i}}" name="objective-{{i}}">
-                <option value = '1'>Maximize</option>
-                {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density(g/cc)'%}
-                    <option value = '-1' selected>Minimize</option>
-                {% else %}
-                    <option value = '-1'>Minimize</option>
-                {% endif %}                
-            </select>
-            <label for="minValue-{{i}}">Min Value:</label>
-            <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
-            <label for="maxValue-{{i}}">Max Value:</label>
-            <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
+            {%for i in range(num_sliders)%}
+            <div class = "criterion-container">
+                <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
+                <span class="importance-container">
+                    <label for="sliderRange-{{i}}">Importance</label>
+                    <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" min="0" max="10">
+                    <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
+                </span>
+                <label for="objective-{{i}}">Objective</label>
+                <select id="objective-{{i}}" name="objective-{{i}}">
+                    <option value = '1'>Maximize</option>
+                    {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density(g/cc)'%}
+                        <option value = '-1' selected>Minimize</option>
+                    {% else %}
+                        <option value = '-1'>Minimize</option>
+                    {% endif %}                
+                </select>
+                <label for="minValue-{{i}}">Min Value:</label>
+                <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
+                <label for="maxValue-{{i}}">Max Value:</label>
+                <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
+            </div>
+            {%endfor%}
         </div>
-        {%endfor%}
-        </div>
-        <input type = "submit"></input>
+        <input id='form-submit-btn' type = "submit" role="button" value="Calculate"></input>
     </form>
     <div id="table"></div>
+    <i>*data should not be trusted for mission critical apps</i>
+    <i>**scores are relative to each other</i>
 </div>
 {% endblock %}
 
