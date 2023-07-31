@@ -13,11 +13,19 @@ MONGODB_URI = os.environ.get('MONGODB_URI')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+db_name = os.environ.get('DATABASE')
+collection_name = os.environ.get('MATERIAL_COLLECTION')
 
+if db_name is None or collection_name is None:
+    raise ValueError('Error: DATABASE ENV var is missing')
+
+if collection_name is None:
+    raise ValueError('Error: MATERIAL_COLLECTION ENV var is missing')
 
 client = MongoClient(MONGODB_URI)
-material_db = client.matjet_prod
-datasheets_collection = material_db.materials
+
+material_db = client[db_name]
+datasheets_collection = material_db[collection_name]
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
