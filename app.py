@@ -32,7 +32,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
     
-
+#Home
 @app.route('/')
 def root(): 
     session.clear()     
@@ -53,6 +53,9 @@ def contact():
 def glossary():
     return render_template('glossary.html')
 
+@app.route('/healthcheck')
+def health_check():
+    return "Success", 200
 
 @app.route('/api/data', methods = ('GET','POST'))
 def data():
