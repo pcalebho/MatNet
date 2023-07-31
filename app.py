@@ -4,10 +4,10 @@ from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, jsonify
 from ranking_algo.ranker import rank_materials, get_id, get_key, CRITERION_KEY, KEY
 
-#Connecting and creating MongoDB client instance
-MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/"
-#For testing
-# MONGODB_URI = 'mongodb://localhost:27017' 
+# #Connecting and creating MongoDB client instance
+# MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/"
+
+MONGODB_URI = os.getenv('MONGODB_CONNECTION_STRING')
 client = MongoClient(MONGODB_URI)
 
 
