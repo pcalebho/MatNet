@@ -10,7 +10,6 @@ load_dotenv()
 # #Connecting and creating MongoDB client instance
 MONGODB_URI = os.environ.get('MONGODB_URI')
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db_name = os.environ.get('DATABASE')
