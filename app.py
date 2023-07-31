@@ -5,13 +5,13 @@ from flask import Flask, render_template, request, session, jsonify
 from ranking_algo.ranker import rank_materials, get_id, get_key, CRITERION_KEY, KEY
 
 #Connecting and creating MongoDB client instance
-# MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/?retryWrites=true&w=majority"
+MONGODB_URI = "mongodb+srv://pcalebho:UISBvUYTesMft5AX@matcluster.5ygnbeg.mongodb.net/"
 #For testing
-MONGODB_URI = 'mongodb://localhost:27017' 
+# MONGODB_URI = 'mongodb://localhost:27017' 
 client = MongoClient(MONGODB_URI)
 
 
-material_db = client.matjet
+material_db = client.matjet_prod
 datasheets_collection = material_db.materials
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -20,8 +20,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'FlatDragonPoop394'
 
 
-# material_properties = ["Elastic Modulus",
-#                        "Yield Strength", "Cost", "Ultimate Strength", "Machineability"]
 material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
     
