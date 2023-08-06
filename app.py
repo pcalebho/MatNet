@@ -152,7 +152,8 @@ def data():
 
     # Perform the query with sorting, skip, and limit parameters
     if search is not None:
-        result_df = result_df[result_df.name.str.contains(search)]
+        search = search.lower()
+        result_df = result_df[result_df.name.str.contains(search, case=False)]
 
 
     # Check if start and length are not None and use the default values if necessary
