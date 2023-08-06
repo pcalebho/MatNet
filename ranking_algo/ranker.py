@@ -83,13 +83,13 @@ def rank_materials(form_data, raw_data):
     rank = dec.evaluate(dmt)  # we use the tansformed version of the data
     
     array_x = rank.rank_ 
-    array_y = [round(num*1000,3) for num in rank.e_.score]
+    array_y = [num*1000 for num in rank.e_.score]
     
     formatted_ranking = [f"{y} ({x})" for x, y in zip(array_x, array_y)]
 
     # df_with_score = raw_dataframe.assign(Rank = formatted_ranking)
-    df_with_score = raw_dataframe.assign(Score_rank = formatted_ranking).assign(Score = array_y)
-    SortedDF = df_with_score.sort_values(by = 'Score_rank', ascending = False)
+    df_with_score = raw_dataframe.assign(Score_rank = formatted_ranking).assign(Score = array_y).assign(Rank= array_x)
+    SortedDF = df_with_score.sort_values(by = 'Rank', ascending = True)
 
     return SortedDF
 
