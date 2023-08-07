@@ -27,7 +27,7 @@ const table = new gridjs.Grid({
                 return updateUrl(prev, {search});
             },
         },
-        debounceTimeout: 1000,
+        debounceTimeout: 0,
     },
     sort: {
         enabled: true,
