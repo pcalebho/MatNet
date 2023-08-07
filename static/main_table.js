@@ -27,7 +27,8 @@ const table = new gridjs.Grid({
                 return updateUrl(prev, {search});
             },
         },
-        debounceTimeout: 1000
+        debounceTimeout: 1000,
+        placeholder: 'Search...'
     },
     sort: {
         enabled: true,
@@ -60,6 +61,11 @@ const table = new gridjs.Grid({
         },
     },
     width: '90%',
+    language: {
+        'search': {
+          'placeholder': '🔍 Search...'
+        },
+    },
     style: {
         container: {
             'margin-top': '1em',
@@ -93,10 +99,6 @@ table.render(document.getElementById('table'));
 //         table.search(searchString);
 //     }
 // });
-
-//Change search input
-const searchInput = document.querySelector('.gridjs-search-input');
-    searchInput.placeholder = 'Search...';
 
 
 // Function to handle form submission
