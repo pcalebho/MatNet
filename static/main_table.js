@@ -44,7 +44,7 @@ const table = new gridjs.Grid({
                     'specific_heat_capacity',
                     'cost',
                     'machinability',
-                    'Score_rank'
+                    'Rank'
                 ];
                 const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
                 return updateUrl(prev, {sort});

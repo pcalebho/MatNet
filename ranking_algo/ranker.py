@@ -12,7 +12,7 @@ CRITERION_KEY = {
     "Machinability(%)": 'machinability',
     "Specific Heat Capacity(J/g-°C)": 'specific_heat_capacity',
     "*Cost": 'cost',
-    "Score (Rank)": "Score-rank"
+    "**Rank": 'Rank'
 }
 
 KEY = {
