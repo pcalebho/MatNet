@@ -28,7 +28,6 @@ const table = new gridjs.Grid({
             },
         },
         debounceTimeout: 1000,
-        placeholder: 'Search...'
     },
     sort: {
         enabled: true,
