@@ -94,6 +94,10 @@ table.render(document.getElementById('table'));
 //     }
 // });
 
+//Change search input
+const searchInput = document.querySelector('.gridjs-search-input');
+    searchInput.placeholder = 'Search...';
+
 
 // Function to handle form submission
 async function handleSubmit(event) {
