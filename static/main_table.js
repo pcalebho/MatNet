@@ -11,9 +11,9 @@ const table = new gridjs.Grid({
         { id: 'tensile_strength_ultimate',width: '10%', name: 'Ultimate Strength'},
         { id: 'hardness_brinell', width: '10%',name: 'Brinell Hardness' },
         { id: 'specific_heat_capacity', width: '10%',name: 'Specific Heat Capacity' },
-        { id: 'cost', width: '8%',name: '*Cost' },
-        { id: 'machinability', width: '10%',name: 'Machineability'},
-        { id: 'Score_rank',name: '**Score(Rank)'}
+        // { id: 'cost', width: '8%',name: '*Cost' },
+        { id: 'machinability', width: '8%',name: 'Machineability'},
+        { id: 'Rank', name: '**Rank'}
     ],
     server: {
         url: '/api/data',
@@ -23,31 +23,32 @@ const table = new gridjs.Grid({
     search: {
         enabled: true,
         server: {
-        url: (prev, search) => {
-            return updateUrl(prev, {search});
+            url: (prev, search) => {
+                return updateUrl(prev, {search});
+            },
         },
-        },
+        debounceTimeout: 0,
     },
     sort: {
         enabled: true,
         multiColumn: true,
         server: {
-        url: (prev, columns) => {
-            const columnIds = [
-                'name',
-                'density',
-                'modulus_of_elasticity',
-                'tensile_strength_yield',
-                'tensile_strength_ultimate',
-                'hardness_brinell',
-                'specific_heat_capacity',
-                'cost',
-                'machinability',
-                'Score_rank'
-            ];
-            const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
-            return updateUrl(prev, {sort});
-        },
+            url: (prev, columns) => {
+                const columnIds = [
+                    'name',
+                    'density',
+                    'modulus_of_elasticity',
+                    'tensile_strength_yield',
+                    'tensile_strength_ultimate',
+                    'hardness_brinell',
+                    'specific_heat_capacity',
+                    'cost',
+                    'machinability',
+                    'Rank'
+                ];
+                const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
+                return updateUrl(prev, {sort});
+            },
         },
     },
     pagination: {
@@ -58,16 +59,27 @@ const table = new gridjs.Grid({
         },
         },
     },
-    width: '93%',
+    width: '90%',
+    language: {
+        'search': {
+          'placeholder': '🔍 Search...'
+        },
+        'pagination': {
+            'previous': '⬅️',
+            'next': '➡️',
+            'showing': '😃 Displaying',
+            'results': () => 'Records'
+        }
+    },
     style: {
         container: {
             'margin-top': '1em',
-            'margin-left': '3.5%',
-            'margin-right': '3.5%'
+            'margin-left': '5%',
+            'margin-right': '5%'
         },
         table: {
             'font-size': '11px',
-            'width': '90%'
+            'width': '100%'
         },
         th: {
             'font-size': '1em',
@@ -82,6 +94,16 @@ const table = new gridjs.Grid({
 })
 
 table.render(document.getElementById('table'));
+
+// const searchInput = document.getElementById('searchInput');
+// let searchString = '';
+
+// searchInput.addEventListener('keypress', (event) => {
+//     if (event.key === 'Enter') {
+//         searchString = event.target.value.trim();
+//         table.search(searchString);
+//     }
+// });
 
 
 // Function to handle form submission

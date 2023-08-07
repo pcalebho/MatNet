@@ -3,7 +3,6 @@
 <!-- {%block title%} {{super()}} {%endblock%} -->
 
 {%block head%}
-<link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
 {%endblock%}
 
 
@@ -12,7 +11,7 @@
     <form id="form">
         <div id="criterions-form">
             {%for i in range(num_sliders)%}
-            <div class = "criterion-container">
+            <div class = "criterion-container cc-{{i}}">
                 <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
                 <span class="importance-container">
                     <label for="sliderRange-{{i}}">Importance</label>
@@ -39,7 +38,7 @@
     </form>
     <div id="table"></div>
     <i>*data should not be trusted for mission critical apps</i>
-    <i>**scores are relative to each other</i>
+    <i>**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i>
 </div>
 {% endblock %}
 

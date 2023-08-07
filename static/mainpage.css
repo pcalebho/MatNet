@@ -155,3 +155,8 @@ form {
 i {
     font-size: .6em
 }
+
+/* For removing unnecessary items*/
+.cc-7 {
+    display: none;
+}
