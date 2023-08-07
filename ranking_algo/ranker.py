@@ -9,7 +9,7 @@ CRITERION_KEY = {
     "Ultimate Strength(MPa)": 'tensile_strength_ultimate',
     "Elastic Modulus(GPa)": 'modulus_of_elasticity',
     "Brinell Hardness": 'hardness_brinell',
-    "Machinability(%)": 'machinability',
+    "*Machinability(%)": 'machinability',
     "Specific Heat Capacity(J/g-°C)": 'specific_heat_capacity',
     "*Cost": 'cost',
     "**Rank": 'Rank'
@@ -21,7 +21,7 @@ KEY = {
     "Ultimate Strength(MPa)": 'mechanical_properties.tensile_strength_ultimate.value',
     "Elastic Modulus(GPa)": 'mechanical_properties.modulus_of_elasticity.value',
     "Brinell Hardness": 'mechanical_properties.hardness_brinell.value',
-    "Machinability(%)": 'mechanical_properties.machinability.value',
+    "*Machinability(%)": 'mechanical_properties.machinability.value',
     "Specific Heat Capacity(J/g-°C)": 'thermal_properties.specific_heat_capacity.value',
     "*Cost": 'cost.value'
 }
