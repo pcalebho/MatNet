@@ -11,7 +11,7 @@
     <form id="form">
         <div id="criterions-form">
             {%for i in range(num_sliders)%}
-            <div class = "criterion-container">
+            <div class = "criterion-container cc-{{i}}">
                 <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
                 <span class="importance-container">
                     <label for="sliderRange-{{i}}">Importance</label>

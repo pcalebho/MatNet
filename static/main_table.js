@@ -11,7 +11,7 @@ const table = new gridjs.Grid({
         { id: 'tensile_strength_ultimate',width: '10%', name: 'Ultimate Strength'},
         { id: 'hardness_brinell', width: '10%',name: 'Brinell Hardness' },
         { id: 'specific_heat_capacity', width: '10%',name: 'Specific Heat Capacity' },
-        { id: 'cost', width: '8%',name: '*Cost' },
+        // { id: 'cost', width: '8%',name: '*Cost' },
         { id: 'machinability', width: '8%',name: 'Machineability'},
         { id: 'Rank', name: '**Rank'}
     ],
