@@ -65,6 +65,12 @@ const table = new gridjs.Grid({
         'search': {
           'placeholder': '🔍 Search...'
         },
+        'pagination': {
+            'previous': '⬅️',
+            'next': '➡️',
+            'showing': '😃 Displaying',
+            'results': () => 'Records'
+        }
     },
     style: {
         container: {
