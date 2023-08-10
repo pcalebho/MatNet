@@ -2,16 +2,22 @@ import os
 import pandas as pd
 from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, jsonify
-from ranking_algo.ranker import rank_materials, get_id, get_key, CRITERION_KEY, KEY
+from ranking_algo.ranker import rank_materials, get_key, CRITERION_KEY, KEY
 from dotenv import load_dotenv
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo, Length
+
 
 load_dotenv()
 
-# #Connecting and creating MongoDB client instance
-MONGODB_URI = os.environ.get('MONGODB_URI')
-
 app = Flask(__name__)
+
+#get and use environment variables
+MONGODB_URI = os.environ.get('MONGODB_URI')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRESQL_URI')
 db_name = os.environ.get('DATABASE')
 collection_name = os.environ.get('MATERIAL_COLLECTION')
 
@@ -21,16 +27,46 @@ if db_name is None or collection_name is None:
 if collection_name is None:
     raise ValueError('Error: MATERIAL_COLLECTION ENV var is missing')
 
+#Connecting and creating MongoDB client instance
 client = MongoClient(MONGODB_URI)
-
 material_db = client[db_name]
 datasheets_collection = material_db[collection_name]
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+
+#Connect to Postgresql database
+user_db = SQLAlchemy()
+user_db.init_app(app)
+
+
+#SQL Model for User
+class User(user_db.Model):
+    id = user_db.Column(user_db.Integer, primary_key=True)
+    email = user_db.Column(user_db.String(80), unique=True, nullable=False)
+    password = user_db.Column(user_db.String(120), nullable=False)
+
+
+#registration form
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Sign Up')
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
+
+
+with app.app_context():
+    user_db.create_all()
 
 
 material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
+
     
 #Home
 @app.route('/')
@@ -56,6 +92,14 @@ def glossary():
 @app.route('/healthcheck')
 def health_check():
     return "Success", 200
+
+@app.route('/login')
+def login():
+    return 'login'
+
+@app.route('/register')
+def register():
+    return 'register'
 
 @app.route('/api/data', methods = ('GET','POST'))
 def data():
