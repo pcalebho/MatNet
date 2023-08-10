@@ -1,13 +1,16 @@
 import os
 import pandas as pd
+
+from flask_login import LoginManager
 from pymongo.mongo_client import MongoClient
-from flask import Flask, render_template, request, session, jsonify
+from flask import Flask, render_template, request, session, jsonify, redirect, flash, url_for
 from ranking_algo.ranker import rank_materials, get_key, CRITERION_KEY, KEY
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
+from flask_bcrypt import Bcrypt
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired, Email, EqualTo, Length
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
 
 load_dotenv()
@@ -44,17 +47,25 @@ class User(user_db.Model):
     email = user_db.Column(user_db.String(80), unique=True, nullable=False)
     password = user_db.Column(user_db.String(120), nullable=False)
 
+# login_manager = LoginManager()
+# login_manager.init_app(app)
+
+bcrypt = Bcrypt(app)
 
 #registration form
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
+    def validate_email(form, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('Email already in use.')
+
+#login form
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
@@ -95,11 +106,22 @@ def health_check():
 
 @app.route('/login')
 def login():
-    return 'login'
+    return render_template('login.html', title='Login')
 
 @app.route('/register')
 def register():
-    return 'register'
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        pw_hash = bcrypt.generate_password_hash(form.email.data)
+        user_email = form.email.data
+        new_user = User(email=user_email, password=pw_hash)
+        user_db.session.add(new_user)
+        user_db.session.commit()
+        flash('Your account has been created! You are now able to log in', 'success')
+        return redirect('/')
+    
+    return render_template('register.html', title='Register', form=form)
+
 
 @app.route('/api/data', methods = ('GET','POST'))
 def data():
