@@ -45,7 +45,10 @@ user_db.init_app(app)
 class User(user_db.Model):
     id = user_db.Column(user_db.Integer, primary_key=True)
     email = user_db.Column(user_db.String(80), unique=True, nullable=False)
-    password = user_db.Column(user_db.String(120), nullable=False)
+    password = user_db.Column(user_db.Text(), nullable=False)
+
+    def check_password(self, password):
+        return bcrypt.check_password_hash(self.password_hash, password)
 
 # login_manager = LoginManager()
 # login_manager.init_app(app)
@@ -108,9 +111,10 @@ def health_check():
 def login():
     return render_template('login.html', title='Login')
 
-@app.route('/register')
+@app.route('/register', methods=['POST', 'GET'])
 def register():
     form = RegistrationForm()
+
     if form.validate_on_submit():
         pw_hash = bcrypt.generate_password_hash(form.email.data)
         user_email = form.email.data
@@ -119,7 +123,7 @@ def register():
         user_db.session.commit()
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect('/')
-    
+
     return render_template('register.html', title='Register', form=form)
 
 
