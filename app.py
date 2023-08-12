@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 from flask_login import LoginManager
-from routes.api import api_blueprint
+from routes.api import api_bp
 from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, jsonify, redirect, flash, url_for
 from ranking_algo.ranker import rank_materials, get_key, CRITERION_KEY, KEY
@@ -69,7 +69,7 @@ material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
 
 
-app.register_blueprint(api_blueprint)
+app.register_blueprint(api_bp)
     
 #Home
 @app.route('/')

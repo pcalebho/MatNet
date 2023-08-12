@@ -23,9 +23,9 @@ client = MongoClient(MONGODB_URI)
 material_db = client[db_name]
 datasheets_collection = material_db[collection_name]
 
-api_blueprint = Blueprint('api', __name__)
+api_bp = Blueprint('api', __name__)
 
-@api_blueprint.route('/api/data', methods = ('GET','POST'))
+@api_bp.route('/api/data', methods = ('GET','POST'))
 def data():
     if request.method == 'POST':
         query = []
