@@ -3,6 +3,7 @@ import pandas as pd
 
 from flask_login import LoginManager
 from routes.api import api_bp
+from routes.docs import docs_bp
 from pymongo.mongo_client import MongoClient
 from flask import Flask, render_template, request, session, jsonify, redirect, flash, url_for
 from ranking_algo.ranker import rank_materials, get_key, CRITERION_KEY, KEY
@@ -68,9 +69,10 @@ with app.app_context():
 material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
 
-
+#register blueprints
 app.register_blueprint(api_bp)
-    
+app.register_blueprint(docs_bp)
+
 #Home
 @app.route('/')
 def root(): 
@@ -87,10 +89,6 @@ def root():
 def contact():
     return render_template('contact.html')
 
-
-@app.route('/documentation')
-def glossary():
-    return render_template('glossary.html')
 
 @app.route('/healthcheck')
 def health_check():
