@@ -156,6 +156,10 @@ i {
     font-size: .6em
 }
 
+#disclaimer {
+    margin-bottom: 4em;
+}
+
 /* For removing unnecessary items*/
 .cc-7 {
     display: none;
