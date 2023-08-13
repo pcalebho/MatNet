@@ -4,7 +4,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from pymongo import MongoClient
 from flask import Blueprint, request, session, jsonify
-from ranking_algo.ranker import get_key, CRITERION_KEY, rank_materials
+from app.ranker import get_key, CRITERION_KEY, rank_materials
 
 load_dotenv()
 

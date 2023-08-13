@@ -4,13 +4,18 @@ factory function to create the app
 
 import os
 
-from flask import Flask
+from flask import Flask, render_template
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app(test_config = None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY = 'development'
     )
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRESQL_URI')
+
 
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
@@ -22,21 +27,30 @@ def create_app(test_config = None):
     except OSError:
         pass
 
-    from models import db
+    
+    from app.models import db
     db.init_app(app)
 
-    with 
+    with app.app_context():
+        from .routes.api import api_bp
+        from .routes.docs import docs_bp
+        from .routes.main import main_bp
+        from .routes.auth import auth_bp
+        app.register_blueprint(main_bp)
+        app.register_blueprint(api_bp)
+        app.register_blueprint(docs_bp)
+        app.register_blueprint(auth_bp)
+        
+        # from routes.main import main_bp
 
-    from routes.api import api_bp
-    from routes.docs import docs_bp
-    app.register_blueprint(api_bp)
-    app.register_blueprint(docs_bp)
+        #other view functions
+        @app.route('/healthcheck')
+        def health_check():
+            return "Success", 200
+
+        # view function for contact slide
+        @app.route('/contact')
+        def contact():
+            return render_template('contact.html')
     
-    # from routes.main import main_bp
-
-    @app.route('/')
-    def hello():
-        return 'Hello World'
-
-
-    return app
+        return app
