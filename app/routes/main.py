@@ -8,8 +8,7 @@ material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
 
 @main_bp.route('/')
-def root(): 
-    # session.clear()     
+def root():   
     return render_template(
         'index.html', 
         material_properties=material_properties,
