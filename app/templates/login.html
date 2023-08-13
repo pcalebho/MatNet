@@ -9,5 +9,6 @@
         <span class="text-danger">{{ error }}</span>
     {% endfor %}
     {{ form.submit }}
+    <a href="{{url_for('auth.register')}}">Register</a>
 </form> 
 {% endblock %}
