@@ -1,7 +1,8 @@
 from app.models import User, db
-from flask import render_template, current_app, Blueprint, flash, redirect
+from flask import render_template, current_app, Blueprint, flash, redirect, url_for, request
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
+from flask_login import login_user
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
@@ -42,10 +43,30 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
+    
 
-@auth_bp.route('/login')
+@auth_bp.route('/login', methods=['POST', 'GET'])
 def login():
-    return render_template('login.html', title='Login')
+    form = LoginForm()
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+
+            # check if user actually exists
+            # take the user supplied password, hash it, and compare it to the hashed password in database
+            if not user or not bcrypt.check_password_hash(user.password, form.password.data): 
+                flash('Please check your login details and try again.')
+                return redirect(url_for('auth.login')) # if user doesn't exist or password is wrong, reload the page
+
+            # if the above check passes, then we know the user has the right credentials
+            login_user(user, remember=form.remember.data)
+            return redirect(url_for('main.root'))
+        else:
+            print(form.errors)
+
+    return render_template('login.html', title='Login', form=form)
+
 
 @auth_bp.route('/register', methods=['POST', 'GET'])
 def register():
