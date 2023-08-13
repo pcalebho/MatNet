@@ -18,9 +18,14 @@
   	<body>
 		<nav class="navbar-container">
 			<a id = "logo-home" href = "/">kohoya</a>
-			<ul class = "menu-items" style="display: none;">
+			<ul class = "menu-items">
 				<li><a href = "/">Home</a></li>
 				<li><a href = "contact">Contact Me</a></li>
+				{% if current_user.is_authenticated %}
+        			<li>{{ current_user.email.split('@')[0] }} <a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    			{% else %}
+        			<li><a href="{{ url_for('auth.login') }}">Login</a></li>
+    			{% endif %}
 				<li><a href = "documentation">Docs</a></li>
 			</ul>
 		</nav>
