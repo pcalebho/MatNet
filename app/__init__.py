@@ -12,22 +12,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def create_app(test_config = None):
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY = 'development'
-    )
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRESQL_URI')
-
+    app = Flask(__name__, instance_relative_config=False)
 
     if test_config is None:
-        app.config.from_pyfile('config.py', silent=True)
+        app.config.from_object('config.Config')
+    elif test_config == 'development':
+        app.config.from_object('config.DevConfig')
+    elif test_config == 'production':
+        app.config.from_object('config.ProdConfig')
     else:
-        app.config.from_mapping(test_config)
+        raise ValueError('No corresponding arg value')
 
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
 
     #initialize db extensions and models
     from app.models import db, User

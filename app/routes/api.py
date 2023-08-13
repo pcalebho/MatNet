@@ -3,20 +3,15 @@ import pandas as pd
 
 from dotenv import load_dotenv
 from pymongo import MongoClient
-from flask import Blueprint, request, session, jsonify
+from flask import Blueprint, request, session, jsonify, current_app
 from app.ranker import get_key, CRITERION_KEY, rank_materials
 
 load_dotenv()
 
-MONGODB_URI = os.environ.get('MONGODB_URI')
-db_name = os.environ.get('DATABASE')
-collection_name = os.environ.get('MATERIAL_COLLECTION')
+MONGODB_URI = current_app.config['MONGODB_URI']
+db_name = current_app.config['MATERIAL_DB_NAME']
+collection_name = current_app.config['MATERIAL_COLLECTION']
 
-if db_name is None or collection_name is None:
-    raise ValueError('Error: DATABASE ENV var is missing')
-
-if collection_name is None:
-    raise ValueError('Error: MATERIAL_COLLECTION ENV var is missing')
 
 #Connecting and creating MongoDB client instance
 client = MongoClient(MONGODB_URI)
