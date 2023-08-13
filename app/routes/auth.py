@@ -49,21 +49,20 @@ class LoginForm(FlaskForm):
 def login():
     form = LoginForm()
 
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            user = User.query.filter_by(email=form.email.data).first()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
 
-            # check if user actually exists
-            # take the user supplied password, hash it, and compare it to the hashed password in database
-            if not user or not bcrypt.check_password_hash(user.password, form.password.data): 
-                flash('Please check your login details and try again.')
-                return redirect(url_for('auth.login')) # if user doesn't exist or password is wrong, reload the page
+        # check if user actually exists
+        # take the user supplied password, hash it, and compare it to the hashed password in database
+        if not user or not bcrypt.check_password_hash(user.password, form.password.data): 
+            flash('Please check your login details and try again.')
+            return redirect(url_for('auth.login')) # if user doesn't exist or password is wrong, reload the page
 
-            # if the above check passes, then we know the user has the right credentials
-            login_user(user, remember=form.remember.data)
-            return redirect(url_for('main.root'))
-        else:
-            print(form.errors)
+        # if the above check passes, then we know the user has the right credentials
+        login_user(user, remember=form.remember.data)
+        return redirect(url_for('main.root'))
+    else:
+        print(form.errors)
 
     return render_template('login.html', title='Login', form=form)
 
