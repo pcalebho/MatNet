@@ -5,6 +5,7 @@ factory function to create the app
 import os
 
 from flask import Flask, render_template
+from flask_migrate import Migrate
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,8 +31,12 @@ def create_app(test_config = None):
     
     from app.models import db
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     with app.app_context():
+        #create tables if they have not already been made
+        db.create_all()
+
         from .routes.api import api_bp
         from .routes.docs import docs_bp
         from .routes.main import main_bp
