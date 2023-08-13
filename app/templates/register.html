@@ -1,7 +1,6 @@
 {%extends "base.html" %}
 {% block content %}
 <form method="POST" action="/register">
-    {{ form.csrf_token }}
     {{ form.email.label }} {{ form.email(size=20) }}
     {{ form.industry.label }} {{ form.industry() }}
     {{ form.occupation.label }} {{ form.occupation() }}
