@@ -1,3 +1,5 @@
+*.ipynb
+
 MatNet.code-workspace
 ca.crt
 results_files/
