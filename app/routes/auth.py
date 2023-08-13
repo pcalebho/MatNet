@@ -2,7 +2,7 @@ from app.models import User, db
 from flask import render_template, current_app, Blueprint, flash, redirect, url_for, request
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
@@ -84,3 +84,10 @@ def register():
         return redirect('/')
 
     return render_template('register.html', title='Register', form=form)
+
+
+@auth_bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.root'))
