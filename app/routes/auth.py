@@ -25,8 +25,8 @@ class RegistrationForm(FlaskForm):
     }
 
     email = StringField('Email', validators=[DataRequired(), Email()])
-    industry = SelectField('What industry are you in?', choices=occupation_choices.items(),validators=[DataRequired()])
-    occupation = SelectField('What is your occupation?', choices=industry_choices.items(),validators=[DataRequired()])
+    industry = SelectField('What industry are you in?', choices=industry_choices.items(),validators=[DataRequired()])
+    occupation = SelectField('What is your occupation?', choices=occupation_choices.items(),validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
