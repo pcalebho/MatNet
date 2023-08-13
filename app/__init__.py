@@ -29,14 +29,16 @@ def create_app(test_config = None):
     except OSError:
         pass
 
-    
+    #initialize db extensions and models
     from app.models import db, User
     db.init_app(app)
     migrate = Migrate(app, db)
 
+    #login logic
     login_manager = LoginManager()    
     login_manager.init_app(app)
 
+    #callback function for the login manager
     @login_manager.user_loader
     def load_user(user_id):
         # since the user_id is just the primary key of our user table, use it in the query for the user
