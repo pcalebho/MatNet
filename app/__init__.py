@@ -32,6 +32,7 @@ def create_app(test_config = None):
     #login logic
     login_manager = LoginManager()    
     login_manager.init_app(app)
+    login_manager.session_protection = "strong"
 
     #callback function for the login manager
     @login_manager.user_loader
