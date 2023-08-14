@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
 from app.ranker import KEY
 from flask_login import current_user
 
@@ -8,7 +8,9 @@ material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
 
 @main_bp.route('/')
-def root():   
+def root(): 
+    session.pop('query', default=None)
+    session.pop('form', default=None)
     return render_template(
         'index.html', 
         material_properties=material_properties,
