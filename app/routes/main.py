@@ -1,4 +1,4 @@
-from flask import session, Blueprint, render_template
+from flask import Blueprint, render_template
 from app.ranker import KEY
 from flask_login import current_user
 
