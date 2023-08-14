@@ -10,7 +10,7 @@ num_sliders = len(material_properties)
 @main_bp.route('/')
 def root(): 
     session.pop('query', default=None)
-    session.pop('form', default=None)
+    session.pop('form_data', default=None)
     return render_template(
         'index.html', 
         material_properties=material_properties,
