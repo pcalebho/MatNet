@@ -2,19 +2,30 @@ const updateUrl = (prev, query) => {
     return prev + (prev.indexOf('?') >= 0 ? '&' : '?') + new URLSearchParams(query).toString();
 };
 
+const loggedInColumns = [
+    { id: 'name', name: 'Name', width: '8%', sort: false},
+    { id: 'density', width: '7%', name: 'Density' },
+    { id: 'modulus_of_elasticity',width: '10%', name: 'Elastic Modulus' },
+    { id: 'tensile_strength_yield',width: '10%', name: 'Yield Strength'},
+    { id: 'tensile_strength_ultimate',width: '10%', name: 'Ultimate Strength'},
+    { id: 'hardness_brinell', width: '10%',name: 'Brinell Hardness' },
+    { id: 'specific_heat_capacity', width: '10%',name: 'Specific Heat Capacity' },
+// { id: 'cost', width: '8%',name: '*Cost' },
+    { id: 'machinability', width: '8%',name: 'Machineability'},
+    { id: 'Rank', name: '**Rank'}
+]
+
+const loggedOutColumns = [
+    { id: 'name', name: 'Name', width: '8%', sort: false},
+    { id: 'density', width: '7%', name: 'Density' },
+    { id: 'modulus_of_elasticity',width: '10%', name: 'Elastic Modulus' },
+    { id: 'tensile_strength_yield',width: '10%', name: 'Yield Strength'},
+    { id: 'tensile_strength_ultimate',width: '10%', name: 'Ultimate Strength'},
+    { id: 'Rank', name: '**Rank'}
+]
+
 const table = new gridjs.Grid({
-    columns: [
-        { id: 'name', name: 'Name', width: '8%', sort: false},
-        { id: 'density', width: '7%', name: 'Density' },
-        { id: 'modulus_of_elasticity',width: '10%', name: 'Elastic Modulus' },
-        { id: 'tensile_strength_yield',width: '10%', name: 'Yield Strength'},
-        { id: 'tensile_strength_ultimate',width: '10%', name: 'Ultimate Strength'},
-        { id: 'hardness_brinell', width: '10%',name: 'Brinell Hardness' },
-        { id: 'specific_heat_capacity', width: '10%',name: 'Specific Heat Capacity' },
-        // { id: 'cost', width: '8%',name: '*Cost' },
-        { id: 'machinability', width: '8%',name: 'Machineability'},
-        { id: 'Rank', name: '**Rank'}
-    ],
+    columns: loggedOutColumns,
     server: {
         url: '/api/data',
         then: results => results.data,
@@ -30,7 +41,6 @@ const table = new gridjs.Grid({
         debounceTimeout: 1500,
     },
     sort: {
-        enabled: true,
         multiColumn: true,
         server: {
             url: (prev, columns) => {
@@ -95,15 +105,21 @@ const table = new gridjs.Grid({
 
 table.render(document.getElementById('table'));
 
-// const searchInput = document.getElementById('searchInput');
-// let searchString = '';
+// Function to update sorting configuration based on authentication status
+function updateSorting() {
+    var sortEnabled = ("true" == isAuthenticated); // Invert authentication status
+    
 
-// searchInput.addEventListener('keypress', (event) => {
-//     if (event.key === 'Enter') {
-//         searchString = event.target.value.trim();
-//         table.search(searchString);
-//     }
-// });
+    console.log("Sort Enabled:", sortEnabled); // Debug statement
+
+    // if (sortEnabled) {
+    //     table.updateConfig({
+    //         columns: loggedInColumns
+    //     }).forceRender
+    // }
+}
+
+
 
 
 // Function to handle form submission
@@ -160,3 +176,5 @@ async function handleSubmit(event) {
 // Attach the event listener to the form's submit event
 const form = document.getElementById('form');
 form.addEventListener('submit', handleSubmit);
+
+document.addEventListener("DOMContentLoaded", updateSorting());

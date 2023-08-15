@@ -3,6 +3,7 @@
 <!-- {%block title%} {{super()}} {%endblock%} -->
 
 {%block head%}
+<script> var isAuthenticated = {{ current_user.is_authenticated | lower | tojson }}; </script>
 {%endblock%}
 
 
