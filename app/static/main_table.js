@@ -12,7 +12,7 @@ const loggedInColumns = [
     { id: 'specific_heat_capacity', width: '10%',name: 'Specific Heat Capacity' },
 // { id: 'cost', width: '8%',name: '*Cost' },
     { id: 'machinability', width: '8%',name: 'Machineability'},
-    { id: 'Rank', name: '**Rank'}
+    { id: 'Rank', name: '**Rank'},
 ]
 
 const loggedOutColumns = [
@@ -25,7 +25,7 @@ const loggedOutColumns = [
 ]
 
 const table = new gridjs.Grid({
-    columns: loggedOutColumns,
+    columns: loggedInColumns,
     server: {
         url: '/api/data',
         then: results => results.data,
