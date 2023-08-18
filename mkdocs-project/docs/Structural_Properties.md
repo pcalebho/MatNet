@@ -1,7 +1,14 @@
 #Structural Properties
 ##Stress-Strain Curve
+If you can only learn one thing from this, learn the stress-strain curve. It will give you a fundamental understanding of what a material experiences under load.
+### Stress
+What is stress? Stress is the measure of an external force acting over the cross sectional area of an object. As a result, stress is measured in units of pressure i.e. Pascals(Pa) for SI units and pounds per square inch (psi) for Imperial.  
 
-### Elastic Modulus
+$$\sigma (stress) = \frac{F}{A}$$
+
+### Strain 
+
+## Elastic Modulus
 Elastic modulus, also known as Young's modulus, is a fundamental mechanical property that measures the stiffness of a material and its ability to resist deformation when subjected to an applied force or stress. It quantifies the relationship between stress (force per unit area) and strain (resulting deformation) during elastic deformation.
 
 #### Application
