@@ -1,6 +1,3 @@
-#remove mkdocs build
-mkdocs_build
-
 *.ipynb
 
 MatNet.code-workspace
