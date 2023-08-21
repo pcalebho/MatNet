@@ -62,8 +62,10 @@ def documentation(p1=None, p2=None, p3=None, p4 =None):
     if p1 in ('css', 'js', 'fonts', 'search') and p2 is not None:
         if p1 == 'search' and p2 == 'worker.js' and p3 == 'search_index.json':
             return send_from_directory(f'{mkdocs_location}/{p1}/', p3, mimetype='application/json')
-        # elif p1 == 'search' and p2 == 'worker.js' and p3 == 'lunr.js':
-        #     return send_from_directory(f'{mkdocs_location}/{p1}/', p3)
+        elif p1 == 'search' and p2 == 'worker.js' and p3 == 'lunr.js':
+            return send_from_directory(f'{mkdocs_location}/{p1}/', p3)
+        elif p1 == 'search' and p2 == 'lunr.js':
+            return send_from_directory(f'{mkdocs_location}/{p1}/', p2)
         else:
             return send_from_directory(f'{mkdocs_location}/{p1}/', p2)
 
