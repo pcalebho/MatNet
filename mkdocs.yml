@@ -1,0 +1,17 @@
+site_name: Materials University
+site_url: https://kohoya.com/documentation
+repo_url: https://kohoya.com/
+base_url: https://kohoya.com/documentation/
+theme: mkdocs
+site_dir: app/mkdocs_build
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - md_in_html
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
