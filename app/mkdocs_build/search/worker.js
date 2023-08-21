@@ -34,7 +34,6 @@ function loadScripts(urls, callback) {
 }
 
 function onJSONLoaded () {
-  console.log(this.responseText)
   data = JSON.parse(this.responseText);
   var scriptsToLoad = ['lunr.js'];
   if (data.config && data.config.lang && data.config.lang.length) {
