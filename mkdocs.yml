@@ -2,7 +2,8 @@ site_name: Materials University
 site_url: https://kohoya.com/documentation
 repo_url: https://kohoya.com/
 base_url: https://kohoya.com/documentation/
-theme: mkdocs
+theme:
+  name: material
 site_dir: app/mkdocs_build
 
 markdown_extensions:
