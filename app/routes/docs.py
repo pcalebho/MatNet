@@ -54,12 +54,12 @@ def documentation(p1=None, p2=None, p3=None, p4 =None):
     # Permissions checking...
 
      # Serve MkDocs's static files requested from CSS files
-    if p1 == 'css' and p2 in ('img', 'fonts') and p3 is not None:
+    if p1 == 'assets' and p2 is not None and p3 is not None:
         # CSS fix, e.g. /bridge/css/img/example.png -> /bridge/img/example.png
-        return send_from_directory(f'{mkdocs_location}/{p2}/', p3)
+        return send_from_directory(f'{mkdocs_location}/{p1}/{p2}', p3)
 
     # Serve MkDocs's static files
-    if p1 in ('css', 'js', 'fonts', 'search','javascripts') and p2 is not None:
+    if p1 in ('js', 'fonts', 'search','javascripts') and p2 is not None:
         if p1 == 'search' and p2 == 'worker.js' and p3 == 'search_index.json':
             return send_from_directory(f'{mkdocs_location}/{p1}/', p3, mimetype='application/json')
         elif p1 == 'search' and p2 == 'worker.js' and p3 == 'lunr.js':
