@@ -1,10 +1,13 @@
 site_name: Materials University
-site_url: https://kohoya.com/documentation
+site_url: https://kohoya.com/learn
 repo_url: https://kohoya.com/
-base_url: https://kohoya.com/documentation/
 theme:
   name: material
+  favicon: images/faviconM.ico
 site_dir: app/mkdocs_build
+
+extra_css:
+  - stylesheets/doc_style.css
 
 markdown_extensions:
   - pymdownx.arithmatex:

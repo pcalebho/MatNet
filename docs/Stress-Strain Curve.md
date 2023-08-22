@@ -24,15 +24,15 @@ Elastic modulus, also known as Young's modulus, is a fundamental mechanical prop
 #### Application
 In construction, materials with high elastic moduli are chosen for parts that need to remain rigid and not bend easily, such as beams in buildings. On the other hand, materials with lower elastic moduli are used in applications where some flexibility is required, like the rubbery soles of shoes. By considering elastic modulus, designers ensure that materials used will withstand forces without deforming excessively and will function effectively in their intended purpose
 
-### Yield Strength
+## Yield Strength
 Yield strength is the point at which a material undergoes permanent deformation when subjected to external forces or stress, indicating the maximum stress the material can withstand before changing shape permanently. This property is measured in units of pressure, such as megapascals (MPa) or pounds per square inch (psi), and is a fundamental consideration in mechanical engineering.
 
-####Application
+###Application
 Consider the design of automotive components, like suspension systems. Let's take the example of developing a new car suspension spring. If the chosen material for the spring has a yield strength that's too low, the spring might deform or sag over time due to the consistent load of the vehicle. Opting for a material with a higher yield strength ensures the spring can handle the weight of the car and the stresses of road conditions without undergoing excessive permanent deformation. This meticulous evaluation of yield strength empowers engineers to create components that retain their intended shapes and functionalities over the product's lifespan, contributing to safer and more reliable vehicles on the road.
 
 
-### Ultimate Strength
+## Ultimate Strength
 Ultimate strength refers to the maximum stress a material can withstand before it breaks or fractures under applied forces or loads. It represents the point at which the material reaches its highest level of stress before failure occurs. Ultimate strength is typically measured in units of pressure, such as megapascals (MPa) or pounds per square inch (psi). This property is a crucial factor in assessing a material's performance under extreme conditions.
 
-#### Application
+### Application
 In engineering applications, consider the design of a suspension bridge's support cables. These cables need to endure heavy loads, such as the weight of the bridge itself and the traffic it carries. By choosing materials with high ultimate strength, engineers ensure that the cables can handle these substantial forces without snapping or breaking. Ultimate strength is also significant in aerospace engineering, where materials for spacecraft components must withstand the intense pressures and forces encountered during launch and space travel. By understanding a material's ultimate strength, engineers can make informed decisions to ensure the safety and reliability of structures and equipment in a wide range of industries.

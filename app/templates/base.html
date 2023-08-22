@@ -17,16 +17,16 @@
   	</head>
   	<body>
 		<nav class="navbar-container">
-			<a id = "logo-home" href = "/">kohoya</a>
+			<a id = "logo-home" href = "/">Materials University</a>
 			<ul class = "menu-items">
 				<li><a href = "/">Home</a></li>
-				<li><a href = "contact">Contact Me</a></li>
+				<li><a href = "mailto: pcalebho@gmail.com">Contact Me</a></li>
 				{% if current_user.is_authenticated %}
         			<li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
     			{% else %}
         			<li><a href="{{ url_for('auth.login') }}">Login</a></li>
     			{% endif %}
-				<li><a href = "documentation">Docs</a></li>
+				<li><a href = "learn">Learn</a></li>
 			</ul>
 		</nav>
 		<div class = "content-container">

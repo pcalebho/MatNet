@@ -1,5 +1,6 @@
 :root {
     --content-margin: 100px;
+    --primary-color:  #F25939;
 }
 
 * {
@@ -16,7 +17,7 @@ body {
 
 
 .navbar-container{
-    background-color: #F25939;
+    background-color: var(--primary-color);
     color: white;
     margin-right: 0;
     margin-left: 0;

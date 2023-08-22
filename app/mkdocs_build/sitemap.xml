@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://kohoya.com/documentation/</loc>
-         <lastmod>2023-08-21</lastmod>
+         <loc>https://kohoya.com/learn/</loc>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://kohoya.com/documentation/Heat_Treatment/</loc>
-         <lastmod>2023-08-21</lastmod>
+         <loc>https://kohoya.com/learn/Heat_Treatment/</loc>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://kohoya.com/documentation/Stress-Strain%20Curve/</loc>
-         <lastmod>2023-08-21</lastmod>
+         <loc>https://kohoya.com/learn/Stress-Strain%20Curve/</loc>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://kohoya.com/documentation/Structural_Properties/</loc>
-         <lastmod>2023-08-21</lastmod>
+         <loc>https://kohoya.com/learn/Structural_Properties/</loc>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://kohoya.com/documentation/The_Selector/</loc>
-         <lastmod>2023-08-21</lastmod>
+         <loc>https://kohoya.com/learn/The_Selector/</loc>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://kohoya.com/documentation/Thermal_Properties/</loc>
-         <lastmod>2023-08-21</lastmod>
+         <loc>https://kohoya.com/learn/Thermal_Properties/</loc>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
