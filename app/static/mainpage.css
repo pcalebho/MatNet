@@ -1,0 +1,167 @@
+:root {
+    --content-margin: 100px;
+    --primary-color:  #F25939;
+}
+
+* {
+    margin: 0;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #F3F2F7;
+}
+
+
+.navbar-container{
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: var(--content-margin);
+    padding-right: var(--content-margin);
+    height: 79px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-container ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#logo-home {
+    font-family: "Black Han Sans", Calibri, "Times New Roman";
+    font-size: 2.5em;
+    text-decoration: none;
+    color: white;
+}
+
+.menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 90px;
+    font-family: "Inter", Calibri, "Times New Roman";
+}
+
+.menu-items a{
+    font-size: 1.25em;
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.criterion-container {
+    display: grid;
+    grid-template-columns: auto 100px;
+    gap: 5px;
+    font-size: .6em;
+}
+
+/* table {
+    height: 550px;
+    margin-right: var(--content-margin);
+    margin-left: var(--content-margin);
+    align-self: stretch;
+} */
+
+#criterions-form {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 4em;
+    row-gap: 1em;
+    margin: 1em;
+}
+
+.importance-container {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-column: 1/3;
+}
+
+input[type="range"] {    
+    margin-right: 10px;
+}
+
+.property-label{
+    grid-column: 1/3;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.importance-container label{
+    grid-column: 1/3;
+    text-align: center;
+}
+
+.criterion-container label {
+    align-items: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1em;
+}
+
+#form-submit-btn {
+    align-items: center;
+  appearance: button;
+  background-color: #0276FF;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue",sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  /* margin: auto auto; */
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  justify-content: center;
+}
+
+#form-submit-btn:active {
+  background-color: #006AE8;
+}
+
+#form-submit-btn:hover {
+  background-color: #1C84FF;
+}
+
+i {
+    font-size: .6em
+}
+
+#disclaimer {
+    margin-bottom: 4em;
+}
+
+/* For removing unnecessary items*/
+.cc-7 {
+    display: none;
+}
