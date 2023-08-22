@@ -3,7 +3,7 @@
 <form class=auth-form method="POST" action="/login">
     {{ form.csrf_token }}
     {{ form.email.label }} {{ form.email(size=20) }}
-    <a id=forgot-password href = "{{url_for('contact')}}">Forgot password?</a>
+    <a id=forgot-password href = "mailto:pcalebho@gmail.com?subject=[Forgotten Password]">Forgot password?</a>
     {{ form.password.label }} {{ form.password(size=20) }}
     {{ form.remember.label }} {{ form.remember() }}
     {% for error in form.email.errors %}
