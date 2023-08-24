@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import json
 
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -19,6 +20,19 @@ material_db = client[db_name]
 datasheets_collection = material_db[collection_name]
 
 api_bp = Blueprint('api', __name__)
+
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to the JSON file
+file_path = os.path.join(current_directory, '..', 'static', 'sampleData.json')
+
+# Using the 'with' statement to open and automatically close the file
+with open(file_path, 'r') as json_file:
+    sample_data = json.load(json_file)
+
+@api_bp.route('/api/sample')
+def sample():
+    return jsonify(sample_data)
 
 @api_bp.route('/api/data', methods = ('GET','POST'))
 def data():

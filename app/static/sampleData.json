@@ -1,0 +1,202 @@
+[
+  {
+    "Name": "Aluminum 5052-H34",
+    "Density": 2.68,
+    "Elastic Modulus": 70.3,
+    "Yield Strength": 214,
+    "Ultimate Strength": 262,
+    "Brinell Hardness": 68,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 150
+  },
+  {
+    "Name": "Medium Bronze, UNS C94500, Copper Casting Alloy",
+    "Density": 9.4,
+    "Elastic Modulus": 72,
+    "Yield Strength": 83,
+    "Ultimate Strength": 170,
+    "Brinell Hardness": 50,
+    "Specific Heat Capacity": 0.376,
+    "Machinability": 80
+  },
+  {
+    "Name": "Aluminum 2011-T8",
+    "Density": 2.83,
+    "Elastic Modulus": 70.3,
+    "Yield Strength": 310,
+    "Ultimate Strength": 407,
+    "Brinell Hardness": 100,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 190
+  },
+  {
+    "Name": "Aluminum 5657-H25",
+    "Density": 2.69,
+    "Elastic Modulus": 68.9,
+    "Yield Strength": 138,
+    "Ultimate Strength": 159,
+    "Brinell Hardness": 40,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum 5154-O",
+    "Density": 2.66,
+    "Elastic Modulus": 70.3,
+    "Yield Strength": 117,
+    "Ultimate Strength": 241,
+    "Brinell Hardness": 58,
+    "Specific Heat Capacity": 0.9,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum 2017-T4; 2017-T451",
+    "Density": 2.79,
+    "Elastic Modulus": 72.4,
+    "Yield Strength": 276,
+    "Ultimate Strength": 427,
+    "Brinell Hardness": 105,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 170
+  },
+  {
+    "Name": "Aluminum 5052-H38",
+    "Density": 2.68,
+    "Elastic Modulus": 70.3,
+    "Yield Strength": 255,
+    "Ultimate Strength": 290,
+    "Brinell Hardness": 77,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 150
+  },
+  {
+    "Name": "Aluminum 5083-O",
+    "Density": 2.66,
+    "Elastic Modulus": 71,
+    "Yield Strength": 145,
+    "Ultimate Strength": 290,
+    "Brinell Hardness": 77,
+    "Specific Heat Capacity": 0.9,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum 5086-H116; 5086-H32",
+    "Density": 2.66,
+    "Elastic Modulus": 71,
+    "Yield Strength": 207,
+    "Ultimate Strength": 290,
+    "Brinell Hardness": 78,
+    "Specific Heat Capacity": 0.9,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum Bronze, UNS C95200, Copper Casting Alloy",
+    "Density": 7.64,
+    "Elastic Modulus": 105,
+    "Yield Strength": 185,
+    "Ultimate Strength": 550,
+    "Brinell Hardness": 125,
+    "Specific Heat Capacity": 0.38,
+    "Machinability": 120
+  },
+  {
+    "Name": "High-Strength Yellow Brass, UNS C86500, Copper Casting Alloy",
+    "Density": 8.3,
+    "Elastic Modulus": 105,
+    "Yield Strength": 195,
+    "Ultimate Strength": 490,
+    "Brinell Hardness": 130,
+    "Specific Heat Capacity": 0.373,
+    "Machinability": 26
+  },
+  {
+    "Name": "Aluminum 5456-H116; 5456-H321",
+    "Density": 2.66,
+    "Elastic Modulus": 71,
+    "Yield Strength": 255,
+    "Ultimate Strength": 352,
+    "Brinell Hardness": 90,
+    "Specific Heat Capacity": 0.9,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum 2011-T3",
+    "Density": 2.83,
+    "Elastic Modulus": 70.3,
+    "Yield Strength": 296,
+    "Ultimate Strength": 379,
+    "Brinell Hardness": 95,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 190
+  },
+  {
+    "Name": "Aluminum 3003-H18",
+    "Density": 2.73,
+    "Elastic Modulus": 68.9,
+    "Yield Strength": 186,
+    "Ultimate Strength": 200,
+    "Brinell Hardness": 55,
+    "Specific Heat Capacity": 0.893,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum 5657-H28; 5657-H38",
+    "Density": 2.69,
+    "Elastic Modulus": 68.9,
+    "Yield Strength": 165,
+    "Ultimate Strength": 193,
+    "Brinell Hardness": 50,
+    "Specific Heat Capacity": 0.88,
+    "Machinability": 130
+  },
+  {
+    "Name": "Aluminum 7075-T6; 7075-T651",
+    "Density": 2.81,
+    "Elastic Modulus": 71.7,
+    "Yield Strength": 503,
+    "Ultimate Strength": 572,
+    "Brinell Hardness": 150,
+    "Specific Heat Capacity": 0.96,
+    "Machinability": 170
+  },
+  {
+    "Name": "Aluminum 7001-T6; 7001-T651",
+    "Density": 2.84,
+    "Elastic Modulus": 71,
+    "Yield Strength": 625,
+    "Ultimate Strength": 675,
+    "Brinell Hardness": 160,
+    "Specific Heat Capacity": 0.86,
+    "Machinability": 170
+  },
+  {
+    "Name": "Tin Bronze, UNS C90700, Sand castings",
+    "Density": 8.77,
+    "Elastic Modulus": 105,
+    "Yield Strength": 150,
+    "Ultimate Strength": 305,
+    "Brinell Hardness": 80,
+    "Specific Heat Capacity": 0.376,
+    "Machinability": 20
+  },
+  {
+    "Name": "Aluminum 2124-T851",
+    "Density": 2.78,
+    "Elastic Modulus": 73.1,
+    "Yield Strength": 441,
+    "Ultimate Strength": 483,
+    "Brinell Hardness": 128,
+    "Specific Heat Capacity": 0.882,
+    "Machinability": 170
+  },
+  {
+    "Name": "Aluminum 2124-T851 (Extended High Temperature Data)",
+    "Density": 2.78,
+    "Elastic Modulus": 73.1,
+    "Yield Strength": 441,
+    "Ultimate Strength": 483,
+    "Brinell Hardness": 128,
+    "Specific Heat Capacity": 0.882,
+    "Machinability": 170
+  }
+]

@@ -1,0 +1,95 @@
+{%extends "base.html" %}
+
+<!-- {%block title%} {{super()}} {%endblock%} -->
+
+{%block head%}
+<script> var isAuthenticated = {{ current_user.is_authenticated | lower | tojson }}; </script>
+<link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+{%endblock%}
+
+
+{%block content%}
+<div id="content" class = "content">
+    <form id="form">
+        <div id="criterions-form">
+            {%for i in range(num_sliders)%}
+            <div class = "criterion-container cc-{{i}}">
+                <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
+                <span class="importance-container">
+                    <label for="sliderRange-{{i}}">Importance</label>
+                    <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" min="0" max="10">
+                    <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
+                </span>
+                <label for="objective-{{i}}">Objective</label>
+                <select id="objective-{{i}}" name="objective-{{i}}">
+                    <option value = '1'>Maximize</option>
+                    {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density(g/cc)'%}
+                        <option value = '-1' selected>Minimize</option>
+                    {% else %}
+                        <option value = '-1'>Minimize</option>
+                    {% endif %}                
+                </select>
+                <label for="minValue-{{i}}">Min Value:</label>
+                <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
+                <label for="maxValue-{{i}}">Max Value:</label>
+                <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
+            </div>
+            {%endfor%}
+        </div>
+        <input id='form-submit-btn' type = "submit" role="button" value="Calculate"></input>
+    </form>
+    <div id="table"></div>
+    <i>*data should not be trusted for mission critical apps</i>
+    <i id = "disclaimer">**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i>
+</div>
+{% endblock %}
+
+{%block scripts%}
+<script src="{{url_for('static', filename='formLogic.js')}}" type = "module"></script>
+<script>
+//define some sample data
+ var tabledata = [
+ 	{id:1, name:"Oli Bob", age:"12", col:"red", dob:""},
+ 	{id:2, name:"Mary May", age:"1", col:"blue", dob:"14/05/1982"},
+ 	{id:3, name:"Christine Lobowski", age:"42", col:"green", dob:"22/05/1982"},
+ 	{id:4, name:"Brendon Philips", age:"125", col:"orange", dob:"01/08/1980"},
+ 	{id:5, name:"Margret Marmajuke", age:"16", col:"yellow", dob:"31/01/1999"},
+ ];
+
+ //create Tabulator on DOM element with id "example-table"
+var table = new Tabulator("#table", {
+    ajaxURL: "/api/sample",
+    // ajaxResponse: function(url, params, response) {
+    //     // Assuming response is the entire API response object
+    //     var data = response.data || []; // Extract the "data" array
+    //     return data; // Return the extracted array
+    // },
+    autoColumns: true,
+    autoColumnsDefinitions:function(definitions){
+        //definitions - array of column definition objects
+
+        definitions.forEach((column) => {
+            column.headerFilter = true; // add header filter to every column
+        });
+
+        return definitions;
+    },
+ 	// height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+ 	// data:tabledata, //assign data to table
+ 	// layout:"fitColumns", //fit columns to width of table (optional)
+ 	// columns:[ //Define Table Columns
+	//  	{title:"Name", field:"Name"},
+	//  	{title:"Density", field:"Density", hozAlign:"left"},
+ 	// ],
+    // ajaxParams:{Name:"value1", Density:"value2"},
+});
+
+//trigger an alert message when the row is clicked
+table.on("rowClick", function(e, row){ 
+	alert("Row " + row.getData().id + " Clicked!!!!");
+});
+</script>
+{% endblock %}
+
+
