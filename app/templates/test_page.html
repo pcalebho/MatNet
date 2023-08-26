@@ -4,7 +4,7 @@
 
 {%block head%}
 <script> var isAuthenticated = {{ current_user.is_authenticated | lower | tojson }}; </script>
-<link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+<link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
 {%endblock%}
 
@@ -125,12 +125,15 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
 }
  //create Tabulator on DOM element with id "example-table"
 var table = new Tabulator("#table", {
-    ajaxURL: "/api/sample",
-    // ajaxResponse: function(url, params, response) {
-    //     // Assuming response is the entire API response object
-    //     var data = response.data || []; // Extract the "data" array
-    //     return data; // Return the extracted array
-    // },
+    ajaxURL: "/api/tabulator",
+    ajaxResponse: function(url, params, response) {
+        // Assuming response is the entire API response object
+        // var data = response.data || []; // Extract the "data" array
+        return response.data || []; // Return the extracted array
+    },
+    pagination:true,
+    // paginationSize:10,
+    height: 500,
     // autoColumns: true,
     // autoColumnsDefinitions:function(definitions){
     //     //definitions - array of column definition objects
@@ -145,15 +148,10 @@ var table = new Tabulator("#table", {
  	// data:tabledata, //assign data to table
  	// layout:"fitColumns", //fit columns to width of table (optional)
  	columns:[ //Define Table Columns
-	 	{title:"Name", field:"Name"},
-	 	{title:"Density", field:"Density", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
+	 	{title:"Name", field:"name", headerFilter:true},
+	 	{title:"Density", field:"density", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
  	],
     // ajaxParams:{Name:"value1", Density:"value2"},
-});
-
-//trigger an alert message when the row is clicked
-table.on("rowClick", function(e, row){ 
-	alert("Row " + row.getData().id + " Clicked!!!!");
 });
 </script>
 {% endblock %}
