@@ -8,6 +8,7 @@ from flask import Flask, render_template
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from dotenv import load_dotenv
+from flask_bootstrap import Bootstrap5
 
 load_dotenv()
 
@@ -22,7 +23,11 @@ def create_app(test_config = None):
         app.config.from_object('config.ProdConfig')
     else:
         raise ValueError('No corresponding arg value')
+    
+    app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'litera'
 
+    #initialize boostrap
+    bootstrap = Bootstrap5(app)
 
     #initialize db extensions and models
     from app.models import db, User

@@ -34,6 +34,88 @@ with open(file_path, 'r') as json_file:
 def sample():
     return jsonify(sample_data)
 
+@api_bp.route('/api/tabulator')
+def get_data():
+    if request.method == 'POST':
+        query = []
+        
+        form_data = request.json
+        if form_data is not None:
+            for key in form_data:
+                if form_data[key]['min'] == "":
+                    form_data[key]['min'] = -1000000
+                else:
+                    form_data[key]['min'] = int(form_data[key]['min'])
+
+                if form_data[key]['max'] == "":
+                     form_data[key]['max'] = 1000000
+                else:
+                     form_data[key]['max'] = int(form_data[key]['max'])
+
+                query_item = {
+                    get_key(key): {
+                        "$gte": form_data[key]['min'], 
+                        "$lte": form_data[key]['max']
+                    }
+                }      #type: ignore
+                query.append(query_item)
+            query.append({"mechanical_properties.hardness_brinell.units": ''})
+        
+        session['query'] = query
+        session['form_data'] = form_data
+            
+        return jsonify({'form_data': form_data, 'query': query})
+    else:
+        form_data = session.get('form_data', {})
+        query = session.get('query',[])
+        
+
+    valid_query = {"$and": [
+        {"mechanical_properties.hardness_brinell.units": ''},
+        {"mechanical_properties.hardness_brinell.value":{'$exists': True}},
+        {"mechanical_properties.machinability.value": {'$exists': True}},
+        {"physical_properties.density.value": {'$exists': True}},
+        {"thermal_properties.specific_heat_capacity.value": {'$exists': True}},
+        {"mechanical_properties.tensile_strength_yield.value": {"$exists": True}},
+        {"mechanical_properties.tensile_strength_ultimate.value": {"$exists": True}},
+        {"mechanical_properties.modulus_of_elasticity.value": {"$exists": True}}
+    ]}
+    
+    if 'query' in session:
+        cursor = datasheets_collection.find({"$and": query})
+    else:
+        cursor = datasheets_collection.find(valid_query)
+    
+
+    materials = []
+    for material in cursor:
+        flattened_material = {}
+        flattened_material['name'] = material['name']
+        flattened_material['cost'] = material['cost']['value']
+        flattened_material['density'] =  material['physical_properties']['density']['value']
+        flattened_material['tensile_strength_ultimate'] =  material['mechanical_properties']['tensile_strength_ultimate']['value']
+        flattened_material['tensile_strength_yield'] =  material['mechanical_properties']['tensile_strength_yield']['value']
+        flattened_material['modulus_of_elasticity'] = material['mechanical_properties']['modulus_of_elasticity']['value']
+        flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']
+        flattened_material['machinability'] = material['mechanical_properties']['machinability']['value']
+        flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']['value']
+        materials.append(flattened_material)
+    
+
+    if form_data != {}:
+        result_df = rank_materials(form_data, materials)
+    else:
+        result_df = pd.DataFrame(materials)
+
+    result_df = result_df.sample(frac=1).reset_index(drop=True)
+    result_df = result_df.fillna('N/A')
+
+
+    return {
+                'data': result_df.to_dict('records'),
+                # 'total': total    
+            }
+
 @api_bp.route('/api/data', methods = ('GET','POST'))
 def data():
     if request.method == 'POST':
@@ -106,8 +188,11 @@ def data():
         result_df = rank_materials(form_data, materials)
     else:
         result_df = pd.DataFrame(materials)
+        # print(result_df.to_dict('records'))
+        return {'data': result_df.to_dict('records')}
 
     result_df = result_df.fillna('N/A')
+
 
     # search filter
     search = request.args.get('search')
@@ -153,6 +238,7 @@ def data():
     # Applying skip and limit after sorting
     if start >= 0 and length >= 0:
         result_df = result_df.iloc[start:(start+length)]
+
 
     return {
                 'data': result_df.to_dict('records'),

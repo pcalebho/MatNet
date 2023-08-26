@@ -11,34 +11,6 @@
 
 {%block content%}
 <div id="content" class = "content">
-    <form id="form">
-        <div id="criterions-form">
-            {%for i in range(num_sliders)%}
-            <div class = "criterion-container cc-{{i}}">
-                <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
-                <span class="importance-container">
-                    <label for="sliderRange-{{i}}">Importance</label>
-                    <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" min="0" max="10">
-                    <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
-                </span>
-                <label for="objective-{{i}}">Objective</label>
-                <select id="objective-{{i}}" name="objective-{{i}}">
-                    <option value = '1'>Maximize</option>
-                    {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density(g/cc)'%}
-                        <option value = '-1' selected>Minimize</option>
-                    {% else %}
-                        <option value = '-1'>Minimize</option>
-                    {% endif %}                
-                </select>
-                <label for="minValue-{{i}}">Min Value:</label>
-                <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
-                <label for="maxValue-{{i}}">Max Value:</label>
-                <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
-            </div>
-            {%endfor%}
-        </div>
-        <input id='form-submit-btn' type = "submit" role="button" value="Calculate"></input>
-    </form>
     <div id="table"></div>
     <i>*data should not be trusted for mission critical apps</i>
     <i id = "disclaimer">**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i>
@@ -47,113 +19,7 @@
 
 {%block scripts%}
 <script src="{{url_for('static', filename='formLogic.js')}}" type = "module"></script>
-<script>
-var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParams){
-    var end;
-
-    var container = document.createElement("span");
-
-    //create and style inputs
-    var start = document.createElement("input");
-    start.setAttribute("type", "number");
-    start.setAttribute("placeholder", "Min");
-    start.setAttribute("min", 0);
-    start.setAttribute("max", 100);
-    start.style.padding = "4px";
-    start.style.width = "50%";
-    start.style.boxSizing = "border-box";
-
-    start.value = cell.getValue();
-
-    function buildValues(){
-        success({
-            start:start.value,
-            end:end.value,
-        });
-    }
-
-    function keypress(e){
-        if(e.keyCode == 13){
-            buildValues();
-        }
-
-        if(e.keyCode == 27){
-            cancel();
-        }
-    }
-
-    end = start.cloneNode();
-    end.setAttribute("placeholder", "Max");
-
-    start.addEventListener("change", buildValues);
-    start.addEventListener("blur", buildValues);
-    start.addEventListener("keydown", keypress);
-
-    end.addEventListener("change", buildValues);
-    end.addEventListener("blur", buildValues);
-    end.addEventListener("keydown", keypress);
-
-
-    container.appendChild(start);
-    container.appendChild(end);
-
-    return container;
-}
-
-//custom max min filter function
-function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
-//headerValue - the value of the header filter element
-//rowValue - the value of the column in this row
-//rowData - the data for the row being filtered
-//filterParams - params object passed to the headerFilterFuncParams property
-
-    if(rowValue){
-        if(headerValue.start != ""){
-            if(headerValue.end != ""){
-                return rowValue >= headerValue.start && rowValue <= headerValue.end;
-            }else{
-                return rowValue >= headerValue.start;
-            }
-        }else{
-            if(headerValue.end != ""){
-                return rowValue <= headerValue.end;
-            }
-        }
-    }
-
-    return true; //must return a boolean, true if it passes the filter.
-}
- //create Tabulator on DOM element with id "example-table"
-var table = new Tabulator("#table", {
-    ajaxURL: "/api/tabulator",
-    ajaxResponse: function(url, params, response) {
-        // Assuming response is the entire API response object
-        // var data = response.data || []; // Extract the "data" array
-        return response.data || []; // Return the extracted array
-    },
-    pagination:true,
-    // paginationSize:10,
-    height: 500,
-    // autoColumns: true,
-    // autoColumnsDefinitions:function(definitions){
-    //     //definitions - array of column definition objects
-
-    //     definitions.forEach((column) => {
-    //         column.headerFilter = true; // add header filter to every column
-    //     });
-
-    //     return definitions;
-    // },
- 	// height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
- 	// data:tabledata, //assign data to table
- 	// layout:"fitColumns", //fit columns to width of table (optional)
- 	columns:[ //Define Table Columns
-	 	{title:"Name", field:"name", headerFilter:true},
-	 	{title:"Density", field:"density", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
- 	],
-    // ajaxParams:{Name:"value1", Density:"value2"},
-});
-</script>
+<script src="{{url_for('static', filename='table.js')}}" type ="module"></script>
 {% endblock %}
 
 
