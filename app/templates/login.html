@@ -1,16 +1,20 @@
-{%extends "base.html" %}
+{%extends "layout_form.html" %}
 {% block content %}
-<form class=auth-form method="POST" action="/login">
-    {{ form.csrf_token }}
-    {{ form.email.label }} {{ form.email(size=20) }}
-    <a id=forgot-password href = "{{url_for('contact')}}">Forgot password?</a>
-    {{ form.password.label }} {{ form.password(size=20) }}
-    {{ form.remember.label }} {{ form.remember() }}
-    {% for error in form.email.errors %}
-        <span class="text-danger">{{ error }}</span>
-    {% endfor %}
-    {{ form.submit }}
-    <p>New to Kohoya?</p>
-    <a id=signup href="{{url_for('auth.register')}}">Create an Account</a>
-</form> 
+<div class = "position-relative">
+    <form class="position-absolute top-0 start-50 translate-middle-x mt-5" method="POST" action="/login">
+        {{ form.csrf_token }}
+        {{ form.email.label(class_= "form-label") }} 
+        {{ form.email(class_="form-control", size=30) }}
+        {{ form.password.label(class_= "form-label") }} 
+        {{ form.password(class_="form-control", size=30) }}
+        <a id=forgot-password href = "{{url_for('contact')}}">Forgot password?</a>
+        {{ form.remember.label }} {{ form.remember() }}
+        {% for error in form.email.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+        {{ form.submit }}
+        <p>New to Kohoya?</p>
+        <a id=signup href="{{url_for('auth.register')}}">Create an Account</a>
+    </form> 
+</div>
 {% endblock %}
