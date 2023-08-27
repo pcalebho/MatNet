@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from flask import Blueprint, request, session, jsonify, current_app
 from app.ranker import get_key, CRITERION_KEY, rank_materials
+from flask_login import current_user, login_required
 
 load_dotenv()
 
@@ -35,6 +36,7 @@ def sample():
     return jsonify(sample_data)
 
 @api_bp.route('/api/tabulator')
+@login_required
 def get_data():
     if request.method == 'POST':
         query = []
@@ -91,12 +93,12 @@ def get_data():
     for material in cursor:
         flattened_material = {}
         flattened_material['name'] = material['name']
-        flattened_material['cost'] = material['cost']['value']
         flattened_material['density'] =  material['physical_properties']['density']['value']
         flattened_material['tensile_strength_ultimate'] =  material['mechanical_properties']['tensile_strength_ultimate']['value']
         flattened_material['tensile_strength_yield'] =  material['mechanical_properties']['tensile_strength_yield']['value']
         flattened_material['modulus_of_elasticity'] = material['mechanical_properties']['modulus_of_elasticity']['value']
-        flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']
+        flattened_material['cost'] = material['cost']['value']
+        flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']    
         flattened_material['machinability'] = material['mechanical_properties']['machinability']['value']
         flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']['value']
         materials.append(flattened_material)
@@ -173,14 +175,14 @@ def data():
     for material in cursor:
         flattened_material = {}
         flattened_material['name'] = material['name']
-        flattened_material['cost'] = material['cost']['value']
         flattened_material['density'] =  material['physical_properties']['density']['value']
         flattened_material['tensile_strength_ultimate'] =  material['mechanical_properties']['tensile_strength_ultimate']['value']
         flattened_material['tensile_strength_yield'] =  material['mechanical_properties']['tensile_strength_yield']['value']
         flattened_material['modulus_of_elasticity'] = material['mechanical_properties']['modulus_of_elasticity']['value']
-        flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']
-        flattened_material['machinability'] = material['mechanical_properties']['machinability']['value']
-        flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']['value']
+        flattened_material['cost'] = '000'
+        flattened_material['specific_heat_capacity'] = '000'
+        flattened_material['machinability'] = '000'
+        flattened_material['hardness_brinell'] = '000'
         materials.append(flattened_material)
     
 
@@ -188,7 +190,6 @@ def data():
         result_df = rank_materials(form_data, materials)
     else:
         result_df = pd.DataFrame(materials)
-        # print(result_df.to_dict('records'))
         return {'data': result_df.to_dict('records')}
 
     result_df = result_df.fillna('N/A')
