@@ -75,29 +75,40 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
 }
  //create Tabulator on DOM element with id "example-table"
 
-const anonTable = [ //Define Table Columns
-{title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, frozen:true, width: 300},
-{title:"Density", field:"density", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-{title:"Yield Strength", field: "tensile_strength_yield", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-{title:"Ultimate Strength", field: "tensile_strength_ultimate", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-{title:"Elastic Modulus", field: "modulus_of_elasticity", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-];
-
-const extraHeaders = [
-    {title:"Specific Heat Capacity", field: "specific_heat_capacity", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false}
-];
-
-const authTable = anonTable.concat(extraHeaders)
-console.log(authTable)
+const initColumnHeaders = [
+    {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, frozen:true, width: 300},
+    {title:"Density", field:"density"}, 
+    {title:"Yield Strength", field: "tensile_strength_yield"}, 
+    {title:"Ultimate Strength", field: "tensile_strength_ultimate"}, 
+    {title:"Elastic Modulus", field: "modulus_of_elasticity"},
+    {title: "Brinell Hardness", field: "hardness_brinell"},
+    {title:"Specific Heat Capacity", field: "specific_heat_capacity"},
+    {title:"Machinability", field:"machinability"},
+]
 
 let columnHeaders;
-if ('true' == isAuthenticated){
-    columnHeaders = authTable;
-} else {
-    columnHeaders = anonTable;
-}
+columnHeaders = initColumnHeaders;
 
-Tabulator.defaultOptions.movableRows = true;
+columnHeaders = columnHeaders.map((colProp) => {
+    if (colProp["field"] != "name"){
+        colProp.hozAlign = "center";
+        colProp.sorter = "number";
+        colProp.headerFilter = minMaxFilterEditor;
+        colProp.headerFilterFunc = minMaxFilterFunction;
+        colProp.headerFilterLiveFilter = false;
+        colProp.resizable = false;
+    }
+    if ("true" != isAuthenticated){
+        if (colProp["field"] != 'name' &&
+            colProp["field"] != 'density' && 
+            colProp["field"] != 'tensile_strength_yield' && 
+            colProp["field"] != 'tensile_strength_ultimate' && 
+            colProp["field"] != 'modulus_of_elasticity'
+        ){colProp.cssClass = "cell-blur"}
+    }
+    return colProp
+});
+
 
 var table = new Tabulator("#table", {
     ajaxURL: "/api/tabulator",
@@ -108,6 +119,5 @@ var table = new Tabulator("#table", {
     },
     layout: "fitColumns",
     pagination:true,
- 	columns: columnHeaders
-
+ 	columns: columnHeaders,
 });
