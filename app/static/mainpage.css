@@ -16,47 +16,6 @@ body {
 }
 
 
-.navbar-container{
-    background-color: var(--primary-color);
-    color: white;
-    margin-right: 0;
-    margin-left: 0;
-    padding-left: var(--content-margin);
-    padding-right: var(--content-margin);
-    height: 79px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.navbar-container ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#logo-home {
-    font-family: "Black Han Sans", Calibri, "Times New Roman";
-    font-size: 2.5em;
-    text-decoration: none;
-    color: white;
-}
-
-.menu-items{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 90px;
-    font-family: "Inter", Calibri, "Times New Roman";
-}
-
-.menu-items a{
-    font-size: 1.25em;
-    text-decoration: none;
-    color: white;
-}
-
 .content {
     display: flex;
     flex-direction: column;
@@ -118,50 +77,10 @@ form {
     gap: 1em;
 }
 
-#form-submit-btn {
-    align-items: center;
-  appearance: button;
-  background-color: #0276FF;
-  border-radius: 8px;
-  border-style: none;
-  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  font-family: "RM Neue",sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  /* margin: auto auto; */
-  padding: 10px 21px;
-  text-align: center;
-  text-transform: none;
-  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  justify-content: center;
-}
-
-#form-submit-btn:active {
-  background-color: #006AE8;
-}
-
-#form-submit-btn:hover {
-  background-color: #1C84FF;
-}
-
 i {
     font-size: .6em
 }
 
 #disclaimer {
     margin-bottom: 4em;
-}
-
-/* For removing unnecessary items*/
-.cc-7 {
-    display: none;
 }
