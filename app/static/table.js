@@ -76,18 +76,19 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
  //create Tabulator on DOM element with id "example-table"
 
 const anonTable = [ //Define Table Columns
-{title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false},
-{title:"Density", field:"density", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-{title:"Yield Strength", field: "tensile_strength_yield", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-{title:"Ultimate Strength", field: "tensile_strength_ultimate", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-{title:"Elastic Modulus", field: "modulus_of_elasticity", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
+{title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, frozen:true, width: 300},
+{title:"Density", field:"density", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
+{title:"Yield Strength", field: "tensile_strength_yield", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
+{title:"Ultimate Strength", field: "tensile_strength_ultimate", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
+{title:"Elastic Modulus", field: "modulus_of_elasticity", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
 ];
 
 const extraHeaders = [
-    {title:"Specific Heat Capacity", field: "specific_heat_capacity", hozAlign:"left", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false}
+    {title:"Specific Heat Capacity", field: "specific_heat_capacity", hozAlign:"center", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false}
 ];
 
 const authTable = anonTable.concat(extraHeaders)
+console.log(authTable)
 
 let columnHeaders;
 if ('true' == isAuthenticated){
@@ -96,6 +97,8 @@ if ('true' == isAuthenticated){
     columnHeaders = anonTable;
 }
 
+Tabulator.defaultOptions.movableRows = true;
+
 var table = new Tabulator("#table", {
     ajaxURL: "/api/tabulator",
     ajaxResponse: function(url, params, response) {
@@ -103,22 +106,8 @@ var table = new Tabulator("#table", {
         // var data = response.data || []; // Extract the "data" array
         return response.data || []; // Return the extracted array
     },
+    layout: "fitColumns",
     pagination:true,
-    // paginationSize:10,
-    height: 700,
-    // autoColumns: true,
-    // autoColumnsDefinitions:function(definitions){
-    //     //definitions - array of column definition objects
-
-    //     definitions.forEach((column) => {
-    //         column.headerFilter = true; // add header filter to every column
-    //     });
-
-    //     return definitions;
-    // },
- 	// height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
- 	// data:tabledata, //assign data to table
- 	// layout:"fitColumns", //fit columns to width of table (optional)
  	columns: columnHeaders
-    // ajaxParams:{Name:"value1", Density:"value2"},
+
 });

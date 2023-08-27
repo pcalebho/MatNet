@@ -3,18 +3,30 @@
 <div class = "position-relative">
     <form class="position-absolute top-0 start-50 translate-middle-x mt-5" method="POST" action="/login">
         {{ form.csrf_token }}
-        {{ form.email.label(class_= "form-label") }} 
-        {{ form.email(class_="form-control", size=30) }}
-        {{ form.password.label(class_= "form-label") }} 
-        {{ form.password(class_="form-control", size=30) }}
-        <a id=forgot-password href = "{{url_for('contact')}}">Forgot password?</a>
-        {{ form.remember.label }} {{ form.remember() }}
+        <img src="/static/favicon-32x32.png" width="32" height="32" class="mx-auto" alt="Bootstrap" loading="lazy">
+        <div id="email">
+            {{ form.email.label(class_= "form-label") }} 
+            {{ form.email(class_="form-control", size=30) }}
+        </div>
+        <div>
+            <div class="row">
+                {{ form.password.label(class_= "form-label col") }} 
+                <a class="col text-end" id=forgot-password href = "{{url_for('contact')}}">Forgot password?</a>
+            </div>
+            {{ form.password(class_="form-control", size=30) }}
+        </div>
+        <div class = "form-check">
+            {{form.remember(class_ = "form-check-input")}}
+            {{form.remember.label(class_= "form-check-label")}}
+        </div>
         {% for error in form.email.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
-        {{ form.submit }}
-        <p>New to Kohoya?</p>
-        <a id=signup href="{{url_for('auth.register')}}">Create an Account</a>
+        {{ form.submit(class_ = "btn btn-primary") }}
+        <div class="row justify-content-between">
+            <div class ="col">New to Kohoya?</div>
+            <a id=signup class ="col text-end" href="{{url_for('auth.register')}}">Create an Account</a>
+        </div>
     </form> 
 </div>
 {% endblock %}
