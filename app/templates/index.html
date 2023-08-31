@@ -15,14 +15,16 @@
 
 
 {%block content%}
-<div id="content" class = "content">
-    <div id="table" style="width: 95vw; height: 85vh;" class="z-1 table-bordered table-sm"></div>
-    {%if not current_user.is_authenticated%}
-        <div class = "z-2 row position-absolute">
-            <button type="button" onclick="window.location.href = '/register';" class="btn btn-info col">Sign Up</button>
-            <button type="button" onclick="window.location.href = '/login';" class="btn btn-info col">Login</button>
+<div id="content" class = "d-flex flex-column align-items-center">
+    <div class="d-flex flex-column">
+        <div id="table" style="width: 95vw; height: 85vh;" class="table-bordered table-sm"></div>
+        {%if not current_user.is_authenticated%}
+        <div id="anon-btn" class = "d-grid" style= "z-index: 3;">
+            <button type="button" onclick="window.location.href = '/register';" class="btn btn-info mb-3">Sign Up</button>
+            <button type="button" onclick="window.location.href = '/login';" class="btn btn-info">Login</button>
         </div>
-    {%endif%}
+        {%endif%}
+    </div>
     <i class ="mt-2">*data should not be trusted for mission critical apps</i>
     <i id = "disclaimer">**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i>
 </div>
@@ -30,7 +32,5 @@
 
 {%block scripts%}
 <script src="{{url_for('static', filename='table.js')}}" type = "module"></script>
-<script src="{{url_for('static', filename='formLogic.js')}}" type = "module"></script>
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='table.css') }}">
 {% endblock %}
-
-

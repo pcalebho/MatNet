@@ -1,6 +1,6 @@
 {%extends "layout_form.html" %}
 {% block content %}
-<form class="position-absolute top-0 start-50 translate-middle-x mt-5 border border-light bg-light-subtle rounded-3 p-4" method="POST" action="/login">
+<form class="position-absolute top-0 start-50 translate-middle-x mt-5 border border bg-light-subtle rounded-3 p-4" method="POST" action="/login">
     {{ form.csrf_token }}
     <img src="/static/favicon-32x32.png" width="32" height="32" class="mx-auto d-flex" alt="Bootstrap" loading="lazy">
     <div id="email" class="mt-3"">

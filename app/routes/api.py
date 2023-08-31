@@ -33,7 +33,7 @@ with open(file_path, 'r') as json_file:
 
 @api_bp.route('/api/sample')
 def sample():
-    return jsonify(sample_data)
+    return jsonify({'data': sample_data})
 
 @api_bp.route('/api/tabulator')
 @login_required

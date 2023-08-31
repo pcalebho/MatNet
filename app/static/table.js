@@ -1,21 +1,33 @@
 var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParams){
-    var end;
+    let end;
 
-    var container = document.createElement("span");
+    //create elements
+    let container = document.createElement("div");
+    let start = document.createElement("input");
+    let importance = document.createElement("input");
 
-    //create and style inputs
-    var start = document.createElement("input");
+    //set attributes
     start.setAttribute("type", "number");
     start.setAttribute("placeholder", "Min");
     start.setAttribute("min", 0);
-    start.setAttribute("max", 100);
+    start.setAttribute("max", 100);    
+    importance.setAttribute("type","range");
+    importance.setAttribute("min",0);
+    importance.setAttribute("max",10); 
+
+    //set styles and classes
     start.style.padding = "4px";
     start.style.width = "50%";
     start.style.boxSizing = "border-box";
+    container.classList.add('custom-headerFilter')
+    importance.classList.add('form-range')
 
     start.value = cell.getValue();
 
-    function buildValues(){
+    end = start.cloneNode();
+    end.setAttribute("placeholder", "Max");
+
+    function buildValues(){ 
         success({
             start:start.value,
             end:end.value,
@@ -32,8 +44,6 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
         }
     }
 
-    end = start.cloneNode();
-    end.setAttribute("placeholder", "Max");
 
     start.addEventListener("change", buildValues);
     start.addEventListener("blur", buildValues);
@@ -43,7 +53,7 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
     end.addEventListener("blur", buildValues);
     end.addEventListener("keydown", keypress);
 
-
+    container.appendChild(importance);
     container.appendChild(start);
     container.appendChild(end);
 
@@ -76,6 +86,10 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
  //create Tabulator on DOM element with id "example-table"
 
 const initColumnHeaders = [
+    {title:"Favorites", field:"fav", formatter:"tickCross", editor: true, hozAlign: "center", editorParams:{
+        trueValue: "TRUE",
+        falseValue: "FALSE"
+    }},
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, frozen:true, width: 300},
     {title:"Density", field:"density"}, 
     {title:"Yield Strength", field: "tensile_strength_yield"}, 
@@ -90,7 +104,7 @@ let columnHeaders;
 columnHeaders = initColumnHeaders;
 
 columnHeaders = columnHeaders.map((colProp) => {
-    if (colProp["field"] != "name"){
+    if (colProp["field"] != "name" && colProp["field"] != "fav"){
         colProp.hozAlign = "center";
         colProp.sorter = "number";
         colProp.headerFilter = minMaxFilterEditor;
@@ -103,15 +117,25 @@ columnHeaders = columnHeaders.map((colProp) => {
             colProp["field"] != 'density' && 
             colProp["field"] != 'tensile_strength_yield' && 
             colProp["field"] != 'tensile_strength_ultimate' && 
-            colProp["field"] != 'modulus_of_elasticity'
-        ){colProp.cssClass = "cell-blur"}
+            colProp["field"] != 'modulus_of_elasticity' &&
+            colProp["field"] != 'fav'
+        ){colProp.cssClass = "cell-blur";}
+        if (colProp["field"] == "specific_heat_capacity"){
+            colProp.cssClass = "cell-blur btn-anchor z-1";
+        }
     }
     return colProp
 });
 
+let apiURL;
+if ("true" == isAuthenticated){
+    apiURL = "/api/tabulator"
+}else{
+    apiURL = "/api/data"
+}
 
 var table = new Tabulator("#table", {
-    ajaxURL: "/api/tabulator",
+    ajaxURL: apiURL,
     ajaxResponse: function(url, params, response) {
         // Assuming response is the entire API response object
         // var data = response.data || []; // Extract the "data" array
@@ -121,3 +145,25 @@ var table = new Tabulator("#table", {
     pagination:true,
  	columns: columnHeaders,
 });
+
+//Reassign elements so button is fixed to element
+if ("true" != isAuthenticated){
+    window.onload = reAssignElement;
+}
+
+function reAssignElement(){
+    const tableContent = document.querySelector(".tabulator-table"); 
+    const tableWrapper = document.querySelector(".tabulator-tableholder")  
+    const button = document.getElementById("anon-btn");
+ 
+    tableWrapper.appendChild(button);
+    tableContent.style.zIndex = 0;
+    tableContent.style.position = "absolute";
+    // centerColHeader.style.setProperty("overflow", "visible", "important");
+    // centerColHeader.style.position = "relative";
+    button.style.position = "absolute";
+    // button.style.top = "200%";
+    button.style.right = "15vw";
+    // button.style.transform = "translate(-50%, 0)";
+    button.style.zIndex = 10;
+}
