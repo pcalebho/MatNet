@@ -3,8 +3,11 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
 
     //create elements
     let container = document.createElement("div");
+    let minMaxSwitch = document.createElement("label");
     let start = document.createElement("input");
     let importance = document.createElement("input");
+    let mcdmContainer = document.createElement("div");
+    let filterContainer = document.createElement("div");
 
     //set attributes
     start.setAttribute("type", "number");
@@ -14,6 +17,7 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
     importance.setAttribute("type","range");
     importance.setAttribute("min",0);
     importance.setAttribute("max",10); 
+    importance.setAttribute("value",0);
 
     //set styles and classes
     start.style.padding = "4px";
@@ -26,6 +30,20 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
 
     end = start.cloneNode();
     end.setAttribute("placeholder", "Max");
+
+    minMaxSwitch.classList.add("minMaxToggle");
+
+    const toggle = document.createElement("input");
+    toggle.setAttribute("type","checkbox");
+
+    const toggleLabel = document.createElement("span");
+    toggleLabel.classList.add("labels");
+    toggleLabel.setAttribute("data-on","MIN");
+    toggleLabel.setAttribute("data-off","MAX");
+
+    start.classList.add("min-input");
+    end.classList.add("max-input");
+
 
     function buildValues(){ 
         success({
@@ -53,9 +71,18 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
     end.addEventListener("blur", buildValues);
     end.addEventListener("keydown", keypress);
 
-    container.appendChild(importance);
-    container.appendChild(start);
-    container.appendChild(end);
+    minMaxSwitch.appendChild(toggle);
+    minMaxSwitch.appendChild(toggleLabel);
+
+    filterContainer.appendChild(start);
+    filterContainer.appendChild(end);
+    mcdmContainer.appendChild(importance);
+    mcdmContainer.appendChild(minMaxSwitch);
+
+    filterContainer.classList.add("filter-container")
+    mcdmContainer.classList.add("mcdm-container")
+    container.appendChild(mcdmContainer);
+    container.appendChild(filterContainer);
 
     return container;
 }
