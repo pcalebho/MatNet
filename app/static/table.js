@@ -113,11 +113,11 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
  //create Tabulator on DOM element with id "example-table"
 
 const initColumnHeaders = [
-    {title:"Favorites", field:"fav", formatter:"tickCross", editor: true, hozAlign: "center", editorParams:{
+    {title:"Favorites", field:"fav", width: 50, editor: "tickCross", hozAlign: "center", editorParams:{
         trueValue: "TRUE",
         falseValue: "FALSE"
     }},
-    {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, frozen:true, width: 300},
+    {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
     {title:"Density", field:"density"}, 
     {title:"Yield Strength", field: "tensile_strength_yield"}, 
     {title:"Ultimate Strength", field: "tensile_strength_ultimate"}, 
@@ -162,7 +162,7 @@ if ("true" == isAuthenticated){
 }
 
 var table = new Tabulator("#table", {
-    ajaxURL: apiURL,
+    ajaxURL: "/api/sample",
     ajaxResponse: function(url, params, response) {
         // Assuming response is the entire API response object
         // var data = response.data || []; // Extract the "data" array
@@ -171,26 +171,40 @@ var table = new Tabulator("#table", {
     layout: "fitColumns",
     pagination:true,
  	columns: columnHeaders,
+    langs:{
+    "en-gb":{
+        "headerFilters":{
+            "columns":{
+                "Name":"filter name...", //replace default header filter text for column name
+            }
+        }
+    }
+    },
 });
+
 
 //Reassign elements so button is fixed to element
 if ("true" != isAuthenticated){
     window.onload = reAssignElement;
+    window.onresize = reAssignElement;
 }
 
 function reAssignElement(){
     const tableContent = document.querySelector(".tabulator-table"); 
-    const tableWrapper = document.querySelector(".tabulator-tableholder")  
+    const colAnchor = document.querySelector(".btn-anchor.tabulator-col");
     const button = document.getElementById("anon-btn");
+    const footer = document.querySelector(".tabulator-footer");
+
+    let anchorRect = colAnchor.getBoundingClientRect();
+    let footerRect = footer.getBoundingClientRect();
+
+    let xPos = anchorRect.x+anchorRect.width/2;
+    let yPos = (footerRect.top-anchorRect.bottom)/2;
  
-    tableWrapper.appendChild(button);
     tableContent.style.zIndex = 0;
-    tableContent.style.position = "absolute";
-    // centerColHeader.style.setProperty("overflow", "visible", "important");
-    // centerColHeader.style.position = "relative";
-    button.style.position = "absolute";
-    // button.style.top = "200%";
-    button.style.right = "15vw";
-    // button.style.transform = "translate(-50%, 0)";
+    button.style.position = "fixed";
+    button.style.top = yPos+"px";
+    button.style.left = xPos+"px";
+    button.style.transform = "translate(-50%, 50%)";    
     button.style.zIndex = 10;
 }

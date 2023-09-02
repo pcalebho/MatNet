@@ -17,7 +17,7 @@
 {%block content%}
 <div id="content" class = "d-flex flex-column align-items-center">
     <div class="d-flex flex-column">
-        <div id="table" style="width: 95vw; height: 85vh;" class="table-bordered table-sm"></div>
+        <div id="table" style="width: 80vw; height: 85vh;" class="table-bordered table-sm"></div>
         {%if not current_user.is_authenticated%}
         <div id="anon-btn" class = "d-grid" style= "z-index: 3;">
             <button type="button" onclick="window.location.href = '/register';" class="btn btn-info mb-3">Sign Up</button>
