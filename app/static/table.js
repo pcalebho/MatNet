@@ -1,4 +1,4 @@
-var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParams){
+var minMaxTopsisEditor = function(cell, onRendered, success, cancel, editorParams){
     let end;
 
     //create elements
@@ -17,14 +17,13 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
     importance.setAttribute("type","range");
     importance.setAttribute("min",0);
     importance.setAttribute("max",10); 
-    importance.setAttribute("value",0);
+    importance.setAttribute("value",5);
 
     //set styles and classes
     start.style.padding = "4px";
     start.style.width = "50%";
     start.style.boxSizing = "border-box";
-    container.classList.add('custom-headerFilter')
-    importance.classList.add('form-range')
+    container.classList.add('custom-headerFilter');
 
     start.value = cell.getValue();
 
@@ -88,7 +87,7 @@ var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParam
 }
 
 //custom max min filter function
-function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
+function minMaxTopsisrFunction(headerValue, rowValue, rowData, filterParams){
 //headerValue - the value of the header filter element
 //rowValue - the value of the column in this row
 //rowData - the data for the row being filtered
@@ -134,8 +133,8 @@ columnHeaders = columnHeaders.map((colProp) => {
     if (colProp["field"] != "name" && colProp["field"] != "fav"){
         colProp.hozAlign = "center";
         colProp.sorter = "number";
-        colProp.headerFilter = minMaxFilterEditor;
-        colProp.headerFilterFunc = minMaxFilterFunction;
+        colProp.headerFilter = minMaxTopsisEditor;
+        colProp.headerFilterFunc = minMaxTopsisrFunction;
         colProp.headerFilterLiveFilter = false;
         colProp.resizable = false;
     }
