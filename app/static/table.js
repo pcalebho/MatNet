@@ -1,121 +1,16 @@
-var minMaxTopsisEditor = function(cell, onRendered, success, cancel, editorParams){
-    let end;
+import * as hf from '/static/headerfilters.js'
 
-    //create elements
-    let container = document.createElement("div");
-    let minMaxSwitch = document.createElement("label");
-    let start = document.createElement("input");
-    let importance = document.createElement("input");
-    let mcdmContainer = document.createElement("div");
-    let filterContainer = document.createElement("div");
-
-    //set attributes
-    start.setAttribute("type", "number");
-    start.setAttribute("placeholder", "Min");
-    start.setAttribute("min", 0);
-    start.setAttribute("max", 100);    
-    importance.setAttribute("type","range");
-    importance.setAttribute("min",0);
-    importance.setAttribute("max",10); 
-    importance.setAttribute("value",5);
-
-    //set styles and classes
-    start.style.padding = "4px";
-    start.style.width = "50%";
-    start.style.boxSizing = "border-box";
-    container.classList.add('custom-headerFilter');
-
-    start.value = cell.getValue();
-
-    end = start.cloneNode();
-    end.setAttribute("placeholder", "Max");
-
-    minMaxSwitch.classList.add("minMaxToggle");
-
-    const toggle = document.createElement("input");
-    toggle.setAttribute("type","checkbox");
-
-    const toggleLabel = document.createElement("span");
-    toggleLabel.classList.add("labels");
-    toggleLabel.setAttribute("data-on","MIN");
-    toggleLabel.setAttribute("data-off","MAX");
-
-    start.classList.add("min-input");
-    end.classList.add("max-input");
-
-
-    function buildValues(){ 
-        success({
-            start:start.value,
-            end:end.value,
-        });
-    }
-
-    function keypress(e){
-        if(e.keyCode == 13){
-            buildValues();
-        }
-
-        if(e.keyCode == 27){
-            cancel();
-        }
-    }
-
-
-    start.addEventListener("change", buildValues);
-    start.addEventListener("blur", buildValues);
-    start.addEventListener("keydown", keypress);
-
-    end.addEventListener("change", buildValues);
-    end.addEventListener("blur", buildValues);
-    end.addEventListener("keydown", keypress);
-
-    minMaxSwitch.appendChild(toggle);
-    minMaxSwitch.appendChild(toggleLabel);
-
-    filterContainer.appendChild(start);
-    filterContainer.appendChild(end);
-    mcdmContainer.appendChild(importance);
-    mcdmContainer.appendChild(minMaxSwitch);
-
-    filterContainer.classList.add("filter-container")
-    mcdmContainer.classList.add("mcdm-container")
-    container.appendChild(mcdmContainer);
-    container.appendChild(filterContainer);
-
-    return container;
-}
-
-//custom max min filter function
-function minMaxTopsisrFunction(headerValue, rowValue, rowData, filterParams){
-//headerValue - the value of the header filter element
-//rowValue - the value of the column in this row
-//rowData - the data for the row being filtered
-//filterParams - params object passed to the headerFilterFuncParams property
-
-    if(rowValue){
-        if(headerValue.start != ""){
-            if(headerValue.end != ""){
-                return rowValue >= headerValue.start && rowValue <= headerValue.end;
-            }else{
-                return rowValue >= headerValue.start;
-            }
-        }else{
-            if(headerValue.end != ""){
-                return rowValue <= headerValue.end;
-            }
-        }
-    }
-
-    return true; //must return a boolean, true if it passes the filter.
-}
- //create Tabulator on DOM element with id "example-table"
+let colHeaderFilter = hf.minMaxEditor;
+const topsisSwitch = document.getElementById("TOPSIS");
 
 const initColumnHeaders = [
-    {title:"Favorites", field:"fav", width: 50, editor: "tickCross", hozAlign: "center", editorParams:{
-        trueValue: "TRUE",
-        falseValue: "FALSE"
+    {formatter:"rowSelection", titleFormatter:"rowSelection", hozAlign:"center", headerSort:false, width: 50, cellClick:function(e, cell){
+        cell.getRow().toggleSelect();
     }},
+    // {title:"Favorites", field:"fav", width: 50, editor: "tickCross", hozAlign: "center", editorParams:{
+    //     trueValue: "★",
+    //     falseValue: "☆"
+    // }},
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
     {title:"Density", field:"density"}, 
     {title:"Yield Strength", field: "tensile_strength_yield"}, 
@@ -133,18 +28,15 @@ columnHeaders = columnHeaders.map((colProp) => {
     if (colProp["field"] != "name" && colProp["field"] != "fav"){
         colProp.hozAlign = "center";
         colProp.sorter = "number";
-        colProp.headerFilter = minMaxTopsisEditor;
-        colProp.headerFilterFunc = minMaxTopsisrFunction;
+        colProp.headerFilter = colHeaderFilter;
+        colProp.headerFilterFunc = hf.minMaxTopsisFunction;
         colProp.headerFilterLiveFilter = false;
         colProp.resizable = false;
     }
     if ("true" != isAuthenticated){
-        if (colProp["field"] != 'name' &&
-            colProp["field"] != 'density' && 
-            colProp["field"] != 'tensile_strength_yield' && 
-            colProp["field"] != 'tensile_strength_ultimate' && 
-            colProp["field"] != 'modulus_of_elasticity' &&
-            colProp["field"] != 'fav'
+        if (colProp["field"] == 'hardness_brinell' ||
+            colProp["field"] == 'specific_heat_capacity' ||
+            colProp["field"] == 'machinability'
         ){colProp.cssClass = "cell-blur";}
         if (colProp["field"] == "specific_heat_capacity"){
             colProp.cssClass = "cell-blur btn-anchor z-1";
@@ -161,7 +53,7 @@ if ("true" == isAuthenticated){
 }
 
 var table = new Tabulator("#table", {
-    ajaxURL: "/api/sample",
+    ajaxURL: apiURL,
     ajaxResponse: function(url, params, response) {
         // Assuming response is the entire API response object
         // var data = response.data || []; // Extract the "data" array
@@ -181,6 +73,21 @@ var table = new Tabulator("#table", {
     },
 });
 
+topsisSwitch.addEventListener('change', () => {
+    if (colHeaderFilter === hf.minMaxEditor){
+        colHeaderFilter = hf.minMaxTopsisEditor;
+    } else {
+        colHeaderFilter = hf.minMaxEditor;
+    }
+
+    table.updateColumnDefinition("density", {headerFilter: colHeaderFilter})
+    table.updateColumnDefinition("tensile_strength_yield", {headerFilter: colHeaderFilter})
+    table.updateColumnDefinition("tensile_strength_ultimate", {headerFilter: colHeaderFilter})
+    table.updateColumnDefinition("modulus_of_elasticity", {headerFilter: colHeaderFilter})
+    table.updateColumnDefinition("specific_heat_capacity", {headerFilter: colHeaderFilter})
+    table.updateColumnDefinition("machinability", {headerFilter: colHeaderFilter})
+    table.updateColumnDefinition("hardness_brinell", {headerFilter: colHeaderFilter})
+});
 
 //Reassign elements so button is fixed to element
 if ("true" != isAuthenticated){
