@@ -36,43 +36,10 @@ def sample():
     return jsonify({'data': sample_data})
 
 @api_bp.route('/api/tabulator')
+@api_bp.route('/api/tabulator/params/<params>')
 @login_required
-def get_data():
-    if request.method == 'POST':
-        query = []
-        
-        form_data = request.json
-        if form_data is not None:
-            for key in form_data:
-                if form_data[key]['min'] == "":
-                    form_data[key]['min'] = -1000000
-                else:
-                    form_data[key]['min'] = int(form_data[key]['min'])
-
-                if form_data[key]['max'] == "":
-                     form_data[key]['max'] = 1000000
-                else:
-                     form_data[key]['max'] = int(form_data[key]['max'])
-
-                query_item = {
-                    get_key(key): {
-                        "$gte": form_data[key]['min'], 
-                        "$lte": form_data[key]['max']
-                    }
-                }      #type: ignore
-                query.append(query_item)
-            query.append({"mechanical_properties.hardness_brinell.units": ''})
-        
-        session['query'] = query
-        session['form_data'] = form_data
-            
-        return jsonify({'form_data': form_data, 'query': query})
-    else:
-        form_data = session.get('form_data', {})
-        query = session.get('query',[])
-        
-
-    valid_query = {"$and": [
+def get_data(params):
+    minMaxQuery = [
         {"mechanical_properties.hardness_brinell.units": ''},
         {"mechanical_properties.hardness_brinell.value":{'$exists': True}},
         {"mechanical_properties.machinability.value": {'$exists': True}},
@@ -81,13 +48,27 @@ def get_data():
         {"mechanical_properties.tensile_strength_yield.value": {"$exists": True}},
         {"mechanical_properties.tensile_strength_ultimate.value": {"$exists": True}},
         {"mechanical_properties.modulus_of_elasticity.value": {"$exists": True}}
-    ]}
+    ]
+
+    if params is not None:
+        filters = json.loads(params)
+        filters = filters['filter']
+        # print(filters)
+        if filters != []:
+            for filter in filters:
+                query = {
+                    get_key(filter["field"]): {
+                        '$gte': -10000000,
+                        '$lte': 10000000
+                    }
+                }
+                if filter['value']['start'] != '':
+                    query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])
+                if filter['value']['end'] != '':
+                    query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])
+                minMaxQuery.append(query)
     
-    if 'query' in session:
-        cursor = datasheets_collection.find({"$and": query})
-    else:
-        cursor = datasheets_collection.find(valid_query)
-    
+    cursor = datasheets_collection.find({"$and": minMaxQuery})
 
     materials = []
     for material in cursor:
@@ -104,18 +85,16 @@ def get_data():
         materials.append(flattened_material)
     
 
-    if form_data != {}:
-        result_df = rank_materials(form_data, materials)
-    else:
-        result_df = pd.DataFrame(materials)
+    # if form_data != {}:
+    #     result_df = rank_materials(form_data, materials)
+    # else:
+    result_df = pd.DataFrame(materials)
 
     result_df = result_df.sample(frac=1).reset_index(drop=True)
-    result_df = result_df.fillna('N/A')
 
 
     return {
                 'data': result_df.to_dict('records'),
-                # 'total': total    
             }
 
 @api_bp.route('/api/data', methods = ('GET','POST'))
