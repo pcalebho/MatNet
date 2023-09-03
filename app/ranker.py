@@ -16,14 +16,14 @@ CRITERION_KEY = {
 }
 
 KEY = {
-    "Density(g/cc)": 'physical_properties.density.value',
-    "Yield Strength(MPa)": 'mechanical_properties.tensile_strength_yield.value',
-    "Ultimate Strength(MPa)": 'mechanical_properties.tensile_strength_ultimate.value',
-    "Elastic Modulus(GPa)": 'mechanical_properties.modulus_of_elasticity.value',
-    "Brinell Hardness": 'mechanical_properties.hardness_brinell.value',
-    "*Machinability(%)": 'mechanical_properties.machinability.value',
-    "Specific Heat Capacity(J/g-°C)": 'thermal_properties.specific_heat_capacity.value',
-    "*Cost": 'cost.value'
+    "density": 'physical_properties.density.value',
+    "tensile_strength_yield": 'mechanical_properties.tensile_strength_yield.value',
+    "tensile_strength_ultimate": 'mechanical_properties.tensile_strength_ultimate.value',
+    "modulus_of_elasticity": 'mechanical_properties.modulus_of_elasticity.value',
+    "hardness_brinell": 'mechanical_properties.hardness_brinell.value',
+    "machinability": 'mechanical_properties.machinability.value',
+    "specific_heat_capacity": 'thermal_properties.specific_heat_capacity.value',
+    "cost": 'cost.value'
 }
 
 def get_id(key):
