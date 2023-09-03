@@ -115,6 +115,8 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
         success({
             start:start.value,
             end:end.value,
+            importance: importance.value,
+            objective: toggle.checked
         });
     }
 
@@ -155,6 +157,30 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
 
 //custom max min filter function
 export function minMaxTopsisFunction(headerValue, rowValue, rowData, filterParams){
+//headerValue - the value of the header filter element
+//rowValue - the value of the column in this row
+//rowData - the data for the row being filtered
+//filterParams - params object passed to the headerFilterFuncParams property
+
+    if(rowValue){
+        if(headerValue.start != ""){
+            if(headerValue.end != ""){
+                return rowValue >= headerValue.start && rowValue <= headerValue.end;
+            }else{
+                return rowValue >= headerValue.start;
+            }
+        }else{
+            if(headerValue.end != ""){
+                return rowValue <= headerValue.end;
+            }
+        }
+    }
+
+    return true; //must return a boolean, true if it passes the filter.
+}
+
+//custom max min filter function
+export function minMaxFunction(headerValue, rowValue, rowData, filterParams){
 //headerValue - the value of the header filter element
 //rowValue - the value of the column in this row
 //rowData - the data for the row being filtered
