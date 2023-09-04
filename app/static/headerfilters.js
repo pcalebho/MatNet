@@ -85,6 +85,7 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
     importance.setAttribute("step",1); 
     importance.setAttribute("value",0);
     importance.classList.add("form-range")
+    // importance.classList.add("styled-slider","slider-progress")
 
     //set styles and classes
     start.style.padding = "4px";
