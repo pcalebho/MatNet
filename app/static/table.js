@@ -29,7 +29,7 @@ columnHeaders = columnHeaders.map((colProp) => {
         colProp.hozAlign = "center";
         colProp.sorter = "number";
         colProp.headerFilter = colHeaderFilter;
-        colProp.headerFilterFunc = hf.minMaxTopsisFunction;
+        // colProp.headerFilterFunc = hf.minMaxTopsisFunction;
         colProp.headerFilterLiveFilter = false;
         colProp.resizable = false;
     }
@@ -53,12 +53,13 @@ if ("true" == isAuthenticated){
 }
 
 var table = new Tabulator("#table", {
-    ajaxURL: apiURL,
+    ajaxURL: '/api/tabulator',
     ajaxResponse: function(url, params, response) {
         // Assuming response is the entire API response object
         // var data = response.data || []; // Extract the "data" array
         return response.data || []; // Return the extracted array
     },
+    filterMode: "remote",
     layout: "fitColumns",
     pagination:true,
  	columns: columnHeaders,
@@ -71,13 +72,29 @@ var table = new Tabulator("#table", {
         }
     }
     },
+    ajaxURLGenerator:function(url, config, params){
+        //url - the url from the ajaxURL property or setData function
+        //config - the request config object from the ajaxConfig property
+        //params - the params object from the ajaxParams property, this will also include any pagination, filter and sorting properties based on table setup
+
+        //return request url
+        return url + "/params/" + encodeURI(JSON.stringify(params)); //encode parameters as a json object
+    },
+    ajaxConfig:{
+        // method:"POST", //set request type to Position
+        headers: {
+            "Content-type": 'application/json; charset=utf-8', //set specific content type
+        },
+    }
 });
 
 topsisSwitch.addEventListener('change', () => {
     if (colHeaderFilter === hf.minMaxEditor){
         colHeaderFilter = hf.minMaxTopsisEditor;
+        table.addColumn({title:"Score", field:"score", width: 100}, true, "name");
     } else {
         colHeaderFilter = hf.minMaxEditor;
+        table.deleteColumn("score")
     }
 
     table.updateColumnDefinition("density", {headerFilter: colHeaderFilter})
