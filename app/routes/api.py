@@ -35,9 +35,8 @@ with open(file_path, 'r') as json_file:
 def sample():
     return jsonify({'data': sample_data})
 
-@api_bp.route('/api/tabulator')
 @api_bp.route('/api/tabulator/params/<params>')
-@login_required
+# @login_required
 def get_data(params):
     minMaxQuery = [
         {"mechanical_properties.hardness_brinell.units": ''},
@@ -50,23 +49,27 @@ def get_data(params):
         {"mechanical_properties.modulus_of_elasticity.value": {"$exists": True}}
     ]
 
-    if params is not None:
-        filters = json.loads(params)
-        filters = filters['filter']
-        # print(filters)
-        if filters != []:
-            for filter in filters:
-                query = {
-                    get_key(filter["field"]): {
-                        '$gte': -10000000,
-                        '$lte': 10000000
-                    }
+    form_data = {}
+
+    filters = json.loads(params)
+    filters = filters['filter']
+    # print(filters)
+    if filters != []:
+        for filter in filters:
+            query = {
+                get_key(filter["field"]): {
+                    '$gte': -10000000,
+                    '$lte': 10000000
                 }
-                if filter['value']['start'] != '':
-                    query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])
-                if filter['value']['end'] != '':
-                    query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])
-                minMaxQuery.append(query)
+            }
+            if filter['value']['start'] != '':
+                query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])  #type: ignore
+            if filter['value']['end'] != '':
+                query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])    #type: ignore
+            minMaxQuery.append(query)
+
+            if int(filter['value']['importance']) != 0:
+                form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
     
     cursor = datasheets_collection.find({"$and": minMaxQuery})
 
@@ -82,16 +85,16 @@ def get_data(params):
         flattened_material['specific_heat_capacity'] = material['thermal_properties']['specific_heat_capacity']['value']    
         flattened_material['machinability'] = material['mechanical_properties']['machinability']['value']
         flattened_material['hardness_brinell'] = material['mechanical_properties']['hardness_brinell']['value']
+        flattened_material['categories'] = material['categories']
+        flattened_material['component_elements_properties'] = material['component_elements_properties']
         materials.append(flattened_material)
     
 
-    # if form_data != {}:
-    #     result_df = rank_materials(form_data, materials)
-    # else:
     result_df = pd.DataFrame(materials)
-
     result_df = result_df.sample(frac=1).reset_index(drop=True)
-
+    print(result_df)
+    if form_data != {}:
+        result_df = rank_materials(form_data, result_df)    
 
     return {
                 'data': result_df.to_dict('records'),
