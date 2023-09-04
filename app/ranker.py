@@ -43,13 +43,12 @@ def rank_materials(form_data, raw_data):
     raw_dataframe = pd.DataFrame(raw_data)
 
     #Filter out inconsequential data           
-    criterion_ids = get_id(list(form_data.keys()))
     objectives = []
     weights = []
     criterion_ids = []
     for key in form_data.keys():
         if form_data[key]['importance'] != 0:
-            criterion_ids.append(get_id(key))
+            criterion_ids.append(key)
             objectives.append(form_data[key]['objective'])
             weights.append(form_data[key]['importance']/10)
 
@@ -88,8 +87,8 @@ def rank_materials(form_data, raw_data):
     formatted_ranking = [f"{y} ({x})" for x, y in zip(array_x, array_y)]
 
     # df_with_score = raw_dataframe.assign(Rank = formatted_ranking)
-    df_with_score = raw_dataframe.assign(Score_rank = formatted_ranking).assign(Score = array_y).assign(Rank= array_x)
-    SortedDF = df_with_score.sort_values(by = 'Rank', ascending = True)
+    df_with_score = raw_dataframe.assign(Score_rank = formatted_ranking).assign(score = array_y).assign(Rank= array_x)
+    SortedDF = df_with_score.sort_values(by = 'score', ascending = False)
 
     return SortedDF
 
