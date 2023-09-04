@@ -1,4 +1,5 @@
 import * as hf from '/static/headerfilters.js'
+import * as pop from '/static/popup.js'
 
 let colHeaderFilter = hf.minMaxEditor;
 const topsisSwitch = document.getElementById("TOPSIS");
@@ -63,6 +64,7 @@ var table = new Tabulator("#table", {
     layout: "fitColumns",
     pagination:true,
  	columns: columnHeaders,
+    rowClickPopup:pop.rowPopupFormatter,
     langs:{
     "en-gb":{
         "headerFilters":{
