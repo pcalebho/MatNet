@@ -50,26 +50,31 @@ def get_data(params):
     ]
 
     form_data = {}
+    search_term = ""
 
     filters = json.loads(params)
     filters = filters['filter']
+    
     # print(filters)
     if filters != []:
         for filter in filters:
-            query = {
-                get_key(filter["field"]): {
-                    '$gte': -10000000,
-                    '$lte': 10000000
+            if filter["type"] == "like":
+                search_term = filter["value"]
+            else:
+                query = {
+                    get_key(filter["field"]): {
+                        '$gte': -10000000,
+                        '$lte': 10000000
+                    }
                 }
-            }
-            if filter['value']['start'] != '':
-                query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])  #type: ignore
-            if filter['value']['end'] != '':
-                query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])    #type: ignore
-            minMaxQuery.append(query)
+                if filter['value']['start'] != '':
+                    query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])  #type: ignore
+                if filter['value']['end'] != '':
+                    query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])    #type: ignore
+                minMaxQuery.append(query)
 
-            if int(filter['value']['importance']) != 0:
-                form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
+                if int(filter['value']['importance']) != 0:
+                    form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
     
     cursor = datasheets_collection.find({"$and": minMaxQuery})
 
@@ -92,9 +97,13 @@ def get_data(params):
 
     result_df = pd.DataFrame(materials)
     result_df = result_df.sample(frac=1).reset_index(drop=True)
-    print(result_df)
+
     if form_data != {}:
-        result_df = rank_materials(form_data, result_df)    
+        result_df = rank_materials(form_data, result_df)  
+
+    if search_term != "":
+        result_df = result_df[result_df['name'].str.contains(search_term, case=False)]
+
 
     return {
                 'data': result_df.to_dict('records'),
