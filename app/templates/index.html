@@ -32,10 +32,10 @@
     <!-- <i class ="mt-2">*data should not be trusted for mission critical apps</i>
     <i id = "disclaimer">**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i> -->
 </div>
+<script src="{{url_for('static', filename='table.js')}}" type = "module"></script>
 {% endblock %}
 
 {%block scripts%}
-<script src="{{url_for('static', filename='table.js')}}" type = "module"></script>
 <link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='table.css') }}">
 <link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='toggle.css') }}">
 {% endblock %}

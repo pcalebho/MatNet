@@ -109,10 +109,9 @@ topsisSwitch.addEventListener('change', () => {
 });
 
 //Reassign elements so button is fixed to element
-if ("true" != isAuthenticated){
-    window.onload = reAssignElement;
-    window.onresize = reAssignElement;
-}
+// if ("true" != isAuthenticated){
+
+table.on("tableBuilt", reAssignElement);
 
 function reAssignElement(){
     const tableContent = document.querySelector(".tabulator-table"); 
