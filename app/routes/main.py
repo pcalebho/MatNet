@@ -18,3 +18,13 @@ def root():
         num_sliders=num_sliders,
         current_user=current_user
     )
+
+@main_bp.route('/dev')
+def test():
+    return render_template(
+        'test_page.html', 
+        material_properties=material_properties,
+        matprop_len=len(material_properties), 
+        num_sliders=num_sliders,
+        current_user=current_user
+    )

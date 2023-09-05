@@ -22,7 +22,8 @@ def create_app(test_config = None):
         app.config.from_object('config.ProdConfig')
     else:
         raise ValueError('No corresponding arg value')
-
+    
+    app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'litera'
 
     #initialize db extensions and models
     from app.models import db, User

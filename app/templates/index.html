@@ -4,48 +4,38 @@
 
 {%block head%}
 <script> var isAuthenticated = {{ current_user.is_authenticated | lower | tojson }}; </script>
+<link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+<style>
+    .tabulator-cell.cell-blur {
+        filter: blur(.4rem);
+    }
+</style>
 {%endblock%}
 
 
 {%block content%}
-<div id="content" class = "content">
-    <form id="form">
-        <div id="criterions-form">
-            {%for i in range(num_sliders)%}
-            <div class = "criterion-container cc-{{i}}">
-                <div id="prop-{{i}}" class="property-label">{{material_properties[i]}}</div>
-                <span class="importance-container">
-                    <label for="sliderRange-{{i}}">Importance</label>
-                    <input class="input-range" orient="vertical" id = "sliderRange-{{i}}" v-model="value{{i}}" name = "sliderRange-{{i}}" type="range" step="1" min="0" max="10">
-                    <div id = "sliderValue-{{i}}">[[value{{i}}]]</div>
-                </span>
-                <label for="objective-{{i}}">Objective</label>
-                <select id="objective-{{i}}" name="objective-{{i}}">
-                    <option value = '1'>Maximize</option>
-                    {% if material_properties[i] == '*Cost' or material_properties[i] == 'Density(g/cc)'%}
-                        <option value = '-1' selected>Minimize</option>
-                    {% else %}
-                        <option value = '-1'>Minimize</option>
-                    {% endif %}                
-                </select>
-                <label for="minValue-{{i}}">Min Value:</label>
-                <input id="minValue-{{i}}" type="number" name="minValue-{{i}}">
-                <label for="maxValue-{{i}}">Max Value:</label>
-                <input id="maxValue-{{i}}" type="number" name="maxValue-{{i}}">
-            </div>
-            {%endfor%}
+<div id="content" class = "d-flex flex-column align-items-center">
+    <div class="d-flex flex-column">
+        <div id="TOPSIS" class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">TOPSIS filtering</label>
         </div>
-        <input id='form-submit-btn' type = "submit" role="button" value="Calculate"></input>
-    </form>
-    <div id="table"></div>
-    <i>*data should not be trusted for mission critical apps</i>
-    <i id = "disclaimer">**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i>
+        <div id="table" style="width: 80vw; height: 85vh;" class="table-bordered table-sm"></div>
+        {%if not current_user.is_authenticated%}
+        <div id="anon-btn" class = "d-grid" style= "z-index: 3;">
+            <button type="button" onclick="window.location.href = '/register';" class="btn btn-info mb-3">Sign Up</button>
+            <button type="button" onclick="window.location.href = '/login';" class="btn btn-info">Login</button>
+        </div>
+        {%endif%}
+    </div>
+    <!-- <i class ="mt-2">*data should not be trusted for mission critical apps</i>
+    <i id = "disclaimer">**Ranks are determined through multi-criterion decision making algorithm, using your importance values and objectes as inputs</i> -->
 </div>
 {% endblock %}
 
 {%block scripts%}
-<script src="{{url_for('static', filename='main_table.js')}}"></script>
-<script src="{{url_for('static', filename='formLogic.js')}}" type = "module"></script>
+<script src="{{url_for('static', filename='table.js')}}" type = "module"></script>
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='table.css') }}">
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static',filename='toggle.css') }}">
 {% endblock %}
-
-

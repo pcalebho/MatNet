@@ -63,6 +63,7 @@ const table = new gridjs.Grid({
     },
     pagination: {
         enabled: true,
+        limit: 20,
         server: {
         url: (prev, page, limit) => {
             return updateUrl(prev, {start: page * limit, length: limit});
