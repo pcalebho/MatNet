@@ -16,7 +16,8 @@ def root():
         material_properties=material_properties,
         matprop_len=len(material_properties), 
         num_sliders=num_sliders,
-        current_user=current_user
+        current_user=current_user,
+        title = 'Materials University'
     )
 
 @main_bp.route('/dev')
