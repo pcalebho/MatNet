@@ -1,5 +1,6 @@
 import pandas as pd
 import gspread
+import json
 from pathlib import Path
 
 gc = gspread.service_account(Path('google_auth.json'))
@@ -16,7 +17,38 @@ def gsheet_to_json(sheet_key: str, material_name: str):
     graph_df = pd.DataFrame(graph_values[1:])
     graph_df.columns= graph_values[0]
 
-    return graph_df
+    mat_name = mat_prop_sheet.acell('G2').value
+    product_form = mat_prop_sheet.acell('E2').value
+    k_value = mat_prop_sheet.acell('D2').value
+    tus = mat_prop_sheet.acell('A2').value
+    tys = mat_prop_sheet.acell('B2').value
+
+    rmax = mat_prop_sheet.acell('B1').value
+    rmin = mat_prop_sheet.acell('B2').value
+    a1 = mat_prop_sheet.acell('B3').value
+    b1 = mat_prop_sheet.acell('B4').value
+    c1 = mat_prop_sheet.acell('B5').value
+    d1 = mat_prop_sheet.acell('B6').value
+    e1 = mat_prop_sheet.acell('B7').value
+    std = mat_prop_sheet.acell('B9').value
+    rsq = mat_prop_sheet.acell('B10').value
+    std2 = mat_prop_sheet.acell('B12').value
+    rsq2 = mat_prop_sheet.acell('B13').value
+    m1 = mat_prop_sheet.acell('D1').value
+    a2 = mat_prop_sheet.acell('D2').value
+    b2 = mat_prop_sheet.acell('D3').value
+    c2 = mat_prop_sheet.acell('D4').value
+    a3 = mat_prop_sheet.acell('D5').value
+    b3 = mat_prop_sheet.acell('D6').value
+    c3 = mat_prop_sheet.acell('D7').value
+    r1 = mat_prop_sheet.acell('D8').value
+    r2 = mat_prop_sheet.acell('D9').value
+    r3 = mat_prop_sheet.acell('D10').value
+    n1 = mat_prop_sheet.acell('H1').value
+    d2 = mat_prop_sheet.acell('H2').value
+    m2 = mat_prop_sheet.acell('H3').value
+    m3 = mat_prop_sheet.acell('H4').value
+
 
 
 def main():

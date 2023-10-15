@@ -1,3 +1,6 @@
+#vscode
+.vscode/
+
 #files
 google_auth.json
 data_location_sheet.csv
