@@ -1,3 +1,8 @@
+#files
+google_auth.json
+data_location_sheet.csv
+
+# extenions
 *.ipynb
 
 MatNet.code-workspace
