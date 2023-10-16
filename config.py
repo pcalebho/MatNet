@@ -23,6 +23,7 @@ class Config():
 
 class DevConfig(Config):
     DEBUG = True
+    MATERIAL_DB_NAME = os.environ.get('DEV_DATABASE')
 
 class ProdConfig(Config):
     DEBUG = False
