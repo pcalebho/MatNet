@@ -12,6 +12,8 @@ class Config():
     MONGODB_URI = os.environ.get('MONGODB_URI')
     MATERIAL_DB_NAME = os.environ.get('DATABASE')
     MATERIAL_COLLECTION = os.environ.get('MATERIAL_COLLECTION')
+    USER_COLLECTION = os.environ.get('USER_COLLECTION')
+    FATIGUE_COLLECTION = os.environ.get('FATIGUE_COLLECTION')
     POSTGRESQL_URI= os.environ.get('POSTGRESQL_URI')
     
     
