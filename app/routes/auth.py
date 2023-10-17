@@ -1,4 +1,4 @@
-from app.models import User, db
+from app.models import User
 from flask import render_template, current_app, Blueprint, flash, redirect, url_for, request
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
@@ -33,7 +33,7 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     def validate_email(form, field):
-        if User.query.filter_by(email=field.data).first():
+        if User.objects(email=field.data).count() != 0:      # type: ignore
             raise ValidationError('Email already in use.')
 
 #login form
@@ -50,7 +50,7 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.objects(email=form.email.data) # type: ignore
 
         # check if user actually exists
         # take the user supplied password, hash it, and compare it to the hashed password in database
@@ -77,8 +77,7 @@ def register():
         user_industry = form.industry.data
         user_occupation = form.occupation.data
         new_user = User(email=user_email, password=pw_hash, industry=user_industry, occupation=user_occupation)
-        db.session.add(new_user)
-        db.session.commit()
+        new_user.save()
         flash('Your account has been created! You are now able to log in', 'success')
         login_user(new_user, remember=False)
         return redirect('/')
