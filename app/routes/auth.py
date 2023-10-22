@@ -50,8 +50,7 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        user = User.objects(email=form.email.data) # type: ignore
-
+        user = User.objects.get(email=form.email.data) # type: ignore
         # check if user actually exists
         # take the user supplied password, hash it, and compare it to the hashed password in database
         if not user or not bcrypt.check_password_hash(user.password, form.password.data): 

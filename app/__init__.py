@@ -38,7 +38,12 @@ def create_app(test_config = None):
     @login_manager.user_loader
     def load_user(user_id):
         # since the user_id is just the primary key of our user table, use it in the query for the user
-        return User.objects(email = user_id)   # type: ignore 
+        try:
+            user = User.objects.get(email = user_id)         # type: ignore
+        except mongoengine.DoesNotExist:
+            return None
+
+        return user       
 
 
     with app.app_context():
