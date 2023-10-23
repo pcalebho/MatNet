@@ -5,13 +5,6 @@ let colHeaderFilter = hf.minMaxEditor;
 const topsisSwitch = document.getElementById("TOPSIS");
 
 const initColumnHeaders = [
-    {formatter:"rowSelection", titleFormatter:"rowSelection", hozAlign:"center", headerSort:false, width: 50, cellClick:function(e, cell){
-        cell.getRow().toggleSelect();
-    }},
-    // {title:"Favorites", field:"fav", width: 50, editor: "tickCross", hozAlign: "center", editorParams:{
-    //     trueValue: "★",
-    //     falseValue: "☆"
-    // }},
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
     {title:"Density", field:"density"}, 
     {title:"Yield Strength", field: "tensile_strength_yield"}, 
@@ -20,6 +13,14 @@ const initColumnHeaders = [
     {title: "Brinell Hardness", field: "hardness_brinell"},
     {title:"Specific Heat Capacity", field: "specific_heat_capacity"},
     {title:"Machinability", field:"machinability"},
+]
+
+const fatigueColumnHeaders = [
+    {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
+    {title:"Yield Strength(MPa)", field: "tensile_strength_yield"}, 
+    {title:"Ultimate Strength(MPa)", field: "tensile_strength_ultimate"}, 
+    {title:"Product Form", field: "product_form"},
+    {title:"K value", field: "k_value"}
 ]
 
 let columnHeaders;
