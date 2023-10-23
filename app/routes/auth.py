@@ -10,6 +10,23 @@ auth_bp = Blueprint('auth', __name__)
 
 bcrypt = Bcrypt(current_app)
 
+ 
+#Factory function validator    
+def check_email(error_on_exists = True):
+    if error_on_exists:
+        def _email(form, field):
+            if User.objects(email=field.data).count() != 0:      # type: ignore
+                raise ValidationError('Email already exists.')
+
+        return _email
+    else:
+        def _email(form, field):
+            if User.objects(email=field.data).count() == 0:      # type: ignore
+                raise ValidationError('No such email exists.')
+        
+        return _email
+            
+
 class RegistrationForm(FlaskForm):
     occupation_choices = {
         'student': 'Student',
@@ -25,20 +42,17 @@ class RegistrationForm(FlaskForm):
         'maritime': 'Maritime'
     }
 
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    email = StringField('Email', validators=[DataRequired(), Email(), check_email(error_on_exists=True)])
     industry = SelectField('What industry are you in?', choices=industry_choices.items(),validators=[DataRequired()])
     occupation = SelectField('What is your occupation?', choices=occupation_choices.items(),validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
-    def validate_email(form, field):
-        if User.objects(email=field.data).count() != 0:      # type: ignore
-            raise ValidationError('Email already in use.')
 
 #login form
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), check_email(error_on_exists=False)])
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
@@ -55,13 +69,12 @@ def login():
         # take the user supplied password, hash it, and compare it to the hashed password in database
         if not user or not bcrypt.check_password_hash(user.password, form.password.data): 
             flash('Please check your login details and try again.')
-            return redirect(url_for('auth.login')) # if user doesn't exist or password is wrong, reload the page
+            return redirect(url_for('auth.login'))        # if user doesn't exist or password is wrong, reload the page
 
         # if the above check passes, then we know the user has the right credentials
         login_user(user, remember=form.remember.data)
         return redirect(url_for('main.root'))
-    else:
-        print(form.errors)
+
 
     return render_template('login.html', title='Login', form=form)
 
