@@ -46,12 +46,6 @@ columnHeaders = columnHeaders.map((colProp) => {
     return colProp
 });
 
-let apiURL;
-if ("true" == isAuthenticated){
-    apiURL = "/api/tabulator"
-}else{
-    apiURL = "/api/data"
-}
 
 var table = new Tabulator("#table", {
     ajaxURL: '/api/tabulator',
@@ -109,8 +103,6 @@ topsisSwitch.addEventListener('change', () => {
 });
 
 //Reassign elements so button is fixed to element
-// if ("true" != isAuthenticated){
-
 table.on("tableBuilt", reAssignElement);
 
 function reAssignElement(){
