@@ -26,10 +26,7 @@ class Config():
         "password": MONGODB_PASSWORD
     }]
     
-    
-    #Built-in Flask config values
-    SQLALCHEMY_DATABASE_URI = POSTGRESQL_URI
-    SQLALCHEMY_ENGINE_OPTIONS = {"pool_pre_ping": True}  #Needed to stop the SQL disconnect issues
+    #Built-in Flask config value
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DEBUG = False
 
