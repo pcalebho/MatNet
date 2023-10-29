@@ -3,6 +3,7 @@ import * as pop from '/static/popup.js'
 
 let colHeaderFilter = hf.minMaxEditor;
 const topsisSwitch = document.getElementById("TOPSIS");
+const dataChoiceRadio = document.getElementById("dataChoiceRadio")
 
 const initColumnHeaders = [
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
@@ -85,6 +86,21 @@ var table = new Tabulator("#table", {
     }
 });
 
+dataChoiceRadio.addEventListener('change', () => {
+    let dataState = document.querySelector('input[name="btnradio"]:checked').value;             //value of the datasheet radio
+    console.log(dataState)
+    if (dataState == "fatigue"){
+        table.deleteColumn("modulus_of_elasticity")
+        table.deleteColumn("specific_heat_capacity")
+        table.deleteColumn("machinability")
+        table.deleteColumn("hardness_brinell")
+    } else {
+        for (const header of columnHeaders) {
+            table.addColumn(header);
+        }
+    }
+})
+
 topsisSwitch.addEventListener('change', () => {
     if (colHeaderFilter === hf.minMaxEditor){
         colHeaderFilter = hf.minMaxTopsisEditor;
@@ -102,6 +118,7 @@ topsisSwitch.addEventListener('change', () => {
     table.updateColumnDefinition("machinability", {headerFilter: colHeaderFilter})
     table.updateColumnDefinition("hardness_brinell", {headerFilter: colHeaderFilter})
 });
+
 
 //Reassign elements so button is fixed to element
 table.on("tableBuilt", reAssignElement);

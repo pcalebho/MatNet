@@ -17,9 +17,18 @@
 {%block content%}
 <div id="content" class = "d-flex flex-column align-items-center">
     <div class="d-flex flex-column">
-        <div id="TOPSIS" class="form-check form-switch mb-2">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">TOPSIS filtering</label>
+        <div class = "d-flex flex-row m-1 gap-4  align-items-center">
+            <div id="dataChoiceRadio" class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="gen-btnradio" autocomplete="off" value="general" checked>
+                <label class="btn btn-outline-primary" for="gen-btnradio">General Properties</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="fatigue-btnradio" autocomplete="off" value="fatigue">
+                <label class="btn btn-outline-primary" for="fatigue-btnradio">Fatigue Properties</label>
+              </div>
+            <div id="TOPSIS" class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">TOPSIS filtering</label>
+            </div>
         </div>
         <div id="table" style="width: 80vw; height: 85vh;" class="table-bordered table-sm"></div>
         {%if not current_user.is_authenticated%}
