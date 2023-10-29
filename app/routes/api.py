@@ -17,9 +17,12 @@ collection_name = current_app.config['MATERIAL_COLLECTION']
 
 
 #Connecting and creating MongoDB client instance
-client = MongoClient(MONGODB_URI)
-material_db = client[db_name]
-datasheets_collection = material_db[collection_name]
+try:
+    client = MongoClient(MONGODB_URI)
+    material_db = client[db_name]
+    datasheets_collection = material_db[collection_name]
+except Exception:
+    print('Error: ', 'api endpoint mongodb error connection')
 
 api_bp = Blueprint('api', __name__)
 

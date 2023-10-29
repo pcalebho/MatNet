@@ -27,7 +27,11 @@ def create_app(test_config = None):
     #initialize db extensions and models
     from app.models import User
     import mongoengine
-    mongoengine.connect(app.config['MATERIAL_DB_NAME'], host = app.config['MONGODB_URI'])
+    
+    try:
+        mongoengine.connect(app.config['MATERIAL_DB_NAME'], host = app.config['MONGODB_URI'])
+    except Exception:
+        print("Error: ", 'mongoengine error connection failure')
 
     #login logic
     login_manager = LoginManager()    
