@@ -2,7 +2,8 @@ import * as hf from '/static/headerfilters.js'
 import * as pop from '/static/popup.js'
 
 let colHeaderFilter = hf.minMaxEditor;
-const topsisSwitch = document.getElementById("TOPSIS");
+const topsisSwitchDiv = document.getElementById("TOPSIS");
+const topsisSwitch = document.querySelector(".form-check-input");
 const dataChoiceRadio = document.getElementById("dataChoiceRadio")
 
 const initDataState = document.querySelector('input[name="btnradio"]:checked').value
@@ -30,7 +31,7 @@ const fatigueColumnHeaders = [
 let initColumnHeaders = baseColumnHeaders.concat(genColumnHeaders)
 if (initDataState == "fatigue"){
     initColumnHeaders = baseColumnHeaders.concat(fatigueColumnHeaders)
-    document.getElementById("TOPSIS").hidden = true;    
+    topsisSwitch.setAttribute("disabled", "");    
 } 
 
 let columnHeaders;
@@ -103,7 +104,7 @@ dataChoiceRadio.addEventListener('change', () => {
                 table.updateColumnDefinition(bch.field, {headerFilter: hf.minMaxEditor})
             }
         }
-        document.getElementById("TOPSIS").hidden = true;    
+        topsisSwitch.setAttribute("disabled", "");   
         if (topsisSwitchState){
             table.deleteColumn("score")
         }
@@ -124,12 +125,12 @@ dataChoiceRadio.addEventListener('change', () => {
             table.updateColumnDefinition("machinability", {headerFilter: hf.minMaxTopsisEditor})
             table.updateColumnDefinition("hardness_brinell", {headerFilter: hf.minMaxTopsisEditor})
         }
-        document.getElementById("TOPSIS").hidden = false; 
+        topsisSwitch.removeAttribute("disabled");    
     }
 
 })
 
-topsisSwitch.addEventListener('change', () => {
+topsisSwitchDiv.addEventListener('change', () => {
     const check = document.querySelector('input[name="btnradio"]:checked').value
     if (check == "fatigue"){
         return
