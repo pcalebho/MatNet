@@ -89,24 +89,40 @@ var table = new Tabulator("#table", {
 
 dataChoiceRadio.addEventListener('change', () => {
     let dataState = document.querySelector('input[name="btnradio"]:checked').value;             //value of the datasheet radio
+    let topsisSwitchState = document.querySelector('.form-check-input').checked;
+    
     if (dataState == "fatigue"){
         for (const gch of genColumnHeaders){
             table.deleteColumn(gch.field)
         }
-        // table.deleteColumn("modulus_of_elasticity")
-        // table.deleteColumn("specific_heat_capacity")
-        // table.deleteColumn("machinability")
-        // table.deleteColumn("hardness_brinell")
         for (const fch of fatigueColumnHeaders){
             table.addColumn(fch)
         }
+        for (const bch of baseColumnHeaders){
+            if (bch.field != 'name'){
+                table.updateColumnDefinition(bch.field, {headerFilter: hf.minMaxEditor})
+            }
+        }
         document.getElementById("TOPSIS").hidden = true;    
+        if (topsisSwitchState){
+            table.deleteColumn("score")
+        }
     } else {
         for (const gch of genColumnHeaders) {
             table.addColumn(gch)
         }
         for (const fch of fatigueColumnHeaders){
             table.deleteColumn(fch.field)
+        }
+        if (topsisSwitchState){
+            table.addColumn({title:"Score", field:"score", width: 100}, true, "name");
+            table.updateColumnDefinition("density", {headerFilter: hf.minMaxTopsisEditor})
+            table.updateColumnDefinition("tensile_strength_yield", {headerFilter: hf.minMaxTopsisEditor})
+            table.updateColumnDefinition("tensile_strength_ultimate", {headerFilter: hf.minMaxTopsisEditor})
+            table.updateColumnDefinition("modulus_of_elasticity", {headerFilter:hf.minMaxTopsisEditor})
+            table.updateColumnDefinition("specific_heat_capacity", {headerFilter: hf.minMaxTopsisEditor})
+            table.updateColumnDefinition("machinability", {headerFilter: hf.minMaxTopsisEditor})
+            table.updateColumnDefinition("hardness_brinell", {headerFilter: hf.minMaxTopsisEditor})
         }
         document.getElementById("TOPSIS").hidden = false; 
     }
@@ -138,7 +154,7 @@ topsisSwitch.addEventListener('change', () => {
 
 
 //Reassign elements so button is fixed to element
-table.on("tableBuilt", reAssignElement);
+// table.on("tableBuilt", reAssignElement);
 
 function reAssignElement(){
     const tableContent = document.querySelector(".tabulator-table"); 
