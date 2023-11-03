@@ -63,6 +63,9 @@ var table = new Tabulator("#table", {
     pagination:true,
  	columns: columnHeaders,
     rowClickPopup:pop.rowPopupFormatter,
+    ajaxParams: function(){
+        return {source: document.querySelector('input[name="btnradio"]:checked').value}
+    },
     langs:{
     "en-gb":{
         "headerFilters":{
@@ -92,6 +95,8 @@ dataChoiceRadio.addEventListener('change', () => {
     let dataState = document.querySelector('input[name="btnradio"]:checked').value;             //value of the datasheet radio
     let topsisSwitchState = document.querySelector('.form-check-input').checked;
     
+    table.replaceData()
+
     if (dataState == "fatigue"){
         for (const gch of genColumnHeaders){
             table.deleteColumn(gch.field)
