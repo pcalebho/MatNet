@@ -23,6 +23,8 @@ try:
     datasheets_collection = material_db[collection_name]
     fatigue_collection = material_db[fatigue_collection_name]
 except Exception:
+    datasheets_collection = None
+    fatigue_collection = None
     print('Error: ', 'api endpoint mongodb error connection')
 
 api_bp = Blueprint('api', __name__)
@@ -114,10 +116,58 @@ def get_data(params):
                     'data': result_df.to_dict('records'),
                 }
     else:
-        return {
-                'data': 'hello'
-            }
+        minMaxQuery = []
 
+        if filters != []:
+            for filter in filters:
+                if filter["type"] == "like":
+                    search_term = filter["value"]
+                else:
+                    query = {
+                        get_key(filter["field"]): {
+                            '$gte': -10000000,
+                            '$lte': 10000000
+                        }
+                    }
+                    if filter['value']['start'] != '':
+                        query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])  #type: ignore
+                    if filter['value']['end'] != '':
+                        query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])    #type: ignore
+                    minMaxQuery.append(query)
+
+                    if int(filter['value']['importance']) != 0 or 'importance' in filter['value']:
+                        form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
+        
+        if minMaxQuery == [] and fatigue_collection is not None:
+            cursor = fatigue_collection.find()
+        else:
+            cursor = fatigue_collection.find({"$and": minMaxQuery})              #type: ignore
+
+        materials = []
+        for material in cursor:
+            flattened_material = {}
+            flattened_material['name'] = material['material_name']
+            flattened_material['density'] = 10
+            flattened_material['tensile_strength_ultimate'] =  material['tus_ksi']
+            flattened_material['tensile_strength_yield'] =  material['tys_ksi']
+            flattened_material['k_value'] = material['k_value']
+            flattened_material['product_form'] = material['product_form']
+            materials.append(flattened_material)
+        
+
+        result_df = pd.DataFrame(materials)
+        result_df = result_df.sample(frac=1).reset_index(drop=True)
+
+        if form_data != {}:
+            result_df = rank_materials(form_data, result_df)  
+
+        if search_term != "":
+            result_df = result_df[result_df['name'].str.contains(search_term, case=False)]
+
+
+        return {
+                    'data': result_df.to_dict('records'),
+                }
 
 
 @api_bp.route('/api/fatigue', methods = ('GET','POST'))
