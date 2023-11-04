@@ -42,6 +42,22 @@ with open(file_path, 'r') as json_file:
 def sample():
     return jsonify({'data': sample_data})
 
+@api_bp.route('/api/fatigue/<fatigue_id>')
+def get_fatigue(fatigue_id):
+    fatigue_data = Fatigue.objects(pk=fatigue_id).first()           #type: ignore
+    
+    raw_curves = fatigue_data.graph
+    ksi_to_MPa = 6.89476
+
+    table = pd.DataFrame(raw_curves)
+    table = table.iloc[:, :3]
+    table[0] = table[0].astype(float)
+    table[1] = table[1].astype(float).round(0)
+    table[2] = table[2].astype(float).mul(ksi_to_MPa).round(0)
+    table.columns = ['curve_label', 'num_cycles', 'max_stress']
+
+    return table.to_dict('records')
+
 @api_bp.route('/api/tabulator/params/<params>')
 def get_data(params):
     form_data = {}

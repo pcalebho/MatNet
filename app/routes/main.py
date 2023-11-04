@@ -45,18 +45,19 @@ def fatigue(fatigue_id):
     ax = fig.subplots()
 
     raw_curves = fatigue_data.graph
+    ksi_to_MPa = 6.89476
+
     table = pd.DataFrame(raw_curves)
     table = table.iloc[:, :3]
     table[0] = table[0].astype(float)
     table[1] = table[1].astype(float)
-    table[2] = table[2].astype(float)
+    table[2] = table[2].astype(float).mul(ksi_to_MPa)
     curve_labels = table[0].unique()
     
-    ksi_to_MPa = 6.89476
-
+    
     for label in curve_labels:
         curve = table[table[0].isin([label])]
-        ax.plot(curve[1],curve[2].mul(ksi_to_MPa), label= label)
+        ax.plot(curve[1],curve[2], label= label)
     
     ax.set_xscale('log')
     ax.set_title(fatigue_data.description)

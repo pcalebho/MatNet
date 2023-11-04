@@ -11,7 +11,10 @@
 
 {%block content%}
 <img id='fatigue-graph' src='data:image/png;base64,{{graph}}'/>
+<div id="fatigue-table"></div>
+<script src="{{url_for('static', filename='fatigueTable.js')}}" type = "module"></script>
 {% endblock %}
 
 {%block scripts%}
+
 {% endblock %}
