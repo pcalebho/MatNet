@@ -1,6 +1,13 @@
+import base64
+import pandas as pd
+import numpy as np
+
 from flask import Blueprint, render_template, session
 from app.ranker import KEY
 from flask_login import current_user
+from app.models import Fatigue
+from io import BytesIO
+from matplotlib.figure import Figure
 
 main_bp = Blueprint('main', __name__)
 
@@ -29,3 +36,44 @@ def test():
         num_sliders=num_sliders,
         current_user=current_user
     )
+
+@main_bp.route('/fatigue/<fatigue_id>')
+def fatigue(fatigue_id):
+    fatigue_data = Fatigue.objects(pk=fatigue_id).first()           #type: ignore
+    
+    fig = Figure()
+    ax = fig.subplots()
+
+    raw_curves = fatigue_data.graph
+    table = pd.DataFrame(raw_curves)
+    table = table.iloc[:, :3]
+    table[0] = table[0].astype(float)
+    table[1] = table[1].astype(float)
+    table[2] = table[2].astype(float)
+    curve_labels = table[0].unique()
+    
+    ksi_to_MPa = 6.89476
+
+    for label in curve_labels:
+        curve = table[table[0].isin([label])]
+        ax.plot(curve[1],curve[2].mul(ksi_to_MPa), label= label)
+    
+    ax.set_xscale('log')
+    ax.set_title(fatigue_data.description)
+    ax.set_ylabel('Max Stress (MPa)')
+    ax.set_xlabel('Num Cycles to Failure')
+
+    if np.any(curve_labels > 5):
+        legend_title = "Mean Stress"
+    else:
+        legend_title = "Stress Ratio"
+
+    ax.legend(title=legend_title)
+    ax.grid(which='both')
+
+    # Save it to a temporary buffer.
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    # Embed the result in the html output.
+    graph = base64.b64encode(buf.getbuffer()).decode("ascii")
+    return render_template('fatigue_page.html', graph = graph, title = fatigue_data.material_name)

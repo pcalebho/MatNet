@@ -1,0 +1,17 @@
+{%extends "base.html" %}
+
+<!-- {%block title%} {{super()}} {%endblock%} -->
+
+{%block head%}
+<script> var isAuthenticated = {{ current_user.is_authenticated | lower | tojson }}; </script>
+<link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+{%endblock%}
+
+
+{%block content%}
+<img id='fatigue-graph' src='data:image/png;base64,{{graph}}'/>
+{% endblock %}
+
+{%block scripts%}
+{% endblock %}

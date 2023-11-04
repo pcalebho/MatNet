@@ -152,6 +152,7 @@ def get_data(params):
             flattened_material['tensile_strength_yield'] =  material['tys_ksi']
             flattened_material['k_value'] = material['k_value']
             flattened_material['product_form'] = material['product_form']
+            flattened_material['id'] = str(material['_id'])
             materials.append(flattened_material)
         
 
