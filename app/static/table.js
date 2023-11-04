@@ -22,27 +22,14 @@ const genColumnHeaders = [
     {title:"Machinability", field:"machinability", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
 ]
 
-var the_Function = function(cell, formatterParams, onRendered){ //plain text value
-
-    //var formA = '<form class="" action="/upload" method="post">'
-    //var inputFn = '<input type="file" id="imgupload" />' ;
-    var uploadBtnn = '<button type="submit" id="OpenImgUpload">ID upload</button></form>'
-    return uploadBtnn
-//   return "<i class='fa fa-print'>function_trigger</i>";
-};
-
 const fatigueColumnHeaders = [
     {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form..."},
     {title:"K value", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
-    {title:"Fatigue Data", field: "fatigue_data", hozAlign:"center", formatter:the_Function, align:"center",cellClick:function(e, cell){ 
-
-        //button's function for example 
-        var Btn = document.createElement('Button');
-        Btn.id = "Btn_Id";
-        console.log(Btn);
-        
-        
-        }}
+    {title:"Fatigue Data", field: "fatigue_data", hozAlign:"center", formatter:"link", formatterParams:{
+        labelField:"name",
+        urlPrefix:"/login",
+        target:"_blank",
+    }}
 ]
 
 let initColumnHeaders = baseColumnHeaders.concat(genColumnHeaders)
