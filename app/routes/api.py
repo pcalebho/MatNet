@@ -168,17 +168,3 @@ def get_data(params):
         return {
                     'data': result_df.to_dict('records'),
                 }
-
-
-@api_bp.route('/api/fatigue', methods = ('GET','POST'))
-def fatigue_data():
-    def ksi_to_mpa(ksi):
-        mpa = ksi*6.89476
-        return mpa
-    
-    
-
-    query = Fatigue.objects   # type: ignore
-
-    data = [doc.graph for doc in query]
-    return data
