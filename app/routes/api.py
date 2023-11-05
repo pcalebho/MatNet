@@ -55,8 +55,14 @@ def get_fatigue(fatigue_id):
     table[1] = table[1].astype(float).round(0)
     table[2] = table[2].astype(float).mul(ksi_to_MPa).round(0)
     table.columns = ['curve_label', 'num_cycles', 'max_stress']
+    labels = table["curve_label"].unique()
 
-    return table.to_dict('records')
+    return {
+        "description": fatigue_data.description,
+        "material_name": fatigue_data.material_name,
+        "data": table.to_dict('records'),
+        "labels": list(labels)
+    }
 
 @api_bp.route('/api/tabulator/params/<params>')
 def get_data(params):

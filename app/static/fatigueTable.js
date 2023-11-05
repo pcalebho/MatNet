@@ -7,14 +7,55 @@ const columnHeaders = [
 const currentUrl = window.location.href;
 const apiURL = '/api/fatigue/'.concat(id_from_url(currentUrl))
 
-console.log(apiURL)
+async function getFatigueData() {
+    const response = await fetch(apiURL);
+    return await response.json();
+}
+
+const fatigueData = await getFatigueData()
+const labels = fatigueData.labels
+
+// Create the select widget element
+const selectWidget = document.getElementById('filter-field');
+
+// Add options to the select widget element
+let type;
+if (labels.some(value => value > 5)){
+    type = "Mean Stress: "
+} else {
+    type = "Stress Ratio: "
+}
+
+for (const label of labels) {
+  const optionElement = document.createElement('option');
+  optionElement.value = label;
+  optionElement.textContent = type.concat(label);
+
+  selectWidget.appendChild(optionElement);
+}
+
+
 
 var table = new Tabulator("#fatigue-table", {
     ajaxURL: apiURL,
     layout: "fitColumns",
+    ajaxResponse: function(url, params, response) {
+        // Assuming response is the entire API response object
+        // var data = response.data || []; // Extract the "data" array
+        return response.data || []; // Return the extracted array
+    },
     pagination:false,
  	columns: columnHeaders,
 });
+
+updateFilter()
+
+document.getElementById("filter-field").addEventListener("change", updateFilter);
+
+function updateFilter() {
+    let chosen_curve = selectWidget.value;
+    table.setFilter("curve_label", "=", chosen_curve)
+}
 
 function id_from_url(url) {
     // Split the URL by the forward slash character.

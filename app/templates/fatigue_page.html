@@ -11,7 +11,11 @@
 
 {%block content%}
 <img id='fatigue-graph' src='data:image/png;base64,{{graph}}'/>
-<div id="fatigue-table"></div>
+<div>
+    <select class="form-select" id="filter-field"></select>
+    <div id="fatigue-table"></div>
+</div>
+
 <script src="{{url_for('static', filename='fatigueTable.js')}}" type = "module"></script>
 {% endblock %}
 
