@@ -10,12 +10,13 @@
 
 
 {%block content%}
-<img id='fatigue-graph' src='data:image/png;base64,{{graph}}'/>
-<div>
-    <select class="form-select" id="filter-field"></select>
-    <div id="fatigue-table"></div>
+<div class="d-flex flex-row align-items-center justify-content-center gap-lg-5">
+    <img id='fatigue-graph' src='data:image/png;base64,{{graph}}'/>
+    <div>
+        <select class="form-select" id="filter-field"></select>
+        <div id="fatigue-table"></div>
+    </div>   
 </div>
-
 <script src="{{url_for('static', filename='fatigueTable.js')}}" type = "module"></script>
 {% endblock %}
 
