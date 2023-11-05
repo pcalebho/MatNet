@@ -25,7 +25,7 @@ const genColumnHeaders = [
 const fatigueColumnHeaders = [
     {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form..."},
     {title:"K value", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
-    {title:"Fatigue Curves", field: "id", hozAlign:"center", formatter:"link", formatterParams:{
+    {title:"Fatigue Curves", field: "id", hozAlign:"center", headerSort: false, formatter:"link", formatterParams:{
         labelField:"name",
         urlPrefix:"/fatigue/",
         target:"_blank",
