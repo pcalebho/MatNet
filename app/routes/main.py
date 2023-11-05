@@ -38,7 +38,6 @@ def test():
     )
 
 @main_bp.route('/fatigue/<fatigue_id>')
-@login_required
 def fatigue(fatigue_id):
     fatigue_data = Fatigue.objects(pk=fatigue_id).first()           #type: ignore
     
