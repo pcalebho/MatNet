@@ -1,7 +1,7 @@
 const columnHeaders = [
     {title: "Curve Label", field: "curve_label", visible: false, clipboard: false},
-    {title:"Num Cycles", field:"num_cycles"},
-    {title:"Max Stress (MPa)", field:"max_stress"}, 
+    {title:"Num Cycles", field:"num_cycles", hozAlign: "center", headerSort: false},
+    {title:"Max Stress (MPa)", field:"max_stress", hozAlign: "center", headerSort: false},  
 ]
 
 const currentUrl = window.location.href;
@@ -38,7 +38,8 @@ for (const label of labels) {
 
 var table = new Tabulator("#fatigue-table", {
     ajaxURL: apiURL,
-    layout: "fitColumns",
+    layout: "fitData",
+    rowHeight: 40,
     ajaxResponse: function(url, params, response) {
         // Assuming response is the entire API response object
         // var data = response.data || []; // Extract the "data" array
