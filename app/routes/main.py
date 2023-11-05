@@ -4,7 +4,7 @@ import numpy as np
 
 from flask import Blueprint, render_template, session
 from app.ranker import KEY
-from flask_login import current_user
+from flask_login import current_user, login_required
 from app.models import Fatigue
 from io import BytesIO
 from matplotlib.figure import Figure
@@ -38,6 +38,7 @@ def test():
     )
 
 @main_bp.route('/fatigue/<fatigue_id>')
+@login_required
 def fatigue(fatigue_id):
     fatigue_data = Fatigue.objects(pk=fatigue_id).first()           #type: ignore
     
