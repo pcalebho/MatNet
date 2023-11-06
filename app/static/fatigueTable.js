@@ -64,7 +64,7 @@ var table = new Tabulator("#fatigue-table", {
     },
 });
 
-updateFilter()
+table.on("tableBuilt", updateFilter());
 
 document.getElementById("filter-field").addEventListener("change", updateFilter);
 document.getElementById("copy-btn").addEventListener("click", copyTable)
