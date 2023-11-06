@@ -38,6 +38,7 @@ def test():
     )
 
 @main_bp.route('/fatigue/<fatigue_id>') 
+@login_required
 def fatigue(fatigue_id):
     fatigue_data = Fatigue.objects(pk=fatigue_id).first()           #type: ignore
     
@@ -83,4 +84,4 @@ def fatigue(fatigue_id):
     fig.savefig(buf, format="png")
     # Embed the result in the html output.
     graph = base64.b64encode(buf.getbuffer()).decode("ascii")
-    return render_template('fatigue_page.html', graph = graph, title = fatigue_data.material_name)
+    return render_template('fatigue_page.html', graph = graph, title = fatigue_data.material_name, authenticated = current_user.is_authenticated)
