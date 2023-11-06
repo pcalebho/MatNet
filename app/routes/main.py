@@ -37,7 +37,7 @@ def test():
         current_user=current_user
     )
 
-@main_bp.route('/fatigue/<fatigue_id>')
+@main_bp.route('/fatigue/<fatigue_id>') 
 def fatigue(fatigue_id):
     fatigue_data = Fatigue.objects(pk=fatigue_id).first()           #type: ignore
     
@@ -53,21 +53,27 @@ def fatigue(fatigue_id):
     table[1] = table[1].astype(float)
     table[2] = table[2].astype(float).mul(ksi_to_MPa)
     curve_labels = table[0].unique()
-    
-    
-    for label in curve_labels:
-        curve = table[table[0].isin([label])]
-        ax.plot(curve[1],curve[2], label= label)
-    
-    ax.set_xscale('log')
-    ax.set_title(fatigue_data.description)
-    ax.set_ylabel('Max Stress (MPa)')
-    ax.set_xlabel('Num Cycles to Failure')
 
     if np.any(curve_labels > 5):
         legend_title = "Mean Stress"
     else:
         legend_title = "Stress Ratio"
+    
+    
+    for label in curve_labels:
+        curve = table[table[0].isin([label])]
+        label_legend = label
+        if legend_title == 'Mean Stress':
+            label_legend = int(round(label*ksi_to_MPa, 0))
+                    
+        ax.plot(curve[1],curve[2], label= label_legend)
+    
+    ax.set_xscale('log')
+    ax.set_title(fatigue_data.description, wrap=True)
+    ax.set_ylabel('Max Stress (MPa)')
+    ax.set_xlabel('Num Cycles to Failure')
+
+   
 
     ax.legend(title=legend_title)
     ax.grid(which='both')

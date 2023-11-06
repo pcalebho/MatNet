@@ -29,7 +29,13 @@ if (labels.some(value => value > 5)){
 for (const label of labels) {
   const optionElement = document.createElement('option');
   optionElement.value = label;
-  optionElement.textContent = type.concat(label);
+  const ksi_to_MPa = 6.89476;
+
+  let option_label = label;
+  if (type == "Mean Stress: "){
+    option_label = Math.round(option_label*ksi_to_MPa)
+  }
+  optionElement.textContent = type.concat(option_label);
 
   selectWidget.appendChild(optionElement);
 }
@@ -47,11 +53,13 @@ var table = new Tabulator("#fatigue-table", {
     },
     pagination:false,
  	columns: columnHeaders,
+    clipboard: "copy"
 });
 
 updateFilter()
 
 document.getElementById("filter-field").addEventListener("change", updateFilter);
+document.getElementById("copy-btn").addEventListener("click", copyTable)
 
 function updateFilter() {
     let chosen_curve = selectWidget.value;
@@ -71,3 +79,7 @@ function id_from_url(url) {
     return lastString;
   }
   
+  function copyTable(){
+    console.log('hi')
+    table.copyToClipboard("active"); //copy the currently selected rows to the clipboard
+  }
