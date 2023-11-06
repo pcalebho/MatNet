@@ -53,7 +53,15 @@ var table = new Tabulator("#fatigue-table", {
     },
     pagination:false,
  	columns: columnHeaders,
-    clipboard: "copy"
+    clipboard: "copy",
+    clipboardCopyConfig:{
+        columnHeaders:false, //do not include column headers in clipboard output
+        columnGroups:false, //do not include column groups in column headers for printed table
+        rowGroups:false, //do not include row groups in clipboard output
+        columnCalcs:false, //do not include column calculation rows in clipboard output
+        dataTree:false, //do not include data tree in printed table
+        formatCells:false, //show raw cell values without formatter
+    },
 });
 
 updateFilter()
