@@ -6,6 +6,8 @@
 <script> var isAuthenticated = {{ current_user.is_authenticated | lower | tojson }}; </script>
 <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+<script src="{{url_for('static', filename='fatigueTable.js')}}" type = "module"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace.js"></script>
 {%endblock%}
 
 
@@ -13,11 +15,16 @@
 <div class="d-flex flex-row align-items-center justify-content-center gap-lg-5  " style = "height: 90vh;">
     <img id='fatigue-graph' src='data:image/png;base64,{{graph}}' style="width: 40%; height: auto;"/>
     <div>
-        <select class="form-select mb-2 " id="filter-field"></select>
-        <div id="fatigue-table"></div>
+        <select class="form-select mb-2 " id="filter-field"></select>   
+        <button id="copy-btn" type="button" class="btn btn-outline-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+            </svg>
+          </button> 
+        <div id="fatigue-table" class="border border-light-subtle"></div>
     </div>   
 </div>
-<script src="{{url_for('static', filename='fatigueTable.js')}}" type = "module"></script>
 {% endblock %}
 
 {%block scripts%}
