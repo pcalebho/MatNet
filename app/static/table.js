@@ -10,21 +10,21 @@ const initDataState = document.querySelector('input[name="btnradio"]:checked').v
 
 const baseColumnHeaders = [
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
-    {title:"Yield Strength", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
-    {title:"Ultimate Strength", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
+    {title:"Yield Strength (MPa)", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true}, 
+    {title:"Ultimate Strength (MPa)", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
 ]
 
 const genColumnHeaders = [
-    {title:"Density", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
-    {title:"Elastic Modulus", field: "modulus_of_elasticity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
-    {title: "Brinell Hardness", field: "hardness_brinell", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
-    {title:"Specific Heat Capacity", field: "specific_heat_capacity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
-    {title:"Machinability", field:"machinability", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
+    {title:"Density (g/cm^3)", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true}, 
+    {title:"Elastic Modulus (GPa)", field: "modulus_of_elasticity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
+    {title: "Brinell Hardness", field: "hardness_brinell", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
+    {title:"Specific Heat Capacity (J/g-°C)", field: "specific_heat_capacity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true, cssClass: "specific-heat"},
+    {title:"Machinability", field:"machinability", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
 ]
 
 const fatigueColumnHeaders = [
-    {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form..."},
-    {title:"K value", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
+    {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form...",  headerWordWrap:true},
+    {title:"K value", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
     {title:"Fatigue Curves", field: "id", hozAlign:"center", headerSort: false, formatter:"link", formatterParams:{
         labelField:"link_label",
         urlPrefix:"/fatigue/",
