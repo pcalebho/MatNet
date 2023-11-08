@@ -19,7 +19,9 @@ const baseColumnHeaders = [
 ]
 
 const genColumnHeaders = [
-    {title:"Density (g/cm^3)", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true}, 
+    {title:"Density (g/cm^3)", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
+        headerTooltip: "Ratio of mass to volume. Mass/Volume."
+    }, 
     {title:"Elastic Modulus (GPa)", field: "modulus_of_elasticity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
         headerTooltip: "Material's resistance to being deformed elastically (i.e., non-permanently) when a stress is applied to it"
     },
@@ -29,12 +31,18 @@ const genColumnHeaders = [
     {title:"Specific Heat Capacity (J/g-°C)", field: "specific_heat_capacity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true, 
         headerTooltip: "Measure on amount of heat needed to raise temperature of material"
     },
-    {title:"Machinability", field:"machinability", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
+    {title:"Machinability", field:"machinability", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
+        headerTooltip: "Reference machinability is AISI 1212 Steel at 100%. Larger number means higher machinability."
+    },
 ]
 
 const fatigueColumnHeaders = [
-    {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form...",  headerWordWrap:true},
-    {title:"K value", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
+    {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form...",  headerWordWrap:true,
+        headerTooltip: "Form of material that was tested."
+    },
+    {title:"Stress Concentration Factor (Kt)", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
+        headerTooltip: "Measures stress concentration in a mechanical part. It's the ratio of the highest stress to a reference stress. A value of 1 would be unnotched."
+    },
     {title:"Fatigue Curves", field: "id", hozAlign:"center", headerSort: false, formatter:"link", formatterParams:{
         labelField:"link_label",
         urlPrefix:"/fatigue/",
@@ -42,27 +50,11 @@ const fatigueColumnHeaders = [
     }},
 ]
 
-let initColumnHeaders = baseColumnHeaders.concat(genColumnHeaders)
+let columnHeaders = baseColumnHeaders.concat(genColumnHeaders)
 if (initDataState == "fatigue"){
-    initColumnHeaders = baseColumnHeaders.concat(fatigueColumnHeaders)
+    columnHeaders = baseColumnHeaders.concat(fatigueColumnHeaders)
     topsisSwitch.setAttribute("disabled", "");    
 } 
-
-let columnHeaders;
-columnHeaders = initColumnHeaders;
-
-columnHeaders = columnHeaders.map((colProp) => {
-    if ("true" != isAuthenticated){
-        if (colProp["field"] == 'hardness_brinell' ||
-            colProp["field"] == 'specific_heat_capacity' ||
-            colProp["field"] == 'machinability'
-        ){colProp.cssClass = "cell-blur";}
-        if (colProp["field"] == "specific_heat_capacity"){
-            colProp.cssClass = "cell-blur btn-anchor z-1";
-        }
-    }
-    return colProp
-});
 
 
 var table = new Tabulator("#table", {
@@ -104,7 +96,8 @@ var table = new Tabulator("#table", {
             "Content-type": 'application/json; charset=utf-8', //set specific content type
         },
     },
-    dataLoaderLoading: "<div class='spinner-border text-primary' role='status' style='display: inline-block;'></div><span class='sr-only'>Loading...</span>"
+    dataLoaderLoading: "<div class='spinner-border text-primary' role='status' style='display: inline-block;'></div><span class='sr-only'>Loading...</span>",
+    layoutColumnsOnNewData:true,
 });
 
 dataChoiceRadio.addEventListener('change', () => {
