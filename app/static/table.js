@@ -12,7 +12,7 @@ const baseColumnHeaders = [
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
     {title:"Density", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
     {title:"Yield Strength", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
-    {title:"Ultimate Strength", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}
+    {title:"Ultimate Strength", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
 ]
 
 const genColumnHeaders = [
@@ -26,10 +26,10 @@ const fatigueColumnHeaders = [
     {title:"Product Form", field: "product_form",  headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find form..."},
     {title:"K value", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
     {title:"Fatigue Curves", field: "id", hozAlign:"center", headerSort: false, formatter:"link", formatterParams:{
-        labelField:"name",
+        labelField:"link_label",
         urlPrefix:"/fatigue/",
         target:"_blank",
-    }}
+    }},
 ]
 
 let initColumnHeaders = baseColumnHeaders.concat(genColumnHeaders)
@@ -65,6 +65,7 @@ var table = new Tabulator("#table", {
     filterMode: "remote",
     layout: "fitColumns",
     pagination:true,
+    progressiveLoad:"load",
  	columns: columnHeaders,
     rowClickPopup:pop.rowPopupFormatter,
     ajaxParams: function(){
@@ -99,44 +100,48 @@ dataChoiceRadio.addEventListener('change', () => {
     let dataState = document.querySelector('input[name="btnradio"]:checked').value;             //value of the datasheet radio
     let topsisSwitchState = document.querySelector('.form-check-input').checked;
 
-    table.replaceData()
-
-    if (dataState == "fatigue"){
-        for (const gch of genColumnHeaders){
-            table.deleteColumn(gch.field)
-        }
-        for (const fch of fatigueColumnHeaders){
-            table.addColumn(fch)
-        }
-        for (const bch of baseColumnHeaders){
-            if (bch.field != 'name'){
-                table.updateColumnDefinition(bch.field, {headerFilter: hf.minMaxEditor})
+    table.clearData()
+    table.setData()
+    .then(function(){
+        if (dataState == "fatigue"){
+            for (const gch of genColumnHeaders){
+                table.deleteColumn(gch.field)
             }
+            for (const fch of fatigueColumnHeaders){
+                table.addColumn(fch)
+            }
+            for (const bch of baseColumnHeaders){
+                if (bch.field != 'name'){
+                    table.updateColumnDefinition(bch.field, {headerFilter: hf.minMaxEditor})
+                }
+            }
+            topsisSwitch.setAttribute("disabled", "");   
+            if (topsisSwitchState){
+                table.deleteColumn("score")
+            }
+        } else {
+            for (const gch of genColumnHeaders) {
+                table.addColumn(gch)
+            }
+            for (const fch of fatigueColumnHeaders){
+                table.deleteColumn(fch.field)
+            }
+            if (topsisSwitchState){
+                table.addColumn({title:"Score", field:"score", width: 100}, true, "name");
+                table.updateColumnDefinition("density", {headerFilter: hf.minMaxTopsisEditor})
+                table.updateColumnDefinition("tensile_strength_yield", {headerFilter: hf.minMaxTopsisEditor})
+                table.updateColumnDefinition("tensile_strength_ultimate", {headerFilter: hf.minMaxTopsisEditor})
+                table.updateColumnDefinition("modulus_of_elasticity", {headerFilter:hf.minMaxTopsisEditor})
+                table.updateColumnDefinition("specific_heat_capacity", {headerFilter: hf.minMaxTopsisEditor})
+                table.updateColumnDefinition("machinability", {headerFilter: hf.minMaxTopsisEditor})
+                table.updateColumnDefinition("hardness_brinell", {headerFilter: hf.minMaxTopsisEditor})
+            }
+            topsisSwitch.removeAttribute("disabled");    
         }
-        topsisSwitch.setAttribute("disabled", "");   
-        if (topsisSwitchState){
-            table.deleteColumn("score")
-        }
-    } else {
-        for (const gch of genColumnHeaders) {
-            table.addColumn(gch)
-        }
-        for (const fch of fatigueColumnHeaders){
-            table.deleteColumn(fch.field)
-        }
-        if (topsisSwitchState){
-            table.addColumn({title:"Score", field:"score", width: 100}, true, "name");
-            table.updateColumnDefinition("density", {headerFilter: hf.minMaxTopsisEditor})
-            table.updateColumnDefinition("tensile_strength_yield", {headerFilter: hf.minMaxTopsisEditor})
-            table.updateColumnDefinition("tensile_strength_ultimate", {headerFilter: hf.minMaxTopsisEditor})
-            table.updateColumnDefinition("modulus_of_elasticity", {headerFilter:hf.minMaxTopsisEditor})
-            table.updateColumnDefinition("specific_heat_capacity", {headerFilter: hf.minMaxTopsisEditor})
-            table.updateColumnDefinition("machinability", {headerFilter: hf.minMaxTopsisEditor})
-            table.updateColumnDefinition("hardness_brinell", {headerFilter: hf.minMaxTopsisEditor})
-        }
-        topsisSwitch.removeAttribute("disabled");    
-    }
-
+    })
+    .catch(function(error){
+        console.log(error)
+    });
 })
 
 topsisSwitchDiv.addEventListener('change', () => {
