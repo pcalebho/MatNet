@@ -93,7 +93,8 @@ var table = new Tabulator("#table", {
         headers: {
             "Content-type": 'application/json; charset=utf-8', //set specific content type
         },
-    }
+    },
+    dataLoaderLoading: "<div class='spinner-border text-primary' role='status' style='display: inline-block;'></div><span class='sr-only'>Loading...</span>"
 });
 
 dataChoiceRadio.addEventListener('change', () => {
