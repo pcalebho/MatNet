@@ -10,15 +10,25 @@ const initDataState = document.querySelector('input[name="btnradio"]:checked').v
 
 const baseColumnHeaders = [
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
-    {title:"Yield Strength (MPa)", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true}, 
-    {title:"Ultimate Strength (MPa)", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
+    {title:"Yield Strength (MPa)", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true, 
+        headerTooltip: "Maximum stress a material can tolerate before it begins to deform plastically"
+    }, 
+    {title:"Ultimate Strength (MPa)", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
+        headerTooltip: "Maximum stress that a material can withstand before it breaks or weakens"
+    },
 ]
 
 const genColumnHeaders = [
     {title:"Density (g/cm^3)", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true}, 
-    {title:"Elastic Modulus (GPa)", field: "modulus_of_elasticity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
-    {title: "Brinell Hardness", field: "hardness_brinell", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
-    {title:"Specific Heat Capacity (J/g-°C)", field: "specific_heat_capacity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true, cssClass: "specific-heat"},
+    {title:"Elastic Modulus (GPa)", field: "modulus_of_elasticity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
+        headerTooltip: "Material's resistance to being deformed elastically (i.e., non-permanently) when a stress is applied to it"
+    },
+    {title: "Brinell Hardness", field: "hardness_brinell", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
+        headerTooltip: "Measure of a metal or alloy's resistance to permanent indentation deformation"
+    },
+    {title:"Specific Heat Capacity (J/g-°C)", field: "specific_heat_capacity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true, 
+        headerTooltip: "Measure on amount of heat needed to raise temperature of material"
+    },
     {title:"Machinability", field:"machinability", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true},
 ]
 
