@@ -10,12 +10,12 @@ const initDataState = document.querySelector('input[name="btnradio"]:checked').v
 
 const baseColumnHeaders = [
     {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
-    {title:"Density", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
     {title:"Yield Strength", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
     {title:"Ultimate Strength", field: "tensile_strength_ultimate", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
 ]
 
 const genColumnHeaders = [
+    {title:"Density", field:"density", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false}, 
     {title:"Elastic Modulus", field: "modulus_of_elasticity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
     {title: "Brinell Hardness", field: "hardness_brinell", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},
     {title:"Specific Heat Capacity", field: "specific_heat_capacity", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false},

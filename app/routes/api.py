@@ -16,6 +16,9 @@ db_name = current_app.config['MATERIAL_DB_NAME']
 collection_name = current_app.config['MATERIAL_COLLECTION']
 fatigue_collection_name = current_app.config['FATIGUE_COLLECTION']
 
+
+KSI_TO_MPA = 6.89476
+
 #Connecting and creating MongoDB client instance
 try:
     client = MongoClient(MONGODB_URI)
@@ -56,12 +59,13 @@ def get_fatigue(fatigue_id):
     table[2] = table[2].astype(float).mul(ksi_to_MPa).round(0)
     table.columns = ['curve_label', 'num_cycles', 'max_stress']
     labels = table["curve_label"].unique()
+    
 
     return {
         "description": fatigue_data.description,
         "material_name": fatigue_data.material_name,
         "data": table.to_dict('records'),
-        "labels": list(labels)
+        "labels": list(labels),
     }
 
 @api_bp.route('/api/tabulator/params/<params>')
@@ -102,7 +106,7 @@ def get_data(params):
                         query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])    #type: ignore
                     minMaxQuery.append(query)
 
-                    if int(filter['value']['importance']) != 0 or 'importance' in filter['value']:
+                    if 'importance' in filter['value']:
                         form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
         
         cursor = datasheets_collection.find({"$and": minMaxQuery})              #type: ignore
@@ -143,23 +147,32 @@ def get_data(params):
         if filters != []:
             for filter in filters:
                 if filter["type"] == "like":
-                    search_term = filter["value"]
+                    field = filter["field"]
+                    if field == "name":
+                        field = "material_name"
+                    regex_search = f'{filter["value"]}'
+                    minMaxQuery.append({field: {"$regex": regex_search}})
                 else:
-                    query = {
-                        get_key(filter["field"]): {
-                            '$gte': -10000000,
-                            '$lte': 10000000
-                        }
-                    }
+                    scale_factor = KSI_TO_MPA
+                    if filter['field'] == 'k_value':
+                        scale_factor = 1
                     if filter['value']['start'] != '':
-                        query[get_key(filter['field'])]['$gte'] = float(filter['value']['start'])  #type: ignore
+                        field = filter['field']
+                        if field == "tensile_strength_yield":
+                            field = "tys_ksi_min"
+                        if field == "tensile_strength_ultimate":
+                            field = "tus_ksi_min"
+                        minMaxQuery.append({field :{'$gte' : float(filter['value']['start'])/scale_factor}})  #type: ignore
                     if filter['value']['end'] != '':
-                        query[get_key(filter['field'])]['$lte'] = float(filter['value']['end'])    #type: ignore
-                    minMaxQuery.append(query)
+                        field = filter['field']
+                        if field == "tensile_strength_yield":
+                            field = "tys_ksi_max"
+                        if field == "tensile_strength_ultimate":
+                            field = "tus_ksi_max"
+                        minMaxQuery.append({field :{'$lte' : float(filter['value']['end'])/scale_factor}})    #type: ignore
 
-                    if int(filter['value']['importance']) != 0 or 'importance' in filter['value']:
-                        form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
-        
+        print(minMaxQuery)
+
         if minMaxQuery == [] and fatigue_collection is not None:
             cursor = fatigue_collection.find()
         else:
@@ -169,25 +182,36 @@ def get_data(params):
         for material in cursor:
             flattened_material = {}
             flattened_material['name'] = material['material_name']
-            flattened_material['density'] = 10
-            flattened_material['tensile_strength_ultimate'] =  material['tus_ksi']
-            flattened_material['tensile_strength_yield'] =  material['tys_ksi']
+            flattened_material['tensile_strength_ultimate'] =  _convert_units(material['tus_ksi'])
+            flattened_material['tensile_strength_yield'] =  _convert_units(material['tys_ksi'])
             flattened_material['k_value'] = material['k_value']
             flattened_material['product_form'] = material['product_form']
             flattened_material['id'] = str(material['_id'])
+            flattened_material['link_label'] = 'See detailed curve'
             materials.append(flattened_material)
         
 
         result_df = pd.DataFrame(materials)
         result_df = result_df.sample(frac=1).reset_index(drop=True)
 
-        if form_data != {}:
-            result_df = rank_materials(form_data, result_df)  
-
-        if search_term != "":
-            result_df = result_df[result_df['name'].str.contains(search_term, case=False)]
-
 
         return {
                     'data': result_df.to_dict('records'),
                 }
+
+def _convert_units(text):
+    """
+    Convert string from ksi to MPa
+    """
+    if text is None or text == "":
+        return
+    
+    string_list = text.split('-')
+    if len(string_list) == 1:
+        string_list = text.split(', ')
+    float_list = [round(float(i)*KSI_TO_MPA) for i in string_list]
+
+    if len(float_list) == 1:
+        return str(float_list[0])
+    elif len(float_list) == 2:
+        return str(float_list[0])+' - '+str(float_list[1])
