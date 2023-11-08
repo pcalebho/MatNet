@@ -171,8 +171,6 @@ def get_data(params):
                             field = "tus_ksi_max"
                         minMaxQuery.append({field :{'$lte' : float(filter['value']['end'])/scale_factor}})    #type: ignore
 
-        print(minMaxQuery)
-
         if minMaxQuery == [] and fatigue_collection is not None:
             cursor = fatigue_collection.find()
         else:
