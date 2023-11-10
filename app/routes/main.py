@@ -84,4 +84,5 @@ def fatigue(fatigue_id):
     fig.savefig(buf, format="png")
     # Embed the result in the html output.
     graph = base64.b64encode(buf.getbuffer()).decode("ascii")
-    return render_template('fatigue_page.html', graph = graph, title = fatigue_data.material_name, authenticated = current_user.is_authenticated)
+    
+    return render_template('fatigue_page.html', graph = graph, title = fatigue_data.material_name, authenticated = current_user.is_authenticated, source=fatigue_data.source)

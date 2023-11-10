@@ -12,8 +12,8 @@
 
 
 {%block content%}
-<div class = "content">
-    <div id="graph-content" class="d-flex flex-row align-items-center justify-content-center gap-lg-5" style = "height: 90vh;">
+<div class = "content d-flex flex-column justify-content-center align-items-center">
+    <div id="graph-content" class="d-flex flex-row align-items-center justify-content-center gap-lg-5" style = "width: 100%; height: 70vh;">
         <img id='fatigue-graph' src='data:image/png;base64,{{graph}}' style="width: 40%; height: auto;"/>
         <div class = "d-flex flex-column">
             <div class = "d-flex flex-row gap-2 align-items-center mb-2">
@@ -25,10 +25,10 @@
                     </svg>
                 </button> 
             </div>
-            <div id="fatigue-table" class="border border-light-subtle"></div>
+            <div id="fatigue-table" class=""></div>
         </div>
-        <div>
     </div>
+    <div class="text-center text-wrap" style="width: 50%;">{{source}}</div>
 </div>
 {% endblock %}
 

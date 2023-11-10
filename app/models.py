@@ -23,5 +23,6 @@ class Fatigue(Document):
     temp = StringField(db_field='temp_F')
     equations = DictField(db_field='equivalent_stress_equations')
     graph = ListField()
+    source = StringField()
 
     meta = {'collection': 'fatigue_data'}
