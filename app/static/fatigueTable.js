@@ -62,7 +62,7 @@ var table = new Tabulator("#fatigue-table", {
         dataTree:false, //do not include data tree in printed table
         formatCells:false, //show raw cell values without formatter
     },
-});
+});     
 
 table.on("tableBuilt", updateFilter());
 
