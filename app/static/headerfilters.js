@@ -82,7 +82,6 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
     importance.setAttribute("type","number");
     importance.setAttribute("min",0);
     importance.setAttribute("max",10); 
-    // importance.setAttribute("value",0);
     importance.setAttribute("placeholder","weight");
     importance.setAttribute("style", "font-size: .8rem")
     importance.classList.add("form-control")
@@ -139,6 +138,26 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
     end.addEventListener("change", buildValues);
     end.addEventListener("blur", buildValues);
     end.addEventListener("keydown", keypress);
+
+    importance.addEventListener("change", buildValues);
+    importance.addEventListener("blur", buildValues);
+    importance.addEventListener("keydown", keypress);
+
+    minMaxSwitch.addEventListener("change", buildValues);
+
+    importance.addEventListener('input', e=>{
+        const el = e.target || e
+      
+        if(el.type == "number" && el.max && el.min ){
+          let value = parseInt(el.value)
+          el.value = value // for 000 like input cleanup to 0
+          let max = parseInt(el.max)
+          let min = parseInt(el.min)
+          if ( value > max ) el.value = el.max
+          if ( value < min ) el.value = el.min
+        }
+    });
+
 
     minMaxSwitch.appendChild(toggle);
     minMaxSwitch.appendChild(toggleLabel);
