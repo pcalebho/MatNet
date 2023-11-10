@@ -170,27 +170,3 @@ topsisSwitchDiv.addEventListener('change', () => {
     table.updateColumnDefinition("machinability", {headerFilter: colHeaderFilter})
     table.updateColumnDefinition("hardness_brinell", {headerFilter: colHeaderFilter})
 });
-
-
-//Reassign elements so button is fixed to element
-// table.on("tableBuilt", reAssignElement);
-
-function reAssignElement(){
-    const tableContent = document.querySelector(".tabulator-table"); 
-    const colAnchor = document.querySelector(".btn-anchor.tabulator-col");
-    const button = document.getElementById("anon-btn");
-    const footer = document.querySelector(".tabulator-footer");
-
-    let anchorRect = colAnchor.getBoundingClientRect();
-    let footerRect = footer.getBoundingClientRect();
-
-    let xPos = anchorRect.x+anchorRect.width/2;
-    let yPos = (footerRect.top-anchorRect.bottom)/2;
- 
-    tableContent.style.zIndex = 0;
-    button.style.position = "fixed";
-    button.style.top = yPos+"px";
-    button.style.left = xPos+"px";
-    button.style.transform = "translate(-50%, 50%)";    
-    button.style.zIndex = 10;
-}
