@@ -1,6 +1,9 @@
 import * as hf from '/static/headerfilters.js'
 import * as pop from '/static/popup.js'
 
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
 let colHeaderFilter = hf.minMaxEditor;
 const topsisSwitchDiv = document.getElementById("TOPSIS");
 const topsisSwitch = document.querySelector(".form-check-input");
@@ -50,10 +53,10 @@ const fatigueColumnHeaders = [
     }},
 ]
 
-let columnHeaders = baseColumnHeaders.concat(genColumnHeaders)
+let columnHeaders = baseColumnHeaders.concat(genColumnHeaders);
 if (initDataState == "fatigue"){
     columnHeaders = baseColumnHeaders.concat(fatigueColumnHeaders)
-    topsisSwitch.setAttribute("disabled", "");    
+    topsisSwitch.setAttribute("disabled", ""); 
 } 
 
 
@@ -67,7 +70,6 @@ var table = new Tabulator("#table", {
     filterMode: "remote",
     layout: "fitColumns",
     pagination:true,
-    progressiveLoad:"load",
  	columns: columnHeaders,
     rowClickPopup:pop.rowPopupFormatter,
     ajaxParams: function(){
