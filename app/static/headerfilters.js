@@ -79,13 +79,13 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
     start.setAttribute("placeholder", "Min");
     start.setAttribute("min", 0);
     start.setAttribute("max", 100);    
-    importance.setAttribute("type","range");
+    importance.setAttribute("type","number");
     importance.setAttribute("min",0);
     importance.setAttribute("max",10); 
-    importance.setAttribute("step",1); 
-    importance.setAttribute("value",0);
-    importance.classList.add("form-range")
-    // importance.classList.add("styled-slider","slider-progress")
+    // importance.setAttribute("value",0);
+    importance.setAttribute("placeholder","weight");
+    importance.setAttribute("style", "font-size: .8rem")
+    importance.classList.add("form-control")
 
     //set styles and classes
     start.style.padding = "4px";
