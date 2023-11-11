@@ -68,6 +68,7 @@ var table = new Tabulator("#table", {
         // var data = response.data || []; // Extract the "data" array
         return response.data || []; // Return the extracted array
     },
+    columnHeaderVertAlign:"middle",
     filterMode: "remote",
     layout: "fitColumns",
     pagination:true,
