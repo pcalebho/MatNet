@@ -185,6 +185,7 @@ def get_data(params):
             flattened_material['k_value'] = material['k_value']
             flattened_material['product_form'] = material['product_form']
             flattened_material['id'] = str(material['_id'])
+            flattened_material['category'] = material['category']
             flattened_material['link_label'] = 'See detailed curve'
             materials.append(flattened_material)
         

@@ -12,7 +12,7 @@ const dataChoiceRadio = document.getElementById("dataChoiceRadio")
 const initDataState = document.querySelector('input[name="btnradio"]:checked').value
 
 const baseColumnHeaders = [
-    {title:"Name", field:"name", headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
+    {title:"Name", field:"name",headerFilter:true, headerFilterLiveFilter:false, headerFilterPlaceholder:"Find a material...", frozen:true, width: 300},
     {title:"Yield Strength (MPa)", field: "tensile_strength_yield", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true, 
         headerTooltip: "Maximum stress a material can tolerate before it begins to deform plastically"
     }, 
@@ -46,6 +46,7 @@ const fatigueColumnHeaders = [
     {title:"Stress Concentration Factor (Kt)", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
         headerTooltip: "Measures stress concentration in a mechanical part. It's the ratio of the highest stress to a reference stress. A value of 1 would be unnotched."
     },
+    {title: "Category", field: "category", hozAlign: "center"},
     {title:"Fatigue Curves", field: "id", hozAlign:"center", headerSort: false, formatter:"link", formatterParams:{
         labelField:"link_label",
         urlPrefix:"/fatigue/",
