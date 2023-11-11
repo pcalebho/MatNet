@@ -34,7 +34,10 @@
 				  <li class="nav-item">
 					<a class="nav-link" href="mailto: pcalebho@gmail.com">Contact</a>
 				  </li>
-				  {% if not current_user.is_authenticated %}
+				  <li class="nav-item">
+					<a class="nav-link" href="/contact">Feature / Bug</a>
+				  </li>
+				  <!-- {% if not current_user.is_authenticated %}
 				  <li class="nav-item">
 					<a class="nav-link" href= "{{url_for('auth.login')}}">Login</a>
 				  </li>
@@ -45,7 +48,7 @@
 				  <li class="nav-item">
 					<a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
 				  </li>
-				  {% endif %}
+				  {% endif %} -->
 				</ul>
 			  </div>
 			</div>
