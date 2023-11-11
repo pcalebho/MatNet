@@ -174,3 +174,48 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
 
     return container;
 }
+async function getFatigueCategories() {
+    const response = await fetch('/api/fatigueCategories');
+    return await response.json();
+}
+
+const categories = await getFatigueCategories()
+categories.unshift("")
+
+
+export let dropDownFilter = function(cell, onRendered, success, cancel, editorParams){
+    //create elements
+    let container = document.createElement("div");
+    let dropdown = document.createElement("select");
+
+
+    //set attributes
+    dropdown.setAttribute("name", "category")
+
+    //set styles and classes
+    container.classList.add('custom-headerFilter');
+    dropdown.classList.add("form-select");
+
+    dropdown.value = cell.getValue();
+
+    for (let category of categories){
+        let option = document.createElement("option");
+        option.setAttribute("value", category)
+        option.textContent = category
+        dropdown.appendChild(option)
+    }
+
+    function buildValues(){ 
+        success({
+            dropdownValue:dropdown.value,
+        });
+    }
+
+
+    dropdown.addEventListener("change", buildValues);
+
+
+    container.appendChild(dropdown);
+
+    return container;
+}

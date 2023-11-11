@@ -46,7 +46,7 @@ const fatigueColumnHeaders = [
     {title:"Stress Concentration Factor (Kt)", field: "k_value", sorter: "number", hozAlign: "center", headerFilter: colHeaderFilter, headerFilterLiveFilter: false,  headerWordWrap:true,
         headerTooltip: "Measures stress concentration in a mechanical part. It's the ratio of the highest stress to a reference stress. A value of 1 would be unnotched."
     },
-    {title: "Category", field: "category", hozAlign: "center"},
+    {title: "Category", field: "category", hozAlign: "center", headerFilter: hf.dropDownFilter},
     {title:"Fatigue Curves", field: "id", hozAlign:"center", headerSort: false, formatter:"link", formatterParams:{
         labelField:"link_label",
         urlPrefix:"/fatigue/",
