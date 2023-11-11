@@ -80,6 +80,7 @@ def login():
 
 
 @auth_bp.route('/register', methods=['POST', 'GET'])
+@login_required
 def register():
     form = RegistrationForm()
 
