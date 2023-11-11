@@ -2,17 +2,33 @@ import base64
 import pandas as pd
 import numpy as np
 
-from flask import Blueprint, render_template, session
+from flask import Blueprint, render_template, session, redirect, url_for
 from app.ranker import KEY
 from flask_login import current_user, login_required
-from app.models import Fatigue
+from app.models import Fatigue, Inquiries
 from io import BytesIO
 from matplotlib.figure import Figure
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, SelectField, TextAreaField
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
 main_bp = Blueprint('main', __name__)
 
 material_properties = list(KEY.keys())
 num_sliders = len(material_properties)
+
+class ContactForm(FlaskForm):
+    contact_options = {
+        'feature': 'Request Feature',
+        'bug': 'Report Bug',
+        'material': 'Request New Material',
+        'other': 'Other'
+    }
+    email = StringField('Your Email', validators=[DataRequired(), Email()])
+    type = SelectField('Type', choices=contact_options.items(),validators=[DataRequired()])
+    subject = StringField('Subject Line', validators=[DataRequired()])
+    message = TextAreaField('Message', validators=[DataRequired(),Length(max=300)])
+    submit = SubmitField('Send')
 
 @main_bp.route('/')
 def root(): 
@@ -85,3 +101,14 @@ def fatigue(fatigue_id):
     graph = base64.b64encode(buf.getbuffer()).decode("ascii")
     
     return render_template('fatigue_page.html', graph = graph, title = fatigue_data.material_name, source=fatigue_data.source)
+
+@main_bp.route('/contact', methods=['POST', 'GET'])
+def contact():
+    form = ContactForm()
+
+    if form.validate_on_submit():
+        report = Inquiries(email = form.email.data, type = form.type.data, subject = form.subject.data, message= form.message.data)
+        report.save()
+        return redirect(url_for('main.root'))
+
+    return render_template('report.html', title='Contact', form=form)
