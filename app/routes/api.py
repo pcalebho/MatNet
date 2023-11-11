@@ -68,7 +68,11 @@ def get_fatigue(fatigue_id):
         "labels": list(labels),
     }
 
-@api_bp.route('/api/tabulator/params/<params>')
+@api_bp.route('/api/fatigueCategories')
+def get_fatigue_category():
+    return jsonify(Fatigue.objects().distinct(field="category"))    #type: ignore
+
+@api_bp.route('/api/tabulator/params/<params>') 
 def get_data(params):
     form_data = {}
     search_term = ""
@@ -93,6 +97,8 @@ def get_data(params):
             for filter in filters:
                 if filter["type"] == "like":
                     search_term = filter["value"]
+                elif filter["field"] == "category":
+                    pass
                 else:
                     query = {
                         get_key(filter["field"]): {
@@ -152,6 +158,10 @@ def get_data(params):
                         field = "material_name"
                     regex_search = f'{filter["value"]}'
                     minMaxQuery.append({field: {"$regex": regex_search}})
+                elif filter["field"] == "category":
+                    dropdown_category = filter["value"]["dropdownValue"]
+                    if dropdown_category != "":
+                        minMaxQuery.append({"category": dropdown_category})
                 else:
                     scale_factor = KSI_TO_MPA
                     if filter['field'] == 'k_value':
