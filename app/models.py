@@ -1,5 +1,5 @@
 from flask_login import UserMixin 
-from mongoengine import Document, StringField, EmailField, DictField, ListField, FloatField
+from mongoengine import Document, StringField, EmailField, DictField, ListField, FloatField, BooleanField
 class User(Document, UserMixin):
     email = EmailField(required=True, unique= True)
     password = StringField(required=True)
@@ -27,3 +27,10 @@ class Fatigue(Document):
     category = StringField()
 
     meta = {'collection': 'fatigue_data'}
+
+class Inquiries(Document):
+    email = StringField(required=True)
+    type = StringField(required=True)
+    subject = StringField(required=True)
+    message = StringField(required=True)
+    addressed = BooleanField(required=True, default=False)
