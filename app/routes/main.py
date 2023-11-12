@@ -40,7 +40,7 @@ def root():
         matprop_len=len(material_properties), 
         num_sliders=num_sliders,
         current_user=current_user,
-        title = 'Materials University'
+        title = 'Fatigue DB'
     )
 
 @main_bp.route('/dev')
