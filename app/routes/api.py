@@ -21,8 +21,7 @@ KSI_TO_MPA = 6.89476
 
 #Connecting and creating MongoDB client instance
 try:
-    client = MongoClient(MONGODB_URI)
-    print(MONGODB_URI)
+    client = MongoClient(MONGODB_URI)   
     material_db = client[db_name]
     datasheets_collection = material_db[collection_name]
     fatigue_collection = material_db[fatigue_collection_name]
