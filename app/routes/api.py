@@ -113,7 +113,8 @@ def get_data(params):
                     minMaxQuery.append(query)
 
                     if 'importance' in filter['value']:
-                        form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
+                        if filter['value']['importance'] !="":
+                            form_data[filter['field']] = {'importance': int(filter['value']['importance']),'objective': 'min' if filter['value']['objective'] else 'max'}
         
         cursor = datasheets_collection.find({"$and": minMaxQuery})              #type: ignore
 
