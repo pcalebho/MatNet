@@ -1,0 +1,28 @@
+/*
+*  position: relative gives a new position context
+*/
+.content {
+  position: relative;
+}
+
+/*
+*  The .navi properties are for styling only
+*  These properties can be changed or removed
+*/
+
+
+/*
+*  Position the #infoi element in the top-right
+*  of the .wrapper element
+*/
+.overlay {
+  position: absolute;
+  top: 45%;
+  right: 50%;
+  margin: auto;
+  z-index: 10;
+}
+
+#graph-content {
+    filter: blur(1.17rem);
+}

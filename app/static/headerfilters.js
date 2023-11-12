@@ -79,13 +79,12 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
     start.setAttribute("placeholder", "Min");
     start.setAttribute("min", 0);
     start.setAttribute("max", 100);    
-    importance.setAttribute("type","range");
+    importance.setAttribute("type","number");
     importance.setAttribute("min",0);
     importance.setAttribute("max",10); 
-    importance.setAttribute("step",1); 
-    importance.setAttribute("value",0);
-    importance.classList.add("form-range")
-    // importance.classList.add("styled-slider","slider-progress")
+    importance.setAttribute("placeholder","weight");
+    importance.setAttribute("style", "font-size: .8rem")
+    importance.classList.add("form-control")
 
     //set styles and classes
     start.style.padding = "4px";
@@ -140,6 +139,26 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
     end.addEventListener("blur", buildValues);
     end.addEventListener("keydown", keypress);
 
+    importance.addEventListener("change", buildValues);
+    importance.addEventListener("blur", buildValues);
+    importance.addEventListener("keydown", keypress);
+
+    minMaxSwitch.addEventListener("change", buildValues);
+
+    importance.addEventListener('input', e=>{
+        const el = e.target || e
+      
+        if(el.type == "number" && el.max && el.min ){
+          let value = parseInt(el.value)
+          el.value = value // for 000 like input cleanup to 0
+          let max = parseInt(el.max)
+          let min = parseInt(el.min)
+          if ( value > max ) el.value = el.max
+          if ( value < min ) el.value = el.min
+        }
+    });
+
+
     minMaxSwitch.appendChild(toggle);
     minMaxSwitch.appendChild(toggleLabel);
 
@@ -155,51 +174,48 @@ export let minMaxTopsisEditor = function(cell, onRendered, success, cancel, edit
 
     return container;
 }
-
-//custom max min filter function
-export function minMaxTopsisFunction(headerValue, rowValue, rowData, filterParams){
-//headerValue - the value of the header filter element
-//rowValue - the value of the column in this row
-//rowData - the data for the row being filtered
-//filterParams - params object passed to the headerFilterFuncParams property
-
-    if(rowValue){
-        if(headerValue.start != ""){
-            if(headerValue.end != ""){
-                return rowValue >= headerValue.start && rowValue <= headerValue.end;
-            }else{
-                return rowValue >= headerValue.start;
-            }
-        }else{
-            if(headerValue.end != ""){
-                return rowValue <= headerValue.end;
-            }
-        }
-    }
-
-    return true; //must return a boolean, true if it passes the filter.
+async function getFatigueCategories() {
+    const response = await fetch('/api/fatigueCategories');
+    return await response.json();
 }
 
-//custom max min filter function
-export function minMaxFunction(headerValue, rowValue, rowData, filterParams){
-//headerValue - the value of the header filter element
-//rowValue - the value of the column in this row
-//rowData - the data for the row being filtered
-//filterParams - params object passed to the headerFilterFuncParams property
+const categories = await getFatigueCategories()
+categories.unshift("")
 
-    if(rowValue){
-        if(headerValue.start != ""){
-            if(headerValue.end != ""){
-                return rowValue >= headerValue.start && rowValue <= headerValue.end;
-            }else{
-                return rowValue >= headerValue.start;
-            }
-        }else{
-            if(headerValue.end != ""){
-                return rowValue <= headerValue.end;
-            }
-        }
+
+export let dropDownFilter = function(cell, onRendered, success, cancel, editorParams){
+    //create elements
+    let container = document.createElement("div");
+    let dropdown = document.createElement("select");
+
+
+    //set attributes
+    dropdown.setAttribute("name", "category")
+
+    //set styles and classes
+    container.classList.add('custom-headerFilter');
+    dropdown.classList.add("form-select");
+
+    dropdown.value = cell.getValue();
+
+    for (let category of categories){
+        let option = document.createElement("option");
+        option.setAttribute("value", category)
+        option.textContent = category
+        dropdown.appendChild(option)
     }
 
-    return true; //must return a boolean, true if it passes the filter.
+    function buildValues(){ 
+        success({
+            dropdownValue:dropdown.value,
+        });
+    }
+
+
+    dropdown.addEventListener("change", buildValues);
+
+
+    container.appendChild(dropdown);
+
+    return container;
 }

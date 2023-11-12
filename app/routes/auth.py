@@ -1,14 +1,31 @@
-from app.models import User, db
+from app.models import User
 from flask import render_template, current_app, Blueprint, flash, redirect, url_for, request
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, login_manager
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
 auth_bp = Blueprint('auth', __name__)
 
 bcrypt = Bcrypt(current_app)
+
+ 
+#Factory function validator    
+def check_email(error_on_exists = True):
+    if error_on_exists:
+        def _email(form, field):
+            if User.objects(email=field.data).count() != 0:      # type: ignore
+                raise ValidationError('Email already exists.')
+
+        return _email
+    else:
+        def _email(form, field):
+            if User.objects(email=field.data).count() == 0:      # type: ignore
+                raise ValidationError('No such email exists.')
+        
+        return _email
+            
 
 class RegistrationForm(FlaskForm):
     occupation_choices = {
@@ -25,20 +42,17 @@ class RegistrationForm(FlaskForm):
         'maritime': 'Maritime'
     }
 
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    email = StringField('Email', validators=[DataRequired(), Email(), check_email(error_on_exists=True)])
     industry = SelectField('What industry are you in?', choices=industry_choices.items(),validators=[DataRequired()])
     occupation = SelectField('What is your occupation?', choices=occupation_choices.items(),validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
-    def validate_email(form, field):
-        if User.query.filter_by(email=field.data).first():
-            raise ValidationError('Email already in use.')
 
 #login form
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), check_email(error_on_exists=False)])
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
@@ -50,19 +64,17 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-
+        user = User.objects.get(email=form.email.data) # type: ignore
         # check if user actually exists
         # take the user supplied password, hash it, and compare it to the hashed password in database
         if not user or not bcrypt.check_password_hash(user.password, form.password.data): 
             flash('Please check your login details and try again.')
-            return redirect(url_for('auth.login')) # if user doesn't exist or password is wrong, reload the page
+            return redirect(url_for('auth.login'))        # if user doesn't exist or password is wrong, reload the page
 
         # if the above check passes, then we know the user has the right credentials
         login_user(user, remember=form.remember.data)
         return redirect(url_for('main.root'))
-    else:
-        print(form.errors)
+
 
     return render_template('login.html', title='Login', form=form)
 
@@ -77,8 +89,7 @@ def register():
         user_industry = form.industry.data
         user_occupation = form.occupation.data
         new_user = User(email=user_email, password=pw_hash, industry=user_industry, occupation=user_occupation)
-        db.session.add(new_user)
-        db.session.commit()
+        new_user.save()
         flash('Your account has been created! You are now able to log in', 'success')
         login_user(new_user, remember=False)
         return redirect('/')
